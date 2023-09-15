@@ -17,7 +17,6 @@ return new class extends Migration
             $table->string('password', 255);
             $table->string('nama_sekolah', 50);
             $table->string('alamat_sekolah', 75);
-            $table->string('kabupaten', 25)->nullable();
             $table->enum('status', ["negeri", "swasta"]);
             $table->timestamps();
         });
