@@ -11,19 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::disableForeignKeyConstraints();
-
         Schema::create('murid', function (Blueprint $table) {
-            $table->id()->foreign('survey');
+            $table->id();
             $table->string('nisn', 20);
             $table->string('password', 255);
             $table->string('nama_murid', 50);
-            $table->enum('jenis_kelamin')->comment('laki dan perempuan');
+            $table->enum('jenis_kelamin', [true, false]);
             $table->unsignedBigInteger('id_sekolah')->index();
+            $table->timestamps();
             $table->foreign('id_sekolah')->references('id')->on('sekolah');
         });
-
-        Schema::enableForeignKeyConstraints();
     }
 
     /**
