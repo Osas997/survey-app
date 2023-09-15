@@ -19,7 +19,7 @@
       {{-- @include('dashboard.partials.content') --}}
       @yield('content')
    </main>
-   @include('dashboard.partials.settings')
+   {{-- @include('dashboard.partials.settings') --}}
    @include('dashboard.partials.script')
 </body>
 

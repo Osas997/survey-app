@@ -18,5 +18,6 @@ Route::get('/', function () {
     return view('index');
 });
 
+
 Route::get("/login", [AuthController::class, "login"]);
 Route::post("/login", [AuthController::class, "authenticate"]);
