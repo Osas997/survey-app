@@ -11,19 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::disableForeignKeyConstraints();
-
         Schema::create('admin', function (Blueprint $table) {
             $table->id();
             $table->string('nama', 100);
-            $table->string('username', 50)->unique();
+            $table->string('username', 50);
             $table->string('password', 100);
-            $table->unsignedBigInteger('id_role')->index();
-            $table->unsignedBigInteger('id_sekolah')->index()->nullable();
-            $table->foreign('id_sekolah')->references('id')->on('sekolah');
+            $table->timestamps();
         });
-
-        Schema::enableForeignKeyConstraints();
     }
 
     /**
