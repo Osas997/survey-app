@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Sekolah;
+use App\Models\Survey;
 use Illuminate\Http\Request;
 
-class SekolahController extends Controller
+class SurveyController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,7 +20,6 @@ class SekolahController extends Controller
      */
     public function create()
     {
-        //
     }
 
     /**
@@ -29,28 +28,26 @@ class SekolahController extends Controller
     public function store(Request $request)
     {
         $validate = $request->validate([
-            "npsn" => "required|unique:sekolah",
-            "password" => "required",
-            "nama_sekolah" => "required",
-            "alamat_sekolah" => "required",
-            "status" => "required",
+            "nama_survey" => "required",
+            "deskripsi" => "required",
         ]);
 
-        Sekolah::create($validate);
-        return redirect("/dashboard/sekolah")->with('success', "Sekolah Berhasil Di Tambah");
+        Survey::create($validate);
+        return redirect("/dashboard/survey")->with('success', "Survey Berhasil Di Tambah");
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Sekolah $sekolah)
+    public function show(Survey $survey)
     {
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Sekolah $sekolah)
+    public function edit(Survey $survey)
     {
         //
     }
@@ -58,7 +55,7 @@ class SekolahController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Sekolah $sekolah)
+    public function update(Request $request, Survey $survey)
     {
         //
     }
@@ -66,7 +63,7 @@ class SekolahController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Sekolah $sekolah)
+    public function destroy(Survey $survey)
     {
         //
     }

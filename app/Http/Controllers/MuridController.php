@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Sekolah;
+use App\Models\Murid;
 use Illuminate\Http\Request;
 
-class SekolahController extends Controller
+class MuridController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -29,28 +29,29 @@ class SekolahController extends Controller
     public function store(Request $request)
     {
         $validate = $request->validate([
-            "npsn" => "required|unique:sekolah",
+            "nisn" => "required|unique:guru",
             "password" => "required",
-            "nama_sekolah" => "required",
-            "alamat_sekolah" => "required",
-            "status" => "required",
+            "nama_murid" => "required",
+            "jenis_kelamin" => "required",
+            "id_sekolah" => "required",
         ]);
 
-        Sekolah::create($validate);
-        return redirect("/dashboard/sekolah")->with('success', "Sekolah Berhasil Di Tambah");
+        Murid::create($validate);
+        return redirect("/dashboard/sekolah")->with('success', "Guru Berhasil Di Tambah");
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Sekolah $sekolah)
+    public function show(Murid $murid)
     {
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Sekolah $sekolah)
+    public function edit(Murid $murid)
     {
         //
     }
@@ -58,7 +59,7 @@ class SekolahController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Sekolah $sekolah)
+    public function update(Request $request, Murid $murid)
     {
         //
     }
@@ -66,7 +67,7 @@ class SekolahController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Sekolah $sekolah)
+    public function destroy(Murid $murid)
     {
         //
     }

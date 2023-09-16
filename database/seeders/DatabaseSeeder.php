@@ -8,6 +8,7 @@ use App\Models\Admin;
 use App\Models\Guru;
 use App\Models\Murid;
 use App\Models\Sekolah;
+use App\Models\Survey;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -56,6 +57,11 @@ class DatabaseSeeder extends Seeder
             "nama_murid" => "Diki Brong",
             "jenis_kelamin" => true,
             "id_sekolah" => 1
+        ]);
+
+        Survey::create([
+            "nama_survey" => "perundungan",
+            "deskripsi" => "survey tentang perundungan"
         ]);
     }
 }
