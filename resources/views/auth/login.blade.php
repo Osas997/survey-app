@@ -8,6 +8,7 @@
                     <div class="flex justify-center items-center mt-12 mb-8 ">
                         <img src="{{asset('assets/img/logos/kemdigbud.png')}}" alt="" srcset="" >
                     </div>
+                    <input type="date" name="date" id="">
                     <h2 class="text-center font-semibold text-3xl">Welcome Back</h2>
                     <p class="text-center font-medium text-xs">Please enter your details!</p>
                     @if (session()->has('loginError'))
@@ -39,6 +40,7 @@
                         @enderror " />
                         </div>
                         @error('password')
+                        
                         <div class="mt-2">
                             <span class="text-red-500 align-start italic text-sm">Error</span>
                         </div>

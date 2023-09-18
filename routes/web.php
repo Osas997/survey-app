@@ -18,6 +18,10 @@ Route::get('/', function () {
     return view('index');
 });
 
-
+Route::get('/admin',function(){
+    return view('dashboard.admin.admin',[
+        "title" => "Home"
+    ]);
+});
 Route::get("/login", [AuthController::class, "login"]);
 Route::post("/login", [AuthController::class, "authenticate"]);
