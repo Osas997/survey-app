@@ -32,6 +32,16 @@ Route::middleware("admin")->group(function () {
     Route::get("/dashboard", [DashboardController::class, "index"])->name("admin.dashboard");
     Route::resource("/dashboard/survey", SurveyController::class)->name("index", "admin.survey");
     Route::resource("/dashboard/sekolah", SekolahController::class)->name("index", "admin.sekolah");
+    Route::get("/dashboard/murid",function(){
+        return view("dashboard.admin.murid",[
+            "title" => "Murid"
+        ]);
+    });
+    Route::get("/dashboard/pertanyaan",function(){
+        return view('dashboard.admin.pertanyaan',[
+            "title"=> "Pertanyaan"
+        ]);
+    });
 });
 
 Route::middleware("sekolah")->group(function () {

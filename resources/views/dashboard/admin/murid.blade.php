@@ -1,13 +1,15 @@
 @extends('dashboard.layouts.main')
 @section('content')
 <div class="min-h-screen max-h-full bg-white mx-8 my-8 border border-black rounded-[40px] p-10 ">
-    <div class="flex justify-center items-center gap-5">
-        <div class="w-6 h-6">
+    <div class="flex justify-start items-center gap-5">
+        <div class="w-10 h-10">
             <a href="">
                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M14.2893 5.70708C13.8988 5.31655 13.2657 5.31655 12.8751 5.70708L7.98768 10.5993C7.20729 11.3805 7.2076 12.6463 7.98837 13.427L12.8787 18.3174C13.2693 18.7079 13.9024 18.7079 14.293 18.3174C14.6835 17.9269 14.6835 17.2937 14.293 16.9032L10.1073 12.7175C9.71678 12.327 9.71678 11.6939 10.1073 11.3033L14.2893 7.12129C14.6799 6.73077 14.6799 6.0976 14.2893 5.70708Z" fill="#0F0F0F"></path> </g></svg>
             </a>
         </div>
-        <h1 class="text-2xl sm:text-3xl  ">SDN 2 Banyuwangi</h1>
+        <p class="font-bold text-lg my-0">
+            <span class=" md:text-xl">SDN 2 Banyuwangi</span>
+        </p>
     </div>
     <div class="flex justify-start items-center gap-4 mt-10  ">
         <input type="text" placeholder="Search Murid" class="input input-bordered border-black input-md w-full max-w-xs bg-transparent h-12 "  />
@@ -20,7 +22,7 @@
         <table class="border-collapse border-none w-max table-fixed text-left sm:w-full">
             <!-- head -->
             <thead>
-                <tr class="bg-[#0090D4] text-white">
+                <tr class="bg-[#0090D4] text-white w-full">
                     <th class="w-[2%]"></th>
                     <th class="mx-2 font-medium w-20 sm:w-[18%] py-4  text-sm">
                         <span class="sm:text-base md:text-lg ">Nama</span>
@@ -31,14 +33,13 @@
                     <th class="font-medium w-24 sm:w-[22%] py-4 text-sm  sm:text-base md:text-lg lg:text-xl">
                         <span class="sm:text-base md:text-lg ">Alamat</span>
                     </th>
-                    <th class="font-medium w-40 sm:w-[30%] py-4 text-sm  sm:text-base md:text-lg lg:text-xl">
+                    <th class="font-medium w-40 sm:w-[20%] py-4 text-sm  sm:text-base md:text-lg lg:text-xl">
                         <span class="sm:text-base md:text-lg ">Jenis Kelamin</span>
                     </th>
-                    <th class="font-medium w-40 sm:w-[30%] py-4 text-sm sm:text-base md:text-lg lg:text-xl">
+                    <th class="font-medium w-40 sm:w-[20%] py-4 text-sm sm:text-base md:text-lg lg:text-xl">
                         <span class="sm:text-base md:text-lg ">Status</span>
                     </th>
-                    <th class="hidden lg:block w-[1%]">
-                    </th>
+             
                 </tr>
             </thead>
             <tbody>
@@ -59,9 +60,7 @@
                     <th class="font-normal text-xs py-6 ">
                         <span class="sm:text-sm md:text-md ">diPerundung</span>
                     </th>
-                    <th class="hidden lg:block  py-6">
-                            <svg class="cursor-pointer w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M6 12H18M18 12L13 7M18 12L13 17" stroke="#7a7a7a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
-                    </th>
+            
                 </tr>
                 <tr class="border-b-2">
                     <th></th>
@@ -80,9 +79,7 @@
                     <th class="font-normal text-xs py-6 ">
                         <span class="sm:text-sm md:text-md ">diPerundung</span>
                     </th>
-                    <th class="hidden lg:block  py-6">
-                            <svg class="cursor-pointer w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M6 12H18M18 12L13 7M18 12L13 17" stroke="#7a7a7a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
-                    </th>
+                
                 </tr>
                 <tr class="border-b-2">
                     <th></th>
@@ -101,9 +98,7 @@
                     <th class="font-normal text-xs py-6 ">
                         <span class="sm:text-sm md:text-md ">diPerundung</span>
                     </th>
-                    <th class="hidden lg:block  py-6">
-                            <svg class="cursor-pointer w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M6 12H18M18 12L13 7M18 12L13 17" stroke="#7a7a7a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
-                    </th>
+                  
                 </tr>
                 <tr class="border-b-2">
                     <th></th>
@@ -122,9 +117,7 @@
                     <th class="font-normal text-xs py-6 ">
                         <span class="sm:text-sm md:text-md ">diPerundung</span>
                     </th>
-                    <th class="hidden lg:block  py-6">
-                            <svg class="cursor-pointer w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M6 12H18M18 12L13 7M18 12L13 17" stroke="#7a7a7a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
-                    </th>
+                  
                 </tr>
                
             </tbody>
