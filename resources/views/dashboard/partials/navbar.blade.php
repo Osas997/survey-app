@@ -2,21 +2,33 @@
    class="relative flex flex-wrap items-center justify-between px-0 py-2 mx-6 transition-all ease-in shadow-none duration-250 rounded-2xl lg:flex-nowrap lg:justify-start"
    navbar-main navbar-scroll="false">
    <div class="flex items-center justify-between w-full px-4 py-1 mx-auto flex-wrap-inherit">
+
       <nav>
-         <!-- breadcrumb -->
-         <ol class="flex flex-wrap pt-1 mr-12 bg-transparent rounded-lg sm:mr-16">
-            {{-- <li class="text-sm leading-normal">
-               <a class="text-black opacity-50" href="javascript:;">Pages</a>
-            </li> --}}
-            <li class="text-sm pl-2 capitalize leading-normal text-black before:float-left before:pr-2 before:text-black before:content-['/']"
-               aria-current="page">Dashboard</li>
-         </ol>
-         <h6 class="mb-0 font-bold text-black capitalize">Dashboard</h6>
+         <div class="text-sm breadcrumbs">
+            <ul>
+              <li>
+                <a>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="w-4 h-4 mr-2 stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"></path></svg>
+                  Admin
+                </a>
+              </li> 
+              <li>
+                <a>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="w-4 h-4 mr-2 stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"></path></svg>
+                  {{$title}}
+                </a>
+              </li> 
+              {{-- <li>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="w-4 h-4 mr-2 stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 13h6m-3-3v6m5 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                Add Document
+              </li> --}}
+            </ul>
+          </div>
       </nav>
 
       <div class="flex items-center mt-2 grow sm:mt-0 sm:mr-6 md:mr-0 lg:flex lg:basis-auto">
          <div class="flex items-center md:ml-auto md:pr-4">
-            <div class="relative flex flex-wrap items-stretch w-full transition-all rounded-lg ease">
+            {{-- <div class="relative flex flex-wrap items-stretch w-full transition-all rounded-lg ease">
                <span
                   class="text-sm ease leading-5.6 absolute z-50 -ml-px flex h-full items-center whitespace-nowrap rounded-lg rounded-tr-none rounded-br-none border border-r-0 border-transparent bg-transparent py-2 px-2.5 text-center font-normal text-slate-500 transition-all">
                   <i class="fas fa-search"></i>
@@ -24,8 +36,8 @@
                <input type="text"
                   class="pl-9 text-sm focus:shadow-primary-outline ease w-1/100 leading-5.6 relative -ml-px block min-w-0 flex-auto rounded-lg border border-solid border-gray-300 dark:bg-slate-850 dark:text-white bg-white bg-clip-padding py-2 pr-3 text-gray-700 transition-all placeholder:text-gray-500 focus:border-blue-500 focus:outline-none focus:transition-shadow"
                   placeholder="Type here..." />
+            </div> --}}
             </div>
-         </div>
          <ul class="flex flex-row justify-end pl-0 mb-0 list-none md-max:w-full">
             <!-- online builder btn  -->
             <!-- <li class="flex items-center">
@@ -35,7 +47,7 @@
                <a href="./pages/sign-in.html"
                   class="block px-0 py-2 text-sm font-semibold text-black transition-all ease-nav-brand">
                   <i class="fa fa-user sm:mr-1"></i>
-                  <span class="hidden sm:inline">Ariq ICIKIWIR</span>
+                  <span class="hidden sm:inline">Jhon Doe</span>
                </a>
             </li>
             {{-- navbar opener --}}
