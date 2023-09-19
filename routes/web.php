@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\MuridController;
 use App\Http\Controllers\SekolahController;
+use App\Http\Controllers\SurveyController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,18 +27,25 @@ Route::get("/login", [AuthController::class, "login"]);
 Route::post("/login", [AuthController::class, "authenticate"]);
 Route::post("/register", [AuthController::class, "register"]);
 
+
 Route::middleware("admin")->group(function () {
-    Route::get("/admin", function () {
+    Route::get("/test", function () {
         return "hello world";
     });
     Route::post("/create-sekolah", [SekolahController::class, "store"]);
+    Route::resource("/dashboard/survey", SurveyController::class);
 });
 
-Route::middleware("auth:sekolah")->group(function () {
+Route::middleware("sekolah")->group(function () {
+    Route::post("/guru", [GuruController::class, "import"]);
     Route::post("/create-guru", [GuruController::class, "store"]);
     Route::post("/create-murid", [MuridController::class, "store"]);
 });
 
-Route::middleware("auth:murid")->group(function () {
-    // Route::post("/murid", [SekolahController::class, "store"]);
+Route::middleware("guru-sekolah")->group(function () {
+    Route::get("/murid", [SekolahController::class, "store"]);
+});
+
+Route::middleware("murid")->group(function () {
+    Route::get("/survey", [SekolahController::class, "store"]);
 });

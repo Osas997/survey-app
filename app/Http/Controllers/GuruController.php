@@ -2,14 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use App\Imports\GuruImport;
 use App\Models\Guru;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class GuruController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
+
+    public function import(Request $request)
+    {
+        Excel::import(new GuruImport, $request->file('exel'));
+
+        return redirect('/')->with('success', 'All good!');
+    }
     public function index()
     {
         //

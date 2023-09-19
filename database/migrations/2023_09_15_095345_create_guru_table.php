@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('nuptk', 20);
             $table->string('nama', 50);
-            $table->enum('jenis_kelamin', [true, false]);
+            $table->enum('jenis_kelamin', ["L", "P"]);
             $table->string('password', 255);
             $table->unsignedBigInteger('id_sekolah')->index();
             $table->timestamps();
