@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\MuridController;
 use App\Http\Controllers\SekolahController;
@@ -22,38 +23,15 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::prefix('admin')->group(function () {
-    
-});
-Route::get('/dashboard', function () {
-    return view('dashboard.admin.dashboard', [
-        "title" => "Dashboard"
-    ]);
-})->name('admin.dashboard');
-
-Route::get('/survey', function () {
-    return view('dashboard.admin.survey', [
-        "title" => "Survey"
-    ]);
-})->name('admin.survey');
-
-Route::get('/sekolah', function () {
-    return view('dashboard.admin.sekolah', [
-        "title" => "Sekolah"
-    ]);
-})->name('admin.sekolah');
-
 Route::get("/login", [AuthController::class, "login"]);
 Route::post("/login", [AuthController::class, "authenticate"]);
 Route::post("/register", [AuthController::class, "register"]);
 
 
 Route::middleware("admin")->group(function () {
-    Route::get("/test", function () {
-        return "hello world";
-    });
-    Route::post("/create-sekolah", [SekolahController::class, "store"]);
-    Route::resource("/dashboard/survey", SurveyController::class);
+    Route::get("/dashboard", [DashboardController::class, "index"])->name("admin.dashboard");
+    Route::resource("/dashboard/survey", SurveyController::class)->name("index", "admin.survey");
+    Route::resource("/dashboard/sekolah", SekolahController::class)->name("index", "admin.sekolah");
 });
 
 Route::middleware("sekolah")->group(function () {

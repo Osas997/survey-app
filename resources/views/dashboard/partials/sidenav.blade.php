@@ -41,7 +41,7 @@
             bg-blue-500/13   
             @endif
              dark:opacity-80 py-2.7 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap px-4 transition-colors hover:bg-slate-100 hover:rounded-md"
-               href="{{route('admin.survey')}}">
+               href="/survey">
                <div
                   class="mr-2 flex h-6 w-6 items-center justify-center rounded-lg bg-center stroke-0 text-center md:w-8 md:h-8 lg:w-10 lg:h-10">
                   <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <path fill="none" d="M0 0L24 0 24 24 0 24z"></path> <path d="M17 2v2h3.007c.548 0 .993.445.993.993v16.014c0 .548-.445.993-.993.993H3.993C3.445 22 3 21.555 3 21.007V4.993C3 4.445 3.445 4 3.993 4H7V2h10zM7 6H5v14h14V6h-2v2H7V6zm2 10v2H7v-2h2zm0-3v2H7v-2h2zm0-3v2H7v-2h2zm6-6H9v2h6V4z"></path> </g> </g></svg>
