@@ -12,7 +12,9 @@ class SurveyController extends Controller
      */
     public function index()
     {
-        return "hhihi haha";
+        return view("dashboard.admin.survey", [
+            "title" => "Dashboard | Survey"
+        ]);
     }
 
     /**
