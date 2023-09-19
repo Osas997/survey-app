@@ -5,14 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Model;
 
-class Guru extends Model
+class Survey extends Model
 {
     use HasFactory;
-    protected $table = "guru";
+    protected $table = "survey";
     protected $guarded = ["id"];
-    public $timestamps = false;
-
-    protected $casts = [
-        'password' => 'hashed',
-    ];
 }

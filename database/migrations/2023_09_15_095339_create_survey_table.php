@@ -11,15 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('guru', function (Blueprint $table) {
+        Schema::create('survey', function (Blueprint $table) {
             $table->id();
-            $table->string('nuptk', 20);
-            $table->string('nama', 50);
-            $table->enum('jenis_kelamin', ["L", "P"]);
-            $table->string('password', 255);
-            $table->unsignedBigInteger('id_sekolah')->index();
+            $table->string('nama_survey', 100);
+            $table->text('deskripsi');
             $table->timestamps();
-            $table->foreign('id_sekolah')->references('id')->on('sekolah');
         });
     }
 
@@ -28,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('guru');
+        Schema::dropIfExists('survey');
     }
 };
