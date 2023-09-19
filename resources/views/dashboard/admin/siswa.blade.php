@@ -34,7 +34,7 @@
                     <th class="font-medium w-40 sm:w-[30%] py-4 text-sm  sm:text-base md:text-lg lg:text-xl">
                         <span class="sm:text-base md:text-lg ">Jenis Kelamin</span>
                     </th>
-                    <th class="font-medium w-40 sm:w-[30%] py-4 text-sm  sm:text-base md:text-lg lg:text-xl">
+                    <th class="font-medium w-40 sm:w-[30%] py-4 text-sm sm:text-base md:text-lg lg:text-xl">
                         <span class="sm:text-base md:text-lg ">Status</span>
                     </th>
                     <th class="hidden lg:block w-[1%]">
