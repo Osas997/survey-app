@@ -38,7 +38,8 @@
                         Username
                      </p>
                      <p class="text-sm font-medium text-gray-900 truncate dark:text-gray-300" role="none">
-                        {{auth('admin')->user()->username}}
+                        {{-- {{auth('admin')->user()->username}} --}}
+                        admin
                      </p>
                   </div>
                   <ul class="py-1" role="none">
@@ -49,7 +50,7 @@
                      </li>
                      <li>
 
-                        <form action="" method="post">
+                        <form action="{{route('logout')}}" method="post">
                            @csrf
                            <button href="#"
                            type="submit"

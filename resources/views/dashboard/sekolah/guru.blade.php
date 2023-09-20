@@ -1,11 +1,6 @@
 @extends('dashboard.layouts.main')
 @section('content')
     <div class="flex justify-start items-center gap-5">
-        <div class="w-10 h-10">
-            <a href="">
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M14.2893 5.70708C13.8988 5.31655 13.2657 5.31655 12.8751 5.70708L7.98768 10.5993C7.20729 11.3805 7.2076 12.6463 7.98837 13.427L12.8787 18.3174C13.2693 18.7079 13.9024 18.7079 14.293 18.3174C14.6835 17.9269 14.6835 17.2937 14.293 16.9032L10.1073 12.7175C9.71678 12.327 9.71678 11.6939 10.1073 11.3033L14.2893 7.12129C14.6799 6.73077 14.6799 6.0976 14.2893 5.70708Z" fill="#0F0F0F"></path> </g></svg>
-            </a>
-        </div>
         <p class="font-bold text-lg my-0">
             <span class=" md:text-xl">SDN 2 Banyuwangi</span>
         </p>
@@ -19,7 +14,7 @@
                     </svg>
                 </div>
                 <input type="search" id="search" class="block w-[360px] md:w-[458px] p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Cari Survey" required>
-                <button type="submit" class="text-white absolute right-2.5 bottom-2.5 bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800  hover:bg-blue-500 duration-300 ease-in-out">Search</button>
+                <button type="submit" class="text-white absolute right-2.5 bottom-2.5 bg-blue-700  focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800  hover:bg-blue-500 duration-300 ease-in-out">Search</button>
             </div>
             
         </form>
@@ -38,16 +33,13 @@
                         <span class="sm:text-base md:text-lg ">Nama</span>
                     </th>
                     <th class="font-medium w-24 sm:w-[22%] py-4 text-sm  ">
-                        <span class="sm:text-base md:text-lg ">NISN</span>
+                        <span class="sm:text-base md:text-lg ">NUPTK</span>
                     </th>
                     <th class="font-medium w-24 sm:w-[22%] py-4 text-sm  sm:text-base md:text-lg lg:text-xl">
                         <span class="sm:text-base md:text-lg ">Alamat</span>
                     </th>
                     <th class="font-medium w-40 sm:w-[20%] py-4 text-sm  sm:text-base md:text-lg lg:text-xl">
                         <span class="sm:text-base md:text-lg ">Jenis Kelamin</span>
-                    </th>
-                    <th class="font-medium w-40 sm:w-[20%] py-4 text-sm sm:text-base md:text-lg lg:text-xl">
-                        <span class="sm:text-base md:text-lg ">Status</span>
                     </th>
              
                 </tr>
@@ -67,9 +59,7 @@
                     <th class="font-normal text-xs py-6 ">
                         <span class="sm:text-sm md:text-md ">Laki Laki</span>
                     </th>
-                    <th class="font-normal text-xs py-6 ">
-                        <span class="sm:text-sm md:text-md ">diPerundung</span>
-                    </th>
+                    
             
                 </tr>
                 <tr class="border-b-2">
@@ -86,9 +76,7 @@
                     <th class="font-normal text-xs py-6 ">
                         <span class="sm:text-sm md:text-md ">Laki Laki</span>
                     </th>
-                    <th class="font-normal text-xs py-6 ">
-                        <span class="sm:text-sm md:text-md ">diPerundung</span>
-                    </th>
+                    
                 
                 </tr>
                 <tr class="border-b-2">
@@ -105,9 +93,7 @@
                     <th class="font-normal text-xs py-6 ">
                         <span class="sm:text-sm md:text-md ">Laki Laki</span>
                     </th>
-                    <th class="font-normal text-xs py-6 ">
-                        <span class="sm:text-sm md:text-md ">diPerundung</span>
-                    </th>
+                    
                   
                 </tr>
                 <tr class="border-b-2">
@@ -124,9 +110,7 @@
                     <th class="font-normal text-xs py-6 ">
                         <span class="sm:text-sm md:text-md ">Laki Laki</span>
                     </th>
-                    <th class="font-normal text-xs py-6 ">
-                        <span class="sm:text-sm md:text-md ">diPerundung</span>
-                    </th>
+                    
                   
                 </tr>
                

@@ -29,7 +29,8 @@ class GuruController extends Controller
      */
     public function create()
     {
-        //
+        $title = "Tambah Guru";
+        return view('dashboard.sekolah.addGuru',compact('title'));
     }
 
     /**

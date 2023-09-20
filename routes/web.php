@@ -58,6 +58,7 @@ Route::middleware("admin")->group(function () {
 
 Route::middleware("sekolah")->group(function () {
     Route::post("/guru", [GuruController::class, "import"]);
+    Route::get('/guru',[GuruController::class,"create"])->name('guru.addGuru');
     Route::post("/create-guru", [GuruController::class, "store"]);
     Route::post("/create-murid", [MuridController::class, "store"]);
 });

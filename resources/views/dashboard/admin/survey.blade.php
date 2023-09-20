@@ -87,7 +87,7 @@
             </tbody>
         </table>
         @else
-        <h1 class="text-center text-2xl font-bold text-red-600 mt-20">Tidak Ada Survey</h1>
+        <h1 class="text-center text-2xl font-bold text-red-600 mt-20">Survey Tidak ditemukan</h1>
         @endif
 
     </div>
