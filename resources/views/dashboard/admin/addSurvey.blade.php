@@ -1,6 +1,6 @@
 @extends('dashboard.layouts.main')
 @section('content')
-<div class="min-h-screen max-h-full bg-white mx-8 my-8 border border-black rounded-[40px] p-10 ">
+   
     <div class="flex justify-start items-center gap-5">
         <div class="w-10 h-10">
             <a href="">
@@ -11,23 +11,25 @@
             <span class=" md:text-xl">Tambah Survey</span>
         </p>
     </div>
-    <div class="sm:grid sm:grid-cols-1 sm:place-items-center">
-        <div class="mb-6 sm:w-1/2">
-            <label for="nama_survey" class="block mb-2 text-sm font-medium text-gray-900">Survey</label>
-            <input type="text" id="nama_survey" placeholder="Survey" class="bg-slate-50 border-2 border-blue-500 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
-        </div>
-        <div class="mb-6 sm:w-1/2">
-            <div class="max-w-md">
-                <label for="deskribsi" class="block mb-2 text-sm font-medium text-gray-900">Deskripsi Survey</label>
-                <textarea id="deskribsi" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-slate-50 border-2 border-blue-500 rounded-lg focus:ring-blue-500 focus:border-blue-500" placeholder="Write your thoughts here..."></textarea>
+    <form action="" method="post">
+        @csrf
+        <div class="lg:grid lg:grid-cols-1 lg:place-items-center mt-10">
+            <div class="mb-6 lg:w-5/12">
+                <label for="nama_survey" class="block mb-2 text-sm font-medium text-gray-900">Survey</label>
+                <input type="text" id="nama_survey" name="namaSurvey" placeholder="Survey" class="bg-slate-50 border-2 border-blue-500 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+            </div>
+            <div class="mb-6 lg:w-5/12">
+                <div class="">
+                    <label for="deskribsi" class="block mb-2 text-sm font-medium text-gray-900">Deskripsi Survey</label>
+                    <textarea id="deskribsi" rows="4" name="deskibsiSurvey" class="block p-2.5 w-full text-sm text-gray-900 bg-slate-50 border-2 border-blue-500 rounded-lg focus:ring-blue-500 focus:border-blue-500" placeholder="Survey mengenai..."></textarea>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="md:flex md:justify-center md:items-center  md:flex-row md:gap-4 min-w-full md:w-1/2 ">
-        <div class="bg-[#29CE00] rounded-lg flex justify-center items-center gap-3 px-16 h-12 mt-4  ">
-            <span class="text-white whitespace-nowrap  text-md">Submit</span>
-        </div>     
-    </div>
+        <div class="md:flex md:justify-center md:items-center  md:flex-row md:gap-4 min-w-full md:w-1/2 ">
+            <button type="submit" class="bg-[#29CE00] rounded-lg flex justify-center items-center gap-3 px-16 h-12 mt-4 hover:bg-green-400 ease-in-out  duration-300 ">
+                <span class="text-white whitespace-nowrap  text-md">Submit</span>
+            </button>     
+        </div>
+    </form>
     
-</div>
 @endsection

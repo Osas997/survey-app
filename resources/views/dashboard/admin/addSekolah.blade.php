@@ -1,6 +1,6 @@
 @extends('dashboard.layouts.main')
 @section('content')
-<div class="min-h-screen max-h-full bg-white mx-8 my-8 border border-black rounded-[40px] p-10 ">
+   
     <div class="flex justify-start items-center gap-5">
         <div class="w-10 h-10">
             <a href="">
@@ -8,37 +8,38 @@
             </a>
         </div>
         <p class="font-bold text-lg my-0">
-            <span class=" md:text-xl">Tambah Pertanyaan</span>
+            <span class=" md:text-xl">Tambah Sekolah</span>
         </p>
     </div>
-    <div class="sm:grid sm:grid-cols-1 sm:place-items-center mt-8">
-        <div class="mb-6 sm:w-1/2">
-            <label for="nama_pertanyaan" class="block mb-2 text-sm font-medium text-gray-900">NPSN</label>
-            <input type="text" id="nama_pertanyaan" placeholder="Pertanyaan" class="bg-slate-50 border-2 border-blue-500 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+    <form action="" method="post">
+        @csrf
+        <div class="lg:grid lg:grid-cols-1 lg:place-items-center mt-10">
+            <div class="mb-6 lg:w-5/12">
+                <label for="npsn" class="block mb-2 text-sm font-medium text-gray-900">NPSN</label>
+                <input type="text" id="npsn" name="npsn" placeholder="NPSN Sekolah" class="bg-slate-50 border-2 border-blue-500 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+            </div>
+            <div class="mb-6 lg:w-5/12">
+                <label for="nama_sekolah" class="block mb-2 text-sm font-medium text-gray-900">Nama Sekolah</label>
+                <input type="text" id="nama_sekolah" name="namaSekolah" placeholder="SDN... " class="bg-slate-50 border-2 border-blue-500 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+            </div>
+            <div class="mb-6 lg:w-5/12">
+                <label for="password" class="block mb-2 text-sm font-medium text-gray-900">Password</label>
+                <input type="password" id="password" name="password" placeholder="Strong Password" class="bg-slate-50 border-2 border-blue-500 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+            </div>
+            <div class="mb-6 lg:w-5/12">
+                <label for="alamatSekolah" class="block mb-2 text-sm font-medium text-gray-900">Alamat Sekolah</label>
+                <input type="text" id="alamatSekolah" name="alamatSekolah" placeholder="Jl. Raya.. " class="bg-slate-50 border-2 border-blue-500 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+            </div>
+            <div class="mb-6 lg:w-5/12">
+                <label for="status" class="block mb-2 text-sm font-medium text-gray-900">Alamat Sekolah</label>
+                <input type="text" id="status" name="status" placeholder="Negeri/Swasta" class="bg-slate-50 border-2 border-blue-500 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+            </div>
         </div>
-        <div class="mb-6 sm:w-1/2">
-            <label for="nama_pertanyaan" class="block mb-2 text-sm font-medium text-gray-900">Nama Sekolah</label>
-            <input type="text" id="nama_pertanyaan" placeholder="Pertanyaan" class="bg-slate-50 border-2 border-blue-500 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+        <div class="md:flex md:justify-center md:items-center  md:flex-row md:gap-4 min-w-full md:w-1/2 ">
+            <button type="submit" class="bg-[#29CE00] rounded-lg flex justify-center items-center gap-3 px-16 h-12 mt-4 hover:bg-green-400 ease-in-out  duration-300 ">
+                <span class="text-white whitespace-nowrap  text-md">Submit</span>
+            </button>     
         </div>
-        <div class="mb-6 sm:w-1/2">
-            <label for="nama_pertanyaan" class="block mb-2 text-sm font-medium text-gray-900">Password</label>
-            <input type="text" id="nama_pertanyaan" placeholder="Pertanyaan" class="bg-slate-50 border-2 border-blue-500 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
-        </div>
-        <div class="mb-6 sm:w-1/2">
-            <label for="nama_pertanyaan" class="block mb-2 text-sm font-medium text-gray-900">Alamat Sekolah</label>
-            <input type="text" id="nama_pertanyaan" placeholder="Pertanyaan" class="bg-slate-50 border-2 border-blue-500 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
-        </div>
-        <div class="mb-6 sm:w-1/2">
-            <label for="nama_pertanyaan" class="block mb-2 text-sm font-medium text-gray-900">Status</label>
-            <input type="text" id="nama_pertanyaan" placeholder="Pertanyaan" class="bg-slate-50 border-2 border-blue-500 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
-        </div>
-        
-    </div>
-    <div class="md:flex md:justify-center md:items-center  md:flex-row md:gap-4 min-w-full md:w-1/2 ">
-        <div class="bg-[#29CE00] rounded-lg flex justify-center items-center gap-3 px-16 h-12 mt-4  ">
-            <span class="text-white whitespace-nowrap  text-md">Submit</span>
-        </div>     
-    </div>
+    </form>
     
-</div>
 @endsection
