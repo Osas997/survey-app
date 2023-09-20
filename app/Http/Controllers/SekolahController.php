@@ -13,7 +13,8 @@ class SekolahController extends Controller
     public function index()
     {
         return view("dashboard.admin.sekolah", [
-            "title" => "Dashboard Sekolah"
+            "title" => "Dashboard Sekolah",
+            "dataSekolah" => Sekolah::paginate(5)
         ]);
     }
 
