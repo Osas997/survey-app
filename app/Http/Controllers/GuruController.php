@@ -19,6 +19,7 @@ class GuruController extends Controller
 
         return redirect('/')->with('success', 'All good!');
     }
+
     public function index()
     {
         //
