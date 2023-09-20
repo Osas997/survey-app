@@ -49,6 +49,14 @@ Route::middleware("admin")->group(function () {
             "title" => "Tambah Survey"
         ]);
     });
+
+  
+    Route::get("/dashboard/addpertanyaan",function(){
+        return view('dashboard.admin.addPertanyaan',[
+            "title"=> "Tambah Pertanyaan"
+        ]);
+    });
+
 });
 
 Route::middleware("sekolah")->group(function () {
@@ -62,7 +70,6 @@ Route::middleware("guru-sekolah")->group(function () {
 });
 
 Route::middleware("murid")->group(function () {
-
     Route::get("/survey", function () {
         return "Hello siswa";
     });
