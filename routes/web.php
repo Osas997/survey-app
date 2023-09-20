@@ -25,27 +25,24 @@ Route::get('/', function () {
 });
 
 Route::middleware("sudahlogin")->group(function () {
-    Route::get("/login", [AuthController::class, "login"]);
+    Route::get("/login", [AuthController::class, "login"])->name("login");
     Route::post("/login", [AuthController::class, "authenticate"]);
 });
 
-Route::get("/logout", [AuthController::class, "logout"]);
+Route::post("/logout", [AuthController::class, "logout"])->name("logout")->middleware("auth:admin,sekolah,guru,murid");
 
 Route::middleware("admin")->group(function () {
     Route::get("/dashboard", [DashboardController::class, "index"])->name("admin.dashboard");
-    Route::resource("/dashboard/survey", SurveyController::class)->name("index", "admin.survey")->name("show", "admin.pertanyaan");
+    Route::resource("/dashboard/survey", SurveyController::class)->name("index", "admin.survey")->name("show", "admin.pertanyaan")->name("create", 'admin.tambahSurvey');
     Route::resource("/dashboard/sekolah", SekolahController::class)->name("index", "admin.sekolah");
+
+
+
     Route::get("/dashboard/murid", function () {
         return view("dashboard.admin.murid", [
             "title" => "Murid"
         ]);
     });
-    Route::get("/dashboard/addsurvey", function () {
-        return view('dashboard.admin.addSurvey', [
-            "title" => "Tambah Survey"
-        ]);
-    });
-
 
     Route::get("/dashboard/addpertanyaan", function () {
         return view('dashboard.admin.addPertanyaan', [

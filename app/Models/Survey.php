@@ -11,6 +11,13 @@ class Survey extends Model
     protected $table = "survey";
     protected $guarded = ["id"];
 
+    public function scopeSearch($query, $search)
+    {
+        if ($search) {
+            $query->where('nama_survey', 'like', '%' . $search . '%');
+        }
+    }
+
     public function pertanyaan()
     {
         return $this->hasMany(Pertanyaan::class, "id_survey", "id");
