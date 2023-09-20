@@ -42,6 +42,11 @@ Route::middleware("admin")->group(function () {
             "title"=> "Pertanyaan"
         ]);
     });
+    Route::get("/dashboard/addsurvey",function(){
+        return view('dashboard.admin.addSurvey',[
+            "title"=> "Tambah Survey"
+        ]);
+    });
 });
 
 Route::middleware("sekolah")->group(function () {
