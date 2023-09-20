@@ -14,7 +14,7 @@ class SurveyController extends Controller
     {
         return view("dashboard.admin.survey", [
             "title" => "Dashboard | Survey",
-            "survey" => Survey::withCount("pertanyaan")->paginate(5)
+            "survey" => Survey::withCount("pertanyaan")->search(request('search'))->paginate(5)
         ]);
     }
 
@@ -23,6 +23,9 @@ class SurveyController extends Controller
      */
     public function create()
     {
+        return view('dashboard.admin.addSurvey', [
+            "title" => "Tambah Survey"
+        ]);
     }
 
     /**
