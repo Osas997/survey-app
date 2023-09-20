@@ -74,9 +74,11 @@
 <div class="mt-8 w-full  overflow-x-hidden overflow-y-auto">
     @foreach ($survey->pertanyaan as $pertanyaan)
     <div class="">
-        <div class="flex justify-center items-start gap-5">
-            <span>1</span>
-            <p class="text-black text-sm md:text-base lg:text-lg">{{ $pertanyaan->pertanyaan }}</p>
+        <div class="flex justify-between items-start gap-16">
+            <div class="flex justify-center items-start gap-4">
+                <span class="text-xl">{{ $loop->iteration }}.</span>
+                <p class="text-black  text-sm md:text-base lg:text-lg">{{$pertanyaan->pertanyaan}}</p>
+            </div>
             <div class="flex justify-center items-center flex-col gap-2 mt-5 md:mt-0">
                 <div class="bg-[#0062CE] rounded-lg flex justify-center items-center  w-12 h-12 ">
                     <span class="text-white whitespace-nowrap sr-only text-xs">Tambah Pertanyaan</span>
