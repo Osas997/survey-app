@@ -1,69 +1,71 @@
-<nav
-   class="relative flex flex-wrap items-center justify-between px-0 py-2 mx-6 transition-all ease-in shadow-none duration-250 rounded-2xl lg:flex-nowrap lg:justify-start"
-   navbar-main navbar-scroll="false">
-   <div class="flex items-center justify-between w-full px-4 py-1 mx-auto flex-wrap-inherit">
-
-      <nav>
-         <div class="text-sm breadcrumbs">
-            <ul>
-              <li>
-                <a>
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="w-4 h-4 mr-2 stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"></path></svg>
-                  Admin
-                </a>
-              </li> 
-              <li>
-                <a>
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="w-4 h-4 mr-2 stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"></path></svg>
-                  {{$title}}
-                </a>
-              </li> 
-              {{-- <li>
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="w-4 h-4 mr-2 stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 13h6m-3-3v6m5 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
-                Add Document
-              </li> --}}
-            </ul>
-          </div>
-      </nav>
-
-      <div class="flex items-center mt-2 grow sm:mt-0 sm:mr-6 md:mr-0 lg:flex lg:basis-auto">
-         <div class="flex items-center md:ml-auto md:pr-4">
-            {{-- <div class="relative flex flex-wrap items-stretch w-full transition-all rounded-lg ease">
-               <span
-                  class="text-sm ease leading-5.6 absolute z-50 -ml-px flex h-full items-center whitespace-nowrap rounded-lg rounded-tr-none rounded-br-none border border-r-0 border-transparent bg-transparent py-2 px-2.5 text-center font-normal text-slate-500 transition-all">
-                  <i class="fas fa-search"></i>
-               </span>
-               <input type="text"
-                  class="pl-9 text-sm focus:shadow-primary-outline ease w-1/100 leading-5.6 relative -ml-px block min-w-0 flex-auto rounded-lg border border-solid border-gray-300 dark:bg-slate-850 dark:text-white bg-white bg-clip-padding py-2 pr-3 text-gray-700 transition-all placeholder:text-gray-500 focus:border-blue-500 focus:outline-none focus:transition-shadow"
-                  placeholder="Type here..." />
-            </div> --}}
-            </div>
-         <ul class="flex flex-row justify-end pl-0 mb-0 list-none md-max:w-full">
-            <!-- online builder btn  -->
-            <!-- <li class="flex items-center">
-     <a class="inline-block px-8 py-2 mb-0 mr-4 text-xs font-bold text-center text-blue-500 uppercase align-middle transition-all ease-in bg-transparent border border-blue-500 border-solid rounded-lg shadow-none cursor-pointer leading-pro hover:-translate-y-px active:shadow-xs hover:border-blue-500 active:bg-blue-500 active:hover:text-blue-500 hover:text-blue-500 tracking-tight-rem hover:bg-transparent hover:opacity-75 hover:shadow-none active:text-white active:hover:bg-transparent" target="_blank" href="https://www.creative-tim.com/builder/soft-ui?ref=navbar-dashboard&amp;_ga=2.76518741.1192788655.1647724933-1242940210.1644448053">Online Builder</a>
-   </li> -->
-            <li class="flex items-center">
-               <a href="./pages/sign-in.html"
-                  class="block px-0 py-2 text-sm font-semibold text-black transition-all ease-nav-brand">
-                  <i class="fa fa-user sm:mr-1"></i>
-                  <span class="hidden sm:inline">Jhon Doe</span>
-               </a>
-            </li>
-            {{-- navbar opener --}}
-            <li class="flex items-center pl-4 xl:hidden">
-               <a href="javascript:;" class="block p-0 text-sm text-black transition-all ease-nav-brand"
-                  sidenav-trigger>
-                  <div class="w-4.5 overflow-hidden">
-                     <i class="ease mb-0.75 relative block h-0.5 rounded-sm bg-black transition-all"></i>
-                     <i class="ease mb-0.75 relative block h-0.5 rounded-sm bg-black transition-all"></i>
-                     <i class="ease relative block h-0.5 rounded-sm bg-black transition-all"></i>
+<nav class="fixed top-0 z-50 w-full bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+   <div class="px-3 py-3 lg:px-5 lg:pl-3">
+      <div class="flex items-center justify-between">
+         <div class="flex items-center justify-start">
+            <button data-drawer-target="logo-sidebar" data-drawer-toggle="logo-sidebar" aria-controls="logo-sidebar"
+               type="button"
+               class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
+               <span class="sr-only">Open sidebar</span>
+               <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path clip-rule="evenodd" fill-rule="evenodd"
+                     d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z">
+                  </path>
+               </svg>
+            </button>
+            <a href="https://flowbite.com" class="flex ml-2 md:mr-24">
+               <img src="https://flowbite.com/docs/images/logo.svg" class="h-8 mr-3" alt="FlowBite Logo" />
+               <span class="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white">Survey
+                  App</span>
+            </a>
+         </div>
+         <div class="flex items-center">
+            <div class="flex items-center ml-3">
+               <div>
+                  <button type="button"
+                     class="flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
+                     aria-expanded="false" data-dropdown-toggle="dropdown-user">
+                     <span class="sr-only">Open user menu</span>
+                     <img class="w-8 h-8 rounded-full"
+                        src="https://flowbite.com/docs/images/people/profile-picture-5.jpg" alt="user photo">
+                  </button>
+               </div>
+               <div
+                  class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded shadow dark:bg-gray-700 dark:divide-gray-600"
+                  id="dropdown-user">
+                  <div class="px-4 py-3" role="none">
+                     <p class="text-sm text-gray-900 dark:text-white" role="none">
+                        Neil Sims
+                     </p>
+                     <p class="text-sm font-medium text-gray-900 truncate dark:text-gray-300" role="none">
+                        neil.sims@flowbite.com
+                     </p>
                   </div>
-               </a>
-            </li>
-
-            {{--  --}}
-         </ul>
+                  <ul class="py-1" role="none">
+                     <li>
+                        <a href="#"
+                           class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+                           role="menuitem">Dashboard</a>
+                     </li>
+                     <li>
+                        <a href="#"
+                           class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+                           role="menuitem">Settings</a>
+                     </li>
+                     <li>
+                        <a href="#"
+                           class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+                           role="menuitem">Earnings</a>
+                     </li>
+                     <li>
+                        <a href="#"
+                           class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+                           role="menuitem">Sign out</a>
+                     </li>
+                  </ul>
+               </div>
+            </div>
+         </div>
       </div>
    </div>
 </nav>
