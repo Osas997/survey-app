@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" light>
 
 <head>
    <meta charset="UTF-8">
@@ -10,14 +10,12 @@
 </head>
 
 <body
+
    class="m-0 font-sans text-base antialiased font-normal dark:bg-slate-900 leading-default bg-gray-50 text-slate-500">
-<<<<<<< HEAD
+
    @include('dashboard.partials.navbar')
-=======
-
+   class="m-0 font-sans text-base antialiased font-normal h-max bg-white leading-default text-slate-500">
    <div class="absolute w-full  dark:hidden min-h-75"></div>
-
->>>>>>> b39983301fa7f942c47d0d05009b146e904cd293
    @include('dashboard.partials.sidenav')
 
    <div class="p-4 sm:ml-64">

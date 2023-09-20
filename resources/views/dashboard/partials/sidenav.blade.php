@@ -47,7 +47,7 @@
             bg-blue-500/13   
             @endif
              dark:opacity-80 py-2.7 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap px-4 transition-colors hover:bg-slate-100 hover:rounded-md"
-               href="/survey">
+               href="{{route('admin.survey')}}">
                <div
                   class="mr-2 flex h-6 w-6 items-center justify-center rounded-lg bg-center stroke-0 text-center md:w-8 md:h-8 lg:w-10 lg:h-10">
                   <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#000000">

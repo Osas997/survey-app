@@ -10,7 +10,7 @@
                     <img src="{{asset('assets/img/logos/kemdigbud.png')}}" alt="" srcset="">
                 </div>
                 <h2 class="text-center font-semibold text-3xl">Welcome Back</h2>
-                <p class="text-center font-medium text-xs">Please enter your details!</p>
+                <p class="text-center font-medium text-xs mb-8">Please enter your details!</p>
                 @if (session()->has('loginError'))
                 <div class="alert alert-error w-3/4 mb-4">
                     <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none"

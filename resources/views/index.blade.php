@@ -9,6 +9,7 @@
 </head>
 
 <body>
+
     <form method="POST" action="/guru" enctype="multipart/form-data">
         @csrf
         {{-- <input type="hidden" value="1" name="survey[0][pertanyaan]">
