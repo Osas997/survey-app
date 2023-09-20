@@ -1,7 +1,7 @@
 <aside id="logo-sidebar"
-   class="fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform -translate-x-full bg-white border-r border-gray-200 sm:translate-x-0 dark:bg-gray-800 dark:border-gray-700"
+   class="fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform -translate-x-full bg-white border-r border-gray-200 sm:translate-x-0 "
    aria-label="Sidebar">
-   <div class="h-full px-3 pb-4 overflow-y-auto bg-white dark:bg-gray-800">
+   <div class="h-full px-3 pb-4 overflow-y-auto bg-white ">
       <ul class="space-y-2 font-medium">
          <li>
             <a href="{{ route('admin.dashboard') }}"
@@ -9,7 +9,7 @@
                @if (Request::is('dashboard'))
                    bg-gray-200
                @endif
-               flex items-center p-2 text-gray-900 rounded-lg  dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+               flex items-center p-2 text-gray-900 rounded-lg duration-300 ease-in-out   hover:bg-gray-100 group">
                <div class="w-8 h-8">
                   <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                      <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -30,7 +30,7 @@
                @if (Request::is('dashboard/survey*'))
                    bg-gray-200
                @endif
-               flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+               flex items-center p-2 text-gray-900 rounded-lg duration-300 ease-in-out hover:bg-gray-100  group">
                <div class="w-8 h-8">
                   <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                      <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -52,7 +52,7 @@
                @if (Request::is('dashboard/sekolah*'))
                    bg-gray-200
                @endif
-               flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+               flex items-center p-2 text-gray-900 rounded-lg duration-300 ease-in-out hover:bg-gray-100  group">
                <div class="w-8 h-8">
                   <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                      <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
