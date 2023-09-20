@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\MuridController;
+use App\Http\Controllers\PertanyaanController;
 use App\Http\Controllers\SekolahController;
 use App\Http\Controllers\SurveyController;
 use Illuminate\Support\Facades\Route;
@@ -32,16 +33,11 @@ Route::get("/logout", [AuthController::class, "logout"]);
 
 Route::middleware("admin")->group(function () {
     Route::get("/dashboard", [DashboardController::class, "index"])->name("admin.dashboard");
-    Route::resource("/dashboard/survey", SurveyController::class)->name("index", "admin.survey");
+    Route::resource("/dashboard/survey", SurveyController::class)->name("index", "admin.survey")->name("show", "admin.pertanyaan");
     Route::resource("/dashboard/sekolah", SekolahController::class)->name("index", "admin.sekolah");
     Route::get("/dashboard/murid", function () {
         return view("dashboard.admin.murid", [
             "title" => "Murid"
-        ]);
-    });
-    Route::get("/dashboard/pertanyaan", function () {
-        return view('dashboard.admin.pertanyaan', [
-            "title" => "Pertanyaan"
         ]);
     });
     Route::get("/dashboard/addsurvey", function () {
@@ -50,13 +46,12 @@ Route::middleware("admin")->group(function () {
         ]);
     });
 
-  
-    Route::get("/dashboard/addpertanyaan",function(){
-        return view('dashboard.admin.addPertanyaan',[
-            "title"=> "Tambah Pertanyaan"
+
+    Route::get("/dashboard/addpertanyaan", function () {
+        return view('dashboard.admin.addPertanyaan', [
+            "title" => "Tambah Pertanyaan"
         ]);
     });
-
 });
 
 Route::middleware("sekolah")->group(function () {

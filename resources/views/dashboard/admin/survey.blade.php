@@ -50,7 +50,7 @@
                         <span class="sm:text-sm md:text-md ">{{ strtoupper($survei->nama_survey) }}</span>
                     </th>
                     <th class="font-normal text-xs py-6 ">
-                        <span class="sm:text-sm md:text-md ">12 pertanyaan</span>
+                        <span class="sm:text-sm md:text-md text-center">{{ $survei->pertanyaan_count }}</span>
                     </th>
                     <th class="font-normal text-xs py-6 ">
                         <span class="sm:text-sm md:text-md ">24 Responded</span>
@@ -60,15 +60,17 @@
                             }}</span>
                     </th>
                     <th class="hidden lg:block  py-6">
-                        <svg class="cursor-pointer w-6 h-6" viewBox="0 0 24 24" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                            <g id="SVGRepo_iconCarrier">
-                                <path d="M6 12H18M18 12L13 7M18 12L13 17" stroke="#7a7a7a" stroke-width="2"
-                                    stroke-linecap="round" stroke-linejoin="round"></path>
-                            </g>
-                        </svg>
+                        <a href="{{ route('admin.pertanyaan',['survey'=> $survei->id ]) }}">
+                            <svg class="cursor-pointer w-6 h-6" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                <g id="SVGRepo_iconCarrier">
+                                    <path d="M6 12H18M18 12L13 7M18 12L13 17" stroke="#7a7a7a" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round"></path>
+                                </g>
+                            </svg>
+                        </a>
                     </th>
                 </tr>
                 @endforeach

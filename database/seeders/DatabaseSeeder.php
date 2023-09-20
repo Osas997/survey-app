@@ -7,6 +7,7 @@ namespace Database\Seeders;
 use App\Models\Admin;
 use App\Models\Guru;
 use App\Models\Murid;
+use App\Models\Pertanyaan;
 use App\Models\Sekolah;
 use App\Models\Survey;
 use Illuminate\Database\Seeder;
@@ -69,6 +70,16 @@ class DatabaseSeeder extends Seeder
         Survey::create([
             "nama_survey" => "perundungan",
             "deskripsi" => "survey tentang perundungan"
+        ]);
+
+        Pertanyaan::create([
+            "id_survey" => 1,
+            "pertanyaan" => "Apakah Kamu Sudah Makan?"
+        ]);
+
+        Pertanyaan::create([
+            "id_survey" => 1,
+            "pertanyaan" => "Apakah Kamu Sudah Mandi?"
         ]);
     }
 }
