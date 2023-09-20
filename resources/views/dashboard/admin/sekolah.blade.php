@@ -1,5 +1,9 @@
 @extends('dashboard.layouts.main')
 @section('content')
+
+<div class="h-screen bg-white mx-8 my-8 border border-black rounded-[40px] p-10">
+
+
 <div class="min-h-screen max-h-full bg-white mx-8 my-8 border border-black rounded-[40px] p-10 ">
     <h1 class="text-2xl sm:text-3xl  ">Sekolah</h1>
     <div class="flex justify-start items-center gap-4 mt-10  ">
@@ -127,5 +131,6 @@
         </table>
     </div>
     
+
 </div>
 @endsection

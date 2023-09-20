@@ -23,10 +23,18 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get("/login", [AuthController::class, "login"]);
-Route::post("/login", [AuthController::class, "authenticate"]);
-Route::post("/register", [AuthController::class, "register"]);
+Route::middleware("sudahlogin")->group(function () {
+    Route::get("/login", [AuthController::class, "login"]);
+    Route::post("/login", [AuthController::class, "authenticate"]);
+});
 
+Route::get("/logout", [AuthController::class, "logout"]);
+
+
+Route::middleware("admin")->prefix("dashboard")->group(function () {
+    Route::get("/", [DashboardController::class, "index"])->name("admin.dashboard");
+    Route::resource("/survey", SurveyController::class)->name("index", "admin.survey");
+    Route::resource("/sekolah", SekolahController::class)->name("index", "admin.sekolah");
 
 Route::middleware("admin")->group(function () {
     Route::get("/dashboard", [DashboardController::class, "index"])->name("admin.dashboard");
@@ -47,6 +55,7 @@ Route::middleware("admin")->group(function () {
             "title"=> "Tambah Survey"
         ]);
     });
+
 });
 
 Route::middleware("sekolah")->group(function () {
@@ -60,5 +69,8 @@ Route::middleware("guru-sekolah")->group(function () {
 });
 
 Route::middleware("murid")->group(function () {
-    Route::get("/survey", [SekolahController::class, "store"]);
+
+    Route::get("/survey", function () {
+        return "Hello siswa";
+    });
 });

@@ -13,7 +13,8 @@ class SurveyController extends Controller
     public function index()
     {
         return view("dashboard.admin.survey", [
-            "title" => "Dashboard | Survey"
+            "title" => "Dashboard | Survey",
+            "survey" => Survey::paginate(5)
         ]);
     }
 
