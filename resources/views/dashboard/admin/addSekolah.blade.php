@@ -16,8 +16,9 @@
         <div class="lg:grid lg:grid-cols-1 lg:place-items-center mt-10">
             <div class="mb-6 lg:w-5/12">
                 <label for="npsn" class="block mb-2 text-sm font-medium text-gray-900">NPSN</label>
-                <input type="text" id="npsn" name="npsn" placeholder="NPSN Sekolah" class="bg-slate-50 border-2 border-blue-500 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                <input type="text" id="npsn" name="npsn" placeholder="NPSN Sekolah" class="bg-slate-50 border-2 border-blue-500 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" >
             </div>
+            
             <div class="mb-6 lg:w-5/12">
                 <label for="nama_sekolah" class="block mb-2 text-sm font-medium text-gray-900">Nama Sekolah</label>
                 <input type="text" id="nama_sekolah" name="namaSekolah" placeholder="SDN... " class="bg-slate-50 border-2 border-blue-500 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">

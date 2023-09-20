@@ -52,6 +52,11 @@ Route::middleware("admin")->group(function () {
             "title" => "Tambah Pertanyaan"
         ]);
     });
+    Route::get("/dashboard/addsekolah", function () {
+        return view('dashboard.admin.addSekolah', [
+            "title" => "Tambah Sekolah"
+        ]);
+    });
 });
 
 Route::middleware("sekolah")->group(function () {
