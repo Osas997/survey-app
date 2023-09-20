@@ -30,32 +30,25 @@ Route::middleware("sudahlogin")->group(function () {
 
 Route::get("/logout", [AuthController::class, "logout"]);
 
-
-Route::middleware("admin")->prefix("dashboard")->group(function () {
-    Route::get("/", [DashboardController::class, "index"])->name("admin.dashboard");
-    Route::resource("/survey", SurveyController::class)->name("index", "admin.survey");
-    Route::resource("/sekolah", SekolahController::class)->name("index", "admin.sekolah");
-
 Route::middleware("admin")->group(function () {
     Route::get("/dashboard", [DashboardController::class, "index"])->name("admin.dashboard");
     Route::resource("/dashboard/survey", SurveyController::class)->name("index", "admin.survey");
     Route::resource("/dashboard/sekolah", SekolahController::class)->name("index", "admin.sekolah");
-    Route::get("/dashboard/murid",function(){
-        return view("dashboard.admin.murid",[
+    Route::get("/dashboard/murid", function () {
+        return view("dashboard.admin.murid", [
             "title" => "Murid"
         ]);
     });
-    Route::get("/dashboard/pertanyaan",function(){
-        return view('dashboard.admin.pertanyaan',[
-            "title"=> "Pertanyaan"
+    Route::get("/dashboard/pertanyaan", function () {
+        return view('dashboard.admin.pertanyaan', [
+            "title" => "Pertanyaan"
         ]);
     });
-    Route::get("/dashboard/addsurvey",function(){
-        return view('dashboard.admin.addSurvey',[
-            "title"=> "Tambah Survey"
+    Route::get("/dashboard/addsurvey", function () {
+        return view('dashboard.admin.addSurvey', [
+            "title" => "Tambah Survey"
         ]);
     });
-
 });
 
 Route::middleware("sekolah")->group(function () {
