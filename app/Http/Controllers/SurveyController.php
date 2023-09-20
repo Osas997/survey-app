@@ -44,6 +44,9 @@ class SurveyController extends Controller
      */
     public function show(Survey $survey)
     {
+
+        $survey = $survey->load("pertanyaan");
+
         return view("dashboard.admin.pertanyaan", [
             "title" => "Detail Survey | " . $survey->nama_survey,
             "survey" => $survey
