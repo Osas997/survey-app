@@ -11,22 +11,20 @@
             <span class=" md:text-xl">Tambah Survey</span>
         </p>
     </div>
-    <div class="mb-6">
-        <label for="nama_survey" class="block mb-2 text-sm font-medium text-gray-900">Survey</label>
-        <input type="text" id="nama_survey" placeholder="Survey" class="bg-slate-50 border-2 border-blue-500 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
-    </div>
-    
-    
-    <div class="mb-6 flex justify-center items-center">
-        <div class="max-w-md">
-            <label for="deskribsi" class="block mb-2 text-sm font-medium text-gray-900">Deskripsi Survey</label>
-            <textarea id="deskribsi" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-slate-50 border-2 border-blue-500 rounded-lg focus:ring-blue-500 focus:border-blue-500" placeholder="Write your thoughts here..."></textarea>
+    <div class="sm:grid sm:grid-cols-1 sm:place-items-center">
+        <div class="mb-6 sm:w-1/2">
+            <label for="nama_survey" class="block mb-2 text-sm font-medium text-gray-900">Survey</label>
+            <input type="text" id="nama_survey" placeholder="Survey" class="bg-slate-50 border-2 border-blue-500 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+        </div>
+        <div class="mb-6 sm:w-1/2">
+            <div class="max-w-md">
+                <label for="deskribsi" class="block mb-2 text-sm font-medium text-gray-900">Deskripsi Survey</label>
+                <textarea id="deskribsi" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-slate-50 border-2 border-blue-500 rounded-lg focus:ring-blue-500 focus:border-blue-500" placeholder="Write your thoughts here..."></textarea>
+            </div>
         </div>
     </div>
-    
-    
-    <div class="md:flex md:justify-center md:items-center  md:flex-row md:gap-4 min-w-full md:min-w-fit ">
-        <div class="bg-[#29CE00] rounded-lg flex justify-center items-center gap-3 w-full px-8 h-12 mt-4 ">
+    <div class="md:flex md:justify-center md:items-center  md:flex-row md:gap-4 min-w-full md:w-1/2 ">
+        <div class="bg-[#29CE00] rounded-lg flex justify-center items-center gap-3 px-16 h-12 mt-4  ">
             <span class="text-white whitespace-nowrap  text-md">Submit</span>
         </div>     
     </div>
