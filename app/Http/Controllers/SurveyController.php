@@ -46,6 +46,7 @@ class SurveyController extends Controller
     {
         return view("dashboard.admin.pertanyaan", [
             "title" => "Detail Survey | " . $survey->nama_survey,
+            "survey" => $survey
         ]);
     }
 
