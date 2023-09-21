@@ -26,6 +26,6 @@ class PertanyaanController extends Controller
         ]);
 
         Pertanyaan::create($validate);
-        return redirect("/dashboard/survey/" . $validate['id_survey'])->with('success', "Guru Berhasil Di Tambah");
+        return redirect("/admin/survey/" . $validate['id_survey'])->with('success', "Guru Berhasil Di Tambah");
     }
 }

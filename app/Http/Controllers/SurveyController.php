@@ -39,7 +39,7 @@ class SurveyController extends Controller
         ]);
 
         Survey::create($validate);
-        return redirect("/dashboard/survey")->with('success', "Survey Berhasil Di Tambah");
+        return redirect("/admin/survey")->with('success', "Survey Berhasil Di Tambah");
     }
 
     /**
@@ -77,6 +77,7 @@ class SurveyController extends Controller
      */
     public function destroy(Survey $survey)
     {
-        //
+        $survey->delete();
+        return redirect("/admin/survey")->with('success', "Survey Berhasil Di Hapus");
     }
 }
