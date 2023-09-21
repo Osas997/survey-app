@@ -63,9 +63,9 @@
                 @foreach ($survey as $survei)
                 <tr class="border-b-2">
                     <td></td>
-              
+
                     <td class="font-bold text-xs py-6 ">
-                        <a href="">
+                        <a href="{{ route('admin.pertanyaan', ['survey' => $survei->id])    }}">
                             <span class="sm:text-sm md:text-md ">{{ strtoupper($survei->nama_survey) }}</span>
                         </a>
                     </td>
