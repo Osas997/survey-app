@@ -64,7 +64,7 @@
                <span class="flex-1 ml-3 whitespace-nowrap">Sekolah</span>
             </a>
          </li>
-         @if (auth('guru')->check())
+         @if (auth('sekolah')->check())
          <li>
             <a href="" class="
                @if (Request::is('dashboard/guru*'))
