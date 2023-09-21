@@ -6,7 +6,7 @@
          @if (auth('admin')->check())
          <li>
             <a href="{{route('admin.dashboard')}}" class="
-            @if (Request::is('dashboard'))
+            @if (Request::is('admin/dashboard'))
                 bg-gray-200
             @endif
             flex items-center p-2 text-gray-900 rounded-lg duration-300 ease-in-out   hover:bg-gray-100 group">
@@ -26,7 +26,7 @@
          </li>
          <li>
             <a href="{{ route('admin.survey') }}" class="
-            @if (Request::is('dashboard/survey*'))
+            @if (Request::is('admin/survey*'))
                 bg-gray-200
             @endif
             flex items-center p-2 text-gray-900 rounded-lg duration-300 ease-in-out hover:bg-gray-100  group">
@@ -46,7 +46,7 @@
          </li>
          <li>
             <a href="{{ route('admin.sekolah') }}" class="
-            @if (Request::is('dashboard/sekolah*'))
+            @if (Request::is('admin/sekolah*'))
                 bg-gray-200
             @endif
             flex items-center p-2 text-gray-900 rounded-lg duration-300 ease-in-out hover:bg-gray-100  group">

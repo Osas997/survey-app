@@ -23,7 +23,7 @@ class AuthController extends Controller
         if (Auth::guard("admin")->attempt(["username" => $request->username, "password" => $request->password])) {
             // $request->session()->regenerate();
 
-            return redirect()->intended('/dashboard');
+            return redirect()->intended('/admin/dashboard');
         }
 
         if (Auth::guard("sekolah")->attempt(["npsn" => $request->username, "password" => $request->password])) {
