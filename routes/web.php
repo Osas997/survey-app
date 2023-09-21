@@ -33,33 +33,19 @@ Route::post("/logout", [AuthController::class, "logout"])->name("logout")->middl
 
 Route::middleware("admin")->group(function () {
     Route::get("/dashboard", [DashboardController::class, "index"])->name("admin.dashboard");
-    Route::resource("/dashboard/survey", SurveyController::class)->name("index", "admin.survey")->name("show", "admin.pertanyaan")->name("create", 'admin.tambahSurvey');
+
     Route::resource("/dashboard/sekolah", SekolahController::class)->name("index", "admin.sekolah");
 
+    Route::resource("/dashboard/survey", SurveyController::class)->name("index", "admin.survey")->name("show", "admin.pertanyaan")->name("create", 'admin.tambahSurvey');
 
-
-    Route::get("/dashboard/murid", function () {
-        return view("dashboard.admin.murid", [
-            "title" => "Murid"
-        ]);
-    });
-
-    Route::get("/dashboard/addpertanyaan", function () {
-        return view('dashboard.admin.addPertanyaan', [
-            "title" => "Tambah Pertanyaan"
-        ]);
-    });
-    Route::get("/dashboard/addsekolah", function () {
-        return view('dashboard.admin.addSekolah', [
-            "title" => "Tambah Sekolah"
-        ]);
-    });
+    Route::get('/dashboard/create-pertanyaan/{survey}', [PertanyaanController::class, "create"])->name('admin.tambahPertanyaan');
+    Route::post("/dashboard/pertanyaan", [PertanyaanController::class, "store"]);
 });
 
 Route::middleware("sekolah")->group(function () {
     Route::post("/guru", [GuruController::class, "import"]);
-    Route::get('/guru',[GuruController::class,"create"])->name('guru.addGuru');
-    Route::post("/create-guru", [GuruController::class, "store"]);
+    Route::resource("/guru", GuruController::class);
+
     Route::post("/create-murid", [MuridController::class, "store"]);
 });
 
