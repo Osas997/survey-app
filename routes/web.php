@@ -45,6 +45,7 @@ Route::middleware("admin")->group(function () {
 Route::middleware("sekolah")->group(function () {
     Route::post("/guru", [GuruController::class, "import"]);
     Route::resource("/guru", GuruController::class);
+
     Route::post("/create-murid", [MuridController::class, "store"]);
 });
 
