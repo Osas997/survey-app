@@ -21,27 +21,23 @@ class AuthController extends Controller
         ]);
 
         if (Auth::guard("admin")->attempt(["username" => $request->username, "password" => $request->password])) {
-            // $request->session()->regenerate();
-
+            $request->session()->regenerate();
             return redirect()->intended('/admin/dashboard');
         }
 
         if (Auth::guard("sekolah")->attempt(["npsn" => $request->username, "password" => $request->password])) {
-            // $request->session()->regenerate();
-
+            $request->session()->regenerate();
             return redirect()->intended('/sekolah/dashboard');
         }
 
         if (Auth::guard("guru")->attempt(["nuptk" => $request->username, "password" => $request->password])) {
-            // $request->session()->regenerate();
-
-            return redirect()->intended('/dashboard');
+            $request->session()->regenerate();
+            return redirect()->intended('/guru/dashboard');
         }
 
         if (Auth::guard("murid")->attempt(["nisn" => $request->username, "password" => $request->password])) {
-            // $request->session()->regenerate();
-
-            return redirect()->intended('/dashboard');
+            $request->session()->regenerate();
+            return redirect()->intended('/siswa/dashboard');
         }
 
         return back()->with("loginError", "Username Atau Password Salah");
