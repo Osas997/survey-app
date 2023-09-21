@@ -13,7 +13,7 @@
             </div>
             <input type="search" id="search" name="search" @if (request('search')) value="{{ request('search') }}"
                 @endif
-                class="block w-[360px] md:w-[500px] p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                class="block w-[240px] md:w-[500px] p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="Cari Sekolah">
             <button type="submit"
                 class="text-white absolute right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Search</button>
@@ -28,7 +28,7 @@
     </a>
 
 </div>
-<div class="mt-8 w-full  overflow-x-auto overflow-y-auto">
+<div class="mt-8 w-full overflow-x-auto overflow-y-auto">
     @if ($dataSekolah->isNotEmpty())
         <table class="border-collapse border-none w-max table-fixed text-left sm:w-full">
             <!-- head -->
@@ -47,7 +47,6 @@
                     <th class="font-medium w-22 sm:w-1/8 py-4 text-sm sm:text-base md:text-lg lg:text-xl">
                         <span class="sm:text-base md:text-lg">Status</span>
                     </th>
-                    <th class="hidden lg:block w-[1%]"></th>
                 </tr>
             </thead>
 
@@ -55,9 +54,11 @@
                 @foreach ($dataSekolah as $sekolah)
                 <tr class="border-b-2">
                     <th></th>
-                    <th class="font-bold text-xs py-4">
-                        <span class="sm:text-sm md:text-md">{{ $sekolah->nama_sekolah }}</span>
-                    </th>
+                    <a href="">
+                        <th class="font-bold text-xs py-4">
+                            <span class="sm:text-sm md:text-md">{{ $sekolah->nama_sekolah }}</span>
+                        </th>
+                    </a>
                     <th class="font-normal text-xs py-4">
                         <span class="sm:text-sm md:text-md">{{ $sekolah->npsn }}</span>
                     </th>
@@ -66,15 +67,6 @@
                     </th>
                     <th class="font-normal text-xs py-4">
                         <span class="sm:text-sm md:text-md">{{ $sekolah->status }}</span>
-                    </th>
-                    <th class="hidden lg:block py-4">
-                        <svg class="cursor-pointer w-8 h-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                            <g id="SVGRepo_iconCarrier">
-                                <path d="M6 12H18M18 12L13 7M18 12L13 17" stroke="#7a7a7a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                            </g>
-                        </svg>
                     </th>
                 </tr>
                 @endforeach
