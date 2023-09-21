@@ -18,7 +18,7 @@
         <span class=" md:text-xl">Tambah Sekolah</span>
     </p>
 </div>
-<form action="" method="post">
+<form action="/admin/sekolah" method="post">
     @csrf
     <div class="lg:grid lg:grid-cols-1 lg:place-items-center mt-10">
         <div class="mb-6 lg:w-5/12">
@@ -29,7 +29,7 @@
 
         <div class="mb-6 lg:w-5/12">
             <label for="nama_sekolah" class="block mb-2 text-sm font-medium text-gray-900">Nama Sekolah</label>
-            <input type="text" id="nama_sekolah" name="namaSekolah" placeholder="SDN... "
+            <input type="text" id="nama_sekolah" name="nama_sekolah" placeholder="SDN... "
                 class="bg-slate-50 border-2 border-blue-500 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
         </div>
         <div class="mb-6 lg:w-5/12">
@@ -37,16 +37,23 @@
             <input type="password" id="password" name="password" placeholder="Strong Password"
                 class="bg-slate-50 border-2 border-blue-500 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
         </div>
+
         <div class="mb-6 lg:w-5/12">
             <label for="alamatSekolah" class="block mb-2 text-sm font-medium text-gray-900">Alamat Sekolah</label>
-            <input type="text" id="alamatSekolah" name="alamatSekolah" placeholder="Jl. Raya.. "
+            <input type="text" id="alamatSekolah" name="alamat_sekolah" placeholder="Jl. Raya.. "
                 class="bg-slate-50 border-2 border-blue-500 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
         </div>
+
         <div class="mb-6 lg:w-5/12">
-            <label for="status" class="block mb-2 text-sm font-medium text-gray-900">Status Sekolah</label>
-            <input type="text" id="status" name="status" placeholder="Negeri/Swasta"
-                class="bg-slate-50 border-2 border-blue-500 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+            <label for="status" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Status
+                Sekolah</label>
+            <select id="status" name="status"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                <option value="negeri">Negeri</option>
+                <option value="swasta">Swasta</option>
+            </select>
         </div>
+
     </div>
     <div class="md:flex md:justify-center md:items-center  md:flex-row md:gap-4 min-w-full md:w-1/2 ">
         <button type="submit"
@@ -54,6 +61,8 @@
             <span class="text-white whitespace-nowrap  text-md">Submit</span>
         </button>
     </div>
+
+
 </form>
 
 @endsection

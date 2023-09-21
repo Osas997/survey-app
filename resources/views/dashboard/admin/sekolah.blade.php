@@ -64,7 +64,7 @@
                 <th></th>
                 <a href="">
                     <th class="font-bold text-xs py-4">
-                        <span class="sm:text-sm md:text-md">{{ $sekolah->nama_sekolah }}</span>
+                        <span class="sm:text-sm md:text-md uppercase">{{ $sekolah->nama_sekolah }}</span>
                     </th>
                 </a>
                 <th class="font-normal text-xs py-4">
