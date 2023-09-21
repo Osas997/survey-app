@@ -43,6 +43,7 @@ Route::middleware("admin")->group(function () {
 });
 
 Route::middleware("sekolah")->group(function () {
+    Route::get("/sekolah/dashboard", [DashboardController::class, "indexSekolah"]);
     Route::post("/guru", [GuruController::class, "import"]);
     Route::resource("/guru", GuruController::class);
 

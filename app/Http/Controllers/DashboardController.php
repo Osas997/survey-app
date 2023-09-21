@@ -12,4 +12,10 @@ class DashboardController extends Controller
             "title" => "Admin Dashboard"
         ]);
     }
+    public function indexSekolah()
+    {
+        return view('dashboard.sekolah.dashboard',[
+            'title'=> "Sekolah Dashboard"
+        ]);
+    }
 }
