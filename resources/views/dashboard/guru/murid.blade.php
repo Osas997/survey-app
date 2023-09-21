@@ -2,7 +2,7 @@
 @section('content')
     <div class="flex justify-start items-center gap-5">
         <p class="font-bold text-lg my-0">
-            <span class=" md:text-xl">SDN 2 Banyuwangi</span>
+            <span class=" md:text-xl">Murid SDN 2 Banyuwangi</span>
         </p>
     </div>
     <div class="flex justify-start items-center gap-4 mt-10  ">
