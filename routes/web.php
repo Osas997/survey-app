@@ -42,10 +42,13 @@ Route::middleware("admin")->group(function () {
     Route::post("/dashboard/pertanyaan", [PertanyaanController::class, "store"]);
 });
 
-Route::middleware("sekolah")->group(function () {
-    Route::get("/sekolah/dashboard", [DashboardController::class, "indexSekolah"]);
-    Route::post("/guru", [GuruController::class, "import"]);
-    Route::resource("/guru", GuruController::class);
+
+Route::middleware("sekolah")->prefix('sekolah')->group(function () {
+    Route::get("/dashboard", [DashboardController::class, "indexSekolah"])->name('sekolah.dashboard');
+
+    Route::resource("/guru", GuruController::class)->name("index", "sekolah.guru");
+
+    // Route::post("/guru   ", [GuruController::class, "import"]);
 
     Route::post("/create-murid", [MuridController::class, "store"]);
 });
