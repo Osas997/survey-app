@@ -23,7 +23,9 @@ class SekolahController extends Controller
      */
     public function create()
     {
-        //
+        return view("dashboard.admin.addSekolah", [
+            "title" => "Tambah Sekolah",
+        ]);
     }
 
     /**

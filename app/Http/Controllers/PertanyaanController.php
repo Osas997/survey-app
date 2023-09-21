@@ -28,4 +28,10 @@ class PertanyaanController extends Controller
         Pertanyaan::create($validate);
         return redirect("/admin/survey/" . $validate['id_survey'])->with('success', "Guru Berhasil Di Tambah");
     }
+
+    public function destroy(Pertanyaan $pertanyaan)
+    {
+        $pertanyaan->delete();
+        return redirect()->back()->with('success', "Survey Berhasil Di Hapus");
+    }
 }

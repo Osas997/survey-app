@@ -34,12 +34,13 @@ Route::post("/logout", [AuthController::class, "logout"])->name("logout")->middl
 Route::middleware("admin")->prefix('admin')->group(function () {
     Route::get("/dashboard", [DashboardController::class, "index"])->name("admin.dashboard");
 
-    Route::resource("/sekolah", SekolahController::class)->name("index", "admin.sekolah");
+    Route::resource("/sekolah", SekolahController::class)->name("index", "admin.sekolah")->name("create", "admin.tambahSekolah");
 
     Route::resource("/survey", SurveyController::class)->name("index", "admin.survey")->name("show", "admin.pertanyaan")->name("create", 'admin.tambahSurvey');
 
     Route::get('/create-pertanyaan/{survey}', [PertanyaanController::class, "create"])->name('admin.tambahPertanyaan');
     Route::post("/pertanyaan", [PertanyaanController::class, "store"]);
+    Route::delete("/pertanyaan/{pertanyaan}", [PertanyaanController::class, "destroy"])->name('admin.hapusPertanyaan');
 });
 
 
