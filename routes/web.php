@@ -31,15 +31,15 @@ Route::middleware("sudahlogin")->group(function () {
 
 Route::post("/logout", [AuthController::class, "logout"])->name("logout")->middleware("auth:admin,sekolah,guru,murid");
 
-Route::middleware("admin")->group(function () {
+Route::middleware("admin")->prefix('admin')->group(function () {
     Route::get("/dashboard", [DashboardController::class, "index"])->name("admin.dashboard");
 
-    Route::resource("/dashboard/sekolah", SekolahController::class)->name("index", "admin.sekolah");
+    Route::resource("/sekolah", SekolahController::class)->name("index", "admin.sekolah");
 
-    Route::resource("/dashboard/survey", SurveyController::class)->name("index", "admin.survey")->name("show", "admin.pertanyaan")->name("create", 'admin.tambahSurvey');
+    Route::resource("/survey", SurveyController::class)->name("index", "admin.survey")->name("show", "admin.pertanyaan")->name("create", 'admin.tambahSurvey');
 
-    Route::get('/dashboard/create-pertanyaan/{survey}', [PertanyaanController::class, "create"])->name('admin.tambahPertanyaan');
-    Route::post("/dashboard/pertanyaan", [PertanyaanController::class, "store"]);
+    Route::get('/create-pertanyaan/{survey}', [PertanyaanController::class, "create"])->name('admin.tambahPertanyaan');
+    Route::post("/pertanyaan", [PertanyaanController::class, "store"]);
 });
 
 
@@ -48,7 +48,7 @@ Route::middleware("sekolah")->prefix('sekolah')->group(function () {
 
     Route::resource("/guru", GuruController::class)->name("index", "sekolah.guru");
 
-    // Route::post("/guru   ", [GuruController::class, "import"]);
+    // Route::post("/guru", [GuruController::class, "import"]);
 
     Route::post("/create-murid", [MuridController::class, "store"]);
 });
