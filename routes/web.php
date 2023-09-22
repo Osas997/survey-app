@@ -76,9 +76,14 @@ Route::middleware("sekolah")->prefix('sekolah')->group(function () {
 Route::middleware("guru-sekolah")->group(function () {
     Route::get("/murid", [SekolahController::class, "store"]);
 });
-
-Route::middleware("murid")->group(function () {
+Route::middleware("murid")->prefix('murid')->group(function () {
     Route::get("/survey", function () {
         return "Hello siswa";
     });
+    Route::get('/dashboard',function(){
+        return view('dashboard.murid.dashboard',[
+            'title'=>'Dashboard Murid'
+        ]);
+    });
 });
+
