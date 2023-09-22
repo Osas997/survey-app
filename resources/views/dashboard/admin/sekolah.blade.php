@@ -55,6 +55,7 @@
                 <th class="font-medium w-22 sm:w-1/8 py-4 text-sm sm:text-base md:text-lg lg:text-xl">
                     <span class="sm:text-base md:text-lg">Status</span>
                 </th>
+                <th></th>
             </tr>
         </thead>
 
@@ -76,6 +77,13 @@
                 <td class="font-normal text-xs py-4">
                     <span class="sm:text-sm md:text-md">{{ $sekolah->status }}</span>
                 </td>
+                <td class="font-normal text-xs py-4">
+                    <div class="flex justify-center items-center gap-2">
+                        <a href="" class="text-white duration-300 ease-in-out bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0">Guru</a>
+                        <a href="" class="text-white duration-300 ease-in-out bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0">Murid</a>
+                    </div>
+                </td>
+                
             </tr>
             @endforeach
         </tbody>
