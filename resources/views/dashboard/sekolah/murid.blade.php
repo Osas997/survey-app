@@ -25,7 +25,7 @@
             </div>
         </a>
     </div>
-    <div class="mt-8 w-full  overflow-x-auto overflow-y-auto">
+    <div class="mt-8 w-full  overflow-x-auto overflow-y-auto rounded-lg" >
         @if ($dataSekolah->isNotEmpty())
         <table class="w-full text-sm text-left text-gray-500 ">
             <thead class="text-xs text-white uppercase bg-blue-500 dark:bg-gray-700 ">
@@ -48,7 +48,7 @@
                 </tr>
             </thead>
             <tbody>
-                {{-- @foreach (  ) --}}
+                @foreach ($dataSekolah as $sekolah)
                 <tr class="bg-white border-b  hover:bg-gray-50 ">
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
                         <a href="/sekolah/siswa/" class="cursor-pointer">
