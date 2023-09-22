@@ -31,44 +31,41 @@
             <thead class="text-xs text-white uppercase bg-blue-500 dark:bg-gray-700 ">
                 <tr>
                     <th scope="col" class="px-6 py-3">
-                        Sekolah
+                        Nama Murid
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        NPSN
+                        NISN
                     </th>
                     <th scope="col" class="px-6 py-3">
                         Alamat
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Status
+                        Jenis kelamin
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        <span class="sr-only">Action</span>
+                        Status
                     </th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($dataSekolah as $sekolah)
+                @foreach ( as )
                 <tr class="bg-white border-b  hover:bg-gray-50 ">
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
-                        <a href="/admin/siswa/{{ $sekolah->id }}" class="cursor-pointer">
-                            <span class="sm:text-sm md:text-md uppercase">{{ $sekolah->nama_sekolah }}</span>
+                        <a href="/admin/siswa/" class="cursor-pointer">
+                            <span class="sm:text-sm md:text-md uppercase">Jhon Doe</span>
                         </a>
                     </th>
                     <td class="px-6 py-4">
-                        <span class="sm:text-sm md:text-md">{{ $sekolah->npsn }}</span>
+                        <span class="sm:text-sm md:text-md">12314</span>
                     </td>
                     <td class="px-6 py-4">
-                        <span class="sm:text-sm md:text-md">{{ $sekolah->alamat_sekolah }}</span>
+                        <span class="sm:text-sm md:text-md">Jl Banyuwangi</span>
                     </td>
                     <td class="px-6 py-4">
-                        <span class="sm:text-sm md:text-md">{{ $sekolah->status }}</span>
+                        <span class="sm:text-sm md:text-md">Laki Laki</span>
                     </td>
                     <td class="px-6 py-4 text-right">
-                        <div class="flex justify-center items-center gap-1">
-                            <a href="" class="text-blue-500 duration-300 ease-in-out underline text-sm text-center mr-3 md:mr-0">Guru</a>
-                            <a href="" class="text-blue-500 duration-300 ease-in-out underline text-sm text-center mr-3 md:mr-0">Murid</a>
-                        </div>
+                        <span class="sm:text-sm md:text-md">Korban</span>
                     </td>
                 </tr>
                 @endforeach
