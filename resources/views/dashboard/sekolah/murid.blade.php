@@ -26,109 +26,57 @@
         </a>
     </div>
     <div class="mt-8 w-full  overflow-x-auto overflow-y-auto">
-        <table class="border-collapse border-none w-max table-fixed text-left sm:w-full">
-            <!-- head -->
-            <thead>
-                <tr class="bg-[#0090D4] text-white w-full">
-                    <th class="w-[2%]"></th>
-                    <th class="mx-2 font-medium w-20 sm:w-[18%] py-4  text-sm">
-                        <span class="sm:text-base md:text-lg ">Nama</span>
+        @if ($dataSekolah->isNotEmpty())
+        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+            <thead class="text-xs text-white uppercase bg-blue-500 dark:bg-gray-700 dark:text-gray-400">
+                <tr>
+                    <th scope="col" class="px-6 py-3">
+                        Sekolah
                     </th>
-                    <th class="font-medium w-24 sm:w-[22%] py-4 text-sm  ">
-                        <span class="sm:text-base md:text-lg ">NISN</span>
+                    <th scope="col" class="px-6 py-3">
+                        NPSN
                     </th>
-                    <th class="font-medium w-24 sm:w-[22%] py-4 text-sm  sm:text-base md:text-lg lg:text-xl">
-                        <span class="sm:text-base md:text-lg ">Alamat</span>
+                    <th scope="col" class="px-6 py-3">
+                        Alamat
                     </th>
-                    <th class="font-medium w-40 sm:w-[20%] py-4 text-sm  sm:text-base md:text-lg lg:text-xl">
-                        <span class="sm:text-base md:text-lg ">Jenis Kelamin</span>
+                    <th scope="col" class="px-6 py-3">
+                        Status
                     </th>
-                    <th class="font-medium w-40 sm:w-[20%] py-4 text-sm sm:text-base md:text-lg lg:text-xl">
-                        <span class="sm:text-base md:text-lg ">Status</span>
+                    <th scope="col" class="px-6 py-3">
+                        <span class="sr-only">Action</span>
                     </th>
-             
                 </tr>
             </thead>
             <tbody>
-                <tr class="border-b-2">
-                    <th></th>
-                    <th class="font-bold text-xs py-6 ">
-                        <span class="sm:text-sm md:text-md ">Jhon Doe</span>
+                @foreach ($dataSekolah as $sekolah)
+                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        <a href="/admin/siswa/{{ $sekolah->id }}" class="cursor-pointer">
+                            <span class="sm:text-sm md:text-md uppercase">{{ $sekolah->nama_sekolah }}</span>
+                        </a>
                     </th>
-                    <th class="font-normal text-xs py-6 ">
-                        <span class="sm:text-sm md:text-md ">12315123</span>
-                    </th>
-                    <th class="font-normal text-xs py-6 ">
-                        <span class="sm:text-sm md:text-md ">Jl Banyuwangi No 2</span>
-                    </th>
-                    <th class="font-normal text-xs py-6 ">
-                        <span class="sm:text-sm md:text-md ">Laki Laki</span>
-                    </th>
-                    <th class="font-normal text-xs py-6 ">
-                        <span class="sm:text-sm md:text-md ">diPerundung</span>
-                    </th>
-            
+                    <td class="px-6 py-4">
+                        <span class="sm:text-sm md:text-md">{{ $sekolah->npsn }}</span>
+                    </td>
+                    <td class="px-6 py-4">
+                        <span class="sm:text-sm md:text-md">{{ $sekolah->alamat_sekolah }}</span>
+                    </td>
+                    <td class="px-6 py-4">
+                        <span class="sm:text-sm md:text-md">{{ $sekolah->status }}</span>
+                    </td>
+                    <td class="px-6 py-4 text-right">
+                        <div class="flex justify-center items-center gap-1">
+                            <a href="" class="text-blue-500 duration-300 ease-in-out underline text-sm text-center mr-3 md:mr-0">Guru</a>
+                            <a href="" class="text-blue-500 duration-300 ease-in-out underline text-sm text-center mr-3 md:mr-0">Murid</a>
+                        </div>
+                    </td>
                 </tr>
-                <tr class="border-b-2">
-                    <th></th>
-                    <th class="font-bold text-xs py-6 ">
-                        <span class="sm:text-sm md:text-md ">Jhon Doe</span>
-                    </th>
-                    <th class="font-normal text-xs py-6 ">
-                        <span class="sm:text-sm md:text-md ">12315123</span>
-                    </th>
-                    <th class="font-normal text-xs py-6 ">
-                        <span class="sm:text-sm md:text-md ">Jl Banyuwangi No 2</span>
-                    </th>
-                    <th class="font-normal text-xs py-6 ">
-                        <span class="sm:text-sm md:text-md ">Laki Laki</span>
-                    </th>
-                    <th class="font-normal text-xs py-6 ">
-                        <span class="sm:text-sm md:text-md ">diPerundung</span>
-                    </th>
-                
-                </tr>
-                <tr class="border-b-2">
-                    <th></th>
-                    <th class="font-bold text-xs py-6 ">
-                        <span class="sm:text-sm md:text-md ">Jhon Doe</span>
-                    </th>
-                    <th class="font-normal text-xs py-6 ">
-                        <span class="sm:text-sm md:text-md ">12315123</span>
-                    </th>
-                    <th class="font-normal text-xs py-6 ">
-                        <span class="sm:text-sm md:text-md ">Jl Banyuwangi No 2</span>
-                    </th>
-                    <th class="font-normal text-xs py-6 ">
-                        <span class="sm:text-sm md:text-md ">Laki Laki</span>
-                    </th>
-                    <th class="font-normal text-xs py-6 ">
-                        <span class="sm:text-sm md:text-md ">diPerundung</span>
-                    </th>
-                  
-                </tr>
-                <tr class="border-b-2">
-                    <th></th>
-                    <th class="font-bold text-xs py-6 ">
-                        <span class="sm:text-sm md:text-md ">Jhon Doe</span>
-                    </th>
-                    <th class="font-normal text-xs py-6 ">
-                        <span class="sm:text-sm md:text-md ">12315123</span>
-                    </th>
-                    <th class="font-normal text-xs py-6 ">
-                        <span class="sm:text-sm md:text-md ">Jl Banyuwangi No 2</span>
-                    </th>
-                    <th class="font-normal text-xs py-6 ">
-                        <span class="sm:text-sm md:text-md ">Laki Laki</span>
-                    </th>
-                    <th class="font-normal text-xs py-6 ">
-                        <span class="sm:text-sm md:text-md ">diPerundung</span>
-                    </th>
-                  
-                </tr>
-               
+                @endforeach
             </tbody>
         </table>
+         @else
+        <h1 class="text-center text-2xl font-bold text-red-600 mt-20">Sekolah TIdak ditemukan</h1>
+        @endif
     </div>
     
 @endsection

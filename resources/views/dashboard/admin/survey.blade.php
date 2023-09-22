@@ -35,8 +35,50 @@
         </a>
     </div>
 
-    <div class="mt-8 w-full  overflow-x-auto overflow-y-auto">
+    <div class="mt-8 w-full  overflow-x-auto overflow-y-auto rounded-lg">
         @if ($survey->isNotEmpty())
+        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+            <thead class="text-xs text-white uppercase  bg-blue-500 dark:bg-gray-700 dark:text-gray-400">
+                <tr>
+                    <th scope="col" class="px-6 py-3">
+                        Survey
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Pertanyaan
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Responded
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Date
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($survey as $survei)
+                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        <a href="{{ route('admin.pertanyaan', ['survey' => $survei->id])    }}">
+                            <span class="sm:text-sm md:text-md ">{{ strtoupper($survei->nama_survey) }}</span>
+                        </a>
+                    </th>
+                    <td class="px-6 py-4">
+                        <span class="sm:text-sm md:text-md text-center">{{ $survei->pertanyaan_count }} Pertanyaan</span>
+                    </td>
+                    <td class="px-6 py-4">
+                        <span class="sm:text-sm md:text-md ">24 Responded</span>
+                    </td>
+                    <td class="px-6 py-4">
+                        <span class="sm:text-sm md:text-md ">{{ $survei->created_at->format("M d Y")}}</span>
+                    </td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+        @else
+        <h1 class="text-center text-2xl font-bold text-red-600 mt-20">Survey Tidak ditemukan</h1>
+        @endif
+        {{-- @if ($survey->isNotEmpty())
         <table class="border-collapse border-none w-max table-fixed text-left sm:w-full">
             <!-- head -->
             <thead>
@@ -83,7 +125,7 @@
         </table>
         @else
         <h1 class="text-center text-2xl font-bold text-red-600 mt-20">Survey Tidak ditemukan</h1>
-        @endif
+        @endif --}}
 
     </div>
 
