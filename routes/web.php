@@ -36,7 +36,7 @@ Route::middleware("admin")->prefix('admin')->group(function () {
 
     Route::resource("/sekolah", SekolahController::class)->name("index", "admin.sekolah")->name("create", "admin.tambahSekolah");
 
-    Route::resource("/survey", SurveyController::class)->name("index", "admin.survey")->name("show", "admin.pertanyaan")->name("create", 'admin.tambahSurvey')->name('edit', 'admin.viewEditSurvey');
+    Route::resource("/survey", SurveyController::class)->name("index", "admin.survey")->name("show", "admin.pertanyaan")->name("create", 'admin.tambahSurvey')->name('edit', 'admin.viewEditSurvey')->name('update', 'admin.editSurvey');
 
     Route::get('/pertanyaan/create/{survey}', [PertanyaanController::class, "create"])->name('admin.viewTambahPertanyaan');
     Route::get("/pertanyaan/edit/{pertanyaan}", [PertanyaanController::class, "edit"])->name('admin.viewEditPertanyaan');
@@ -82,10 +82,9 @@ Route::middleware("murid")->prefix('murid')->group(function () {
     Route::get("/survey", function () {
         return "Hello siswa";
     });
-    Route::get('/dashboard',function(){
-        return view('dashboard.murid.dashboard',[
-            'title'=>'Dashboard Murid'
+    Route::get('/dashboard', function () {
+        return view('dashboard.murid.dashboard', [
+            'title' => 'Dashboard Murid'
         ]);
     });
 });
-
