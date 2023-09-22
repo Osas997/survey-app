@@ -48,7 +48,7 @@
                 </tr>
             </thead>
             <tbody>
-                {{-- @foreach ( as ) --}}
+                {{-- @foreach (  ) --}}
                 <tr class="bg-white border-b  hover:bg-gray-50 ">
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
                         <a href="/sekolah/siswa/" class="cursor-pointer">
