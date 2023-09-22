@@ -51,13 +51,17 @@ Route::middleware("sekolah")->prefix('sekolah')->group(function () {
 
     Route::resource("/guru", GuruController::class)->name("index", "sekolah.guru")->name("create", "sekolah.viewTambahGuru")->name('store', 'sekolah.tambahGuru');
 
-    // Route::post("/guru", [GuruController::class, "import"]);
     Route::resource("/murid", MuridController::class)->name("index", "sekolah.murid")->name("create", "sekolah.viewTambahMurid")->name('store', 'sekolah.tambahMurid');
+
+    // Route::post("/guru", [GuruController::class, "import"]);
 });
 
-Route::middleware("guru-sekolah")->group(function () {
-    Route::get("/murid", [SekolahController::class, "store"]);
+
+Route::middleware("guru")->prefix('guru')->group(function () {
+    Route::get("/dashboard", [DashboardController::class, "indexGuru"])->name('guru.dashboard');
+    // Route::get("/murid", [SekolahController::class, "store"]);
 });
+
 Route::middleware("murid")->prefix('murid')->group(function () {
     Route::get("/survey", function () {
         return "Hello siswa";
@@ -68,3 +72,7 @@ Route::middleware("murid")->prefix('murid')->group(function () {
         ]);
     });
 });
+
+// Route::middleware("guru-sekolah")->group(function () {
+//     Route::get("/murid", [SekolahController::class, "store"]);
+// });
