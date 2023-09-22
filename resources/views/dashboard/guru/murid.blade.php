@@ -48,7 +48,7 @@
                 </tr>
             </thead>
             <tbody>
-                {{-- @foreach (  ) --}}
+                @foreach ($dataSekolah as $sekolah) 
                 <tr class="bg-white border-b  hover:bg-gray-50 ">
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
                         <a href="/admin/siswa/" class="cursor-pointer">
@@ -75,5 +75,4 @@
         <h1 class="text-center text-2xl font-bold text-red-600 mt-20">Sekolah TIdak ditemukan</h1>
         @endif
     </div>
-    
 @endsection

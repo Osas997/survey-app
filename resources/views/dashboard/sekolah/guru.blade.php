@@ -2,7 +2,7 @@
 @section('content')
     <div class="flex justify-start items-center gap-5">
         <p class="font-bold text-lg my-0">
-            <span class=" md:text-xl">Guru SDN 2 Banyuwangi</span>
+            <span class=" md:text-xl">Guru {{ auth('sekolah')->user()->nama_sekolah }}</span>
         </p>
     </div>
     <div class="flex justify-start items-center gap-4 mt-10  ">
@@ -25,10 +25,10 @@
             </div>
         </a>
     </div>
-    <div class="mt-8 w-full  overflow-x-auto overflow-y-auto">
-        @if ($dataSekolah->isNotEmpty())
+    <div class="mt-8 w-full  overflow-x-auto overflow-y-auto rounded-lg">
+        @if ($daftarGuru->isNotEmpty())
         <table class="w-full text-sm text-left text-gray-500 ">
-            <thead class="text-xs text-white uppercase bg-blue-500 dark:bg-gray-700 ">
+            <thead class="text-xs text-white uppercase bg-blue-500  dark:bg-gray-700 ">
                 <tr>
                     <th scope="col" class="px-6 py-3">
                         Nama 
@@ -42,7 +42,7 @@
                 </tr>
             </thead>
             <tbody>
-                {{-- @foreach ( ) --}}
+                @foreach ($daftarGuru as $item)
                 <tr class="bg-white border-b  hover:bg-gray-50 ">
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
                         <span class="sm:text-sm md:text-md uppercase">Jhon Doe</span>

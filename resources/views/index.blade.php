@@ -7,7 +7,8 @@
         <nav class="bg-[#0090D4] w-full z-20 top-0 left-0  ">
             <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
                 
-                <a href="" class="flex items-center">
+                <a href="" class="flex items-center gap-2 justify-center">
+                    <img src="{{asset('assets/img/white-logo.png')}}" alt="" srcset="" class="w-8 h-auto">
                     <span class="self-center text-2xl font-semibold whitespace-nowrap text-white">Survey App</span>
                 </a>
                 <div class="flex md:order-2">
@@ -119,7 +120,7 @@
         <section class="mt-10 px-4 pb-10 bg-white" id="survey">
             <div class="max-w-screen-xl  mx-auto p-4">
                 <h1 class="text-center font-semibold text-3xl mb-6">Survey</h1>
-                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <div class="grid grid:grid-col-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                     <div
                         class="max-w-sm p-6 bg-[#C7FFDE] w-full h-52 rounded-lg shadow flex justify-center items-center flex-col hover:bg-[#0090D4] duration-300 ease-in-out relative group">
                         <h1

@@ -44,7 +44,7 @@
         </div>
     </nav>
     <div class="max-w-screen-xl mx-auto px-10 mt-10">
-        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
             <div
                 class="max-w-sm p-6 bg-[#C7FFDE] w-full h-52 rounded-3xl shadow flex justify-center items-center flex-col hover:bg-[#0090D4] duration-300 ease-in-out relative group">
                 <h1
