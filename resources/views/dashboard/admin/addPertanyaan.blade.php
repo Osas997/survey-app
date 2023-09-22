@@ -19,7 +19,7 @@
         <span class=" md:text-xl">Tambah Pertanyaan</span>
     </p>
 </div>
-<form action="/admin/pertanyaan" method="post">
+<form action="{{ route('admin.tambahPertanyaan') }}" method="post">
     @csrf
     <input type="hidden" name="id_survey" value="{{ $surveyId }}">
     <div class="lg:grid lg:grid-cols-1 lg:place-items-center mt-10">

@@ -10,8 +10,6 @@ class PertanyaanController extends Controller
 {
     public function create(Survey $survey)
     {
-        $survey = $survey->load("pertanyaan");
-
         return view('dashboard.admin.addPertanyaan', [
             "title" => "Tambah Pertanyaan",
             "surveyId" => $survey->id
@@ -26,7 +24,27 @@ class PertanyaanController extends Controller
         ]);
 
         Pertanyaan::create($validate);
-        return redirect("/admin/survey/" . $validate['id_survey'])->with('success', "Guru Berhasil Di Tambah");
+        return redirect("/admin/survey/" . $validate['id_survey'])->with('success', "Pertanyaan Berhasil Di Tambah");
+    }
+
+    public function edit(Pertanyaan $pertanyaan)
+    {
+        return view('dashboard.admin.editPertanyaan', [
+            "title" => "Edit Pertanyaan | " . $pertanyaan->pertanyaan,
+            "pertanyaan" => $pertanyaan
+        ]);
+    }
+
+    public function update(Request $request, Pertanyaan $pertanyaan)
+    {
+        $validate = $request->validate([
+            "pertanyaan" => "required",
+            "id_survey" => "required"
+        ]);
+
+        $pertanyaan->update($validate);
+
+        return redirect("/admin/survey/" . $validate['id_survey'])->with('success', "Pertanyaan Berhasil Di Edit");
     }
 
     public function destroy(Pertanyaan $pertanyaan)

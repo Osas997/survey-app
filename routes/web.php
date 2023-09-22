@@ -36,10 +36,12 @@ Route::middleware("admin")->prefix('admin')->group(function () {
 
     Route::resource("/sekolah", SekolahController::class)->name("index", "admin.sekolah")->name("create", "admin.tambahSekolah");
 
-    Route::resource("/survey", SurveyController::class)->name("index", "admin.survey")->name("show", "admin.pertanyaan")->name("create", 'admin.tambahSurvey');
+    Route::resource("/survey", SurveyController::class)->name("index", "admin.survey")->name("show", "admin.pertanyaan")->name("create", 'admin.tambahSurvey')->name('edit', 'admin.viewEditSurvey');
 
-    Route::get('/create-pertanyaan/{survey}', [PertanyaanController::class, "create"])->name('admin.tambahPertanyaan');
-    Route::post("/pertanyaan", [PertanyaanController::class, "store"]);
+    Route::get('/pertanyaan/create/{survey}', [PertanyaanController::class, "create"])->name('admin.viewTambahPertanyaan');
+    Route::get("/pertanyaan/edit/{pertanyaan}", [PertanyaanController::class, "edit"])->name('admin.viewEditPertanyaan');
+    Route::put("/pertanyaan/edit/{pertanyaan}", [PertanyaanController::class, "update"])->name('admin.editPertanyaan');
+    Route::post("/pertanyaan", [PertanyaanController::class, "store"])->name('admin.tambahPertanyaan');
     Route::delete("/pertanyaan/{pertanyaan}", [PertanyaanController::class, "destroy"])->name('admin.hapusPertanyaan');
 });
 
@@ -53,19 +55,19 @@ Route::middleware("sekolah")->prefix('sekolah')->group(function () {
 
     // routing Test
     //
-    Route::get('/murid',function(){
-        return view('dashboard.sekolah.murid',[
-            'title'=>"Murid"
+    Route::get('/murid', function () {
+        return view('dashboard.sekolah.murid', [
+            'title' => "Murid"
         ]);
     });
-    Route::get('/guru/create',function(){
-        return view('dashboard.sekolah.addGuru',[
-            'title'=>"Tambah Guru"
+    Route::get('/guru/create', function () {
+        return view('dashboard.sekolah.addGuru', [
+            'title' => "Tambah Guru"
         ]);
     });
-    Route::get('/murid/create',function(){
-        return view('dashboard.sekolah.addMurid',[
-            'title'=>"Tambah Murid"
+    Route::get('/murid/create', function () {
+        return view('dashboard.sekolah.addMurid', [
+            'title' => "Tambah Murid"
         ]);
     });
     //

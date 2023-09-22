@@ -60,7 +60,10 @@ class SurveyController extends Controller
      */
     public function edit(Survey $survey)
     {
-        //
+        //     return view('dashboard.admin.', [
+        //         "title" => "Edit Pertanyaan | " . $pertanyaan->pertanyaan,
+        //         "pertanyaan" => $pertanyaan
+        //     ]);
     }
 
     /**
