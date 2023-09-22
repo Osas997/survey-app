@@ -22,7 +22,7 @@
 
 
     <div class="md:flex md:justify-center md:items-center  md:flex-row md:gap-4 min-w-full sm:min-w-fit ">
-        <a href="{{ route('admin.tambahPertanyaan',['survey'=> $survey->id]) }}">
+        <a href="{{ route('admin.viewTambahPertanyaan',['survey'=> $survey->id]) }}">
             <div
                 class="bg-lime-500 rounded-lg flex justify-center items-center px-8 w-full h-12 mt-4 hover:bg-lime-600 duration-300 ease-in-out ">
                 <span class="text-white whitespace-nowrap  text-md">Tambah Pertanyaan</span>
@@ -38,7 +38,7 @@
                 </div>
             </div>
         </a>
-        <a href="{{ route('admin.tambahPertanyaan',['survey'=> $survey->id]) }}">
+        <a href="{{ route('admin.viewEditSurvey',['survey'=> $survey->id]) }}">
             <div
                 class="bg-[#0062CE] rounded-lg flex justify-center items-center px-8 w-full h-12 mt-4 hover:bg-blue-600 duration-300 ease-in-out ">
                 <span class="text-white whitespace-nowrap  text-md">Edit Survey</span>
@@ -88,11 +88,12 @@
         <div class="flex justify-between items-start gap-16">
             <div class="flex justify-center items-start gap-4">
                 <span class="text-xl">{{ $loop->iteration }}. </span>
-                <p class="text-black  text-sm md:text-base lg:text-lg">{{$pertanyaan->pertanyaan}} . <span class="text-slate-400 font-normal text-sm">{{
-                    $pertanyaan->created_at->diffForHumans() }}</span></p>
+                <p class="text-black  text-sm md:text-base lg:text-lg">{{$pertanyaan->pertanyaan}} . <span
+                        class="text-slate-400 font-normal text-sm">{{
+                        $pertanyaan->created_at->diffForHumans() }}</span></p>
             </div>
             <div class="flex justify-center items-center flex-col gap-2 mt-5 md:mt-0">
-                <a href="">
+                <a href="{{ route('admin.viewEditPertanyaan',['pertanyaan' => $pertanyaan->id] ) }}">
                     <div
                         class="bg-[#0062CE] rounded-lg flex justify-center items-center  w-10 h-10 hover:bg-blue-600 duration-300 ease-in-out ">
                         <span class="text-white whitespace-nowrap sr-only text-xs">Edit Pertanyaan</span>

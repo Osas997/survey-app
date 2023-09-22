@@ -10,4 +10,9 @@ class Pertanyaan extends Model
     use HasFactory;
     protected $table = "pertanyaan";
     protected $guarded = ["id"];
+
+    public function survey()
+    {
+        return $this->belongsTo(Survey::class, 'id_survey', 'id');
+    }
 }
