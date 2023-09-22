@@ -50,6 +50,25 @@ Route::middleware("sekolah")->prefix('sekolah')->group(function () {
 
     // Route::post("/guru", [GuruController::class, "import"]);
 
+    // routing Test
+    //
+    Route::get('/murid',function(){
+        return view('dashboard.sekolah.murid',[
+            'title'=>"Murid"
+        ]);
+    });
+    Route::get('/guru/create',function(){
+        return view('dashboard.sekolah.addGuru',[
+            'title'=>"Tambah Guru"
+        ]);
+    });
+    Route::get('/murid/create',function(){
+        return view('dashboard.sekolah.addMurid',[
+            'title'=>"Tambah Murid"
+        ]);
+    });
+    //
+
     Route::post("/create-murid", [MuridController::class, "store"]);
 });
 
