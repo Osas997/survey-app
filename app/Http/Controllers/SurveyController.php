@@ -60,10 +60,10 @@ class SurveyController extends Controller
      */
     public function edit(Survey $survey)
     {
-        //     return view('dashboard.admin.', [
-        //         "title" => "Edit Pertanyaan | " . $pertanyaan->pertanyaan,
-        //         "pertanyaan" => $pertanyaan
-        //     ]);
+        return view('dashboard.admin.editSurvey', [
+            "title" => "Edit Pertanyaan | " . $survey->nama_survey,
+            "survey" => $survey
+        ]);
     }
 
     /**
@@ -71,7 +71,13 @@ class SurveyController extends Controller
      */
     public function update(Request $request, Survey $survey)
     {
-        //
+        $validate = $request->validate([
+            "nama_survey" => "required",
+            "deskripsi" => "required"
+        ]);
+
+        $survey->update($validate);
+        return redirect("/admin/survey/" . $survey->id)->with('success', "Pertanyaan Berhasil Di Edit");
     }
 
     /**
