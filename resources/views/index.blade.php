@@ -6,32 +6,42 @@
         {{-- nav --}}
         <nav class="bg-[#0090D4] w-full z-20 top-0 left-0  ">
             <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-      
+
                 <a href="" class="flex items-center">
                     <span class="self-center text-2xl font-semibold whitespace-nowrap text-white">Survey App</span>
                 </a>
                 <div class="flex md:order-2">
-                    
-                    <a href="" class="text-white hidden md:inline-flex duration-300 ease-in-out bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0">Login</a>
-                    <button data-collapse-toggle="navbar-sticky" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-sky-700 duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-gray-200  " aria-controls="navbar-sticky" aria-expanded="false">
-                    <span class="sr-only">Open main menu</span>
-                    <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-                        <path stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
-                    </svg>
-                </button>
+
+                    <a href="{{ route('login') }}"
+                        class="text-white hidden md:inline-flex duration-300 ease-in-out bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0">Login</a>
+                    <button data-collapse-toggle="navbar-sticky" type="button"
+                        class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-sky-700 duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-gray-200  "
+                        aria-controls="navbar-sticky" aria-expanded="false">
+                        <span class="sr-only">Open main menu</span>
+                        <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                            viewBox="0 0 17 14">
+                            <path stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M1 1h15M1 7h15M1 13h15" />
+                        </svg>
+                    </button>
                 </div>
                 <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
-                <ul class="flex flex-col p-4 md:p-0 mt-4 font-medium border rounded-lg  md:flex-row md:space-x-8 md:mt-0 md:border-0  ">
-                    <li>
-                    <a href="#home" class="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:font-semibold md:p-0 " aria-current="page">Home</a>
-                    </li>
-                    <li>
-                    <a href="#survey" class="block py-2 pl-3 pr-4 text-white rounded md:font-normal hover:bg-sky-600 md:hover:bg-transparent md:hover:text-blue-800 duration-300 ease-in-out md:p-0">Survey</a>
-                    </li>
-                    <li>
-                    <a href="#about" class="block py-2 pl-3 pr-4 text-white rounded md:font-normal hover:bg-sky-600 md:hover:bg-transparent md:hover:text-blue-800 duration-300 ease-in-out md:p-0">About</a>
-                    </li>
-                </ul>
+                    <ul
+                        class="flex flex-col p-4 md:p-0 mt-4 font-medium border rounded-lg  md:flex-row md:space-x-8 md:mt-0 md:border-0  ">
+                        <li>
+                            <a href="#home"
+                                class="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:font-semibold md:p-0 "
+                                aria-current="page">Home</a>
+                        </li>
+                        <li>
+                            <a href="#survey"
+                                class="block py-2 pl-3 pr-4 text-white rounded md:font-normal hover:bg-sky-600 md:hover:bg-transparent md:hover:text-blue-800 duration-300 ease-in-out md:p-0">Survey</a>
+                        </li>
+                        <li>
+                            <a href="#about"
+                                class="block py-2 pl-3 pr-4 text-white rounded md:font-normal hover:bg-sky-600 md:hover:bg-transparent md:hover:text-blue-800 duration-300 ease-in-out md:p-0">About</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </nav>
@@ -43,14 +53,16 @@
                         <h1 class="text-3xl text-white font-semibold 
                         md:text-xl
                         lg:text-3xl
-                        xl:text-[2.75rem] xl:leading-[3rem]">Tingkatkan Lingkungan Aman dan Bebas Perundungan Bersama Kami!</h1>
+                        xl:text-[2.75rem] xl:leading-[3rem]">Tingkatkan Lingkungan Aman dan Bebas Perundungan Bersama
+                            Kami!</h1>
                         <div class="w-3/4">
                             <p class="text-base text-white font-normal mt-4 
                             md:text-sm
                             lg:text-base
-                            xl:text-lg">"Mari bersama-sama menciptakan lingkungan yang aman dan bebas dari perundungan."</p>
+                            xl:text-lg">"Mari bersama-sama menciptakan lingkungan yang aman dan bebas dari
+                                perundungan."</p>
                         </div>
-                        <a href="" >
+                        <a href="">
                             <div class=" w-1/2 flex justify-center items-center gap-2 text-white cursor-pointer duration-300 ease-in-out bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-xl px-5 py-2 text-center sm:text-lg sm:px-4 sm:py-1 mt-4
                             sm:w-4/12 
                             md:w-5/12
@@ -59,17 +71,20 @@
                                 <span class="whitespace-nowrap
                                 md:text-sm">Ayo Survey</span>
                                 <div class="w-8 h-8">
-                                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff">
+                                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                        stroke="#ffffff">
                                         <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round">
+                                        </g>
                                         <g id="SVGRepo_iconCarrier">
-                                            <path d="M6 12H18M18 12L13 7M18 12L13 17" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                            <path d="M6 12H18M18 12L13 7M18 12L13 17" stroke="#ffffff" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round"></path>
                                         </g>
                                     </svg>
                                 </div>
                             </div>
                         </a>
-            
+
                         <div class="flex justify-start items-baseline gap-8 mt-5 ">
                             <div class="flex justify-start items-start flex-col">
                                 <span class="text-white text-base 
@@ -94,7 +109,8 @@
                         </div>
                     </div>
                     <div class="hidden md:flex justify-center items-center flex-1 ">
-                        <img src="{{asset('assets/img/hero_image.png')}}" alt="" srcset="" class="lg:w-[400px] xl:w-[500px]" >
+                        <img src="{{asset('assets/img/hero_image.png')}}" alt="" srcset=""
+                            class="lg:w-[400px] xl:w-[500px]">
                     </div>
                 </div>
             </div>
@@ -103,56 +119,104 @@
         <section class="mt-10 px-4 pb-10 bg-white" id="survey">
             <div class="max-w-screen-xl  mx-auto p-4">
                 <h1 class="text-center font-semibold text-3xl mb-6">Survey</h1>
-                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">  
-                    <div class="max-w-sm p-6 bg-[#C7FFDE] w-full h-52 rounded-lg shadow flex justify-center items-center flex-col hover:bg-[#0090D4] duration-300 ease-in-out relative group">
-                        <h1 class="mb-3 font-semibold text-md text-black group-hover:text-white duration-300 ease-in-out">Survey Perundungan</h1>
-                        <p class="mb-2 font-normal text-sm text-gray-500 group-hover:text-gray-100 duration-300 ease-in-out">Survey Feedback</p>
-                        <p class="mb-2 font-normal text-base text-black group-hover:text-white duration-300 ease-in-out">130 Respon</p>
-                        <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg opacity-0 group-hover:bg-green-400 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    <div
+                        class="max-w-sm p-6 bg-[#C7FFDE] w-full h-52 rounded-lg shadow flex justify-center items-center flex-col hover:bg-[#0090D4] duration-300 ease-in-out relative group">
+                        <h1
+                            class="mb-3 font-semibold text-md text-black group-hover:text-white duration-300 ease-in-out">
+                            Survey Perundungan</h1>
+                        <p
+                            class="mb-2 font-normal text-sm text-gray-500 group-hover:text-gray-100 duration-300 ease-in-out">
+                            Survey Feedback</p>
+                        <p
+                            class="mb-2 font-normal text-base text-black group-hover:text-white duration-300 ease-in-out">
+                            130 Respon</p>
+                        <a href="#"
+                            class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg opacity-0 group-hover:bg-green-400 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
                             Gabung Sekarang
                         </a>
                     </div>
-                    <div class="max-w-sm p-6 bg-[#C7FFDE] w-full h-52 rounded-lg shadow flex justify-center items-center flex-col hover:bg-[#0090D4] duration-300 ease-in-out relative group">
-                        <h1 class="mb-3 font-semibold text-md text-black group-hover:text-white duration-300 ease-in-out">Survey Perundungan</h1>
-                        <p class="mb-2 font-normal text-sm text-gray-500 group-hover:text-gray-100 duration-300 ease-in-out">Survey Feedback</p>
-                        <p class="mb-2 font-normal text-base text-black group-hover:text-white duration-300 ease-in-out">130 Respon</p>
-                        <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg opacity-0 group-hover:bg-green-400 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
+                    <div
+                        class="max-w-sm p-6 bg-[#C7FFDE] w-full h-52 rounded-lg shadow flex justify-center items-center flex-col hover:bg-[#0090D4] duration-300 ease-in-out relative group">
+                        <h1
+                            class="mb-3 font-semibold text-md text-black group-hover:text-white duration-300 ease-in-out">
+                            Survey Perundungan</h1>
+                        <p
+                            class="mb-2 font-normal text-sm text-gray-500 group-hover:text-gray-100 duration-300 ease-in-out">
+                            Survey Feedback</p>
+                        <p
+                            class="mb-2 font-normal text-base text-black group-hover:text-white duration-300 ease-in-out">
+                            130 Respon</p>
+                        <a href="#"
+                            class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg opacity-0 group-hover:bg-green-400 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
                             Gabung Sekarang
                         </a>
                     </div>
-                    <div class="max-w-sm p-6 bg-[#C7FFDE] w-full h-52 rounded-lg shadow flex justify-center items-center flex-col hover:bg-[#0090D4] duration-300 ease-in-out relative group">
-                        <h1 class="mb-3 font-semibold text-md text-black group-hover:text-white duration-300 ease-in-out">Survey Perundungan</h1>
-                        <p class="mb-2 font-normal text-sm text-gray-500 group-hover:text-gray-100 duration-300 ease-in-out">Survey Feedback</p>
-                        <p class="mb-2 font-normal text-base text-black group-hover:text-white duration-300 ease-in-out">130 Respon</p>
-                        <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg opacity-0 group-hover:bg-green-400 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
+                    <div
+                        class="max-w-sm p-6 bg-[#C7FFDE] w-full h-52 rounded-lg shadow flex justify-center items-center flex-col hover:bg-[#0090D4] duration-300 ease-in-out relative group">
+                        <h1
+                            class="mb-3 font-semibold text-md text-black group-hover:text-white duration-300 ease-in-out">
+                            Survey Perundungan</h1>
+                        <p
+                            class="mb-2 font-normal text-sm text-gray-500 group-hover:text-gray-100 duration-300 ease-in-out">
+                            Survey Feedback</p>
+                        <p
+                            class="mb-2 font-normal text-base text-black group-hover:text-white duration-300 ease-in-out">
+                            130 Respon</p>
+                        <a href="#"
+                            class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg opacity-0 group-hover:bg-green-400 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
                             Gabung Sekarang
                         </a>
                     </div>
-                    <div class="max-w-sm p-6 bg-[#C7FFDE] w-full h-52 rounded-lg shadow flex justify-center items-center flex-col hover:bg-[#0090D4] duration-300 ease-in-out relative group">
-                        <h1 class="mb-3 font-semibold text-md text-black group-hover:text-white duration-300 ease-in-out">Survey Perundungan</h1>
-                        <p class="mb-2 font-normal text-sm text-gray-500 group-hover:text-gray-100 duration-300 ease-in-out">Survey Feedback</p>
-                        <p class="mb-2 font-normal text-base text-black group-hover:text-white duration-300 ease-in-out">130 Respon</p>
-                        <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg opacity-0 group-hover:bg-green-400 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
+                    <div
+                        class="max-w-sm p-6 bg-[#C7FFDE] w-full h-52 rounded-lg shadow flex justify-center items-center flex-col hover:bg-[#0090D4] duration-300 ease-in-out relative group">
+                        <h1
+                            class="mb-3 font-semibold text-md text-black group-hover:text-white duration-300 ease-in-out">
+                            Survey Perundungan</h1>
+                        <p
+                            class="mb-2 font-normal text-sm text-gray-500 group-hover:text-gray-100 duration-300 ease-in-out">
+                            Survey Feedback</p>
+                        <p
+                            class="mb-2 font-normal text-base text-black group-hover:text-white duration-300 ease-in-out">
+                            130 Respon</p>
+                        <a href="#"
+                            class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg opacity-0 group-hover:bg-green-400 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
                             Gabung Sekarang
                         </a>
                     </div>
-                    <div class="max-w-sm p-6 bg-[#C7FFDE] w-full h-52 rounded-lg shadow flex justify-center items-center flex-col hover:bg-[#0090D4] duration-300 ease-in-out relative group">
-                        <h1 class="mb-3 font-semibold text-md text-black group-hover:text-white duration-300 ease-in-out">Survey Perundungan</h1>
-                        <p class="mb-2 font-normal text-sm text-gray-500 group-hover:text-gray-100 duration-300 ease-in-out">Survey Feedback</p>
-                        <p class="mb-2 font-normal text-base text-black group-hover:text-white duration-300 ease-in-out">130 Respon</p>
-                        <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg opacity-0 group-hover:bg-green-400 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
+                    <div
+                        class="max-w-sm p-6 bg-[#C7FFDE] w-full h-52 rounded-lg shadow flex justify-center items-center flex-col hover:bg-[#0090D4] duration-300 ease-in-out relative group">
+                        <h1
+                            class="mb-3 font-semibold text-md text-black group-hover:text-white duration-300 ease-in-out">
+                            Survey Perundungan</h1>
+                        <p
+                            class="mb-2 font-normal text-sm text-gray-500 group-hover:text-gray-100 duration-300 ease-in-out">
+                            Survey Feedback</p>
+                        <p
+                            class="mb-2 font-normal text-base text-black group-hover:text-white duration-300 ease-in-out">
+                            130 Respon</p>
+                        <a href="#"
+                            class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg opacity-0 group-hover:bg-green-400 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
                             Gabung Sekarang
                         </a>
                     </div>
-                    <div class="max-w-sm p-6 bg-[#C7FFDE] w-full h-52 rounded-lg shadow flex justify-center items-center flex-col hover:bg-[#0090D4] duration-300 ease-in-out relative group">
-                        <h1 class="mb-3 font-semibold text-md text-black group-hover:text-white duration-300 ease-in-out">Survey Perundungan</h1>
-                        <p class="mb-2 font-normal text-sm text-gray-500 group-hover:text-gray-100 duration-300 ease-in-out">Survey Feedback</p>
-                        <p class="mb-2 font-normal text-base text-black group-hover:text-white duration-300 ease-in-out">130 Respon</p>
-                        <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg opacity-0 group-hover:bg-green-400 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
+                    <div
+                        class="max-w-sm p-6 bg-[#C7FFDE] w-full h-52 rounded-lg shadow flex justify-center items-center flex-col hover:bg-[#0090D4] duration-300 ease-in-out relative group">
+                        <h1
+                            class="mb-3 font-semibold text-md text-black group-hover:text-white duration-300 ease-in-out">
+                            Survey Perundungan</h1>
+                        <p
+                            class="mb-2 font-normal text-sm text-gray-500 group-hover:text-gray-100 duration-300 ease-in-out">
+                            Survey Feedback</p>
+                        <p
+                            class="mb-2 font-normal text-base text-black group-hover:text-white duration-300 ease-in-out">
+                            130 Respon</p>
+                        <a href="#"
+                            class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg opacity-0 group-hover:bg-green-400 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
                             Gabung Sekarang
                         </a>
                     </div>
-            </div>
+                </div>
 
             </div>
         </section>
@@ -193,6 +257,19 @@
             </div>
         </footer>
     </div>
-    
+
 </div>
 @endsection
+
+
+
+
+{{-- <input type="hidden" value="1" name="survey[0][pertanyaan]">
+<input type="text" name="survey[0][jawaban]">
+
+<input type="hidden" value="1" name="survey[1][pertanyaan]"> --}}
+{{-- <input type="text" name="survey[1][jawaban]"> --}}
+{{-- <input type="file" name="exel">
+
+<button type="submit">kirim</button>
+</form> --}}

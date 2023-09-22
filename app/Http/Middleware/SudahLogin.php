@@ -16,9 +16,18 @@ class SudahLogin
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (Auth::guard("admin")->check() || auth("sekolah")->check() || auth("guru")->check()) {
-            return redirect("/dashboard");
+        if (Auth::guard("admin")->check()) {
+            return redirect("/admin/dashboard");
         }
+
+        if (auth("sekolah")->check()) {
+            return redirect("/sekolah/dashboard");
+        }
+
+        if (auth("guru")->check()) {
+            return redirect("/guru/dashboard");
+        }
+
         if (auth("murid")->check()) {
             return redirect("/survey");
         }
