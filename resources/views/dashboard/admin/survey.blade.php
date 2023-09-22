@@ -6,8 +6,8 @@
         <form action="" method="get">
             <div class="relative ">
                 <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                    <svg class="w-4 h-4 text-gray-500 " aria-hidden="true"
-                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                    <svg class="w-4 h-4 text-gray-500 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                        fill="none" viewBox="0 0 20 20">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
                     </svg>
@@ -63,7 +63,8 @@
                         </a>
                     </th>
                     <td class="px-6 py-4">
-                        <span class="sm:text-sm md:text-md text-center">{{ $survei->pertanyaan_count }} Pertanyaan</span>
+                        <span class="sm:text-sm md:text-md text-center">{{ $survei->pertanyaan_count }}
+                            Pertanyaan</span>
                     </td>
                     <td class="px-6 py-4">
                         <span class="sm:text-sm md:text-md ">24 Responded</span>
@@ -78,55 +79,6 @@
         @else
         <h1 class="text-center text-2xl font-bold text-red-600 mt-20">Survey Tidak ditemukan</h1>
         @endif
-        {{-- @if ($survey->isNotEmpty())
-        <table class="border-collapse border-none w-max table-fixed text-left sm:w-full">
-            <!-- head -->
-            <thead>
-                <tr class="bg-[#0090D4] text-white">
-                    <th class="w-[2%]"></th>
-                    <th class="mx-2 font-medium w-20 sm:w-[18%] py-4  text-sm">
-                        <span class="sm:text-base md:text-lg ">Survey</span>
-                    </th>
-                    <th class="font-medium w-24 sm:w-[22%] py-4 text-sm  ">
-                        <span class="sm:text-base md:text-lg ">Pertanyaan</span>
-                    </th>
-                    <th class="font-medium w-24 sm:w-[22%] py-4 text-sm  sm:text-base md:text-lg lg:text-xl">
-                        <span class="sm:text-base md:text-lg ">Responded</span>
-                    </th>
-                    <th class="font-medium w-40 sm:w-[30%] py-4 text-sm  sm:text-base md:text-lg lg:text-xl">
-                        <span class="sm:text-base md:text-lg ">Date</span>
-                    </th>
-
-                </tr>
-            </thead>
-            <tbody>
-
-                @foreach ($survey as $survei)
-                <tr class="border-b-2">
-                    <td></td>
-
-                    <td class="font-bold text-xs py-6 ">
-                        <a href="{{ route('admin.pertanyaan', ['survey' => $survei->id])    }}">
-                            <span class="sm:text-sm md:text-md ">{{ strtoupper($survei->nama_survey) }}</span>
-                        </a>
-                    </td>
-                    <td class="font-normal text-xs py-6 ">
-                        <span class="sm:text-sm md:text-md text-center">{{ $survei->pertanyaan_count }}</span>
-                    </td>
-                    <td class="font-normal text-xs py-6 ">
-                        <span class="sm:text-sm md:text-md ">24 Responded</span>
-                    </td>
-                    <td class="font-normal text-xs py-6 ">
-                        <span class="sm:text-sm md:text-md ">{{ $survei->created_at->format("M d Y")}}</span>
-                    </td>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
-        @else
-        <h1 class="text-center text-2xl font-bold text-red-600 mt-20">Survey Tidak ditemukan</h1>
-        @endif --}}
-
     </div>
 
     {{--
