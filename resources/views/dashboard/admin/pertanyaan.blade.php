@@ -28,13 +28,12 @@
                         d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
                 </svg>
             </div>
-            <input type="search" id="search"
-                class="block w-[360px] md:w-[458px] p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
-                placeholder="Cari Survey" required>
+            <input type="search" id="search" name="search"
+                class="block w-[360px] md:w-[458px] p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
+                placeholder="Cari Pertanyaan" @if (request('search')) value="{{ request('search') }}" @endif>
             <button type="submit"
                 class="text-white absolute right-2.5 bottom-2.5 bg-blue-700  focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 hover:bg-blue-600 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 ">Search</button>
         </div>
-
     </form>
 
     <div class="md:flex md:justify-center md:items-center  md:flex-row md:gap-4 min-w-full sm:min-w-fit ">
@@ -57,7 +56,7 @@
         <form action="/admin/survey/{{ $survey->id }}" method="post">
             @csrf
             @method('delete')
-            <button>
+            <button type="submit" onclick="return confirm('Hapus Survey ??')">
                 <div
                     class="bg-red-500 rounded-lg flex justify-center items-center gap-3 w-full px-8 h-12 mt-4 hover:bg-red-600 duration-300 ease-in-out">
                     <span class="text-white whitespace-nowrap  text-md">Delete Survey</span>
@@ -94,7 +93,7 @@
                 <a href="">
                     <div
                         class="bg-[#0062CE] rounded-lg flex justify-center items-center  w-12 h-12 hover:bg-blue-600 duration-300 ease-in-out ">
-                        <span class="text-white whitespace-nowrap sr-only text-xs">Tambah Pertanyaan</span>
+                        <span class="text-white whitespace-nowrap sr-only text-xs">Edit Pertanyaan</span>
                         <div class="w-8 h-8">
                             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -110,25 +109,30 @@
                         </div>
                     </div>
                 </a>
-                <a href="">
-                    <div
-                        class="bg-red-500 rounded-lg flex justify-center items-center  w-12 h-12 mb-4 hover:bg-red-600 duration-300 ease-in-out">
-                        <span class="text-white whitespace-nowrap sr-only text-xs">Tambah Pertanyaan</span>
-                        <div class="w-8 h-8">
-                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#000000">
-                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                                <g id="SVGRepo_iconCarrier">
-                                    <path
-                                        d="M4 6H20M16 6L15.7294 5.18807C15.4671 4.40125 15.3359 4.00784 15.0927 3.71698C14.8779 3.46013 14.6021 3.26132 14.2905 3.13878C13.9376 3 13.523 3 12.6936 3H11.3064C10.477 3 10.0624 3 9.70951 3.13878C9.39792 3.26132 9.12208 3.46013 8.90729 3.71698C8.66405 4.00784 8.53292 4.40125 8.27064 5.18807L8 6M18 6V16.2C18 17.8802 18 18.7202 17.673 19.362C17.3854 19.9265 16.9265 20.3854 16.362 20.673C15.7202 21 14.8802 21 13.2 21H10.8C9.11984 21 8.27976 21 7.63803 20.673C7.07354 20.3854 6.6146 19.9265 6.32698 19.362C6 18.7202 6 17.8802 6 16.2V6M14 10V17M10 10V17"
-                                        stroke="#ffffff" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                    </path>
-                                </g>
-                            </svg>
+                <form action="{{ route('admin.hapusPertanyaan',['pertanyaan'=> $pertanyaan->id]) }}" method="post">
+                    @method('delete')
+                    @csrf
+                    <button type="submit" onclick="return confirm('Hapus Pertanyaan ??')">
+                        <div
+                            class="bg-red-500 rounded-lg flex justify-center items-center  w-12 h-12 mb-4 hover:bg-red-600 duration-300 ease-in-out">
+                            <span class="text-white whitespace-nowrap sr-only text-xs">Delete Pertanyaan</span>
+                            <div class="w-8 h-8">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                    stroke="#000000">
+                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                    <g id="SVGRepo_iconCarrier">
+                                        <path
+                                            d="M4 6H20M16 6L15.7294 5.18807C15.4671 4.40125 15.3359 4.00784 15.0927 3.71698C14.8779 3.46013 14.6021 3.26132 14.2905 3.13878C13.9376 3 13.523 3 12.6936 3H11.3064C10.477 3 10.0624 3 9.70951 3.13878C9.39792 3.26132 9.12208 3.46013 8.90729 3.71698C8.66405 4.00784 8.53292 4.40125 8.27064 5.18807L8 6M18 6V16.2C18 17.8802 18 18.7202 17.673 19.362C17.3854 19.9265 16.9265 20.3854 16.362 20.673C15.7202 21 14.8802 21 13.2 21H10.8C9.11984 21 8.27976 21 7.63803 20.673C7.07354 20.3854 6.6146 19.9265 6.32698 19.362C6 18.7202 6 17.8802 6 16.2V6M14 10V17M10 10V17"
+                                            stroke="#ffffff" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round">
+                                        </path>
+                                    </g>
+                                </svg>
+                            </div>
                         </div>
-                    </div>
-                </a>
+                    </button>
+                </form>
             </div>
         </div>
         <div class="border-b border-gray-300 mb-4"></div>

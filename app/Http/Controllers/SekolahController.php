@@ -23,7 +23,9 @@ class SekolahController extends Controller
      */
     public function create()
     {
-        //
+        return view("dashboard.admin.addSekolah", [
+            "title" => "Tambah Sekolah",
+        ]);
     }
 
     /**
@@ -40,7 +42,7 @@ class SekolahController extends Controller
         ]);
 
         Sekolah::create($validate);
-        return redirect("/dashboard/sekolah")->with('success', "Sekolah Berhasil Di Tambah");
+        return redirect("/admin/sekolah")->with('success', "Sekolah Berhasil Di Tambah");
     }
 
     /**
