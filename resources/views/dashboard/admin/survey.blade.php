@@ -80,7 +80,14 @@
         @endif
 
         <div class="flex justify-center w-full mt-10">
-            {{ $survey->links('vendor.pagination.custom-pagination')}}
+            {{-- {{ $survey->withQueryString()->links('vendor.pagination.custom-pagination')}} --}}
+            <ul class="inline-flex -space-x-px text-sm">
+                @foreach ($totalPages as $page)
+                    <li class="">
+                        <a href="/admin/survey?page={{ $page }}" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 duration-300 ease-in-out">{{ $page }}</a>
+                    </li>
+                @endforeach
+            </ul>
         </div>
 
     </div>
