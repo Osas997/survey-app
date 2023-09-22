@@ -7,7 +7,8 @@
         <nav class="bg-[#0090D4] w-full z-20 top-0 left-0  ">
             <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
                 
-                <a href="" class="flex items-center">
+                <a href="" class="flex items-center gap-2 justify-center">
+                    <img src="{{asset('assets/img/white-logo.png')}}" alt="" srcset="" class="w-8 h-auto">
                     <span class="self-center text-2xl font-semibold whitespace-nowrap text-white">Survey App</span>
                 </a>
                 <div class="flex md:order-2">
