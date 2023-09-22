@@ -86,8 +86,9 @@
     <div class="">
         <div class="flex justify-between items-start gap-16">
             <div class="flex justify-center items-start gap-4">
-                <span class="text-xl">{{ $loop->iteration }}.</span>
-                <p class="text-black  text-sm md:text-base lg:text-lg">{{$pertanyaan->pertanyaan}}</p>
+                <span class="text-xl">{{ $loop->iteration }}. </span>
+                <p class="text-black  text-sm md:text-base lg:text-lg">{{$pertanyaan->pertanyaan}} . {{
+                    $pertanyaan->created_at->diffForHumans() }}</p>
             </div>
             <div class="flex justify-center items-center flex-col gap-2 mt-5 md:mt-0">
                 <a href="">
