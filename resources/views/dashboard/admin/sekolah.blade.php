@@ -13,7 +13,7 @@
             </div>
             <input type="search" id="search" name="search" @if (request('search')) value="{{ request('search') }}"
                 @endif
-                class="block w-[240px] md:w-[500px] p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                class="block w-[240px] md:w-[360px] lg:w-[400px] p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="Cari Sekolah">
             <button type="submit"
                 class="text-white absolute right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Search</button>
@@ -38,8 +38,64 @@
 
 </div>
 <div class="mt-8 w-full overflow-x-auto overflow-y-auto">
+    
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg">
     @if ($dataSekolah->isNotEmpty())
-    <table class="border-collapse border-none w-max table-fixed text-left sm:w-full">
+    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-white uppercase bg-blue-500 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+                <th scope="col" class="px-6 py-3">
+                    Sekolah
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    NPSN
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Alamat
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Status
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    <span class="sr-only">Action</span>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($dataSekolah as $sekolah)
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    <a href="/admin/siswa/{{ $sekolah->id }}" class="cursor-pointer">
+                        <span class="sm:text-sm md:text-md uppercase">{{ $sekolah->nama_sekolah }}</span>
+                    </a>
+                </th>
+                <td class="px-6 py-4">
+                    <span class="sm:text-sm md:text-md">{{ $sekolah->npsn }}</span>
+                </td>
+                <td class="px-6 py-4">
+                    <span class="sm:text-sm md:text-md">{{ $sekolah->alamat_sekolah }}</span>
+                </td>
+                <td class="px-6 py-4">
+                    <span class="sm:text-sm md:text-md">{{ $sekolah->status }}</span>
+                </td>
+                <td class="px-6 py-4 text-right">
+                    <div class="flex justify-center items-center gap-1">
+                        <a href="" class="text-blue-500 duration-300 ease-in-out underline text-sm text-center mr-3 md:mr-0">Guru</a>
+                        <a href="" class="text-blue-500 duration-300 ease-in-out underline text-sm text-center mr-3 md:mr-0">Murid</a>
+                    </div>
+                </td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+     @else
+    <h1 class="text-center text-2xl font-bold text-red-600 mt-20">Sekolah TIdak ditemukan</h1>
+    @endif
+
+</div>
+
+    {{-- @if ($dataSekolah->isNotEmpty()) --}}
+    {{-- <table class="border-collapse border-none w-max table-fixed text-left sm:w-full">
         <!-- head -->
         <thead>
             <tr class="bg-[#0090D4] text-white">
@@ -55,6 +111,8 @@
                 </th>
                 <th class="font-medium w-22 sm:w-1/8 py-4 text-sm sm:text-base md:text-lg lg:text-xl">
                     <span class="sm:text-base md:text-lg">Status</span>
+                </th>
+                <th class="w-22 sm:w-1/6">
                 </th>
             </tr>
         </thead>
@@ -77,13 +135,20 @@
                 <td class="font-normal text-xs py-4">
                     <span class="sm:text-sm md:text-md">{{ $sekolah->status }}</span>
                 </td>
+                <td class="font-normal text-xs py-4">
+                    <div class="flex justify-center items-center gap-1">
+                        <a href="" class="text-white duration-300 ease-in-out bg-blue-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 w-20 text-center mr-3 md:mr-0">Guru</a>
+                        <a href="" class="text-white duration-300 ease-in-out bg-blue-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 w-20 text-center mr-3 md:mr-0">Murid</a>
+                    </div>
+                </td>
+                
             </tr>
             @endforeach
         </tbody>
-    </table>
-    @else
+    </table> --}}
+    {{-- @else
     <h1 class="text-center text-2xl font-bold text-red-600 mt-20">Sekolah TIdak ditemukan</h1>
-    @endif
+    @endif --}}
 
 </div>
 

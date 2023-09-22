@@ -19,28 +19,29 @@
     </p>
 </div>
 <div class="flex justify-center items-start gap-2 mt-10 flex-col">
-    <form action="" method="get">
-        <div class="relative ">
-            <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                <svg class="w-4 h-4 text-gray-500 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                    viewBox="0 0 20 20">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
-                </svg>
-            </div>
-            <input type="search" id="search" name="search"
-                class="block w-[360px] md:w-[458px] p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
-                placeholder="Cari Pertanyaan" @if (request('search')) value="{{ request('search') }}" @endif>
-            <button type="submit"
-                class="text-white absolute right-2.5 bottom-2.5 bg-blue-700  focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 hover:bg-blue-600 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 ">Search</button>
-        </div>
-    </form>
+
 
     <div class="md:flex md:justify-center md:items-center  md:flex-row md:gap-4 min-w-full sm:min-w-fit ">
         <a href="{{ route('admin.tambahPertanyaan',['survey'=> $survey->id]) }}">
             <div
-                class="bg-[#0062CE] rounded-lg flex justify-center items-center px-8 w-full h-12 mt-4 hover:bg-blue-600 duration-300 ease-in-out ">
+                class="bg-lime-500 rounded-lg flex justify-center items-center px-8 w-full h-12 mt-4 hover:bg-lime-600 duration-300 ease-in-out ">
                 <span class="text-white whitespace-nowrap  text-md">Tambah Pertanyaan</span>
+                <div class="w-8 h-8">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                        <g id="SVGRepo_iconCarrier">
+                            <path d="M6 12H18M12 6V18" stroke="#ffffff" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round"></path>
+                        </g>
+                    </svg>
+                </div>
+            </div>
+        </a>
+        <a href="{{ route('admin.tambahPertanyaan',['survey'=> $survey->id]) }}">
+            <div
+                class="bg-[#0062CE] rounded-lg flex justify-center items-center px-8 w-full h-12 mt-4 hover:bg-blue-600 duration-300 ease-in-out ">
+                <span class="text-white whitespace-nowrap  text-md">Edit Survey</span>
                 <div class="w-8 h-8">
                     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff">
                         <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -87,15 +88,15 @@
         <div class="flex justify-between items-start gap-16">
             <div class="flex justify-center items-start gap-4">
                 <span class="text-xl">{{ $loop->iteration }}. </span>
-                <p class="text-black  text-sm md:text-base lg:text-lg">{{$pertanyaan->pertanyaan}} . {{
-                    $pertanyaan->created_at->diffForHumans() }}</p>
+                <p class="text-black  text-sm md:text-base lg:text-lg">{{$pertanyaan->pertanyaan}} . <span class="text-slate-400 font-normal text-sm">{{
+                    $pertanyaan->created_at->diffForHumans() }}</span></p>
             </div>
             <div class="flex justify-center items-center flex-col gap-2 mt-5 md:mt-0">
                 <a href="">
                     <div
-                        class="bg-[#0062CE] rounded-lg flex justify-center items-center  w-12 h-12 hover:bg-blue-600 duration-300 ease-in-out ">
+                        class="bg-[#0062CE] rounded-lg flex justify-center items-center  w-10 h-10 hover:bg-blue-600 duration-300 ease-in-out ">
                         <span class="text-white whitespace-nowrap sr-only text-xs">Edit Pertanyaan</span>
-                        <div class="w-8 h-8">
+                        <div class="w-6 h-6">
                             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                 <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -115,9 +116,9 @@
                     @csrf
                     <button type="submit" onclick="return confirm('Hapus Pertanyaan ??')">
                         <div
-                            class="bg-red-500 rounded-lg flex justify-center items-center  w-12 h-12 mb-4 hover:bg-red-600 duration-300 ease-in-out">
+                            class="bg-red-500 rounded-lg flex justify-center items-center  w-10 h-10 mb-4 hover:bg-red-600 duration-300 ease-in-out">
                             <span class="text-white whitespace-nowrap sr-only text-xs">Delete Pertanyaan</span>
-                            <div class="w-8 h-8">
+                            <div class="w-6 h-6">
                                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
                                     stroke="#000000">
                                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
