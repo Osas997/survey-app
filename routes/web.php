@@ -49,30 +49,10 @@ Route::middleware("admin")->prefix('admin')->group(function () {
 Route::middleware("sekolah")->prefix('sekolah')->group(function () {
     Route::get("/dashboard", [DashboardController::class, "indexSekolah"])->name('sekolah.dashboard');
 
-    Route::resource("/guru", GuruController::class)->name("index", "sekolah.guru");
+    Route::resource("/guru", GuruController::class)->name("index", "sekolah.guru")->name("create", "sekolah.viewTambahGuru")->name('store', 'sekolah.tambahGuru');
 
     // Route::post("/guru", [GuruController::class, "import"]);
-
-    // routing Test
-    //
-    Route::get('/murid', function () {
-        return view('dashboard.sekolah.murid', [
-            'title' => "Murid"
-        ]);
-    });
-    Route::get('/guru/create', function () {
-        return view('dashboard.sekolah.addGuru', [
-            'title' => "Tambah Guru"
-        ]);
-    });
-    Route::get('/murid/create', function () {
-        return view('dashboard.sekolah.addMurid', [
-            'title' => "Tambah Murid"
-        ]);
-    });
-    //
-
-    Route::post("/create-murid", [MuridController::class, "store"]);
+    Route::resource("/murid", MuridController::class)->name("index", "sekolah.murid")->name("create", "sekolah.viewTambahMurid")->name('store', 'sekolah.tambahMurid');
 });
 
 Route::middleware("guru-sekolah")->group(function () {

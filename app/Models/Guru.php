@@ -15,4 +15,12 @@ class Guru extends Model
     protected $casts = [
         'password' => 'hashed',
     ];
+
+    public function scopeSearch($query, $search)
+    {
+        if ($search) {
+            $query->where('nama', 'like', '%' . $search . '%')
+                ->orWhere('nuptk', 'like', '%' . $search . '%');
+        }
+    }
 }

@@ -22,7 +22,7 @@ class GuruController extends Controller
 
     public function index()
     {
-        $guru = Guru::where("id_sekolah", auth('sekolah')->user()->id)->paginate(5);
+        $guru = Guru::where("id_sekolah", auth('sekolah')->user()->id)->search(request('search'))->paginate(5);
         return view("dashboard.sekolah.guru", [
             "title" => "Sekolah | Guru",
             "daftarGuru" => $guru
@@ -34,8 +34,9 @@ class GuruController extends Controller
      */
     public function create()
     {
-        $title = "Tambah Guru";
-        return view('dashboard.sekolah.addGuru', compact('title'));
+        return view('dashboard.sekolah.addGuru', [
+            "title" => "Tambah Guru"
+        ]);
     }
 
     /**
@@ -48,11 +49,12 @@ class GuruController extends Controller
             "nama" => "required",
             "jenis_kelamin" => "required",
             "password" => "required",
-            "id_sekolah" => "required",
         ]);
 
+        $validate['id_sekolah'] = auth('sekolah')->user()->id;
+
         Guru::create($validate);
-        return redirect("/dashboard/sekolah")->with('success', "Guru Berhasil Di Tambah");
+        return redirect("/sekolah/guru")->with('success', "Guru Berhasil Di Tambah");
     }
 
     /**

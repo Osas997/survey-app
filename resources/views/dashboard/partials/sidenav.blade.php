@@ -89,7 +89,6 @@
          <li>
             <a href="{{ route('sekolah.guru') }}" class="
                @if (Request::is('sekolah/guru*'))
-
                    bg-gray-200
                @endif
                flex items-center p-2 text-gray-900 rounded-lg duration-300 ease-in-out hover:bg-gray-100  group">
@@ -121,8 +120,8 @@
             </a>
          </li>
          <li>
-            <a href="" class="
-               @if (Request::is('dashboard/murid*'))
+            <a href="{{ route('sekolah.murid') }}" class="
+               @if (Request::is('sekolah/murid*'))
                    bg-gray-200
                @endif
                flex items-center p-2 text-gray-900 rounded-lg duration-300 ease-in-out hover:bg-gray-100  group">
