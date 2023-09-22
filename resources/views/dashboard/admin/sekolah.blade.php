@@ -38,8 +38,64 @@
 
 </div>
 <div class="mt-8 w-full overflow-x-auto overflow-y-auto">
+    
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg">
     @if ($dataSekolah->isNotEmpty())
-    <table class="border-collapse border-none w-max table-fixed text-left sm:w-full">
+    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-white uppercase bg-blue-500 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+                <th scope="col" class="px-6 py-3">
+                    Sekolah
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    NPSN
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Alamat
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Status
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    <span class="sr-only">Action</span>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($dataSekolah as $sekolah)
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    <a href="/admin/siswa/{{ $sekolah->id }}" class="cursor-pointer">
+                        <span class="sm:text-sm md:text-md uppercase">{{ $sekolah->nama_sekolah }}</span>
+                    </a>
+                </th>
+                <td class="px-6 py-4">
+                    <span class="sm:text-sm md:text-md">{{ $sekolah->npsn }}</span>
+                </td>
+                <td class="px-6 py-4">
+                    <span class="sm:text-sm md:text-md">{{ $sekolah->alamat_sekolah }}</span>
+                </td>
+                <td class="px-6 py-4">
+                    <span class="sm:text-sm md:text-md">{{ $sekolah->status }}</span>
+                </td>
+                <td class="px-6 py-4 text-right">
+                    <div class="flex justify-center items-center gap-1">
+                        <a href="" class="text-blue-500 duration-300 ease-in-out underline text-sm text-center mr-3 md:mr-0">Guru</a>
+                        <a href="" class="text-blue-500 duration-300 ease-in-out underline text-sm text-center mr-3 md:mr-0">Murid</a>
+                    </div>
+                </td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+     @else
+    <h1 class="text-center text-2xl font-bold text-red-600 mt-20">Sekolah TIdak ditemukan</h1>
+    @endif
+
+</div>
+
+    {{-- @if ($dataSekolah->isNotEmpty()) --}}
+    {{-- <table class="border-collapse border-none w-max table-fixed text-left sm:w-full">
         <!-- head -->
         <thead>
             <tr class="bg-[#0090D4] text-white">
@@ -89,10 +145,10 @@
             </tr>
             @endforeach
         </tbody>
-    </table>
-    @else
+    </table> --}}
+    {{-- @else
     <h1 class="text-center text-2xl font-bold text-red-600 mt-20">Sekolah TIdak ditemukan</h1>
-    @endif
+    @endif --}}
 
 </div>
 
