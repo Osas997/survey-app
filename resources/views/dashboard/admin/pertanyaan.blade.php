@@ -1,6 +1,6 @@
 @extends('dashboard.layouts.main')
 @section('content')
-<div class="flex justify-start items-center gap-5 ">
+<div class="flex justify-start items-start gap-5 ">
     <div class="w-10 h-10">
         <a href="{{ route('admin.survey') }}">
             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -14,9 +14,15 @@
             </svg>
         </a>
     </div>
-    <p class="font-bold text-lg my-0">
-        <span class="md:text-xl uppercase">{{ $survey->nama_survey }}</span>
-    </p>
+    <div class="flex justify-start items-start flex-col">
+        <p class="font-bold text-lg my-0">
+            <span class="md:text-xl uppercase">{{ $survey->nama_survey }}</span>
+        </p>
+        {{-- deskripsi Survey --}}
+        <p class="font-normal text-sm ">
+            <span class="md:text-base ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Et, rerum?</span>
+        </p>
+    </div>
 </div>
 <div class="flex justify-center items-start gap-2 mt-10 flex-col">
     <div class="md:flex md:justify-center md:items-center  md:flex-row md:gap-4 min-w-full sm:min-w-fit ">
