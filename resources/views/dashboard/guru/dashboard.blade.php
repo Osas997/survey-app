@@ -1,6 +1,6 @@
 @extends('dashboard.layouts.main')
 @section('content')
-<div class="relative bg-indigo-200 w-10/12 dark:bg-indigo-500 p-4 sm:p-6 rounded-sm overflow-hidden mb-8 ">
+<div class="relative bg-indigo-200 w-10/12  p-4 sm:p-6 rounded-sm overflow-hidden mb-8 ">
     <!-- Background illustration -->
     <div class="absolute right-0 top-0 -mt-4 mr-16 pointer-events-none hidden xl:block" aria-hidden="true">
         <svg width="319" height="198" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -45,9 +45,9 @@
 
     <!-- Content -->
     <div class="relative">
-        <h1 class="text-2xl md:text-3xl text-slate-800 dark:text-slate-100 font-bold mb-1">Welcome Back {{
+        <h1 class="text-2xl md:text-3xl text-slate-800 -bold mb-1">Welcome Back {{
             auth("guru")->user()->nama }} 👋</h1>
-        <p class="dark:text-indigo-200">Here is what's happening with your projects today:</p>
+        <p class="">Here is what's happening with your projects today:</p>
     </div>
 
 </div>
