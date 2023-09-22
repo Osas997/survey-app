@@ -9,12 +9,12 @@
         <form action="" method="get">   
             <div class="relative ">
                 <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                    <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                    <svg class="w-4 h-4 text-gray-500 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
                     </svg>
                 </div>
-                <input type="search" id="search" class="block w-[360px] md:w-[458px] p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Cari Survey" required>
-                <button type="submit" class="text-white absolute right-2.5 bottom-2.5 bg-blue-700  focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800  hover:bg-blue-500 duration-300 ease-in-out">Search</button>
+                <input type="search" id="search" class="block w-[360px] md:w-[458px] p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 " placeholder="Cari Survey" required>
+                <button type="submit" class="text-white absolute right-2.5 bottom-2.5 bg-blue-700  focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2  hover:bg-blue-500 duration-300 ease-in-out">Search</button>
             </div>
             
         </form>
@@ -26,109 +26,54 @@
         </a>
     </div>
     <div class="mt-8 w-full  overflow-x-auto overflow-y-auto">
-        <table class="border-collapse border-none w-max table-fixed text-left sm:w-full">
-            <!-- head -->
-            <thead>
-                <tr class="bg-[#0090D4] text-white w-full">
-                    <th class="w-[2%]"></th>
-                    <th class="mx-2 font-medium w-20 sm:w-[18%] py-4  text-sm">
-                        <span class="sm:text-base md:text-lg ">Nama</span>
+        @if ($dataSekolah->isNotEmpty())
+        <table class="w-full text-sm text-left text-gray-500 ">
+            <thead class="text-xs text-white uppercase bg-blue-500 dark:bg-gray-700 ">
+                <tr>
+                    <th scope="col" class="px-6 py-3">
+                        Nama Murid
                     </th>
-                    <th class="font-medium w-24 sm:w-[22%] py-4 text-sm  ">
-                        <span class="sm:text-base md:text-lg ">NISN</span>
+                    <th scope="col" class="px-6 py-3">
+                        NISN
                     </th>
-                    <th class="font-medium w-24 sm:w-[22%] py-4 text-sm  sm:text-base md:text-lg lg:text-xl">
-                        <span class="sm:text-base md:text-lg ">Alamat</span>
+                    <th scope="col" class="px-6 py-3">
+                        Alamat
                     </th>
-                    <th class="font-medium w-40 sm:w-[20%] py-4 text-sm  sm:text-base md:text-lg lg:text-xl">
-                        <span class="sm:text-base md:text-lg ">Jenis Kelamin</span>
+                    <th scope="col" class="px-6 py-3">
+                        Jenis kelamin
                     </th>
-                    <th class="font-medium w-40 sm:w-[20%] py-4 text-sm sm:text-base md:text-lg lg:text-xl">
-                        <span class="sm:text-base md:text-lg ">Status</span>
+                    <th scope="col" class="px-6 py-3">
+                        Status
                     </th>
-             
                 </tr>
             </thead>
             <tbody>
-                <tr class="border-b-2">
-                    <th></th>
-                    <th class="font-bold text-xs py-6 ">
-                        <span class="sm:text-sm md:text-md ">Jhon Doe</span>
+                {{-- @foreach (  ) --}}
+                <tr class="bg-white border-b  hover:bg-gray-50 ">
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
+                        <a href="/admin/siswa/" class="cursor-pointer">
+                            <span class="sm:text-sm md:text-md uppercase">Jhon Doe</span>
+                        </a>
                     </th>
-                    <th class="font-normal text-xs py-6 ">
-                        <span class="sm:text-sm md:text-md ">12315123</span>
-                    </th>
-                    <th class="font-normal text-xs py-6 ">
-                        <span class="sm:text-sm md:text-md ">Jl Banyuwangi No 2</span>
-                    </th>
-                    <th class="font-normal text-xs py-6 ">
-                        <span class="sm:text-sm md:text-md ">Laki Laki</span>
-                    </th>
-                    <th class="font-normal text-xs py-6 ">
-                        <span class="sm:text-sm md:text-md ">diPerundung</span>
-                    </th>
-            
+                    <td class="px-6 py-4">
+                        <span class="sm:text-sm md:text-md">12314</span>
+                    </td>
+                    <td class="px-6 py-4">
+                        <span class="sm:text-sm md:text-md">Jl Banyuwangi</span>
+                    </td>
+                    <td class="px-6 py-4">
+                        <span class="sm:text-sm md:text-md">Laki Laki</span>
+                    </td>
+                    <td class="px-6 py-4 text-right">
+                        <span class="sm:text-sm md:text-md">Korban</span>
+                    </td>
                 </tr>
-                <tr class="border-b-2">
-                    <th></th>
-                    <th class="font-bold text-xs py-6 ">
-                        <span class="sm:text-sm md:text-md ">Jhon Doe</span>
-                    </th>
-                    <th class="font-normal text-xs py-6 ">
-                        <span class="sm:text-sm md:text-md ">12315123</span>
-                    </th>
-                    <th class="font-normal text-xs py-6 ">
-                        <span class="sm:text-sm md:text-md ">Jl Banyuwangi No 2</span>
-                    </th>
-                    <th class="font-normal text-xs py-6 ">
-                        <span class="sm:text-sm md:text-md ">Laki Laki</span>
-                    </th>
-                    <th class="font-normal text-xs py-6 ">
-                        <span class="sm:text-sm md:text-md ">diPerundung</span>
-                    </th>
-                
-                </tr>
-                <tr class="border-b-2">
-                    <th></th>
-                    <th class="font-bold text-xs py-6 ">
-                        <span class="sm:text-sm md:text-md ">Jhon Doe</span>
-                    </th>
-                    <th class="font-normal text-xs py-6 ">
-                        <span class="sm:text-sm md:text-md ">12315123</span>
-                    </th>
-                    <th class="font-normal text-xs py-6 ">
-                        <span class="sm:text-sm md:text-md ">Jl Banyuwangi No 2</span>
-                    </th>
-                    <th class="font-normal text-xs py-6 ">
-                        <span class="sm:text-sm md:text-md ">Laki Laki</span>
-                    </th>
-                    <th class="font-normal text-xs py-6 ">
-                        <span class="sm:text-sm md:text-md ">diPerundung</span>
-                    </th>
-                  
-                </tr>
-                <tr class="border-b-2">
-                    <th></th>
-                    <th class="font-bold text-xs py-6 ">
-                        <span class="sm:text-sm md:text-md ">Jhon Doe</span>
-                    </th>
-                    <th class="font-normal text-xs py-6 ">
-                        <span class="sm:text-sm md:text-md ">12315123</span>
-                    </th>
-                    <th class="font-normal text-xs py-6 ">
-                        <span class="sm:text-sm md:text-md ">Jl Banyuwangi No 2</span>
-                    </th>
-                    <th class="font-normal text-xs py-6 ">
-                        <span class="sm:text-sm md:text-md ">Laki Laki</span>
-                    </th>
-                    <th class="font-normal text-xs py-6 ">
-                        <span class="sm:text-sm md:text-md ">diPerundung</span>
-                    </th>
-                  
-                </tr>
-               
+                @endforeach
             </tbody>
         </table>
+         @else
+        <h1 class="text-center text-2xl font-bold text-red-600 mt-20">Sekolah TIdak ditemukan</h1>
+        @endif
     </div>
     
 @endsection

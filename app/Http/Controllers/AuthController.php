@@ -37,7 +37,7 @@ class AuthController extends Controller
 
         if (Auth::guard("murid")->attempt(["nisn" => $request->username, "password" => $request->password])) {
             $request->session()->regenerate();
-            return redirect()->intended('/siswa/dashboard');
+            return redirect()->intended('/murid/dashboard');
         }
 
         return back()->with("loginError", "Username Atau Password Salah");

@@ -1,6 +1,6 @@
 @extends('dashboard.layouts.main')
 @section('content')
-<div class="flex justify-start items-center gap-5">
+<div class="flex justify-start items-center gap-5 ">
     <div class="w-10 h-10">
         <a href="{{ route('admin.survey') }}">
             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -19,8 +19,6 @@
     </p>
 </div>
 <div class="flex justify-center items-start gap-2 mt-10 flex-col">
-
-
     <div class="md:flex md:justify-center md:items-center  md:flex-row md:gap-4 min-w-full sm:min-w-fit ">
         <a href="{{ route('admin.viewTambahPertanyaan',['survey'=> $survey->id]) }}">
             <div
@@ -82,7 +80,7 @@
 </div>
 
 
-<div class="mt-8 w-full  overflow-x-hidden overflow-y-auto">
+<div class="mt-8 w-full  overflow-x-auto overflow-y-auto">
     @foreach ($survey->pertanyaan as $pertanyaan)
     <div class="">
         <div class="flex justify-between items-start gap-16">
