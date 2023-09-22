@@ -63,5 +63,5 @@
         <h1 class="text-center text-2xl font-bold text-red-600 mt-20">Sekolah TIdak ditemukan</h1>
         @endif
     </div>
-    
+   
 @endsection

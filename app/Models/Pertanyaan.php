@@ -11,10 +11,8 @@ class Pertanyaan extends Model
     protected $table = "pertanyaan";
     protected $guarded = ["id"];
 
-    public function scopeSearch($query, $search)
+    public function survey()
     {
-        if ($search) {
-            $query->where('pertanyaan', 'like', '%' . $search . '%');
-        }
+        return $this->belongsTo(Survey::class, 'id_survey', 'id');
     }
 }

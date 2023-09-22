@@ -22,8 +22,10 @@ class GuruController extends Controller
 
     public function index()
     {
+        $guru = Guru::where("id_sekolah", auth('sekolah')->user()->id)->paginate(5);
         return view("dashboard.sekolah.guru", [
-            "title" => "Sekolah | Guru"
+            "title" => "Sekolah | Guru",
+            "daftarGuru" => $guru
         ]);
     }
 
