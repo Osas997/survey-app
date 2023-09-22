@@ -2,7 +2,7 @@
 @section('content')
 <div class="flex justify-start items-center gap-5">
     <p class="font-bold text-lg my-0">
-        <span class=" md:text-xl uppercase">Guru Sekolah {{ auth('sekolah')->user()->nama_sekolah }}</span>
+        <span class=" md:text-xl">SDN 2 Banyuwangi</span>
     </p>
 </div>
 <div class="flex justify-start items-center gap-4 mt-10  ">
@@ -17,7 +17,7 @@
             </div>
             <input type="search" id="search"
                 class="block w-[360px] md:w-[458px] p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                placeholder="Cari Guru" required>
+                placeholder="Cari Survey" required>
             <button type="submit"
                 class="text-white absolute right-2.5 bottom-2.5 bg-blue-700  focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800  hover:bg-blue-500 duration-300 ease-in-out">Search</button>
         </div>
@@ -58,23 +58,75 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($daftarGuru as $guru)
             <tr class="border-b-2">
-                <td></td>
-                <td class="font-bold text-xs py-6 ">
+                <th></th>
+                <th class="font-bold text-xs py-6 ">
                     <span class="sm:text-sm md:text-md ">Jhon Doe</span>
-                </td>
-                <td class="font-normal text-xs py-6 ">
+                </th>
+                <th class="font-normal text-xs py-6 ">
                     <span class="sm:text-sm md:text-md ">12315123</span>
-                </td>
-                <td class="font-normal text-xs py-6 ">
+                </th>
+                <th class="font-normal text-xs py-6 ">
                     <span class="sm:text-sm md:text-md ">Jl Banyuwangi No 2</span>
-                </td>
-                <td class="font-normal text-xs py-6 ">
+                </th>
+                <th class="font-normal text-xs py-6 ">
                     <span class="sm:text-sm md:text-md ">Laki Laki</span>
-                </td>
+                </th>
+
+
             </tr>
-            @endforeach
+            <tr class="border-b-2">
+                <th></th>
+                <th class="font-bold text-xs py-6 ">
+                    <span class="sm:text-sm md:text-md ">Jhon Doe</span>
+                </th>
+                <th class="font-normal text-xs py-6 ">
+                    <span class="sm:text-sm md:text-md ">12315123</span>
+                </th>
+                <th class="font-normal text-xs py-6 ">
+                    <span class="sm:text-sm md:text-md ">Jl Banyuwangi No 2</span>
+                </th>
+                <th class="font-normal text-xs py-6 ">
+                    <span class="sm:text-sm md:text-md ">Laki Laki</span>
+                </th>
+
+
+            </tr>
+            <tr class="border-b-2">
+                <th></th>
+                <th class="font-bold text-xs py-6 ">
+                    <span class="sm:text-sm md:text-md ">Jhon Doe</span>
+                </th>
+                <th class="font-normal text-xs py-6 ">
+                    <span class="sm:text-sm md:text-md ">12315123</span>
+                </th>
+                <th class="font-normal text-xs py-6 ">
+                    <span class="sm:text-sm md:text-md ">Jl Banyuwangi No 2</span>
+                </th>
+                <th class="font-normal text-xs py-6 ">
+                    <span class="sm:text-sm md:text-md ">Laki Laki</span>
+                </th>
+
+
+            </tr>
+            <tr class="border-b-2">
+                <th></th>
+                <th class="font-bold text-xs py-6 ">
+                    <span class="sm:text-sm md:text-md ">Jhon Doe</span>
+                </th>
+                <th class="font-normal text-xs py-6 ">
+                    <span class="sm:text-sm md:text-md ">12315123</span>
+                </th>
+                <th class="font-normal text-xs py-6 ">
+                    <span class="sm:text-sm md:text-md ">Jl Banyuwangi No 2</span>
+                </th>
+                <th class="font-normal text-xs py-6 ">
+                    <span class="sm:text-sm md:text-md ">Laki Laki</span>
+                </th>
+
+
+            </tr>
+
         </tbody>
     </table>
 </div>
