@@ -62,20 +62,20 @@
             @foreach ($dataSekolah as $sekolah)
             <tr class="border-b-2">
                 <th></th>
-                <a href="">
-                    <th class="font-bold text-xs py-4">
+                <td class="font-bold text-xs py-4">
+                    <a href="/admin/siswa/{{ $sekolah->id }}" class="cursor-pointer">
                         <span class="sm:text-sm md:text-md uppercase">{{ $sekolah->nama_sekolah }}</span>
-                    </th>
-                </a>
-                <th class="font-normal text-xs py-4">
+                    </a>
+                </td>
+                <td class="font-normal text-xs py-4">
                     <span class="sm:text-sm md:text-md">{{ $sekolah->npsn }}</span>
-                </th>
-                <th class="font-normal text-xs py-4">
+                </td>
+                <td class="font-normal text-xs py-4">
                     <span class="sm:text-sm md:text-md">{{ $sekolah->alamat_sekolah }}</span>
-                </th>
-                <th class="font-normal text-xs py-4">
+                </td>
+                <td class="font-normal text-xs py-4">
                     <span class="sm:text-sm md:text-md">{{ $sekolah->status }}</span>
-                </th>
+                </td>
             </tr>
             @endforeach
         </tbody>
