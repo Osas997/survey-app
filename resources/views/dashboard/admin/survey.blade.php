@@ -78,7 +78,10 @@
         @else
         <h1 class="text-center text-2xl font-bold text-red-600 mt-20">Survey Tidak ditemukan</h1>
         @endif
-    
+
+        <div class="flex justify-center w-full mt-10">
+            {{ $survey->links('vendor.pagination.custom-pagination')}}
+        </div>
 
     </div>
 
