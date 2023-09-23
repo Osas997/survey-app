@@ -12,9 +12,13 @@ class SurveyController extends Controller
      */
     public function index()
     {
+        $surveys = Survey::all();
+        $totalPage = ceil($surveys->count() / 5);
+        $pages = range(1, $totalPage);
         return view("dashboard.admin.survey", [
             "title" => "Dashboard | Survey",
-            "survey" => Survey::withCount("pertanyaan")->search(request('search'))->paginate(5)
+            "survey" => Survey::withCount("pertanyaan")->search(request('search'))->paginate(5),
+            "totalPages" => $pages
         ]);
     }
 
