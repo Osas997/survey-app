@@ -13,4 +13,12 @@ class Murid extends Model
     protected $casts = [
         'password' => 'hashed',
     ];
+
+    public function scopeSearch($query, $search)
+    {
+        if ($search) {
+            $query->where('nama_murid', 'like', '%' . $search . '%')
+                ->orWhere('nisn', 'like', '%' . $search . '%');
+        }
+    }
 }

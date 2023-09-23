@@ -17,9 +17,10 @@ return new class extends Migration
             $table->string('password', 255);
             $table->string('nama_murid', 50);
             $table->enum('jenis_kelamin', ["L", "P"]);
+            $table->string('alamat', 100);
             $table->unsignedBigInteger('id_sekolah')->index();
             $table->timestamps();
-            $table->foreign('id_sekolah')->references('id')->on('sekolah');
+            $table->foreign('id_sekolah')->references('id')->on('sekolah')->onDelete('cascade');
         });
     }
 

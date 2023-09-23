@@ -14,8 +14,15 @@ class DashboardController extends Controller
     }
     public function indexSekolah()
     {
-        return view('dashboard.sekolah.dashboard',[
-            'title'=> "Sekolah Dashboard"
+        return view('dashboard.sekolah.dashboard', [
+            'title' => "Sekolah Dashboard"
+        ]);
+    }
+
+    public function indexGuru()
+    {
+        return view('dashboard.guru.dashboard', [
+            'title' => "Guru Dashboard"
         ]);
     }
 }

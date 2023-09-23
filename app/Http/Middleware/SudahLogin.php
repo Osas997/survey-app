@@ -29,7 +29,7 @@ class SudahLogin
         }
 
         if (auth("murid")->check()) {
-            return redirect("/survey");
+            return redirect("/murid/dashboard");
         }
         return $next($request);
     }

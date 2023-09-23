@@ -12,7 +12,11 @@ class MuridController extends Controller
      */
     public function index()
     {
-        //
+        $murid = Murid::where("id_sekolah", auth('sekolah')->user()->id)->search(request('search'))->paginate(5);
+        return view('dashboard.sekolah.murid', [
+            "title" => "Murid Sekolah | " .  auth('sekolah')->user()->nama_sekolah,
+            "daftarMurid" => $murid
+        ]);
     }
 
     /**
@@ -20,7 +24,9 @@ class MuridController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.sekolah.addMurid', [
+            "title" => "Tambah Murid"
+        ]);
     }
 
     /**
@@ -29,15 +35,17 @@ class MuridController extends Controller
     public function store(Request $request)
     {
         $validate = $request->validate([
-            "nisn" => "required|unique:guru",
+            "nisn" => "required|unique:murid",
             "password" => "required",
             "nama_murid" => "required",
+            "alamat" => "required",
             "jenis_kelamin" => "required",
-            "id_sekolah" => "required",
         ]);
 
+        $validate['id_sekolah'] = auth('sekolah')->user()->id;
+
         Murid::create($validate);
-        return redirect("/dashboard/sekolah")->with('success', "Guru Berhasil Di Tambah");
+        return redirect("/sekolah/murid")->with('success', "Guru Berhasil Di Tambah");
     }
 
     /**

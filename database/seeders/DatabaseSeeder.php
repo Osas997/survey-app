@@ -44,10 +44,10 @@ class DatabaseSeeder extends Seeder
         );
 
         Sekolah::create([
-            "npsn" => "npsn",
+            "npsn" => "123",
             "password" => "12345",
-            "nama_sekolah" => "MAN GENTENG",
-            "alamat_sekolah" => "Jl kepiting genteng",
+            "nama_sekolah" => "SMPN 1 SEMPU",
+            "alamat_sekolah" => "Rth SEMPU",
             "status" => "negeri"
         ]);
 
@@ -64,7 +64,8 @@ class DatabaseSeeder extends Seeder
             "password" => "12345",
             "nama_murid" => "Diki Brong",
             "jenis_kelamin" => "L",
-            "id_sekolah" => 1
+            "id_sekolah" => 1,
+            "alamat" => "cungking"
         ]);
 
         Survey::create([
