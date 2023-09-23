@@ -79,10 +79,10 @@
                     </td>
                     <td class="px-6 py-4 text-right">
                         <div class="flex justify-center items-center gap-1">
-                            <a href=""
-                                class="text-blue-500 duration-300 ease-in-out underline text-sm text-center mr-3 md:mr-0">Guru</a>
-                            <a href=""
-                                class="text-blue-500 duration-300 ease-in-out underline text-sm text-center mr-3 md:mr-0">Murid</a>
+                            <a href="{{ route('admin.viewGuru', ['sekolah'=> $sekolah->id] ) }}" class="text-blue-500 duration-300 ease-in-out underline text-sm text-center mr-3
+                                md:mr-0">Guru</a>
+                            <a href="{{ route('admin.viewMurid', ['sekolah'=> $sekolah->id] ) }}" class="text-blue-500 duration-300 ease-in-out underline text-sm text-center mr-3
+                                md:mr-0">Murid</a>
                         </div>
                     </td>
                 </tr>

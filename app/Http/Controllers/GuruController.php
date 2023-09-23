@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Imports\GuruImport;
 use App\Models\Guru;
+use App\Models\Sekolah;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -26,6 +27,17 @@ class GuruController extends Controller
         return view("dashboard.sekolah.guru", [
             "title" => "Sekolah | Guru",
             "daftarGuru" => $guru
+        ]);
+    }
+
+
+    public function adminGuru(Sekolah $sekolah)
+    {
+        $daftarGuru = Guru::where("id_sekolah", $sekolah->id)->search(request('search'))->paginate(15);
+        return view("dashboard.admin.guru", [
+            "title" => "Sekolah | Guru",
+            "daftarGuru" => $daftarGuru,
+            "namaSekolah" => $sekolah->nama_sekolah
         ]);
     }
 
