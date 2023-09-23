@@ -26,14 +26,27 @@
         <div class="mb-6 lg:w-5/12">
             <label for="nama_survey" class="block mb-2 text-sm font-medium text-gray-900">Survey</label>
             <input type="text" id="nama_survey" name="nama_survey" placeholder="Survey"
-                class="bg-slate-50 border-2 border-blue-500 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                class="bg-slate-50 border-2 border-blue-500 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5
+            @error('nama_survey')
+                border-red-500 text-red-900 placeholder-red-700 focus:ring-red-500 focus:border-red-500
+            @enderror">
+            @error('nama_survey')
+                <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">{{ $message }}</span></p>
+            @enderror
+
         </div>
         <div class="mb-6 lg:w-5/12">
             <div class="">
-                <label for="deskribsi" class="block mb-2 text-sm font-medium text-gray-900">Deskripsi Survey</label>
-                <textarea id="deskribsi" rows="4" name="deskripsi"
-                    class="block p-2.5 w-full text-sm text-gray-900 bg-slate-50 border-2 border-blue-500 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+                <label for="deskripsi" class="block mb-2 text-sm font-medium text-gray-900">Deskripsi Survey</label>
+                <textarea id="deskripsi" rows="4" name="deskripsi"
+                    class="block p-2.5 w-full text-sm text-gray-900 bg-slate-50 border-2 border-blue-500 rounded-lg focus:ring-blue-500 focus:border-blue-500
+                    @error('deskripsi')
+                        border-red-500 text-red-900 placeholder-red-700 focus:ring-red-500 focus:border-red-500
+                    @enderror"
                     placeholder="Survey mengenai..."></textarea>
+                @error('deskripsi')
+                    <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">{{ $message }}</span></p>
+                @enderror
             </div>
         </div>
     </div>

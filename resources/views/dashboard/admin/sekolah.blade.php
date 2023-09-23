@@ -64,9 +64,7 @@
                 @foreach ($dataSekolah as $sekolah)
                 <tr class="bg-white border-b  hover:bg-gray-50 ">
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
-                        <a href="/admin/siswa/{{ $sekolah->id }}" class="cursor-pointer">
-                            <span class="sm:text-sm md:text-md uppercase">{{ $sekolah->nama_sekolah }}</span>
-                        </a>
+                        <span class="sm:text-sm md:text-md uppercase">{{ $sekolah->nama_sekolah }}</span>
                     </th>
                     <td class="px-6 py-4">
                         <span class="sm:text-sm md:text-md">{{ $sekolah->npsn }}</span>

@@ -62,10 +62,6 @@
             <!-- Quiz questions and options will be inserted here -->
         </div>
         
-
-        {{-- <div class="flex justify-center items-center mt-10">
-            <button id="prev-btn" class="bg-blue-500 w-1/2 text-white px-10 py-3 rounded-lg disabled:hidden">Previous</button>
-        </div> --}}
         <div id="score" class="mt-4 font-semibold"></div>
     </div>
     </div>
@@ -108,7 +104,7 @@
                   <h2 class="text-base font-semibold mb-6 mt-4">${questionData.question}</h2>
                   <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                       ${questionData.options.map((option, index) => `
-                          <button class="bg-gray-200 hover:bg-blue-200 py-2 px-4 rounded text-start"
+                          <button class="bg-gray-200 hover:bg-blue-200 duration-300 py-2 px-4 rounded text-start"
                                   data-index="${index}">${option}</button>
                       `).join('')}
                   </div>
@@ -116,11 +112,12 @@
           } else {
               // Quiz completed
               quizContainer.innerHTML = `<p class="text-xl font-semibold text-center">You Score Is ${score}</p>`;
-              prevBtn.disabled = true;
+            //   prevBtn.disabled = true;
           }
 
           // Update progress bar
           const progressPercent = ((questionIndex) / quizData.length) * 100;
+        //   console.log(progressPercent)
           progress.style.width = `${progressPercent}%`;
       }
 
@@ -131,7 +128,7 @@
               const currentQuestion = quizData[currentQuestionIndex];
 
               // Answer 
-              // console.log(currentQuestion.options[selectedOptionIndex]);
+            //   console.log(currentQuestion.options[selectedOptionIndex]);
               switch (currentQuestion.options[selectedOptionIndex]) {
                   case "Selalu":
                       score += 4;
@@ -154,14 +151,6 @@
           }
       });
 
-      // Event listener for the "Previous" button
-    //   prevBtn.addEventListener('click', () => {
-    //       if (currentQuestionIndex > 0) {
-    //           currentQuestionIndex--;
-    //           loadQuestion(currentQuestionIndex);
-    //           prevBtn.disabled = currentQuestionIndex === 0; // Disable "Previous" button on the first question
-    //       }
-    //   });
 
       // Initialize the quiz
       loadQuestion(currentQuestionIndex);
