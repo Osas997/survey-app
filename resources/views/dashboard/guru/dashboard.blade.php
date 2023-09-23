@@ -45,7 +45,7 @@
 
     <!-- Content -->
     <div class="relative">
-        <h1 class="text-2xl md:text-3xl text-slate-800 -bold mb-1">Welcome Back {{
+        <h1 class="text-2xl md:text-3xl text-slate-800 font-bold mb-1">Welcome Back {{
             auth("guru")->user()->nama }} 👋</h1>
         <p class="">Here is what's happening with your projects today:</p>
     </div>

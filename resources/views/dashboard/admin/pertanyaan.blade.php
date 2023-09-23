@@ -20,7 +20,7 @@
         </p>
         {{-- deskripsi Survey --}}
         <p class="font-normal text-sm ">
-            <span class="md:text-base ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Et, rerum?</span>
+            <span class="md:text-base ">{{ $survey->deskripsi }}</span>
         </p>
     </div>
 </div>

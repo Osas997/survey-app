@@ -46,7 +46,7 @@
          </li>
          <li>
             <a href="{{ route('admin.sekolah') }}" class="
-            @if (Request::is('admin/sekolah*'))
+            @if (Request::is('admin/sekolah*') || Request::is('admin/*/murid') || Request::is('admin/*/guru'))
                 bg-gray-200
             @endif
             flex items-center p-2 text-gray-900 rounded-lg duration-300 ease-in-out hover:bg-gray-100  group">
@@ -174,7 +174,7 @@
             </a>
          </li>
          <li>
-            <a href="" class="
+            <a href="{{ route('guru.viewMurid') }}" class="
                @if (Request::is('guru/murid*'))
                    bg-gray-200
                @endif

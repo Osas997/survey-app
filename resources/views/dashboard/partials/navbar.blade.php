@@ -38,8 +38,13 @@
                         Username
                      </p>
                      <p class="text-sm font-medium text-gray-900 truncate dark:text-gray-300" role="none">
-                        {{-- {{auth('admin')->user()->username}} --}}
-                        admin
+                        @if (auth('admin')->check())
+                        {{auth('admin')->user()->username}}
+                        @elseif (auth('sekolah')->check())
+                        {{auth('sekolah')->user()->nama_sekolah}}
+                        @elseif (auth('guru')->check())
+                        {{auth('guru')->user()->nama}}
+                        @endif
                      </p>
                   </div>
                   <ul class="py-1" role="none">
@@ -50,7 +55,6 @@
                      </li>
                      <li>
                         <form action="{{ route('logout') }}" method="post">
-
                            @csrf
                            <button href="#" type="submit"
                               class="block text-start w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"

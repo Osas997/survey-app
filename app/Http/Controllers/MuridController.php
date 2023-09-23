@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Murid;
+use App\Models\Sekolah;
 use Illuminate\Http\Request;
 
 class MuridController extends Controller
@@ -16,6 +17,28 @@ class MuridController extends Controller
         return view('dashboard.sekolah.murid', [
             "title" => "Murid Sekolah | " .  auth('sekolah')->user()->nama_sekolah,
             "daftarMurid" => $murid
+        ]);
+    }
+
+    public function adminMurid(Sekolah $sekolah)
+    {
+        $daftarMurid = Murid::where("id_sekolah", $sekolah->id)->search(request('search'))->paginate(15);
+
+        return view("dashboard.admin.murid", [
+            "title" => "Sekolah | Guru",
+            "daftarMurid" => $daftarMurid,
+            "namaSekolah" => $sekolah->nama_sekolah
+        ]);
+    }
+
+    public function viewGuruMurid()
+    {
+        $murid = Murid::where("id_sekolah", auth('guru')->user()->id)->search(request('search'))->paginate(5);
+        $namaSekolah = auth('guru')->user()->sekolah->nama_sekolah;
+        return view('dashboard.guru.murid', [
+            "title" => "Murid Sekolah | " .  $namaSekolah,
+            "daftarMurid" => $murid,
+            "namaSekolah" => $namaSekolah
         ]);
     }
 
