@@ -43,6 +43,9 @@ Route::middleware("admin")->prefix('admin')->group(function () {
     Route::put("/pertanyaan/edit/{pertanyaan}", [PertanyaanController::class, "update"])->name('admin.editPertanyaan');
     Route::post("/pertanyaan", [PertanyaanController::class, "store"])->name('admin.tambahPertanyaan');
     Route::delete("/pertanyaan/{pertanyaan}", [PertanyaanController::class, "destroy"])->name('admin.hapusPertanyaan');
+
+    Route::get("/{sekolah}/guru", [GuruController::class, "adminGuru"])->name('admin.viewGuru');
+    Route::get("/{sekolah}/murid", [MuridController::class, "adminMurid"])->name('admin.viewMurid');
 });
 
 
@@ -59,7 +62,7 @@ Route::middleware("sekolah")->prefix('sekolah')->group(function () {
 
 Route::middleware("guru")->prefix('guru')->group(function () {
     Route::get("/dashboard", [DashboardController::class, "indexGuru"])->name('guru.dashboard');
-    // Route::get("/murid", [SekolahController::class, "store"]);
+    Route::get("/murid", [MuridController::class, "viewGuruMurid"])->name('guru.viewMurid');
 });
 
 Route::middleware("murid")->prefix('murid')->group(function () {
