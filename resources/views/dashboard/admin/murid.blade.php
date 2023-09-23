@@ -49,9 +49,7 @@
             @foreach ($daftarMurid as $murid)
             <tr class="bg-white border-b  hover:bg-gray-50 ">
                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
-                    <a href="/sekolah/siswa/" class="cursor-pointer">
                         <span class="sm:text-sm md:text-md uppercase">{{ $murid->nama_murid }}</span>
-                    </a>
                 </th>
                 <td class="px-6 py-4">
                     <span class="sm:text-sm md:text-md">{{ $murid->nisn }}</span>
