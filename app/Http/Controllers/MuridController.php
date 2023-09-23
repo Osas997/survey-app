@@ -31,6 +31,17 @@ class MuridController extends Controller
         ]);
     }
 
+    public function viewGuruMurid()
+    {
+        $murid = Murid::where("id_sekolah", auth('guru')->user()->id)->search(request('search'))->paginate(5);
+        $namaSekolah = auth('guru')->user()->sekolah->nama_sekolah;
+        return view('dashboard.guru.murid', [
+            "title" => "Murid Sekolah | " .  $namaSekolah,
+            "daftarMurid" => $murid,
+            "namaSekolah" => $namaSekolah
+        ]);
+    }
+
     /**
      * Show the form for creating a new resource.
      */

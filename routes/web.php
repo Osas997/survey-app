@@ -62,7 +62,7 @@ Route::middleware("sekolah")->prefix('sekolah')->group(function () {
 
 Route::middleware("guru")->prefix('guru')->group(function () {
     Route::get("/dashboard", [DashboardController::class, "indexGuru"])->name('guru.dashboard');
-    // Route::get("/murid", [SekolahController::class, "store"]);
+    Route::get("/murid", [MuridController::class, "viewGuruMurid"])->name('guru.viewMurid');
 });
 
 Route::middleware("murid")->prefix('murid')->group(function () {

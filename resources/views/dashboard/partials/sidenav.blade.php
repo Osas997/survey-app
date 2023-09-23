@@ -174,7 +174,7 @@
             </a>
          </li>
          <li>
-            <a href="" class="
+            <a href="{{ route('guru.viewMurid') }}" class="
                @if (Request::is('guru/murid*'))
                    bg-gray-200
                @endif

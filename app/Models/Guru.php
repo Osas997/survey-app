@@ -23,4 +23,9 @@ class Guru extends Model
                 ->orWhere('nuptk', 'like', '%' . $search . '%');
         }
     }
+
+    public function sekolah()
+    {
+        return $this->belongsTo(Sekolah::class, 'id_sekolah', 'id');
+    }
 }
