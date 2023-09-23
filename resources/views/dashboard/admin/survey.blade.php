@@ -79,6 +79,30 @@
         @else
         <h1 class="text-center text-2xl font-bold text-red-600 mt-20">Survey Tidak ditemukan</h1>
         @endif
+        <div class="flex justify-center w-full mt-10">
+            {{-- {{ $survey->withQueryString()->links('vendor.pagination.custom-pagination')}} --}}
+            <ul class="inline-flex -space-x-px text-sm">
+                @foreach ($totalPages as $page)
+                    {{-- <li class="">
+                        <a href="/admin/survey?page={{ $page }}" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 duration-300 ease-in-out">{{ $page }}</a>
+                    </li> --}}
+                    <li>
+                        <a href="/admin/survey?page={{ $page }}" 
+                            aria-current="page"
+                            
+                           class="flex items-center justify-center px-3 h-8  border border-gray-300  hover:bg-blue-100 hover:text-blue-700 duration-300 ease-in-out 
+                           @if (request()->input('page') == $page)
+                           bg-blue-50
+                           text-blue-600
+                            @endif">
+                           {{ $page }}
+                        </a>
+                    </li>
+                    
+                    
+                @endforeach
+            </ul>
+        </div>
     </div>
 
     {{--
