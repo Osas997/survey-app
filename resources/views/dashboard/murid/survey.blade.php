@@ -62,13 +62,10 @@
             <!-- Quiz questions and options will be inserted here -->
         </div>
         
-        {{-- <div id="progress" class="my-4">
-            <div class="bg-blue-500 h-4 rounded"></div>
+
+        {{-- <div class="flex justify-center items-center mt-10">
+            <button id="prev-btn" class="bg-blue-500 w-1/2 text-white px-10 py-3 rounded-lg disabled:hidden">Previous</button>
         </div> --}}
-        <div class="flex justify-center items-center mt-10">
-            <button id="next-btn" class="bg-blue-500 w-full  text-white px-10 py-3 rounded-lg disabled:hidden">Next</button>
-            
-        </div>
         <div id="score" class="mt-4 font-semibold"></div>
     </div>
     </div>
@@ -79,22 +76,18 @@
           {
               question: "Saya dipanggil dengan nama panggilan yang jelek, diolok-olok, atau diejek sehingga saya merasa sakit hati",
               options: ["Selalu", "Sering", "Jarang", "Tidak Pernah"],
-
           },
           {
               question: "Teman-teman dengan sengaja mengabaikan saya, tidak mengajak saya bergabung dengan kelompoknya, atau menganggap saya tidak ada",
               options: ["Selalu", "Sering", "Jarang", "Tidak Pernah"],
-              
           },
           {
               question: "Saya dipukul, ditendang, didorong, dipojokkan ke tembok, atau dikunci di dalam ruangan",
               options: ["Selalu", "Sering", "Jarang", "Tidak Pernah"],
-              
           },
           {
               question: "Murid lain berbohong atau menyebarkan desas-desus palsu tentang saya dan mencoba membuat orang lain tidak menyukai saya",
               options: ["Selalu", "Sering", "Jarang", "Tidak Pernah"],
-              
           },
           // Add more questions and options here
       ];
@@ -104,7 +97,7 @@
 
       const quizContainer = document.getElementById('quiz-container');
       const progress = document.getElementById('progress');
-      const nextBtn = document.getElementById('next-btn');
+      const prevBtn = document.getElementById('prev-btn');
       const scoreDisplay = document.getElementById('score');
 
       // Function to load a question
@@ -123,7 +116,7 @@
           } else {
               // Quiz completed
               quizContainer.innerHTML = `<p class="text-xl font-semibold text-center">You Score Is ${score}</p>`;
-              nextBtn.disabled = true;
+              prevBtn.disabled = true;
           }
 
           // Update progress bar
@@ -161,39 +154,17 @@
           }
       });
 
-      // Event listener for the "Next" button
-      // Event listener for the "Next" button
-  nextBtn.addEventListener('click', () => {
-      // Periksa apakah pengguna telah memilih opsi
-      const selectedOption = quizContainer.querySelector('button.selected');
-      if (!selectedOption) {
-          // Jika belum memilih, tampilkan pesan kesalahan atau tindakan yang sesuai
-          alert('Pilih salah satu opsi sebelum melanjutkan.');
-          return;
-      }
+      // Event listener for the "Previous" button
+    //   prevBtn.addEventListener('click', () => {
+    //       if (currentQuestionIndex > 0) {
+    //           currentQuestionIndex--;
+    //           loadQuestion(currentQuestionIndex);
+    //           prevBtn.disabled = currentQuestionIndex === 0; // Disable "Previous" button on the first question
+    //       }
+    //   });
 
-      // Lanjutkan ke pertanyaan berikutnya jika sudah memilih
-      currentQuestionIndex--;
+      // Initialize the quiz
       loadQuestion(currentQuestionIndex);
-      });
-
-      // Event listener untuk memilih opsi
-      quizContainer.addEventListener('click', (e) => {
-          if (e.target.tagName === 'BUTTON') {
-              // Hapus kelas "selected" dari semua tombol sebelumnya
-              const selectedOptions = quizContainer.querySelectorAll('button.selected');
-              selectedOptions.forEach((option) => {
-                  option.classList.remove('selected');
-              });
-
-              // Tandai tombol yang dipilih
-              e.target.classList.add('selected');
-          }
-      });
-              
-          // Initialize the quiz
-          loadQuestion(currentQuestionIndex);
 
 </script>
 @endsection
-
