@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('alamat', 100);
             $table->unsignedBigInteger('id_sekolah')->index();
             $table->timestamps();
-            $table->foreign('id_sekolah')->references('id')->on('sekolah');
+            $table->foreign('id_sekolah')->references('id')->on('sekolah')->onDelete('cascade');
         });
     }
 
