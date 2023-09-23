@@ -74,6 +74,11 @@ Route::middleware("murid")->prefix('murid')->group(function () {
             'title' => 'Dashboard Murid'
         ]);
     });
+    Route::get('/survey1', function () {
+        return view('dashboard.murid.survey', [
+            'title' => 'Survey Test'
+        ]);
+    });
 });
 
 // Route::middleware("guru-sekolah")->group(function () {
