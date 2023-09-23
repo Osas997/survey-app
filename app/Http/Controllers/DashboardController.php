@@ -25,4 +25,11 @@ class DashboardController extends Controller
             'title' => "Guru Dashboard"
         ]);
     }
+
+    public function indexMurid()
+    {
+        return view('dashboard.murid.dashboard', [
+            'title' => 'Dashboard Murid'
+        ]);
+    }
 }

@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\MuridController;
+use App\Http\Controllers\MuridSurveyController;
 use App\Http\Controllers\PertanyaanController;
 use App\Http\Controllers\SekolahController;
 use App\Http\Controllers\SurveyController;
@@ -69,16 +70,9 @@ Route::middleware("murid")->prefix('murid')->group(function () {
     Route::get("/survey", function () {
         return "Hello siswa";
     });
-    Route::get('/dashboard', function () {
-        return view('dashboard.murid.dashboard', [
-            'title' => 'Dashboard Murid'
-        ]);
-    });
-    Route::get('/survey1', function () {
-        return view('dashboard.murid.survey', [
-            'title' => 'Survey Test'
-        ]);
-    });
+    Route::get('/dashboard', [DashboardController::class, "indexMurid"])->name('murid.dashboard');
+
+    Route::get('/survey/{survey}', [MuridSurveyController::class, "survey"])->name('murid.viewSurvey');
 });
 
 // Route::middleware("guru-sekolah")->group(function () {
