@@ -44,10 +44,156 @@
         </div>
     </nav>
     <div class="max-w-screen-xl mx-auto px-10 mt-10">
-       
+        <div class="max-w-lg mx-auto bg-white p-8 rounded shadow-md">
+            <div class="flex justify-start items-center gap-4">
+                <div class="w-6 h-6 md:w-8 md:h-8">
+                    <a href="">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M14.2893 5.70708C13.8988 5.31655 13.2657 5.31655 12.8751 5.70708L7.98768 10.5993C7.20729 11.3805 7.2076 12.6463 7.98837 13.427L12.8787 18.3174C13.2693 18.7079 13.9024 18.7079 14.293 18.3174C14.6835 17.9269 14.6835 17.2937 14.293 16.9032L10.1073 12.7175C9.71678 12.327 9.71678 11.6939 10.1073 11.3033L14.2893 7.12129C14.6799 6.73077 14.6799 6.0976 14.2893 5.70708Z" fill="#0F0F0F"></path> </g></svg>
+                    </a>
+                </div>
+                <p class="font-bold text-base my-0">
+                    <span class=" md:text-lg">Survey Perundungan</span>
+                </p>
+            </div>
+        <div id class="w-full bg-gray-200 rounded-full h-2.5 mt-8 mb-4">
+            <div id="progress" class="bg-blue-600 h-2.5 duration-700 rounded-full"></div>
+        </div>
+        <div id="quiz-container">
+            <!-- Quiz questions and options will be inserted here -->
+        </div>
+        
+        {{-- <div id="progress" class="my-4">
+            <div class="bg-blue-500 h-4 rounded"></div>
+        </div> --}}
+        <div class="flex justify-center items-center mt-10">
+            <button id="next-btn" class="bg-blue-500 w-full  text-white px-10 py-3 rounded-lg disabled:hidden">Next</button>
+            
+        </div>
+        <div id="score" class="mt-4 font-semibold"></div>
+    </div>
     </div>
 
 </div>
-@endsection
+<script>
+    const quizData = [
+          {
+              question: "Saya dipanggil dengan nama panggilan yang jelek, diolok-olok, atau diejek sehingga saya merasa sakit hati",
+              options: ["Selalu", "Sering", "Jarang", "Tidak Pernah"],
 
+          },
+          {
+              question: "Teman-teman dengan sengaja mengabaikan saya, tidak mengajak saya bergabung dengan kelompoknya, atau menganggap saya tidak ada",
+              options: ["Selalu", "Sering", "Jarang", "Tidak Pernah"],
+              
+          },
+          {
+              question: "Saya dipukul, ditendang, didorong, dipojokkan ke tembok, atau dikunci di dalam ruangan",
+              options: ["Selalu", "Sering", "Jarang", "Tidak Pernah"],
+              
+          },
+          {
+              question: "Murid lain berbohong atau menyebarkan desas-desus palsu tentang saya dan mencoba membuat orang lain tidak menyukai saya",
+              options: ["Selalu", "Sering", "Jarang", "Tidak Pernah"],
+              
+          },
+          // Add more questions and options here
+      ];
+
+      let currentQuestionIndex = 0;
+      let score = 0;
+
+      const quizContainer = document.getElementById('quiz-container');
+      const progress = document.getElementById('progress');
+      const nextBtn = document.getElementById('next-btn');
+      const scoreDisplay = document.getElementById('score');
+
+      // Function to load a question
+      function loadQuestion(questionIndex) {
+          const questionData = quizData[questionIndex];
+          if (questionData) {
+              quizContainer.innerHTML = `
+                  <h2 class="text-base font-semibold mb-6 mt-4">${questionData.question}</h2>
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      ${questionData.options.map((option, index) => `
+                          <button class="bg-gray-200 hover:bg-blue-200 py-2 px-4 rounded text-start"
+                                  data-index="${index}">${option}</button>
+                      `).join('')}
+                  </div>
+              `;
+          } else {
+              // Quiz completed
+              quizContainer.innerHTML = `<p class="text-xl font-semibold text-center">You Score Is ${score}</p>`;
+              nextBtn.disabled = true;
+          }
+
+          // Update progress bar
+          const progressPercent = ((questionIndex) / quizData.length) * 100;
+          progress.style.width = `${progressPercent}%`;
+      }
+
+      // Event listener for option clicks
+      quizContainer.addEventListener('click', (e) => {
+          if (e.target.tagName === 'BUTTON') {
+              const selectedOptionIndex = parseInt(e.target.getAttribute('data-index'));
+              const currentQuestion = quizData[currentQuestionIndex];
+
+              // Answer 
+              // console.log(currentQuestion.options[selectedOptionIndex]);
+              switch (currentQuestion.options[selectedOptionIndex]) {
+                  case "Selalu":
+                      score += 4;
+                      break;
+                  case "Sering":
+                      score +=3;
+                      break;
+                  case "Jarang":
+                      score += 2;
+                      break;
+                  case "Tidak Pernah":
+                      score +=1;
+                      break;
+                  default:
+                      break;
+              }
+              // scoreDisplay.textContent = `Score: ${score}`;
+              currentQuestionIndex++;
+              loadQuestion(currentQuestionIndex);
+          }
+      });
+
+      // Event listener for the "Next" button
+      // Event listener for the "Next" button
+  nextBtn.addEventListener('click', () => {
+      // Periksa apakah pengguna telah memilih opsi
+      const selectedOption = quizContainer.querySelector('button.selected');
+      if (!selectedOption) {
+          // Jika belum memilih, tampilkan pesan kesalahan atau tindakan yang sesuai
+          alert('Pilih salah satu opsi sebelum melanjutkan.');
+          return;
+      }
+
+      // Lanjutkan ke pertanyaan berikutnya jika sudah memilih
+      currentQuestionIndex--;
+      loadQuestion(currentQuestionIndex);
+      });
+
+      // Event listener untuk memilih opsi
+      quizContainer.addEventListener('click', (e) => {
+          if (e.target.tagName === 'BUTTON') {
+              // Hapus kelas "selected" dari semua tombol sebelumnya
+              const selectedOptions = quizContainer.querySelectorAll('button.selected');
+              selectedOptions.forEach((option) => {
+                  option.classList.remove('selected');
+              });
+
+              // Tandai tombol yang dipilih
+              e.target.classList.add('selected');
+          }
+      });
+              
+          // Initialize the quiz
+          loadQuestion(currentQuestionIndex);
+
+</script>
+@endsection
 
