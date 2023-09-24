@@ -24,7 +24,7 @@ class PertanyaanController extends Controller
         ]);
 
         Pertanyaan::create($validate);
-        return redirect("/admin/survey/" . $validate['id_survey'])->with('success', "Pertanyaan Berhasil Di Tambah");
+        return redirect("/admin/survey/" . $validate['id_survey'])->with('successAdd', "Pertanyaan Berhasil Di Tambah");
     }
 
     public function edit(Pertanyaan $pertanyaan)
@@ -44,12 +44,12 @@ class PertanyaanController extends Controller
 
         $pertanyaan->update($validate);
 
-        return redirect("/admin/survey/" . $validate['id_survey'])->with('success', "Pertanyaan Berhasil Di Edit");
+        return redirect("/admin/survey/" . $validate['id_survey'])->with('successEdit', "Pertanyaan Berhasil Di Edit");
     }
 
     public function destroy(Pertanyaan $pertanyaan)
     {
         $pertanyaan->delete();
-        return redirect()->back()->with('success', "Survey Berhasil Di Hapus");
+        return redirect()->back()->with('successDelete', "Survey Berhasil Di Hapus");
     }
 }
