@@ -68,7 +68,7 @@ class MuridController extends Controller
         $validate['id_sekolah'] = auth('sekolah')->user()->id;
 
         Murid::create($validate);
-        return redirect("/sekolah/murid")->with('success', "Guru Berhasil Di Tambah");
+        return redirect("/sekolah/murid")->with('successAddMurid', "Murid Berhasil Di Tambah");
     }
 
     /**
