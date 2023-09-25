@@ -20,7 +20,8 @@ class PertanyaanController extends Controller
     {
         $validate = $request->validate([
             "pertanyaan" => "required",
-            "id_survey" => "required"
+            "tipe" => "required",
+            "id_survey" => "required",
         ]);
 
         Pertanyaan::create($validate);

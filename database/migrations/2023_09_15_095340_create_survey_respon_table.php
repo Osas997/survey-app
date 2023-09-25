@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('id_survey');
             $table->foreign('id_survey')->references('id')->on('survey');
-            $table->string('skor_total', 100);
+            $table->string('skor_total_korban', 100);
+            $table->string('skor_total_pelaku', 100);
             $table->timestamps();
         });
     }

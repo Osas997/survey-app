@@ -73,14 +73,14 @@ class DatabaseSeeder extends Seeder
             "deskripsi" => "survey tentang perundungan"
         ]);
 
-        Pertanyaan::create([
-            "id_survey" => 1,
-            "pertanyaan" => "Apakah Kamu Sudah Makan?"
-        ]);
+        // Pertanyaan::create([
+        //     "id_survey" => 1,
+        //     "pertanyaan" => "Apakah Kamu Sudah Makan?"
+        // ]);
 
-        Pertanyaan::create([
-            "id_survey" => 1,
-            "pertanyaan" => "Apakah Kamu Sudah Mandi?"
-        ]);
+        // Pertanyaan::create([
+        //     "id_survey" => 1,
+        //     "pertanyaan" => "Apakah Kamu Sudah Mandi?"
+        // ]);
     }
 }
