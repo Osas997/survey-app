@@ -101,7 +101,7 @@
                     </label>
 
                     <label class="cursor-pointer">
-                        <input type="radio" id="jawaban" value="1" class="peer sr-only" name="survey[{{ $data->id }}][skor]" />
+                        <input type="radio" id="jawaban" value="2" class="peer sr-only" name="survey[{{ $data->id }}][skor]" />
                         <div class="w-full max-w-xl rounded-md bg-gray-50 p-5 text-gray-600 ring-2 ring-transparent transition-all hover:shadow shadow-md  
                         peer-checked:bg-blue-500 peer-checked:text-gray-50 peer-checked:ring-blue-500 peer-checked:ring-offset-2  peer-checked:shadow-md peer-checked:shadow-blue-700 ">
                           <div class="flex flex-col gap-1">
@@ -114,7 +114,7 @@
 
                     
                     <label class="cursor-pointer">
-                        <input type="radio" id="jawaban" value="1" class="peer sr-only" name="survey[{{ $data->id }}][skor]" />
+                        <input type="radio" id="jawaban" value="3" class="peer sr-only" name="survey[{{ $data->id }}][skor]" />
                         <div class="w-full max-w-xl rounded-md bg-gray-50 p-5 text-gray-600 ring-2 ring-transparent transition-all hover:shadow shadow-md  
                         peer-checked:bg-blue-500 peer-checked:text-gray-50 peer-checked:ring-blue-500 peer-checked:ring-offset-2  peer-checked:shadow-md peer-checked:shadow-blue-700 ">
                           <div class="flex flex-col gap-1">
@@ -127,7 +127,7 @@
 
                     
                     <label class="cursor-pointer">
-                        <input type="radio" id="jawaban" value="1" class="peer sr-only" name="survey[{{ $data->id }}][skor]" />
+                        <input type="radio" id="jawaban" value="4" class="peer sr-only" name="survey[{{ $data->id }}][skor]" />
                         <div class="w-full max-w-xl rounded-md bg-gray-50 p-5 text-gray-600 ring-2 ring-transparent transition-all hover:shadow shadow-md  
                         peer-checked:bg-blue-500 peer-checked:text-gray-50 peer-checked:ring-blue-500 peer-checked:ring-offset-2  peer-checked:shadow-md peer-checked:shadow-blue-700 ">
                           <div class="flex flex-col gap-1">
