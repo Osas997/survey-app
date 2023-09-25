@@ -66,7 +66,7 @@ class GuruController extends Controller
         $validate['id_sekolah'] = auth('sekolah')->user()->id;
 
         Guru::create($validate);
-        return redirect("/sekolah/guru")->with('success', "Guru Berhasil Di Tambah");
+        return redirect("/sekolah/guru")->with('successAddGuru', "Guru Berhasil Di Tambah");
     }
 
     /**
