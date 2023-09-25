@@ -76,7 +76,6 @@
                     <span class=" md:text-lg">Survey Perundungan</span>
                 </p>
             </div>
-<<<<<<< HEAD
             <div id class="w-full bg-gray-200 rounded-full h-2.5 mt-8 mb-4">
                 <div id="progress" class="bg-blue-600 h-2.5 duration-700 rounded-full"></div>
             </div>
@@ -110,91 +109,7 @@
             {{-- <div id="progress" class="my-4">
                 <div class="bg-blue-500 h-4 rounded"></div>
             </div> --}}
-=======
-        <div id class="w-full bg-gray-200 rounded-full h-2.5 mt-8 mb-4">
-            <div id="progress" class="bg-blue-600 h-2.5 duration-700 rounded-full"></div>
->>>>>>> 716db5899f54fafe9ac562809b05831330ed93b3
         </div>
-        <div id="quiz-container">
-            <!-- Quiz questions and options will be inserted here -->
-        </div>
-        
-        <div id="score" class="mt-4 font-semibold"></div>
-    </div>
     </div>
 </div>
-<<<<<<< HEAD
 @endsection
-=======
-<script>
-
-    let data = @json($dataPertanyaan);
-
-      let currentQuestionIndex = 0;
-      let score = 0;
-
-      const quizContainer = document.getElementById('quiz-container');
-      const progress = document.getElementById('progress');
-      const prevBtn = document.getElementById('prev-btn');
-      const scoreDisplay = document.getElementById('score');
-
-      // Function to load a question
-      function loadQuestion(questionIndex) {
-          const questionData = data[questionIndex];
-          if (questionData) {
-              quizContainer.innerHTML = `
-                  <h2 class="text-base font-semibold mb-6 mt-4">${questionData.pertanyaan}</h2>
-                  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                
-                  </div>
-              `;
-          } else {
-              // Quiz completed
-              quizContainer.innerHTML = `<p class="text-xl font-semibold text-center">You Score Is ${score}</p>`;
-            //   prevBtn.disabled = true;
-          }
-
-          // Update progress bar
-
-          const progressPercent = ((questionIndex) / quizData.length) * 100;
-        //   console.log(progressPercent)
-          progress.style.width = `${progressPercent}%`;
-      }
-
-      // Event listener for option clicks
-      quizContainer.addEventListener('click', (e) => {
-          if (e.target.tagName === 'BUTTON') {
-              const selectedOptionIndex = parseInt(e.target.getAttribute('data-index'));
-              const currentQuestion = data[currentQuestionIndex];
-
-              // Answer 
-            //   console.log(currentQuestion.options[selectedOptionIndex]);
-              switch (currentQuestion.options[selectedOptionIndex]) {
-                  case "Selalu":
-                      score += 4;
-                      break;
-                  case "Sering":
-                      score +=3;
-                      break;
-                  case "Jarang":
-                      score += 2;
-                      break;
-                  case "Tidak Pernah":
-                      score +=1;
-                      break;
-                  default:
-                      break;
-              }
-              // scoreDisplay.textContent = `Score: ${score}`;
-              currentQuestionIndex++;
-              loadQuestion(currentQuestionIndex);
-          }
-      });
-
-
-      // Initialize the quiz
-      loadQuestion(currentQuestionIndex);
-
-</script>
-@endsection
->>>>>>> 716db5899f54fafe9ac562809b05831330ed93b3
