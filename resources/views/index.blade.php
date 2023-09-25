@@ -117,9 +117,9 @@
             </div>
         </section>
         {{-- Card --}}
-        <section class="mt-10 px-4 pb-10 bg-white" id="survey">
+        <section class="pt-10 px-4 pb-10 bg-white" id="survey">
             <div class="max-w-screen-xl  mx-auto p-4">
-                <h1 class="text-center font-semibold text-3xl mb-6">Survey</h1>
+                <h1 class="text-center text-black font-semibold text-3xl mb-6">Survey</h1>
                 <div class="grid grid:grid-col-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                     <div
                         class="max-w-sm p-6 bg-[#C7FFDE] w-full h-52 rounded-lg shadow flex justify-center items-center flex-col hover:bg-[#0090D4] duration-300 ease-in-out relative group">
@@ -222,7 +222,7 @@
             </div>
         </section>
         {{-- card join --}}
-        <section class="px-4" id="about">
+        <section class="px-4 pb-10 bg-white" id="about">
             <div class="max-w-screen-xl  mx-auto p-4 flex justify-center items-center">
                 <div class="w-full p-4 text-center bg-[#0062CE] rounded-[32px] border border-gray-200 shadow sm:p-10
                 lg:w-5/6
@@ -243,7 +243,7 @@
         </section>
 
         {{-- Footer --}}
-        <footer class="bg-slate-900 px-4 py-6 mt-10">
+        <footer class="bg-slate-900 px-4 py-6 ">
             <div class="max-w-screen-xl  mx-auto p-4">
                 <h1 class="text-white text-2xl mb-8 
                 md:text-xl

@@ -57,10 +57,10 @@
         </div>
 
         <div class="mb-6 lg:w-5/12">
-            <label for="alamatSekolah" class="block mb-2 text-sm font-medium text-gray-900">Alamat Sekolah</label>
-            <input type="text" id="alamatSekolah" name="alamat_sekolah" placeholder="Jl. Raya.. "
+            <label for="alamat_sekolah" class="block mb-2 text-sm font-medium text-gray-900">Alamat Sekolah</label>
+            <input type="text" id="alamat_sekolah" name="alamat_sekolah" placeholder="Jl. Raya.. "
                 class="bg-slate-50 border-2 border-blue-500 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5
-                @error('alamatSekolah')
+                @error('alamat_sekolah')
                     border-red-500 text-red-900 placeholder-red-700 focus:ring-red-500 focus:border-red-500
                 @enderror">
             @error('alamatSekolah')
@@ -71,7 +71,7 @@
         <div class="mb-6 lg:w-5/12">
             <label for="status" class="block mb-2 text-sm font-medium text-gray-900 ">Status
                 Sekolah</label>
-            <select id="status" name="status"
+            <select id="status" name="status" required
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
                 <option value="negeri">Negeri</option>
                 <option value="swasta">Swasta</option>

@@ -42,7 +42,7 @@ class SekolahController extends Controller
         ]);
 
         Sekolah::create($validate);
-        return redirect("/admin/sekolah")->with('success', "Sekolah Berhasil Di Tambah");
+        return redirect("/admin/sekolah")->with('successAddSekolah', "Sekolah Berhasil Di Tambah");
     }
 
     /**

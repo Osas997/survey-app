@@ -81,7 +81,7 @@ class SurveyController extends Controller
         ]);
 
         $survey->update($validate);
-        return redirect("/admin/survey/" . $survey->id)->with('success', "Pertanyaan Berhasil Di Edit");
+        return redirect("/admin/survey/" . $survey->id)->with('successEditSurvey', "Pertanyaan Berhasil Di Edit");
     }
 
     /**
@@ -90,6 +90,6 @@ class SurveyController extends Controller
     public function destroy(Survey $survey)
     {
         $survey->delete();
-        return redirect("/admin/survey")->with('success', "Survey Berhasil Di Hapus");
+        return redirect("/admin/survey")->with('successDeleteSurvey', "Survey Berhasil Di Hapus");
     }
 }

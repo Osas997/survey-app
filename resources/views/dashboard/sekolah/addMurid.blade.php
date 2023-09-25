@@ -23,25 +23,44 @@
     @csrf
     <div class="lg:grid lg:grid-cols-1 lg:place-items-center mt-10">
         <div class="mb-3 lg:w-5/12">
-            <label for="nutpk" class="block mb-2 text-sm font-medium text-gray-900">NISN</label>
-            <input type="text" id="npsn" name="nisn" placeholder="Nisn Murid"
-                class="bg-slate-50 border-2 border-blue-500 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+            <label for="nisn" class="block mb-2 text-sm font-medium text-gray-900">NISN</label>
+            <input type="text" id="nisn" name="nisn" placeholder="Nisn Murid"
+                class="bg-slate-50 border-2 border-blue-500 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5
+                @error('nisn')
+                    border-red-500 text-red-900 placeholder-red-700 focus:ring-red-500 focus:border-red-500
+                @enderror
+                ">
+            @error('nisn')
+                <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">{{ $message }}</span></p>
+            @enderror                
         </div>
 
         <div class="mb-3 lg:w-5/12">
-            <label for="nama" class="block mb-2 text-sm font-medium text-gray-900">Nama Murid</label>
-            <input type="text" id="nama" name="nama_murid" placeholder="Nama Murid"
-                class="bg-slate-50 border-2 border-blue-500 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+            <label for="nama_murid" class="block mb-2 text-sm font-medium text-gray-900">Nama Murid</label>
+            <input type="text" id="nama_murid" name="nama_murid" placeholder="Nama Murid"
+                class="bg-slate-50 border-2 border-blue-500 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5
+                @error('nama_murid')
+                    border-red-500 text-red-900 placeholder-red-700 focus:ring-red-500 focus:border-red-500
+                @enderror">
+            @error('nama_murid')
+                <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">{{ $message }}</span></p>
+            @enderror  
         </div>
         <div class="mb-3 lg:w-5/12">
             <label for="password" class="block mb-2 text-sm font-medium text-gray-900">Password</label>
             <input type="password" id="password" name="password" placeholder="Strong Password"
-                class="bg-slate-50 border-2 border-blue-500 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                class="bg-slate-50 border-2 border-blue-500 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5
+                @error('password')
+                    border-red-500 text-red-900 placeholder-red-700 focus:ring-red-500 focus:border-red-500
+                @enderror">
+            @error('password')
+                <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">{{ $message }}</span></p>
+            @enderror  
         </div>
         <div class="mb-3 lg:w-5/12">
             <label for="gender" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Jenis
                 Kelamin</label>
-            <select id="gender" name="jenis_kelamin"
+            <select id="gender" name="jenis_kelamin" required
                 class="bg-gray-50  border-blue-500 border-2 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                 <option value="L">Laki Laki</option>
                 <option value="P">Perempuan</option>
@@ -50,7 +69,13 @@
         <div class="mb-3 lg:w-5/12">
             <label for="alamat" class="block mb-2 text-sm font-medium text-gray-900">Alamat </label>
             <input type="text" id="alamat" name="alamat" placeholder="Jl. Raya.. "
-                class="bg-slate-50 border-2 border-blue-500 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                class="bg-slate-50 border-2 border-blue-500 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5
+                @error('alamat')
+                    border-red-500 text-red-900 placeholder-red-700 focus:ring-red-500 focus:border-red-500
+                @enderror">
+            @error('alamat')
+                <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">{{ $message }}</span></p>
+            @enderror  
         </div>
     </div>
     <div class="md:flex md:justify-center md:items-center  md:flex-row md:gap-4 min-w-full md:w-1/2 ">
