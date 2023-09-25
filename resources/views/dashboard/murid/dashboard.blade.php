@@ -1,7 +1,7 @@
 @extends('layout.pages')
 @section('title','Survey App')
 @section('content')
-<div class="w-screen h-screen overflow-x-hidden scroll-smooth ">
+<div class="w-screen h-screen overflow-x-hidden scroll-smooth bg-white ">
     <nav class="bg-white border-gray-200 border-b-2 dark:bg-gray-900 ">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
             <a href="" class="flex items-center">

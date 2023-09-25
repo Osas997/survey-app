@@ -3,7 +3,7 @@
 @section('content')
 <div class="w-screen h-screen overflow-x-hidden scroll-smooth ">
 
-    <nav class="bg-white border-gray-200 border-b-2 dark:bg-gray-900 ">
+    <nav class="bg-white border-gray-200 border-b-2  ">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
             <a href="" class="flex items-center">
                 <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Survey App</span>
@@ -56,8 +56,8 @@
             </div>
         </div>
     </nav>
-    <div class="max-w-screen-xl mx-auto px-10 mt-10">
-        <div class="max-w-lg mx-auto bg-white p-8 rounded shadow-md">
+    <div class="max-w-screen-2xl mx-auto px-10 mt-10">
+        <div class="max-w-xl mx-auto bg-white p-8 rounded shadow-md">
             <div class="flex justify-start items-center gap-4">
                 <div class="w-6 h-6 md:w-8 md:h-8">
                     <a href="">
@@ -76,9 +76,9 @@
                     <span class=" md:text-lg">Survey Perundungan</span>
                 </p>
             </div>
-            <div id class="w-full bg-gray-200 rounded-full h-2.5 mt-8 mb-4">
+            {{-- <div id class="w-full bg-gray-200 rounded-full h-2.5 mt-8 mb-4">
                 <div id="progress" class="bg-blue-600 h-2.5 duration-700 rounded-full"></div>
-            </div>
+            </div> --}}
             <form action="/asumalaka/{{ $idSurvey }}" method="POST">
                 @csrf
                 @foreach ($dataPertanyaan as $data)
@@ -86,29 +86,65 @@
                     {{ $data->pertanyaan }}
                     <input type="hidden" value="{{ $data->id }}" name="survey[{{ $data->id }}][id_pertanyaan]">
                 </span>
-                <div class="w-full flex justify-evenly">
-                    <label>
-                        <input type="radio" id="jawaban" value="1" name="survey[{{ $data->id }}][skor]"> TIDAK PERNAH
+                <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-4">
+
+                    <label class="cursor-pointer">
+                        <input type="radio" id="jawaban" value="1" class="peer sr-only" name="survey[{{ $data->id }}][skor]" />
+                        <div class="w-full max-w-xl rounded-md bg-gray-50 p-5 text-gray-600 ring-2 ring-transparent transition-all hover:shadow shadow-md  
+                        peer-checked:bg-blue-500 peer-checked:text-gray-50 peer-checked:ring-blue-500 peer-checked:ring-offset-2  peer-checked:shadow-md peer-checked:shadow-blue-700 ">
+                          <div class="flex flex-col gap-1">
+                            <div class="flex items-center justify-between">
+                              <p class="text-sm font-semibold uppercase  peer-checked:text-sky-700">tidak pernah</p>
+                            </div>
+                          </div>
+                        </div>
                     </label>
-                    <label>
-                        <input type="radio" id="jawaban" value="2" name="survey[{{ $data->id }}][skor]"> JARANG
+
+                    <label class="cursor-pointer">
+                        <input type="radio" id="jawaban" value="2" class="peer sr-only" name="survey[{{ $data->id }}][skor]" />
+                        <div class="w-full max-w-xl rounded-md bg-gray-50 p-5 text-gray-600 ring-2 ring-transparent transition-all hover:shadow shadow-md  
+                        peer-checked:bg-blue-500 peer-checked:text-gray-50 peer-checked:ring-blue-500 peer-checked:ring-offset-2  peer-checked:shadow-md peer-checked:shadow-blue-700 ">
+                          <div class="flex flex-col gap-1">
+                            <div class="flex items-center justify-between">
+                              <p class="text-sm font-semibold uppercase  peer-checked:text-sky-700">jarang</p>
+                            </div>
+                          </div>
+                        </div>
                     </label>
-                    <label>
-                        <input type="radio" id="jawaban" value="3" name="survey[{{ $data->id }}][skor]"> SERING
+
+                    
+                    <label class="cursor-pointer">
+                        <input type="radio" id="jawaban" value="3" class="peer sr-only" name="survey[{{ $data->id }}][skor]" />
+                        <div class="w-full max-w-xl rounded-md bg-gray-50 p-5 text-gray-600 ring-2 ring-transparent transition-all hover:shadow shadow-md  
+                        peer-checked:bg-blue-500 peer-checked:text-gray-50 peer-checked:ring-blue-500 peer-checked:ring-offset-2  peer-checked:shadow-md peer-checked:shadow-blue-700 ">
+                          <div class="flex flex-col gap-1">
+                            <div class="flex items-center justify-between">
+                              <p class="text-sm font-semibold uppercase  peer-checked:text-sky-700">Sering</p>
+                            </div>
+                          </div>
+                        </div>
                     </label>
-                    <label>
-                        <input type="radio" id="jawaban" value="4" name="survey[{{ $data->id }}][skor]"> SELALU
+
+                    
+                    <label class="cursor-pointer">
+                        <input type="radio" id="jawaban" value="4" class="peer sr-only" name="survey[{{ $data->id }}][skor]" />
+                        <div class="w-full max-w-xl rounded-md bg-gray-50 p-5 text-gray-600 ring-2 ring-transparent transition-all hover:shadow shadow-md  
+                        peer-checked:bg-blue-500 peer-checked:text-gray-50 peer-checked:ring-blue-500 peer-checked:ring-offset-2  peer-checked:shadow-md peer-checked:shadow-blue-700 ">
+                          <div class="flex flex-col gap-1">
+                            <div class="flex items-center justify-between">
+                              <p class="text-sm font-semibold uppercase  peer-checked:text-sky-700">selalu</p>
+                            </div>
+                          </div>
+                        </div>
                     </label>
                 </div>
                 @endforeach
                 <div class="flex justify-center items-center mt-10">
                     <button id="next-btn" type="submit"
-                        class="bg-blue-500 w-full  text-white px-10 py-3 rounded-lg disabled:hidden">Submit</button>
+                        class="bg-blue-500 w-full  text-white px-10 py-3 rounded-lg disabled:hidden
+                        hover:bg-blue-400 duration-300 ease-in-out">Submit</button>
                 </div>
             </form>
-            {{-- <div id="progress" class="my-4">
-                <div class="bg-blue-500 h-4 rounded"></div>
-            </div> --}}
         </div>
     </div>
 </div>
