@@ -40,7 +40,8 @@
                     <div class="form-group mt-4 min-w-[280px] sm:min-w-[330px]
                         ">
                         <p class="font-semibold text-black">Password</p>
-                        <input type="password" placeholder="*********" name="password" class="input input-bordered bg-transparent w-full max-w-xs border-2 focus:border-[#0090D4] focus:outline-none text-black   @error('username')
+                        <input type="password" placeholder="*********" name="password" class="input input-bordered bg-transparent w-full max-w-xs border-2 focus:border-[#0090D4] focus:outline-none text-black   
+                        @error('username')
                             input-error @else border-[#0090D4]
                         @enderror " />
                         </div>

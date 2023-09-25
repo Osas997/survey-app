@@ -11,12 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('survey_respon', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('id_survey');
-            $table->foreign('id_survey')->references('id')->on('survey');
-            $table->string('skor_total', 100);
-            $table->timestamps();
+        Schema::table('survey_respon', function (Blueprint $table) {
+            $table->unsignedBigInteger('id_murid')->after('id_survey');
+            $table->foreign('id_murid')->references('id')->on('murid');
         });
     }
 
@@ -25,6 +22,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('survey_respon');
+        Schema::table('survey_respon', function (Blueprint $table) {
+            //
+        });
     }
 };

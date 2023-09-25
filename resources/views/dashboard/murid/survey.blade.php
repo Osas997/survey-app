@@ -76,27 +76,58 @@
                     <span class=" md:text-lg">Survey Perundungan</span>
                 </p>
             </div>
+<<<<<<< HEAD
             <div id class="w-full bg-gray-200 rounded-full h-2.5 mt-8 mb-4">
                 <div id="progress" class="bg-blue-600 h-2.5 duration-700 rounded-full"></div>
             </div>
-            <div id="quiz-container">
-                <!-- Quiz questions and options will be inserted here -->
-            </div>
-
+            <form action="/asumalaka/{{ $idSurvey }}" method="POST">
+                @csrf
+                @foreach ($dataPertanyaan as $data)
+                <span class="text-md font-bold my-4 block">
+                    {{ $data->pertanyaan }}
+                    <input type="hidden" value="{{ $data->id }}" name="survey[{{ $data->id }}][id_pertanyaan]">
+                </span>
+                <div class="w-full flex justify-evenly">
+                    <label>
+                        <input type="radio" id="jawaban" value="1" name="survey[{{ $data->id }}][skor]"> TIDAK PERNAH
+                    </label>
+                    <label>
+                        <input type="radio" id="jawaban" value="2" name="survey[{{ $data->id }}][skor]"> JARANG
+                    </label>
+                    <label>
+                        <input type="radio" id="jawaban" value="3" name="survey[{{ $data->id }}][skor]"> SERING
+                    </label>
+                    <label>
+                        <input type="radio" id="jawaban" value="4" name="survey[{{ $data->id }}][skor]"> SELALU
+                    </label>
+                </div>
+                @endforeach
+                <div class="flex justify-center items-center mt-10">
+                    <button id="next-btn" type="submit"
+                        class="bg-blue-500 w-full  text-white px-10 py-3 rounded-lg disabled:hidden">Submit</button>
+                </div>
+            </form>
             {{-- <div id="progress" class="my-4">
                 <div class="bg-blue-500 h-4 rounded"></div>
             </div> --}}
-            <div class="flex justify-center items-center mt-10">
-                <button id="next-btn"
-                    class="bg-blue-500 w-full  text-white px-10 py-3 rounded-lg disabled:hidden">Next</button>
-
-            </div>
-            <div id="score" class="mt-4 font-semibold"></div>
+=======
+        <div id class="w-full bg-gray-200 rounded-full h-2.5 mt-8 mb-4">
+            <div id="progress" class="bg-blue-600 h-2.5 duration-700 rounded-full"></div>
+>>>>>>> 716db5899f54fafe9ac562809b05831330ed93b3
         </div>
+        <div id="quiz-container">
+            <!-- Quiz questions and options will be inserted here -->
+        </div>
+        
+        <div id="score" class="mt-4 font-semibold"></div>
     </div>
-
+    </div>
 </div>
+<<<<<<< HEAD
+@endsection
+=======
 <script>
+
     let data = @json($dataPertanyaan);
 
       let currentQuestionIndex = 0;
@@ -104,7 +135,7 @@
 
       const quizContainer = document.getElementById('quiz-container');
       const progress = document.getElementById('progress');
-      const nextBtn = document.getElementById('next-btn');
+      const prevBtn = document.getElementById('prev-btn');
       const scoreDisplay = document.getElementById('score');
 
       // Function to load a question
@@ -114,17 +145,19 @@
               quizContainer.innerHTML = `
                   <h2 class="text-base font-semibold mb-6 mt-4">${questionData.pertanyaan}</h2>
                   <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    
+                
                   </div>
               `;
           } else {
               // Quiz completed
               quizContainer.innerHTML = `<p class="text-xl font-semibold text-center">You Score Is ${score}</p>`;
-              nextBtn.disabled = true;
+            //   prevBtn.disabled = true;
           }
 
           // Update progress bar
-          const progressPercent = ((questionIndex) / data.length) * 100;
+
+          const progressPercent = ((questionIndex) / quizData.length) * 100;
+        //   console.log(progressPercent)
           progress.style.width = `${progressPercent}%`;
       }
 
@@ -135,7 +168,7 @@
               const currentQuestion = data[currentQuestionIndex];
 
               // Answer 
-              // console.log(currentQuestion.options[selectedOptionIndex]);
+            //   console.log(currentQuestion.options[selectedOptionIndex]);
               switch (currentQuestion.options[selectedOptionIndex]) {
                   case "Selalu":
                       score += 4;
@@ -158,38 +191,10 @@
           }
       });
 
-      // Event listener for the "Next" button
-      // Event listener for the "Next" button
-  nextBtn.addEventListener('click', () => {
-      // Periksa apakah pengguna telah memilih opsi
-      const selectedOption = quizContainer.querySelector('button.selected');
-      if (!selectedOption) {
-          // Jika belum memilih, tampilkan pesan kesalahan atau tindakan yang sesuai
-          alert('Pilih salah satu opsi sebelum melanjutkan.');
-          return;
-      }
 
-      // Lanjutkan ke pertanyaan berikutnya jika sudah memilih
-      currentQuestionIndex--;
+      // Initialize the quiz
       loadQuestion(currentQuestionIndex);
-      });
-
-      // Event listener untuk memilih opsi
-      quizContainer.addEventListener('click', (e) => {
-          if (e.target.tagName === 'BUTTON') {
-              // Hapus kelas "selected" dari semua tombol sebelumnya
-              const selectedOptions = quizContainer.querySelectorAll('button.selected');
-              selectedOptions.forEach((option) => {
-                  option.classList.remove('selected');
-              });
-
-              // Tandai tombol yang dipilih
-              e.target.classList.add('selected');
-          }
-      });
-              
-          // Initialize the quiz
-          loadQuestion(currentQuestionIndex);
 
 </script>
 @endsection
+>>>>>>> 716db5899f54fafe9ac562809b05831330ed93b3

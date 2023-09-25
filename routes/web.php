@@ -8,6 +8,10 @@ use App\Http\Controllers\MuridSurveyController;
 use App\Http\Controllers\PertanyaanController;
 use App\Http\Controllers\SekolahController;
 use App\Http\Controllers\SurveyController;
+use App\Models\Jawaban;
+use App\Models\Survey;
+use App\Models\SurveyRespon;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,6 +28,38 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('index');
 });
+
+Route::post('/asumalaka/{survey}', function (Request $request, Survey $survey) {
+    // dd($request->all());
+    $request->validate([
+        "survey.*.id_pertanyaan" => "required",
+        "survey.*.skor" => "required"
+    ]);
+
+    $surveyRespon = SurveyRespon::create([
+        "id_survey" => $survey->id,
+        "id_murid" => auth("murid")->user()->id,
+        "skor_total" => 0
+    ]);
+
+    $lastInsertId = $surveyRespon->id;
+    $skor_total = 0;
+
+    foreach ($request->survey as $survey) {
+        Jawaban::create([
+            "id_pertanyaan" => $survey["id_pertanyaan"],
+            "id_survey_respon" => $lastInsertId,
+            "skor" => $survey["skor"]
+        ]);
+
+        $skor_total += $survey["skor"];
+    }
+
+    $surveyRespon->skor_total = $skor_total;
+    $surveyRespon->save();
+});
+
+
 
 Route::middleware("sudahlogin")->group(function () {
     Route::get("/login", [AuthController::class, "login"])->name("login");
