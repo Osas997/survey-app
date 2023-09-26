@@ -75,17 +75,19 @@
             <form action="{{route('murid.submitSurvey')}}" method="post">
                 @csrf
                 <div id="quiz-container">
-                
-                <!-- Quiz questions and options will be inserted here -->
-            </div>
-            {{-- <button id="submit" class="bg-blue-500 text-white px-4 py-2 rounded-full disabled:opacity-50">Submit</button> --}}
-        </form>
-        <button id="next-btn" class="bg-blue-500 text-white px-4 py-2 rounded-full disabled:opacity-50">Next</button>
+
+                    <!-- Quiz questions and options will be inserted here -->
+                </div>
+                {{-- <button id="submit"
+                    class="bg-blue-500 text-white px-4 py-2 rounded-full disabled:opacity-50">Submit</button> --}}
+            </form>
+            <button id="next-btn"
+                class="bg-blue-500 text-white px-4 py-2 rounded-full disabled:opacity-50">Next</button>
         </div>
     </div>
 </div>
 <script>
-   let dataPertanyaan = @json($dataPertanyaan);
+    let dataPertanyaan = @json($dataPertanyaan);
 console.log(dataPertanyaan);
 
 let quizData = [];

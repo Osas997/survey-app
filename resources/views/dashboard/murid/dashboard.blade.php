@@ -38,7 +38,7 @@
                     Survey Feedback</p>
                 <p class="mb-2 font-normal text-base text-black group-hover:text-white duration-300 ease-in-out">
                     130 Respon</p>
-                <a href="#"
+                <a href="/murid/survey/1"
                     class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg opacity-0 group-hover:bg-green-400 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
                     Gabung Sekarang
                 </a>

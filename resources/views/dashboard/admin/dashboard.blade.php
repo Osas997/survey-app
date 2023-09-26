@@ -263,7 +263,7 @@
 
       const getChartOptions = () => {
           return {
-            series: [60, 40],
+            series: [50, 40],
             colors: ["#1C64F2", "#16BDCA"],
             chart: {
               height: 420,
