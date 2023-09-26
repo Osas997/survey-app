@@ -16,7 +16,7 @@ class GuruController extends Controller
 
     public function import(Request $request)
     {
-        Exel::import(new GuruImport, $request->file('exel'));
+        Excel::import(new GuruImport, $request->file('exel'));
 
         return redirect('/')->with('success', 'All good!');
     }

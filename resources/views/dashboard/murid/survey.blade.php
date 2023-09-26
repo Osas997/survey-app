@@ -3,7 +3,7 @@
 @section('content')
 <div class="w-full min-h-screen overflow-x-hidden scroll-smooth ">
     @include('dashboard.murid.navbar')
-    <div class="w-8/12 mx-auto px-10 mt-10">
+    <div class="w-full md:w-8/12 mx-auto px-10 mt-10">
         <div class="w-full mx-auto bg-white p-8 rounded shadow-md">
             <div class="flex justify-start items-center gap-4">
                 <div class="w-6 h-6 md:w-8 md:h-8">
@@ -29,9 +29,9 @@
                 <span class="text-md font-bold my-4 block">
                     {{ $data->pertanyaan }}
                     <input type="hidden" value="{{ $data->id }}" name="survey[{{ $data->id }}][id_pertanyaan]">
+                    <input type="hidden" value="{{ $data->tipe }}" name="survey[{{ $data->id }}][tipe_pertanyaan]">
                 </span>
                 <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-4">
-
                     <label class="cursor-pointer">
                         <input type="radio" id="jawaban" value="1" class="peer sr-only"
                             name="survey[{{ $data->id }}][skor]" />
@@ -61,7 +61,6 @@
                         </div>
                     </label>
 
-
                     <label class="cursor-pointer">
                         <input type="radio" id="jawaban" value="3" class="peer sr-only"
                             name="survey[{{ $data->id }}][skor]" />
@@ -75,7 +74,6 @@
                             </div>
                         </div>
                     </label>
-
 
                     <label class="cursor-pointer">
                         <input type="radio" id="jawaban" value="4" class="peer sr-only"

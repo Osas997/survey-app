@@ -30,7 +30,7 @@ Route::get('/', function () {
 });
 
 Route::post('/asumalaka/{survey}', function (Request $request, Survey $survey) {
-    dd($request->survey->pertanyaan);
+    // dd($request->survey->pertanyaan);
     $request->validate([
         "survey.*.id_pertanyaan" => "required",
         "survey.*.skor" => "required",
@@ -43,28 +43,28 @@ Route::post('/asumalaka/{survey}', function (Request $request, Survey $survey) {
         "skor_total_pelaku" => 0
     ]);
 
-    $lastInsertId = $surveyRespon->id;
+    $idSurveyRespon = $surveyRespon->id;
     $skorTotalKorban = 0;
     $skorTotalPelaku = 0;
 
-    // foreach ($request->survey as $survey) {
+    foreach ($request->survey as $survey) {
+        Jawaban::create([
+            "id_pertanyaan" => $survey["id_pertanyaan"],
+            "id_survey_respon" => $idSurveyRespon,
+            "skor" => $survey["skor"]
+        ]);
 
-    // Jawaban::create([
-    //     "id_pertanyaan" => $survey["id_pertanyaan"],
-    //     "id_survey_respon" => $lastInsertId,
-    //     "skor" => $survey["skor"]
-    // ]);
+        if ($survey["tipe_pertanyaan"] == "korban") {
+            $skorTotalKorban += $survey["skor"];
+        } else if ($survey["tipe_pertanyaan"] == "pelaku") {
+            $skorTotalPelaku += $survey["skor"];
+        }
+    }
 
-    // if ($survey == "korban") {
-    //     $skorTotalKorban += $survey["skor"];
-    // } else if ($survey["tipe"] == "pelaku") {
-    //     $skorTotalPelaku += $survey["skor"];
-    // }
-    // }
-
-    // $surveyRespon->skor_total_pelaku = $skorTotalPelaku;
-    // $surveyRespon->skor_total_korban = $skorTotalKorban;
-    // $surveyRespon->save();
+    $surveyRespon->skor_total_pelaku = $skorTotalPelaku;
+    $surveyRespon->skor_total_korban = $skorTotalKorban;
+    $surveyRespon->save();
+    return redirect()->back();
 });
 
 
