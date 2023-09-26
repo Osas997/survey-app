@@ -14,7 +14,7 @@ class MuridSurveyController extends Controller
     public function survey(Survey $survey)
     {
         $pertanyaan = Pertanyaan::where('id_survey', $survey->id)->get();
-        $respon = SurveyRespon::where("id_murid", auth('murid')->user()->id)->first();
+        $respon = SurveyRespon::where("id_murid", auth('murid')->user()->id)->where("id_survey", $survey->id)->first();
 
         $cekSurvey = $respon ? true : false;
 
