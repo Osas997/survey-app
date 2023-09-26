@@ -10,4 +10,9 @@ class Jawaban extends Model
     use HasFactory;
     protected $table = "jawaban";
     protected $guarded = ["id"];
+
+    public function pertanyaan()
+    {
+        return $this->belongsTo(Pertanyaan::class, "id_pertanyaan", "id");
+    }
 }
