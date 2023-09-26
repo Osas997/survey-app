@@ -14,6 +14,11 @@ class Murid extends Model
         'password' => 'hashed',
     ];
 
+    public function sekolah()
+    {
+        return $this->belongsTo(Sekolah::class, "id_sekolah", "id");
+    }
+
     public function scopeSearch($query, $search)
     {
         if ($search) {

@@ -2,14 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Murid;
+use App\Models\SurveyRespon;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
     public function index()
     {
+
+        $dataSurveyMurid = SurveyRespon::with(["murid", "murid.sekolah"])->get();
+        $jumlahMurid = Murid::count();
+
         return view("dashboard.admin.dashboard", [
-            "title" => "Admin Dashboard"
+            "title" => "Admin Dashboard",
+            "dataSurveyMurid" => $dataSurveyMurid,
+            "jumlahMurid" => $jumlahMurid
         ]);
     }
     public function indexSekolah()
