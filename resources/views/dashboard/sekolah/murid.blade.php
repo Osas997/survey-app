@@ -54,6 +54,12 @@
         </div>
     </a>
 </div>
+<div class="mt-4">
+    <form action="" method="post" enctype="multipart/form-data">
+        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file_input">Upload file Exel</label>
+        <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="file_input" name="murid_exel" type="file"
+    </form>
+</div>
 <div class="mt-8 w-full  overflow-x-auto overflow-y-auto rounded-lg">
     @if ($daftarMurid->isNotEmpty())
     <table class="w-full text-sm text-left text-gray-500 ">
