@@ -2,51 +2,32 @@
 @section('title','Survey App')
 @section('content')
 <div class="w-screen h-screen overflow-x-hidden scroll-smooth bg-white ">
-    <nav class="bg-white border-gray-200 border-b-2 dark:bg-gray-900 ">
-        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-            <a href="" class="flex items-center">
-                <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Survey App</span>
-            </a>
-            <div class="flex items-center md:order-2">
-                <button type="button"
-                    class="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
-                    id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown"
-                    data-dropdown-placement="bottom">
-                    <span class="sr-only">Open user menu</span>
-                    <img class="w-8 h-8 rounded-full" src="/docs/images/people/profile-picture-3.jpg" alt="user photo">
-                </button>
-                <!-- Dropdown menu -->
-                <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600"
-                    id="user-dropdown">
-                    <div class="px-4 py-3">
-                        <span class="text-sm text-slate-300">username</span>
-                        <span class="block text-sm text-gray-900 dark:text-white">{{ auth('murid')->user()->nama_murid
-                            }}</span>
-                    </div>
-                    <ul class="py-2" aria-labelledby="user-menu-button">
-                        <li>
-                            <form action="{{ route('logout') }}" method="post">
-                                @csrf
-                                <button href="#" type="submit"
-                                    class="block text-start w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
-                                    role="menuitem">Sign out</button>
-                            </form>
-                        </li>
-                    </ul>
-                </div>
-                <button data-collapse-toggle="navbar-user" type="button"
-                    class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-                    aria-controls="navbar-user" aria-expanded="false">
-                    <span class="sr-only">Open main menu</span>
-                    <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                        viewBox="0 0 17 14">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M1 1h15M1 7h15M1 13h15" />
-                    </svg>
-                </button>
-            </div>
+    @include('dashboard.murid.navbar')
+    @if (session('success'))
+    <div id="toast-success"
+        class="flex absolute top-20 right-10 items-center w-full max-w-xs p-4 mb-4 text-gray-500 bg-white rounded-lg shadow "
+        role="alert">
+        <div
+            class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-green-500 bg-green-100 rounded-lg ">
+            <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                viewBox="0 0 20 20">
+                <path
+                    d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+            </svg>
+            <span class="sr-only">Check icon</span>
         </div>
-    </nav>
+        <div class="ml-3 text-sm font-normal">{{ session('success') }}</div>
+        <button type="button"
+            class="ml-auto -mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex items-center justify-center h-8 w-8 "
+            data-dismiss-target="#toast-success" aria-label="Close">
+            <span class="sr-only">Close</span>
+            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+            </svg>
+        </button>
+    </div>
+    @endif
     <div class="max-w-screen-xl mx-auto px-10 mt-10">
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
             <div
@@ -62,86 +43,7 @@
                     Gabung Sekarang
                 </a>
             </div>
-            <div
-                class="max-w-sm p-6 bg-[#C7FFDE] w-full h-52 rounded-3xl shadow flex justify-center items-center flex-col hover:bg-[#0090D4] duration-300 ease-in-out relative group">
-                <h1 class="mb-3 font-semibold text-md text-black group-hover:text-white duration-300 ease-in-out">
-                    Survey Perundungan</h1>
-                <p class="mb-2 font-normal text-sm text-gray-500 group-hover:text-gray-100 duration-300 ease-in-out">
-                    Survey Feedback</p>
-                <p class="mb-2 font-normal text-base text-black group-hover:text-white duration-300 ease-in-out">
-                    130 Respon</p>
-                <a href="#"
-                    class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg opacity-0 group-hover:bg-green-400 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
-                    Gabung Sekarang
-                </a>
-            </div>
-            <div
-                class="max-w-sm p-6 bg-[#C7FFDE] w-full h-52 rounded-3xl shadow flex justify-center items-center flex-col hover:bg-[#0090D4] duration-300 ease-in-out relative group">
-                <h1 class="mb-3 font-semibold text-md text-black group-hover:text-white duration-300 ease-in-out">
-                    Survey Perundungan</h1>
-                <p class="mb-2 font-normal text-sm text-gray-500 group-hover:text-gray-100 duration-300 ease-in-out">
-                    Survey Feedback</p>
-                <p class="mb-2 font-normal text-base text-black group-hover:text-white duration-300 ease-in-out">
-                    130 Respon</p>
-                <a href="#"
-                    class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg opacity-0 group-hover:bg-green-400 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
-                    Gabung Sekarang
-                </a>
-            </div>
-            <div
-                class="max-w-sm p-6 bg-[#C7FFDE] w-full h-52 rounded-3xl shadow flex justify-center items-center flex-col hover:bg-[#0090D4] duration-300 ease-in-out relative group">
-                <h1 class="mb-3 font-semibold text-md text-black group-hover:text-white duration-300 ease-in-out">
-                    Survey Perundungan</h1>
-                <p class="mb-2 font-normal text-sm text-gray-500 group-hover:text-gray-100 duration-300 ease-in-out">
-                    Survey Feedback</p>
-                <p class="mb-2 font-normal text-base text-black group-hover:text-white duration-300 ease-in-out">
-                    130 Respon</p>
-                <a href="#"
-                    class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg opacity-0 group-hover:bg-green-400 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
-                    Gabung Sekarang
-                </a>
-            </div>
-            <div
-                class="max-w-sm p-6 bg-[#C7FFDE] w-full h-52 rounded-3xl shadow flex justify-center items-center flex-col hover:bg-[#0090D4] duration-300 ease-in-out relative group">
-                <h1 class="mb-3 font-semibold text-md text-black group-hover:text-white duration-300 ease-in-out">
-                    Survey Perundungan</h1>
-                <p class="mb-2 font-normal text-sm text-gray-500 group-hover:text-gray-100 duration-300 ease-in-out">
-                    Survey Feedback</p>
-                <p class="mb-2 font-normal text-base text-black group-hover:text-white duration-300 ease-in-out">
-                    130 Respon</p>
-                <a href="#"
-                    class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg opacity-0 group-hover:bg-green-400 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
-                    Gabung Sekarang
-                </a>
-            </div>
-            <div
-                class="max-w-sm p-6 bg-[#C7FFDE] w-full h-52 rounded-3xl shadow flex justify-center items-center flex-col hover:bg-[#0090D4] duration-300 ease-in-out relative group">
-                <h1 class="mb-3 font-semibold text-md text-black group-hover:text-white duration-300 ease-in-out">
-                    Survey Perundungan</h1>
-                <p class="mb-2 font-normal text-sm text-gray-500 group-hover:text-gray-100 duration-300 ease-in-out">
-                    Survey Feedback</p>
-                <p class="mb-2 font-normal text-base text-black group-hover:text-white duration-300 ease-in-out">
-                    130 Respon</p>
-                <a href="#"
-                    class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg opacity-0 group-hover:bg-green-400 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
-                    Gabung Sekarang
-                </a>
-            </div>
         </div>
     </div>
-
 </div>
 @endsection
-
-
-
-
-{{-- <input type="hidden" value="1" name="survey[0][pertanyaan]">
-<input type="text" name="survey[0][jawaban]">
-
-<input type="hidden" value="1" name="survey[1][pertanyaan]"> --}}
-{{-- <input type="text" name="survey[1][jawaban]"> --}}
-{{-- <input type="file" name="exel">
-
-<button type="submit">kirim</button>
-</form> --}}

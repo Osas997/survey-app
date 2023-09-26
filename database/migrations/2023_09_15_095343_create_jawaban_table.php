@@ -17,7 +17,7 @@ return new class extends Migration
             $table->unsignedBigInteger('id_survey_respon')->index();
             $table->foreign('id_pertanyaan')->references('id')->on('pertanyaan')->onDelete('cascade');
             $table->foreign('id_survey_respon')->references('id')->on('survey_respon')->onDelete('cascade');
-            $table->string('skor', 10)->nullable();
+            $table->string('skor', 10)->nullable(false);
             $table->timestamps();
         });
 

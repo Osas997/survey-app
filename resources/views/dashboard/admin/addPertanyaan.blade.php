@@ -28,6 +28,14 @@
             <input type="text" id="nama_pertanyaan" name="pertanyaan" placeholder="Input Pertanyaan .. "
                 class="bg-slate-50 border-2 border-blue-500 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
         </div>
+        <div class="mb-6 lg:w-5/12">
+            <label for="status" class="block mb-2 text-sm font-medium text-gray-900 ">Tipe Pertanyaan</label>
+            <select id="status" name="tipe" required
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
+                <option value="korban">Korban Bullying</option>
+                <option value="pelaku">Pelaku Bullying</option>
+            </select>
+        </div>
     </div>
     <div class="md:flex md:justify-center md:items-center  md:flex-row md:gap-4 min-w-full md:w-1/2 ">
         <button type="submit"

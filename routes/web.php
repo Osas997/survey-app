@@ -12,6 +12,7 @@ use App\Models\Jawaban;
 use App\Models\Survey;
 use App\Models\SurveyRespon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,39 +30,6 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::post('/asumalaka/{survey}', function (Request $request, Survey $survey) {
-    // dd($request->all());
-    $request->validate([
-        "survey.*.id_pertanyaan" => "required",
-        "survey.*.skor" => "required"
-    ]);
-
-    try {
-        $surveyRespon = SurveyRespon::create([
-            "id_survey" => $survey->id,
-            "id_murid" => auth("murid")->user()->id,
-            "skor_total" => 0
-        ]);
-
-        $lastInsertId = $surveyRespon->id;
-        $skor_total = 0;
-
-        foreach ($request->survey as $survey) {
-            Jawaban::create([
-                "id_pertanyaan" => $survey["id_pertanyaan"],
-                "id_survey_respon" => $lastInsertId,
-                "skor" => $survey["skor"]
-            ]);
-
-            $skor_total += $survey["skor"];
-        }
-
-        $surveyRespon->skor_total = $skor_total;
-        $surveyRespon->save();
-    } catch (\Throwable $th) {
-        //throw $th;
-    }
-});
 
 
 
@@ -113,8 +81,7 @@ Route::middleware("murid")->prefix('murid')->group(function () {
     Route::get('/dashboard', [DashboardController::class, "indexMurid"])->name('murid.dashboard');
 
     Route::get('/survey/{survey}', [MuridSurveyController::class, "survey"])->name('murid.viewSurvey');
-    Route::get('/survey1/{survey}', [MuridSurveyController::class, "survey1"])->name('murid.viewSurvey1');
-    Route::post('/survey1', [MuridSurveyController::class, "store"])->name('murid.submitSurvey');
+    Route::post('/survey/{survey}', [MuridSurveyController::class, "store"])->name('murid.tambahSurvey');
 });
 
 // Route::middleware("guru-sekolah")->group(function () {
