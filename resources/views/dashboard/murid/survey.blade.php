@@ -23,7 +23,7 @@
                     <span class=" md:text-lg">Survey Perundungan</span>
                 </p>
             </div>
-            <form action="/asumalaka/{{ $idSurvey }}" method="POST">
+            <form action="{{ route('murid.tambahSurvey',['survey' => $idSurvey]) }}" method="POST">
                 @csrf
                 @foreach ($dataPertanyaan as $data)
                 <span class="text-md font-bold my-4 block">

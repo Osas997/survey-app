@@ -12,6 +12,7 @@ use App\Models\Jawaban;
 use App\Models\Survey;
 use App\Models\SurveyRespon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,43 +30,6 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::post('/asumalaka/{survey}', function (Request $request, Survey $survey) {
-    // dd($request->survey->pertanyaan);
-    $request->validate([
-        "survey.*.id_pertanyaan" => "required",
-        "survey.*.skor" => "required",
-    ]);
-
-    $surveyRespon = SurveyRespon::create([
-        "id_survey" => $survey->id,
-        "id_murid" => auth("murid")->user()->id,
-        "skor_total_korban" => 0,
-        "skor_total_pelaku" => 0
-    ]);
-
-    $idSurveyRespon = $surveyRespon->id;
-    $skorTotalKorban = 0;
-    $skorTotalPelaku = 0;
-
-    foreach ($request->survey as $survey) {
-        Jawaban::create([
-            "id_pertanyaan" => $survey["id_pertanyaan"],
-            "id_survey_respon" => $idSurveyRespon,
-            "skor" => $survey["skor"]
-        ]);
-
-        if ($survey["tipe_pertanyaan"] == "korban") {
-            $skorTotalKorban += $survey["skor"];
-        } else if ($survey["tipe_pertanyaan"] == "pelaku") {
-            $skorTotalPelaku += $survey["skor"];
-        }
-    }
-
-    $surveyRespon->skor_total_pelaku = $skorTotalPelaku;
-    $surveyRespon->skor_total_korban = $skorTotalKorban;
-    $surveyRespon->save();
-    return redirect()->back();
-});
 
 
 
@@ -117,6 +81,7 @@ Route::middleware("murid")->prefix('murid')->group(function () {
     Route::get('/dashboard', [DashboardController::class, "indexMurid"])->name('murid.dashboard');
 
     Route::get('/survey/{survey}', [MuridSurveyController::class, "survey"])->name('murid.viewSurvey');
+    Route::post('/survey/{survey}', [MuridSurveyController::class, "store"])->name('murid.tambahSurvey');
 });
 
 // Route::middleware("guru-sekolah")->group(function () {
