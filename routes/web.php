@@ -82,6 +82,9 @@ Route::middleware("murid")->prefix('murid')->group(function () {
 
     Route::get('/survey/{survey}', [MuridSurveyController::class, "survey"])->name('murid.viewSurvey');
     Route::post('/survey/{survey}', [MuridSurveyController::class, "store"])->name('murid.tambahSurvey');
+    // Experimental
+    Route::get('/survey1/{survey}', [MuridSurveyController::class, "survey1"])->name('murid.viewSurvey1');
+    Route::post('/survey',[MuridSurveyController::class, "store1"])->name('murid.submitSurvey1');
 });
 
 // Route::middleware("guru-sekolah")->group(function () {

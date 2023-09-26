@@ -1,12 +1,12 @@
 @extends('dashboard.layouts.main')
 @section('content')
 {{-- dashboard ada 3 chart
-1. circle chart korban dan pelaku
-2. chart korban
-3. chart pelaku
-4. card jumlah murid
-5. card jumlah pelaku
-6. card jumlah korban
+1. 2 pie chart 
+2. setiap chart isi 4 golongan sangat tinggi, tinggi, sedang, rendah
+3. ada 9 card
+4. 1 cart untuk aktif murid
+5. 4 cart untuk golognan sangat tigngi, tinggi sedang rendah pelaku
+6. 4 cart untuk golognan sangat tigngi, tinggi sedang rendah korban
 --}}
 <div class="relative bg-indigo-200 w-full py-8  p-4 sm:p-6 rounded-xl overflow-hidden mb-8 ">
   <!-- Background illustration -->

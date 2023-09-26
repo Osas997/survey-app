@@ -2,7 +2,10 @@
 @section('title','Survey App')
 @section('content')
 <div class="w-full min-h-screen overflow-x-hidden scroll-smooth ">
-
+{{-- 
+    1. id pertanyaan
+    2. type pertanyaan
+    3. skor--}}
     <nav class="bg-white border-gray-200 border-b-2  ">
         <div class="w-full flex flex-wrap items-center justify-between mx-auto p-4">
             <a href="" class="flex items-center">
@@ -72,7 +75,7 @@
             <div class="w-full bg-gray-400 rounded-full h-2.5">
                 <div id="progress" class="bg-blue-600 h-2.5 duration-700 rounded-full"></div>
             </div>
-            <form action="{{route('murid.submitSurvey')}}" method="post">
+            <form id="form-input">
                 @csrf
                 <div id="quiz-container">
                 
@@ -100,11 +103,13 @@ let currentQuestionIndex = 0;
 let score = 0;
 let jawabanUser = [];
 
+
 const quizContainer = document.getElementById('quiz-container');
 const progress = document.getElementById('progress');
 const nextBtn = document.getElementById('next-btn');
 const submit = document.getElementById('submit');
 const scoreDisplay = document.getElementById('score');
+const form_input = document.getElementById('form-input');
 
 // Function to load a question
 function loadQuestion(questionIndex) {
@@ -173,14 +178,14 @@ nextBtn.addEventListener('click', () => {
         console.log(
             JSON.stringify(dataToSend));
 
-        fetch('/survey1', {
+        fetch('{{route('murid.submitSurvey1')}}', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': 'Bearer {{ csrf_token() }}',
                 'Accept': 'application/json',
                 "X-Requested-With": "XMLHttpRequest",
-                'url': '/survey1',
+                'url': '{{route('murid.submitSurvey1')}}',
                 "X-CSRF-Token": document.querySelector('input[name=_token]').value},
             body: JSON.stringify(dataToSend),
         })
