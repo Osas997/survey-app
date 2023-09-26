@@ -25,7 +25,6 @@ class MuridSurveyController extends Controller
             "cekSurvey" => $cekSurvey
         ]);
     }
-
     public function store(Request $request, Survey $survey)
     {
         // dd($request->survey->pertanyaan);

@@ -22,6 +22,7 @@
                 class="text-white absolute right-2.5 bottom-2.5 bg-blue-700  focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2  hover:bg-blue-500 duration-300 ease-in-out">Search</button>
         </div>
     </form>
+   
 </div>
 <div class="mt-8 w-full  overflow-x-auto overflow-y-auto rounded-lg">
     @if ($daftarMurid->isNotEmpty())
