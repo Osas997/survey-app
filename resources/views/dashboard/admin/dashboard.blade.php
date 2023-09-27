@@ -516,7 +516,7 @@
                             }
                         },
                     },
-                    labels: ["Korban", "Pelaku"],
+                    labels: ["Sangat Tinggi", "Tinggi","Sedang", "Rendah"],
                     dataLabels: {
                         enabled: true,
                         style: {
