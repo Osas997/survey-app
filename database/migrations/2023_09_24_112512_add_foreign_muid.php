@@ -13,7 +13,9 @@ return new class extends Migration
     {
         Schema::table('survey_respon', function (Blueprint $table) {
             $table->unsignedBigInteger('id_murid')->after('id_survey');
+            $table->unsignedBigInteger('id_sekolah')->after('id_murid');
             $table->foreign('id_murid')->references('id')->on('murid');
+            $table->foreign('id_sekolah')->references('id')->on('sekolah');
         });
     }
 
