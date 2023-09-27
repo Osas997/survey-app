@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\GuruController;
+use App\Http\Controllers\LaporanMuridController;
 use App\Http\Controllers\MuridController;
 use App\Http\Controllers\MuridSurveyController;
 use App\Http\Controllers\PertanyaanController;
@@ -82,9 +83,9 @@ Route::middleware("murid")->prefix('murid')->group(function () {
 
     Route::get('/survey/{survey}', [MuridSurveyController::class, "survey"])->name('murid.viewSurvey');
     Route::post('/survey/{survey}', [MuridSurveyController::class, "store"])->name('murid.tambahSurvey');
-    // Experimental
-    Route::get('/survey1/{survey}', [MuridSurveyController::class, "survey1"])->name('murid.viewSurvey1');
-    Route::post('/survey',[MuridSurveyController::class, "store1"])->name('murid.submitSurvey1');
+
+    Route::get("/laporan", [LaporanMuridController::class, "index"])->name('murid.laporan');
+
 });
 
 // Route::middleware("guru-sekolah")->group(function () {

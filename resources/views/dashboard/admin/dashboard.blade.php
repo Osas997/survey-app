@@ -422,7 +422,6 @@
             const dataSurvey = @json($dataSurveyMurid);
 
             console.log(dataSurvey);
-
             const getChartOptions = () => {
                 return {
                     series: [20, 20, 40, 20],

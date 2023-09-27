@@ -4,6 +4,7 @@
 <div class="w-full min-h-screen overflow-x-hidden scroll-smooth ">
     @include('dashboard.murid.navbar')
     <div class="w-full md:w-8/12 mx-auto px-10 mt-10">
+        @if (!$cekSurvey)
         <div class="w-full mx-auto bg-white p-8 rounded shadow-md">
             <div class="flex justify-start items-center gap-4">
                 <div class="w-6 h-6 md:w-8 md:h-8">
@@ -96,6 +97,9 @@
                 </div>
             </form>
         </div>
+        @else
+        <div class="text-center text-4xl text-red-700">Sudah Menjawab Survey</div>
+        @endif
     </div>
 </div>
 
