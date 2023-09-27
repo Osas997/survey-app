@@ -25,6 +25,26 @@ class MuridSurveyController extends Controller
             "cekSurvey" => $cekSurvey
         ]);
     }
+    // Experimental
+    public function survey1(Survey $survey)
+    {
+        $pertanyaan = Pertanyaan::where('id_survey', $survey->id)->get();
+        $respon = SurveyRespon::where("id_murid", auth('murid')->user()->id)->first();
+
+        $cekSurvey = $respon ? true : false;
+
+        return view('dashboard.murid.survey1', [
+            'title' => 'Survey Test',
+            "dataPertanyaan" => $pertanyaan,
+            "idSurvey" => $survey->id,
+            "cekSurvey" => $cekSurvey
+        ]);
+    }
+    // Experimental
+    public function store1(Request $request){
+        $pengarang= $request->input('jawaban');
+        return $pengarang;
+    }
     public function store(Request $request, Survey $survey)
     {
         // dd($request->survey->pertanyaan);

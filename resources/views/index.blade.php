@@ -118,8 +118,27 @@
         <section class="pt-10 px-4 pb-10 bg-white" id="survey">
             <div class="max-w-screen-xl  mx-auto p-4">
                 <h1 class="text-center text-black font-semibold text-3xl mb-6">Survey</h1>
-                <div class="grid grid:grid-col-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                    <div
+                <div class="grid grid-col-1 sm:grid-cols-2 justify-center items-center gap-4 ">
+                    <div class="flex justify-center items-center">
+                        <div
+                            class="max-w-sm p-6 bg-[#C7FFDE] w-full h-52 rounded-lg shadow flex justify-center items-center flex-col hover:bg-[#0090D4] duration-300 ease-in-out relative group">
+                            <h1
+                                class="mb-3 font-semibold text-md text-black group-hover:text-white duration-300 ease-in-out">
+                                Survey Perundungan</h1>
+                            <p
+                                class="mb-2 font-normal text-sm text-gray-500 group-hover:text-gray-100 duration-300 ease-in-out">
+                                Survey Feedback</p>
+                            <p
+                                class="mb-2 font-normal text-base text-black group-hover:text-white duration-300 ease-in-out">
+                                130 Respon</p>
+                            <a href="#"
+                                class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg opacity-0 group-hover:bg-green-400 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
+                                Gabung Sekarang
+                            </a>
+                        </div>
+                    </div>
+                    <div class="flex justify-center items-center">
+                        <div
                         class="max-w-sm p-6 bg-[#C7FFDE] w-full h-52 rounded-lg shadow flex justify-center items-center flex-col hover:bg-[#0090D4] duration-300 ease-in-out relative group">
                         <h1
                             class="mb-3 font-semibold text-md text-black group-hover:text-white duration-300 ease-in-out">
@@ -135,86 +154,9 @@
                             Gabung Sekarang
                         </a>
                     </div>
-                    <div
-                        class="max-w-sm p-6 bg-[#C7FFDE] w-full h-52 rounded-lg shadow flex justify-center items-center flex-col hover:bg-[#0090D4] duration-300 ease-in-out relative group">
-                        <h1
-                            class="mb-3 font-semibold text-md text-black group-hover:text-white duration-300 ease-in-out">
-                            Survey Perundungan</h1>
-                        <p
-                            class="mb-2 font-normal text-sm text-gray-500 group-hover:text-gray-100 duration-300 ease-in-out">
-                            Survey Feedback</p>
-                        <p
-                            class="mb-2 font-normal text-base text-black group-hover:text-white duration-300 ease-in-out">
-                            130 Respon</p>
-                        <a href="#"
-                            class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg opacity-0 group-hover:bg-green-400 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
-                            Gabung Sekarang
-                        </a>
+                    
                     </div>
-                    <div
-                        class="max-w-sm p-6 bg-[#C7FFDE] w-full h-52 rounded-lg shadow flex justify-center items-center flex-col hover:bg-[#0090D4] duration-300 ease-in-out relative group">
-                        <h1
-                            class="mb-3 font-semibold text-md text-black group-hover:text-white duration-300 ease-in-out">
-                            Survey Perundungan</h1>
-                        <p
-                            class="mb-2 font-normal text-sm text-gray-500 group-hover:text-gray-100 duration-300 ease-in-out">
-                            Survey Feedback</p>
-                        <p
-                            class="mb-2 font-normal text-base text-black group-hover:text-white duration-300 ease-in-out">
-                            130 Respon</p>
-                        <a href="#"
-                            class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg opacity-0 group-hover:bg-green-400 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
-                            Gabung Sekarang
-                        </a>
-                    </div>
-                    <div
-                        class="max-w-sm p-6 bg-[#C7FFDE] w-full h-52 rounded-lg shadow flex justify-center items-center flex-col hover:bg-[#0090D4] duration-300 ease-in-out relative group">
-                        <h1
-                            class="mb-3 font-semibold text-md text-black group-hover:text-white duration-300 ease-in-out">
-                            Survey Perundungan</h1>
-                        <p
-                            class="mb-2 font-normal text-sm text-gray-500 group-hover:text-gray-100 duration-300 ease-in-out">
-                            Survey Feedback</p>
-                        <p
-                            class="mb-2 font-normal text-base text-black group-hover:text-white duration-300 ease-in-out">
-                            130 Respon</p>
-                        <a href="#"
-                            class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg opacity-0 group-hover:bg-green-400 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
-                            Gabung Sekarang
-                        </a>
-                    </div>
-                    <div
-                        class="max-w-sm p-6 bg-[#C7FFDE] w-full h-52 rounded-lg shadow flex justify-center items-center flex-col hover:bg-[#0090D4] duration-300 ease-in-out relative group">
-                        <h1
-                            class="mb-3 font-semibold text-md text-black group-hover:text-white duration-300 ease-in-out">
-                            Survey Perundungan</h1>
-                        <p
-                            class="mb-2 font-normal text-sm text-gray-500 group-hover:text-gray-100 duration-300 ease-in-out">
-                            Survey Feedback</p>
-                        <p
-                            class="mb-2 font-normal text-base text-black group-hover:text-white duration-300 ease-in-out">
-                            130 Respon</p>
-                        <a href="#"
-                            class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg opacity-0 group-hover:bg-green-400 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
-                            Gabung Sekarang
-                        </a>
-                    </div>
-                    <div
-                        class="max-w-sm p-6 bg-[#C7FFDE] w-full h-52 rounded-lg shadow flex justify-center items-center flex-col hover:bg-[#0090D4] duration-300 ease-in-out relative group">
-                        <h1
-                            class="mb-3 font-semibold text-md text-black group-hover:text-white duration-300 ease-in-out">
-                            Survey Perundungan</h1>
-                        <p
-                            class="mb-2 font-normal text-sm text-gray-500 group-hover:text-gray-100 duration-300 ease-in-out">
-                            Survey Feedback</p>
-                        <p
-                            class="mb-2 font-normal text-base text-black group-hover:text-white duration-300 ease-in-out">
-                            130 Respon</p>
-                        <a href="#"
-                            class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg opacity-0 group-hover:bg-green-400 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
-                            Gabung Sekarang
-                        </a>
-                    </div>
+                    
                 </div>
 
             </div>
