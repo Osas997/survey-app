@@ -9,11 +9,6 @@ use App\Http\Controllers\MuridSurveyController;
 use App\Http\Controllers\PertanyaanController;
 use App\Http\Controllers\SekolahController;
 use App\Http\Controllers\SurveyController;
-use App\Models\Jawaban;
-use App\Models\Survey;
-use App\Models\SurveyRespon;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -85,7 +80,6 @@ Route::middleware("murid")->prefix('murid')->group(function () {
     Route::post('/survey/{survey}', [MuridSurveyController::class, "store"])->name('murid.tambahSurvey');
 
     Route::get("/laporan", [LaporanMuridController::class, "index"])->name('murid.laporan');
-
 });
 
 // Route::middleware("guru-sekolah")->group(function () {
