@@ -68,7 +68,8 @@
                     </span>
                 </td>
                 <td class="px-6 py-4 text-center">
-                    <a class="sm:text-sm md:text-md text-teal-400" href="{{ $murid->id }}">Lihat Survey Respon</a>
+                    <a class="sm:text-sm md:text-md text-teal-400" href="{{ route('laporan_murid',$murid->id) }}">Lihat
+                        Survey Respon</a>
                 </td>
             </tr>
             @endforeach
