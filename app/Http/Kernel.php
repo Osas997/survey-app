@@ -66,7 +66,7 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'admin' => \App\Http\Middleware\OnlyAdmin::class,
         'sekolah' => \App\Http\Middleware\Sekolah::class,
-        'guru-sekolah' => \App\Http\Middleware\GuruSekolah::class,
+        'except_murid' => \App\Http\Middleware\GuruSekolahAdmin::class,
         'murid' => \App\Http\Middleware\OnlyMurid::class,
         'sudahlogin' => \App\Http\Middleware\SudahLogin::class,
         'guru' => \App\Http\Middleware\OnlyGuru::class,

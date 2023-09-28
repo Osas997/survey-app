@@ -22,7 +22,7 @@
                 class="text-white absolute right-2.5 bottom-2.5 bg-blue-700  focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2  hover:bg-blue-500 duration-300 ease-in-out">Search</button>
         </div>
     </form>
-   
+
 </div>
 <div class="mt-8 w-full  overflow-x-auto overflow-y-auto rounded-lg">
     @if ($daftarMurid->isNotEmpty())
@@ -41,8 +41,8 @@
                 <th scope="col" class="px-6 py-3">
                     Jenis kelamin
                 </th>
-                <th scope="col" class="px-6 py-3">
-                    Status
+                <th scope="col" class="px-6 py-3 text-center">
+                    Aksi
                 </th>
             </tr>
         </thead>
@@ -50,7 +50,7 @@
             @foreach ($daftarMurid as $murid)
             <tr class="bg-white border-b  hover:bg-gray-50 ">
                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
-                        <span class="sm:text-sm md:text-md uppercase">{{ $murid->nama_murid }}</span>
+                    <span class="sm:text-sm md:text-md uppercase">{{ $murid->nama_murid }}</span>
                 </th>
                 <td class="px-6 py-4">
                     <span class="sm:text-sm md:text-md">{{ $murid->nisn }}</span>
@@ -67,8 +67,9 @@
                         @endif
                     </span>
                 </td>
-                <td class="px-6 py-4 text-right">
-                    <span class="sm:text-sm md:text-md"></span>
+                <td class="px-6 py-4 text-center">
+                    <a class="sm:text-sm md:text-md text-teal-400" href="{{ route('laporan_murid',$murid->id) }}">Lihat
+                        Survey Respon</a>
                 </td>
             </tr>
             @endforeach

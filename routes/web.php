@@ -82,6 +82,4 @@ Route::middleware("murid")->prefix('murid')->group(function () {
     Route::get("/laporan", [LaporanMuridController::class, "index"])->name('murid.laporan');
 });
 
-// Route::middleware("guru-sekolah")->group(function () {
-//     Route::get("/murid", [SekolahController::class, "store"]);
-// });
+Route::get("/murid/{murid}/laporan", [LaporanMuridController::class, "show"])->name("laporan_murid")->middleware("except_murid");

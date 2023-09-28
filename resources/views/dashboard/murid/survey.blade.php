@@ -21,7 +21,7 @@
                     </a>
                 </div>
                 <p class="font-bold text-base my-0">
-                    <span class=" md:text-lg">Survey Perundungan</span>
+                    <span class=" md:text-lg uppercase">{{ $namaSurvey }}</span>
                 </p>
             </div>
             <form action="{{ route('murid.tambahSurvey',['survey' => $idSurvey]) }}" method="POST">

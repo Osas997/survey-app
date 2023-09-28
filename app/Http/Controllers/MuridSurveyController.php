@@ -21,6 +21,7 @@ class MuridSurveyController extends Controller
         return view('dashboard.murid.survey', [
             'title' => 'Survey Test',
             "dataPertanyaan" => $pertanyaan,
+            "namaSurvey" => $survey->nama_survey,
             "idSurvey" => $survey->id,
             "cekSurvey" => $cekSurvey
         ]);
