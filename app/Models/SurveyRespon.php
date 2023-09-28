@@ -21,19 +21,29 @@ class SurveyRespon extends Model
         return $this->hasMany(Sekolah::class, "id_sekolah", "id");
     }
 
-    public function scopeSekolah($query, $sekolah)
+    public function scopeSekolah($query)
     {
-        if ($sekolah) {
-            $query->whereHas(
-                "sekolah",
-                fn ($query) => $query->where("nama_sekolah", $sekolah)
-            );
-        }
+        $query->where('id_sekolah', auth('sekolah')->user()->id);
     }
+
+    public function scopeGuruSekolah($query)
+    {
+        $query->where('id_sekolah', auth('guru')->user()->sekolah->id);
+    }
+
+    // public function scopeSekolah($query, $sekolah)
+    // {
+    //     if ($sekolah) {
+    //         $query->whereHas(
+    //             "sekolah",
+    //             fn ($query) => $query->where("nama_sekolah", $sekolah)
+    //         );
+    //     }
+    // }
 
     public function scopeKorbanRendah($query)
     {
-        return $query->whereBetween("skor_total_korban", [14, 23]);
+        return $query->whereBetween("skor_total_korban", [1, 23]);
     }
 
     public function scopeKorbanSedang($query)
@@ -53,7 +63,7 @@ class SurveyRespon extends Model
 
     public function scopePelakuRendah($query)
     {
-        return $query->whereBetween("skor_total_pelaku", [14, 23]);
+        return $query->whereBetween("skor_total_pelaku", [1, 23]);
     }
 
     public function scopePelakuSedang($query)

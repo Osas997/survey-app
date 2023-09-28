@@ -40,8 +40,8 @@
                 <th scope="col" class="px-6 py-3">
                     Jenis kelamin
                 </th>
-                <th scope="col" class="px-6 py-3">
-                    Status
+                <th scope="col" class="px-6 py-3 text-center">
+                    Aksi
                 </th>
             </tr>
         </thead>
@@ -62,8 +62,8 @@
                 <td class="px-6 py-4">
                     <span class="sm:text-sm md:text-md">Laki Laki</span>
                 </td>
-                <td class="px-6 py-4 text-right">
-                    {{-- <span class="sm:text-sm md:text-md">Korban</span> --}}
+                <td class="px-6 py-4 text-center">
+                    <a class="sm:text-sm md:text-md text-teal-400" href="{{ $murid->id }}">Lihat Survey Respon</a>
                 </td>
             </tr>
             @endforeach
