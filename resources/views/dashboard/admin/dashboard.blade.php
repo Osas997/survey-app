@@ -7,6 +7,16 @@
 4. 1 cart untuk aktif murid
 5. 4 cart untuk golognan sangat tigngi, tinggi sedang rendah pelaku
 6. 4 cart untuk golognan sangat tigngi, tinggi sedang rendah korban
+
+super admin
++laporan berentukk slect dilama select berisi sekolah
+saat sekolah dipilh terdapat tabel nama murid, skor, interpretasi, klasifikasi
+sekolah dan guru
++laporan berentukk select dilama select berisi sekolahnya dan langsung terdapat
+tabel nama murid, skor, interpretasi, klasifikasi
++terdapat aksi yang akan mengarahkan kelaporan murid sama seperti guru dan sekolah
++1 chart isi 14 soal pelaku, dimana yang ternilai disana adalah soal yang banyak tinggi dan sanggat tinggi
+
 --}}
 <div class="relative bg-indigo-200 w-full py-8  p-4 sm:p-6 rounded-xl overflow-hidden mb-8 ">
     <!-- Background illustration -->
