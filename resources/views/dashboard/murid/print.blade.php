@@ -409,18 +409,25 @@
                 </thead>
             </table>
         </div>
-</body>
-<script>
-    let buttonPrint = document.getElementById('print');
-    let container = document.querySelector('.container');
 
-    function printPage() {
-        buttonPrint.style.visibility = "hidden";
-        container.style.width = '100%';
-        window.print();
-        alert("Jangan menekan tombol OK sebelum dokumen selesai tercetak!");
-        buttonPrint.style.visibility = "visible";
-    }
-</script>
+        <script>
+            const data = @json($pelakuBully);
+            data.forEach(element => {
+                element.jawaban.forEach(e => {
+                    console.log(e.skor);
+                })
+            });
+            let buttonPrint = document.getElementById('print');
+            let container = document.querySelector('.container');
+        
+            function printPage() {
+                buttonPrint.style.visibility = "hidden";
+                container.style.width = '100%';
+                window.print();
+                alert("Jangan menekan tombol OK sebelum dokumen selesai tercetak!");
+                buttonPrint.style.visibility = "visible";
+            }
+        </script>
+</body>
 
 </html>

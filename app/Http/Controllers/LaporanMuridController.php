@@ -45,18 +45,18 @@ class LaporanMuridController extends Controller
         //     }
         // }
         
-        $pelakuBully = Pertanyaan::withCount('jawaban')->where('tipe', 'pelaku')->get();
-        foreach ($pelakuBully as $value) {
-            echo  $value->jawaban . "<br>";
-        }
-        //    foreach ($value as $v) {
-        //     // var_dump($value);
-        //     // if($value->jawaban->skor >= 3){
-        //     // }
+        $pelakuBully = Pertanyaan::with('jawaban')->where('tipe', 'pelaku')->get();
+        // foreach ($pelakuBully as $value) {
+        //      foreach ($value as $asu) {
+        //     echo  $asu->skor . "<br>";
+        //     }
+        // }
+            // var_dump($value);
+            // if($value->jawaban->skor >= 3){
         // }
         // echo  $value->pertanyaan . " Ada " . $value->jawaban->count() . "  jawaban" . "<br>";
         // dd($pelakuBully); // Output kedua variabel untuk pemeriksaan 
-        // return view('dashboard.murid.print');
+        return view('dashboard.murid.print',compact('pelakuBully'));
     }
 
     protected function userNotAllowed(Murid $murid): bool
