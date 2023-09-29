@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Murid;
 use App\Models\SurveyRespon;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Gate;
 
 class LaporanMuridController extends Controller
 {
