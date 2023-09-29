@@ -32,11 +32,19 @@ class LaporanMuridController extends Controller
         ]);
     }
     public function print(){
-        // $jawabanBullyingPalingBanyak = Jawaban::whereHas('pertanyaan', function ($query) {
-        //     $query->where('tipe', 'pelaku');
-        // })->get();
-
-        // dd($jawabanBullyingPalingBanyak);
+        $jawabanBullyingPalingBanyak = Jawaban::whereHas('pertanyaan', function ($query) {
+            $query->where('tipe', 'pelaku');
+        })->get();
+        
+        $perilaku = []; // Inisialisasi array perilaku
+        
+        if ($jawabanBullyingPalingBanyak->isNotEmpty()) {
+            foreach ($jawabanBullyingPalingBanyak as $pelaku) {
+                $perilaku[$pelaku->pertanyaan->pertanyaan] = Jawaban::whereBetween("skor", [3, 4])->where("id_pertanyaan", $pelaku->pertanyaan->id)->count(); // Menghitung jumlah jawaban untuk setiap "pelaku"
+            }
+        }
+        
+        // dd($jawabanBullyingPalingBanyak, $perilaku); // Output kedua variabel untuk pemeriksaan 
         return view('dashboard.murid.print');
     }
 
