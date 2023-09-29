@@ -15,4 +15,9 @@ class Pertanyaan extends Model
     {
         return $this->belongsTo(Survey::class, 'id_survey', 'id');
     }
+
+    public function jawaban()
+    {
+        return $this->hasMany(Jawaban::class, 'id_pertanyaan', 'id');
+    }
 }

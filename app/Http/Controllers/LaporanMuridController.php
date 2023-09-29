@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Jawaban;
 use App\Models\Murid;
+use App\Models\Pertanyaan;
 use App\Models\SurveyRespon;
 use Illuminate\Http\Request;
 
@@ -32,20 +33,30 @@ class LaporanMuridController extends Controller
         ]);
     }
     public function print(){
-        $jawabanBullyingPalingBanyak = Jawaban::whereHas('pertanyaan', function ($query) {
-            $query->where('tipe', 'pelaku');
-        })->get();
+        // $jawabanBullyingPalingBanyak = Jawaban::whereHas('pertanyaan', function ($query) {
+        //     $query->where('tipe', 'pelaku');
+        // })->get();
         
-        $perilaku = []; // Inisialisasi array perilaku
+        // $perilaku = []; // Inisialisasi array perilaku
         
-        if ($jawabanBullyingPalingBanyak->isNotEmpty()) {
-            foreach ($jawabanBullyingPalingBanyak as $pelaku) {
-                $perilaku[$pelaku->pertanyaan->pertanyaan] = Jawaban::whereBetween("skor", [3, 4])->where("id_pertanyaan", $pelaku->pertanyaan->id)->count(); // Menghitung jumlah jawaban untuk setiap "pelaku"
-            }
+        // if ($jawabanBullyingPalingBanyak->isNotEmpty()) {
+        //     foreach ($jawabanBullyingPalingBanyak as $pelaku) {
+        //         $perilaku[$pelaku->pertanyaan->pertanyaan] = Jawaban::whereBetween("skor", [3, 4])->where("id_pertanyaan", $pelaku->pertanyaan->id)->count(); // Menghitung jumlah jawaban untuk setiap "pelaku"
+        //     }
+        // }
+        
+        $pelakuBully = Pertanyaan::withCount('jawaban')->where('tipe', 'pelaku')->get();
+        foreach ($pelakuBully as $value) {
+            echo  $value->jawaban . "<br>";
         }
-        
-        // dd($jawabanBullyingPalingBanyak, $perilaku); // Output kedua variabel untuk pemeriksaan 
-        return view('dashboard.murid.print');
+        //    foreach ($value as $v) {
+        //     // var_dump($value);
+        //     // if($value->jawaban->skor >= 3){
+        //     // }
+        // }
+        // echo  $value->pertanyaan . " Ada " . $value->jawaban->count() . "  jawaban" . "<br>";
+        // dd($pelakuBully); // Output kedua variabel untuk pemeriksaan 
+        // return view('dashboard.murid.print');
     }
 
     protected function userNotAllowed(Murid $murid): bool
