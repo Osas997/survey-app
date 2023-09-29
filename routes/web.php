@@ -80,6 +80,7 @@ Route::middleware("murid")->prefix('murid')->group(function () {
     Route::post('/survey/{survey}', [MuridSurveyController::class, "store"])->name('murid.tambahSurvey');
 
     Route::get("/laporan", [LaporanMuridController::class, "index"])->name('murid.laporan');
+    Route::get("/laporan/print",[LaporanMuridController::class, "print"])->name('murid.print');
 });
 
 Route::get("/murid/{murid}/laporan", [LaporanMuridController::class, "show"])->name("laporan_murid")->middleware("except_murid");

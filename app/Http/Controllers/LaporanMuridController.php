@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Jawaban;
 use App\Models\Murid;
 use App\Models\SurveyRespon;
 use Illuminate\Http\Request;
@@ -30,6 +31,14 @@ class LaporanMuridController extends Controller
             "dataLaporan" => $dataLaporan
         ]);
     }
+    public function print(){
+        // $jawabanBullyingPalingBanyak = Jawaban::whereHas('pertanyaan', function ($query) {
+        //     $query->where('tipe', 'pelaku');
+        // })->get();
+
+        // dd($jawabanBullyingPalingBanyak);
+        return view('dashboard.murid.print');
+    }
 
     protected function userNotAllowed(Murid $murid): bool
     {
@@ -41,4 +50,5 @@ class LaporanMuridController extends Controller
         }
         return false;
     }
+
 }
