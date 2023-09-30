@@ -66,8 +66,8 @@
          </li>
          {{-- laporan --}}
          <li>
-            <a href="" class="
-            @if (Request::is('admin/*') )
+            <a href="{{route('admin.laporan')}}" class="
+            @if (Request::is('admin/laporan*') )
                 bg-gray-200
             @endif
             flex items-center p-2 text-gray-900 rounded-lg duration-300 ease-in-out hover:bg-gray-100  group">
