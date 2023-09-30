@@ -1,13 +1,16 @@
 <?php
 
+use App\Http\Controllers\AdminLaporanController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\GuruController;
+use App\Http\Controllers\GuruLaporanController;
 use App\Http\Controllers\LaporanMuridController;
 use App\Http\Controllers\MuridController;
 use App\Http\Controllers\MuridSurveyController;
 use App\Http\Controllers\PertanyaanController;
 use App\Http\Controllers\SekolahController;
+use App\Http\Controllers\SekolahLaporanController;
 use App\Http\Controllers\SurveyController;
 use Illuminate\Support\Facades\Route;
 
@@ -53,28 +56,18 @@ Route::middleware("admin")->prefix('admin')->group(function () {
     Route::get("/{sekolah}/murid", [MuridController::class, "adminMurid"])->name('admin.viewMurid');
 
 
-    Route::get('/laporan',function(){
-        return view('dashboard.admin.laporan',[
-            'title' => 'Laporan',
-        ]);
-    })->name('admin.laporan');
-
-
-    Route::get('/laporan/hasil-survey',function(){
-        return view('dashboard.admin.hasilSurvey',[
-            'title' => 'Hasil Survey',
-        ]);
-    })->name('admin.hasilsurvey');
+    Route::get('/laporan',[AdminLaporanController::class,"index"])->name('admin.laporan');
+    Route::get('/laporan/{sekolah}',[AdminLaporanController::class,"show"])->name('admin.hasilsurvey');
 });
 
 
 Route::middleware("sekolah")->prefix('sekolah')->group(function () {
     Route::get("/dashboard", [DashboardController::class, "indexSekolah"])->name('sekolah.dashboard');
-
+    
     Route::resource("/guru", GuruController::class)->name("index", "sekolah.guru")->name("create", "sekolah.viewTambahGuru")->name('store', 'sekolah.tambahGuru');
-
+    
     Route::resource("/murid", MuridController::class)->name("index", "sekolah.murid")->name("create", "sekolah.viewTambahMurid")->name('store', 'sekolah.tambahMurid');
-
+    Route::get("/laporan", [SekolahLaporanController::class, "index"])->name('sekolah.hasilSurvey');
     // Route::post("/guru", [GuruController::class, "import"]);
 });
 
@@ -82,6 +75,7 @@ Route::middleware("sekolah")->prefix('sekolah')->group(function () {
 Route::middleware("guru")->prefix('guru')->group(function () {
     Route::get("/dashboard", [DashboardController::class, "indexGuru"])->name('guru.dashboard');
     Route::get("/murid", [MuridController::class, "viewGuruMurid"])->name('guru.viewMurid');
+    Route::get("/laporan", [GuruLaporanController::class, "index"])->name('guru.hasilSurvey');
 });
 
 Route::middleware("murid")->prefix('murid')->group(function () {

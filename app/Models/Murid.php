@@ -18,6 +18,10 @@ class Murid extends Model
     {
         return $this->belongsTo(Sekolah::class, "id_sekolah", "id");
     }
+    public function surveyRespon()
+    {
+        return $this->hasOne(SurveyRespon::class, "id_murid", "id");
+    }
 
     public function scopeSearch($query, $search)
     {

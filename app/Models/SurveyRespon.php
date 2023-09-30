@@ -15,10 +15,18 @@ class SurveyRespon extends Model
     {
         return $this->belongsTo(Murid::class, "id_murid", "id");
     }
+    public function survey()
+    {
+        return $this->belongsTo(Survey::class, "id_survey", "id");
+    }
 
     public function sekolah()
     {
         return $this->hasMany(Sekolah::class, "id_sekolah", "id");
+    }
+    public function jawaban()
+    {
+        return $this->hasMany(Jawaban::class, "id_survey_respon", "id");
     }
 
     public function scopeSekolah($query)
@@ -28,7 +36,7 @@ class SurveyRespon extends Model
 
     public function scopeGuruSekolah($query)
     {
-        $query->where('id_sekolah', auth('guru')->user()->sekolah->id);
+        $query->where('id_sekolah', auth('guru')->user()->id_sekolah);
     }
 
     // public function scopeSekolah($query, $sekolah)

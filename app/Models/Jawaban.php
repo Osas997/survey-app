@@ -15,4 +15,8 @@ class Jawaban extends Model
     {
         return $this->belongsTo(Pertanyaan::class, "id_pertanyaan", "id");
     }
+    public function surveyRespon()
+    {
+        return $this->belongsTo(SurveyRespon::class, "id_survey_respon", "id");
+    }
 }

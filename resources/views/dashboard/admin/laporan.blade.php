@@ -1,6 +1,6 @@
 @extends('dashboard.layouts.main')
 @section('content')
-<h1 class="text-2xl sm:text-3xl  ">Sekolah</h1>
+<h1 class="text-2xl sm:text-3xl">Laporan Sekolah</h1>
 <div class="flex justify-start items-center gap-4 mt-10  ">
     <form action="" method="get">
         <div class="relative ">
@@ -25,7 +25,7 @@
 <div class="mt-8 w-full overflow-x-auto overflow-y-auto">
 
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-        {{-- @if ($dataSekolah->isNotEmpty()) --}}
+        @if ($dataSekolah->isNotEmpty())
             <table class="w-full text-sm text-left text-gray-500 ">
                 <thead class="text-xs text-white uppercase bg-blue-500 ">
                     <tr>
@@ -36,9 +36,6 @@
                             NPSN
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            Alamat
-                        </th>
-                        <th scope="col" class="px-6 py-3">
                             Status
                         </th>
                         <th scope="col" class="px-6 py-3">
@@ -47,34 +44,31 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {{-- @foreach ($dataSekolah as $sekolah) --}}
+                    @foreach ($dataSekolah as $sekolah)
                         <tr class="bg-white border-b  hover:bg-gray-50 ">
                             <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
-                                <span class="sm:text-sm md:text-md uppercase">Nama Sekolah</span>
+                                <span class="sm:text-sm md:text-md uppercase">{{ $sekolah->nama_sekolah }}</span>
                             </th>
                             <td class="px-6 py-4">
-                                <span class="sm:text-sm md:text-md">NPSN</span>
+                                <span class="sm:text-sm md:text-md">{{ $sekolah->npsn }}</span>
                             </td>
                             <td class="px-6 py-4">
-                                <span class="sm:text-sm md:text-md">Alamat Sekolah</span>
-                            </td>
-                            <td class="px-6 py-4">
-                                <span class="sm:text-sm md:text-md">Negeri</span>
+                                <span class="sm:text-sm md:text-md">{{ $sekolah->status }}</span>
                             </td>
                             <td class="px-6 py-4 text-right">
                                 <div class="flex justify-center items-center gap-1">
-                                    <a href="{{route('admin.hasilsurvey')}}"
+                                    <a href="{{route('admin.hasilsurvey', ['sekolah' => $sekolah->id])}}"
                                         class="text-blue-500 duration-300 ease-in-out underline text-sm text-center mr-3
-                            md:mr-0">Murid</a>
+                            md:mr-0">Laporan Siswa</a>
                                 </div>
                             </td>
                         </tr>
-                    {{-- @endforeach --}}
+                    @endforeach
                 </tbody>
             </table>
-        {{-- @else
+        @else
             <h1 class="text-center text-2xl font-bold text-red-600 mt-20">Sekolah Tidak ditemukan</h1>
-        @endif --}}
+        @endif
 
     </div>
 

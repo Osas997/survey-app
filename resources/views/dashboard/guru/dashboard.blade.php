@@ -194,177 +194,350 @@
 
         </div>
     </div>
+    <div class="max-w-full w-full bg-white rounded-lg shadow dark:bg-gray-800 p-4 md:p-6">
+        <div class="flex justify-between pb-4 mb-4 border-b border-gray-200 dark:border-gray-700">
+            <div class="flex items-center">
+                <div>
+                    <h5 class="leading-none text-2xl font-bold text-gray-900 dark:text-white pb-1">Persentase Perilaku
+                        Perundungan</h5>
+                    <p class="text-sm font-normal text-gray-500 dark:text-gray-400">Persentase Perilaku Perundungan
+                        Berdasarkan Soal Yang Dipilih Saat Survey</p>
+                </div>
+            </div>
+            <div>
+            </div>
+        </div>
 
+
+        <div id="column-chart"></div>
+        <div class="grid grid-cols-1 items-center border-gray-200 border-t dark:border-gray-700 justify-between">
+
+        </div>
+        <div class="mt-8 w-full  overflow-x-auto overflow-y-auto rounded-lg">
+            <p class="text-sm font-normal text-gray-500 dark:text-gray-400">
+                Berdasarkan Jumlah Jawaban Yang Dipilih Saat Survey</p>
+            <table class="w-full text-sm text-left text-gray-500 ">
+                <thead class="text-xs text-white uppercase  bg-blue-500  ">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">
+                            Soal
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Pertanyaan
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            <span>Rendah(kurang dari 2)</span>
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            <span>Tinggi(lebih dari 3)</span>
+
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($tipePelaku as $tipe)
+                        <tr class="bg-white border-b  hover:bg-gray-50 ">
+                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
+                                <span>{{ $loop->iteration }}</span>
+                            </th>
+                            <td class="px-6 py-4">
+                                <span class="sm:text-sm md:text-md text-center">{{ $tipe->pertanyaan }}</span>
+                            </td>
+                            <td class="px-6 py-4">
+                                <span class="sm:text-sm md:text-md text-center">{{ $tipe->jawaban_skor_kurang_dari_3_count }} Jawaban</span>
+                            </td>
+                            <td class="px-6 py-4">
+                                <span class="sm:text-sm md:text-md text-center">{{ $tipe->jawaban_skor_lebih_dari_2_count }} Jawaban</span>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+
+    </div>
 </div>
-
-
-</div>
-
 
 
 <script>
     // ApexCharts options and config
     const korbanSangatTinggi = @json($korbanSangatTinggi);
     const korbanTinggi = @json($korbanTinggi);
-    const korbanSedang= @json($korbanSedang);
+    const korbanSedang = @json($korbanSedang);
     const korbanRendah = @json($korbanRendah);
 
     const pelakuSangatTinggi = @json($pelakuSangatTinggi);
     const pelakuTinggi = @json($pelakuTinggi);
-    const pelakuSedang= @json($pelakuSedang);
+    const pelakuSedang = @json($pelakuSedang);
     const pelakuRendah = @json($pelakuRendah);
+
+    const tipePelaku = @json($tipePelaku);
 
     const totalResponKorban = korbanSangatTinggi + korbanTinggi + korbanSedang + korbanRendah;
     const totalResponPelaku = pelakuSangatTinggi + pelakuTinggi + pelakuSedang + pelakuRendah;
 
-    if(totalResponKorban != 0 || totalResponPelaku != 0){
+    if (totalResponKorban != 0 || totalResponPelaku != 0) {
         const persenKorbanSangatTinggi = (korbanSangatTinggi / totalResponKorban) * 100;
         const persenKorbanTinggi = (korbanTinggi / totalResponKorban) * 100;
         const persenKorbanSedang = (korbanSedang / totalResponKorban) * 100;
         const persenKorbanRendah = (korbanRendah / totalResponKorban) * 100;
-    
+
         const persenPelakuSangatTinggi = (pelakuSangatTinggi / totalResponPelaku) * 100;
         const persenPelakuTinggi = (pelakuTinggi / totalResponPelaku) * 100;
         const persenPelakuSedang = (pelakuSedang / totalResponPelaku) * 100;
         const persenPelakuRendah = (pelakuRendah / totalResponPelaku) * 100;
 
         window.addEventListener("load", function() {
-        
-        const getChartOptions = () => {
-            return {
-                series: [persenKorbanSangatTinggi, persenKorbanTinggi, persenKorbanSedang, persenKorbanRendah],
-                colors: ["#ef4444", "#f97316", "#facc15", "#22c55e"],
-                chart: {
-                    height: 420,
-                    width: "100%",
-                    type: "pie",
-                },
-                stroke: {
-                    colors: ["white"],
-                    lineCap: "",
-                },
-                plotOptions: {
-                    pie: {
-                        labels: {
-                            show: true,
+
+            const getChartOptions = () => {
+                return {
+                    series: [persenKorbanSangatTinggi, persenKorbanTinggi, persenKorbanSedang,
+                        persenKorbanRendah
+                    ],
+                    colors: ["#ef4444", "#f97316", "#facc15", "#22c55e"],
+                    chart: {
+                        height: 420,
+                        width: "100%",
+                        type: "pie",
+                    },
+                    stroke: {
+                        colors: ["white"],
+                        lineCap: "",
+                    },
+                    plotOptions: {
+                        pie: {
+                            labels: {
+                                show: true,
+                            },
+                            size: "100%",
+                            dataLabels: {
+                                offset: -25
+                            }
                         },
-                        size: "100%",
-                        dataLabels: {
-                            offset: -25
-                        }
+                    },
+                    labels: ["Sangat Tinggi", "Tinggi", "Sedang", "Rendah"],
+                    dataLabels: {
+                        enabled: true,
+                        style: {
+                            fontFamily: "Inter, sans-serif",
+                        },
+                    },
+                    legend: {
+                        position: "bottom",
+                        fontFamily: "Inter, sans-serif",
+                    },
+                    yaxis: {
+                        labels: {
+                            formatter: function(value) {
+                                return value + "%"
+                            },
+                        },
+                    },
+                    xaxis: {
+                        labels: {
+                            formatter: function(value) {
+                                return value + "%"
+                            },
+                        },
+                        axisTicks: {
+                            show: false,
+                        },
+                        axisBorder: {
+                            show: false,
+                        },
+                    },
+                }
+            }
+
+            if (document.getElementById("pie-chart") && typeof ApexCharts !== 'undefined') {
+                const chart = new ApexCharts(document.getElementById("pie-chart"), getChartOptions());
+                chart.render();
+            }
+        });
+
+        window.addEventListener("load", function() {
+            const getChartOptions = () => {
+                return {
+                    series: [persenPelakuSangatTinggi, persenPelakuTinggi, persenPelakuSedang,
+                        persenPelakuRendah
+                    ],
+                    colors: ["#ef4444", "#f97316", "#facc15", "#22c55e"],
+                    chart: {
+                        height: 420,
+                        width: "100%",
+                        type: "pie",
+                    },
+                    stroke: {
+                        colors: ["white"],
+                        lineCap: "",
+                    },
+                    plotOptions: {
+                        pie: {
+                            labels: {
+                                show: true,
+                            },
+                            size: "100%",
+                            dataLabels: {
+                                offset: -25
+                            }
+                        },
+                    },
+                    labels: ["Sangat Tinggi", "Tinggi", "Sedang", "Rendah"],
+                    dataLabels: {
+                        enabled: true,
+                        style: {
+                            fontFamily: "Inter, sans-serif",
+                        },
+                    },
+                    legend: {
+                        position: "bottom",
+                        fontFamily: "Inter, sans-serif",
+                    },
+                    yaxis: {
+                        labels: {
+                            formatter: function(value) {
+                                return value + "%"
+                            },
+                        },
+                    },
+                    xaxis: {
+                        labels: {
+                            formatter: function(value) {
+                                return value + "%"
+                            },
+                        },
+                        axisTicks: {
+                            show: false,
+                        },
+                        axisBorder: {
+                            show: false,
+                        },
+                    },
+                }
+            }
+
+            if (document.getElementById("pie-chart1") && typeof ApexCharts !== 'undefined') {
+                const chart = new ApexCharts(document.getElementById("pie-chart1"), getChartOptions());
+                chart.render();
+            }
+        });
+
+        let dataRendah = [];
+        let dataTinggi = [];
+        tipePelaku.forEach(element => {
+            dataRendah.push(element.jawaban_skor_kurang_dari_3_count);
+            dataTinggi.push(element.jawaban_skor_lebih_dari_2_count);
+        });
+
+        window.addEventListener("load", function() {
+            const options = {
+                colors: ["#1A56DB", "#FDBA8C"],
+                series: [{
+                        name: "Rendah",
+                        color: "#4ade80",
+                        data: dataRendah.map((value, index) => ({
+                            x: `Soal ${index+1}`, // Menggunakan data soal yang sesuai
+                            y: value
+                        }))
+                    },
+                    {
+                        name: "Tinggi",
+                        color: "#f87171",
+                        data: dataTinggi.map((value, index) => ({
+                            x: `Soal ${index+1}`, // Menggunakan data soal yang sesuai
+                            y: value
+                        }))
+                    },
+                ],
+                chart: {
+                    type: "bar",
+                    height: "320px",
+                    fontFamily: "Inter, sans-serif",
+                    toolbar: {
+                        show: false,
                     },
                 },
-                labels: ["Sangat Tinggi", "Tinggi", "Sedang", "Rendah"],
-                dataLabels: {
-                    enabled: true,
+                plotOptions: {
+                    bar: {
+                        horizontal: false,
+                        columnWidth: "70%",
+                        borderRadiusApplication: "end",
+                        borderRadius: 8,
+                    },
+                },
+                tooltip: {
+                    shared: true,
+                    intersect: false,
                     style: {
                         fontFamily: "Inter, sans-serif",
                     },
                 },
-                legend: {
-                    position: "bottom",
-                    fontFamily: "Inter, sans-serif",
-                },
-                yaxis: {
-                    labels: {
-                        formatter: function(value) {
-                            return value + "%"
+                states: {
+                    hover: {
+                        filter: {
+                            type: "darken",
+                            value: 1,
                         },
                     },
-                },
-                xaxis: {
-                    labels: {
-                        formatter: function(value) {
-                            return value + "%"
-                        },
-                    },
-                    axisTicks: {
-                        show: false,
-                    },
-                    axisBorder: {
-                        show: false,
-                    },
-                },
-            }
-        }
-
-        if (document.getElementById("pie-chart") && typeof ApexCharts !== 'undefined') {
-            const chart = new ApexCharts(document.getElementById("pie-chart"), getChartOptions());
-            chart.render();
-        }
-    });
-
-    window.addEventListener("load", function() {
-        const getChartOptions = () => {
-            return {
-                series: [persenPelakuSangatTinggi, persenPelakuTinggi, persenPelakuSedang, persenPelakuRendah],
-                colors: ["#ef4444", "#f97316", "#facc15", "#22c55e"],
-                chart: {
-                    height: 420,
-                    width: "100%",
-                    type: "pie",
                 },
                 stroke: {
-                    colors: ["white"],
-                    lineCap: "",
+                    show: true,
+                    width: 0,
+                    colors: ["transparent"],
                 },
-                plotOptions: {
-                    pie: {
-                        labels: {
-                            show: true,
-                        },
-                        size: "100%",
-                        dataLabels: {
-                            offset: -25
-                        }
+                grid: {
+                    show: false,
+                    strokeDashArray: 4,
+                    padding: {
+                        left: 2,
+                        right: 2,
+                        top: -14
                     },
                 },
-                labels: ["Sangat Tinggi", "Tinggi","Sedang", "Rendah"],
                 dataLabels: {
-                    enabled: true,
-                    style: {
-                        fontFamily: "Inter, sans-serif",
-                    },
+                    enabled: false,
                 },
                 legend: {
-                    position: "bottom",
-                    fontFamily: "Inter, sans-serif",
-                },
-                yaxis: {
-                    labels: {
-                        formatter: function(value) {
-                            return value + "%"
-                        },
-                    },
+                    show: false,
                 },
                 xaxis: {
+                    floating: false,
                     labels: {
-                        formatter: function(value) {
-                            return value + "%"
-                        },
-                    },
-                    axisTicks: {
-                        show: false,
+                        show: true,
+                        style: {
+                            fontFamily: "Inter, sans-serif",
+                            cssClass: 'text-xs font-normal fill-gray-500 dark:fill-gray-400'
+                        }
                     },
                     axisBorder: {
                         show: false,
                     },
+                    axisTicks: {
+                        show: false,
+                    },
+                },
+                yaxis: {
+                    show: false,
+                },
+                fill: {
+                    opacity: 1,
                 },
             }
-        }
 
-        if (document.getElementById("pie-chart1") && typeof ApexCharts !== 'undefined') {
-            const chart = new ApexCharts(document.getElementById("pie-chart1"), getChartOptions());
-            chart.render();
-        }
-    });
-    // ApexCharts options and config
-    }else{
+            if (document.getElementById("column-chart") && typeof ApexCharts !== 'undefined') {
+                const chart = new ApexCharts(document.getElementById("column-chart"), options);
+                chart.render();
+            }
+        });
+        // ApexCharts options and config
+    } else {
         const chart = document.getElementById('pie-chart');
         const chart2 = document.getElementById('pie-chart1');
+        const chart3 = document.getElementById('column-chart');
 
         chart.innerHTML = "Tidak ada data"
         chart2.innerHTML = "Tidak ada data"
+        chart3.innerHTML = "Tidak ada data"
     }
 </script>
 @endsection
