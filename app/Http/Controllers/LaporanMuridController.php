@@ -11,10 +11,12 @@ class LaporanMuridController extends Controller
 {
     public function index()
     {
-        $dataLaporan = SurveyRespon::where("id_murid", auth("murid")->user()->id)->first();
+        $dataLaporan = SurveyRespon::with('jawaban')->where("id_murid", auth("murid")->user()->id)->first();
+        // $pertanyaan = Pertanyaan::all();
         return view("dashboard.murid.laporan", [
             "title" => "Laporan Murid",
-            "dataLaporan" => $dataLaporan
+            "dataLaporan" => $dataLaporan,
+            // "pertanyaan"=>$pertanyaan,
         ]);
     }
 
@@ -31,24 +33,15 @@ class LaporanMuridController extends Controller
             "dataLaporan" => $dataLaporan
         ]);
     }
+
     public function print()
     {
-        $pelakuBully = Pertanyaan::where('tipe', 'pelaku')
-            ->whereHas('jawaban', function ($query) {
-                $query->where('skor', '>', 2);
-            })
-            ->withCount([
-                'jawaban as jawaban_skor_lebih_dari_2_count' => function ($query) {
-                    $query->where('skor', '>', 2);
-                },
-                'jawaban as jawaban_skor_kurang_dari_3_count' => function ($query) {
-                    $query->where('skor', '<', 3);
-                }
-            ])
-            ->get();
 
-
-        return view('dashboard.murid.print', compact('pelakuBully'));
+        $dataLaporan = SurveyRespon::with('jawaban')->where("id_murid", auth("murid")->user()->id)->first();
+        return view("dashboard.murid.print", [
+            "title" => "Laporan Murid",
+            "dataLaporan" => $dataLaporan,
+        ]);
     }
 
     protected function userNotAllowed(Murid $murid): bool

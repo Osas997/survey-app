@@ -423,8 +423,10 @@ tabel nama murid, skor, interpretasi, klasifikasi
             <div class="flex justify-between pb-4 mb-4 border-b border-gray-200 dark:border-gray-700">
                 <div class="flex items-center">
                     <div>
-                        <h5 class="leading-none text-2xl font-bold text-gray-900 dark:text-white pb-1">Persentase Perilaku Perundungan</h5>
-                        <p class="text-sm font-normal text-gray-500 dark:text-gray-400">Persentase Perilaku Perundungan Berdasarkan Soal Yang Dipilih Saat Survey</p>
+                        <h5 class="leading-none text-2xl font-bold text-gray-900 dark:text-white pb-1">Persentase Perilaku
+                            Perundungan</h5>
+                        <p class="text-sm font-normal text-gray-500">Persentase Perilaku Perundungan
+                            Berdasarkan Pertanyaan Yang Dipilih Saat Survey</p>
                     </div>
                 </div>
                 <div>
@@ -434,9 +436,11 @@ tabel nama murid, skor, interpretasi, klasifikasi
 
             <div id="column-chart"></div>
             <div class="grid grid-cols-1 items-center border-gray-200 border-t dark:border-gray-700 justify-between">
-                
+
             </div>
             <div class="mt-8 w-full  overflow-x-auto overflow-y-auto rounded-lg">
+                <p class="text-sm font-normal text-gray-500 dark:text-gray-400">
+                    Berdasarkan Jumlah Jawaban Yang Dipilih Saat Survey</p>
                 <table class="w-full text-sm text-left text-gray-500 ">
                     <thead class="text-xs text-white uppercase  bg-blue-500  ">
                         <tr>
@@ -446,21 +450,38 @@ tabel nama murid, skor, interpretasi, klasifikasi
                             <th scope="col" class="px-6 py-3">
                                 Pertanyaan
                             </th>
+                            <th scope="col" class="px-6 py-3">
+                                <span>Rendah(kurang dari 2)</span>
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                <span>Tinggi(lebih dari 3)</span>
+
+                            </th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="bg-white border-b  hover:bg-gray-50 ">
-                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
-                                <span>Soal 1</span>
-                            </th>
-                            <td class="px-6 py-4">
-                                <span class="sm:text-sm md:text-md text-center">Saya dipanggil dengan nama panggilan yang jelek, diolok-olok, atau diejek sehingga saya merasa sakit hati</span>
-                            </td>
-                        </tr>
+                        @foreach ($tipePelaku as $tipe)
+                            <tr class="bg-white border-b  hover:bg-gray-50 ">
+                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
+                                    <span>{{ $loop->iteration }}</span>
+                                </th>
+                                <td class="px-6 py-4">
+                                    <span class="sm:text-sm md:text-md text-center">{{ $tipe->pertanyaan }}</span>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <span
+                                        class="sm:text-sm md:text-md text-center">{{ $tipe->jawaban_skor_kurang_dari_3_count }} Jawaban</span>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <span
+                                        class="sm:text-sm md:text-md text-center">{{ $tipe->jawaban_skor_lebih_dari_2_count }} Jawaban</span>
+                                </td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
-            
+
         </div>
 
     </div>
@@ -480,10 +501,12 @@ tabel nama murid, skor, interpretasi, klasifikasi
         const pelakuSedang = @json($pelakuSedang);
         const pelakuRendah = @json($pelakuRendah);
 
+        const tipePelaku = @json($tipePelaku);
+
         const totalResponKorban = korbanSangatTinggi + korbanTinggi + korbanSedang + korbanRendah;
         const totalResponPelaku = pelakuSangatTinggi + pelakuTinggi + pelakuSedang + pelakuRendah;
 
-        if (totalResponKorban != 0 || totalResponPelaku != 0) {
+        if (totalResponKorban != 0 || totalResponPelaku != 0 || tipePelaku != 0) {
             const persenKorbanSangatTinggi = (korbanSangatTinggi / totalResponKorban) * 100;
             const persenKorbanTinggi = (korbanTinggi / totalResponKorban) * 100;
             const persenKorbanSedang = (korbanSedang / totalResponKorban) * 100;
@@ -628,132 +651,30 @@ tabel nama murid, skor, interpretasi, klasifikasi
                     chart.render();
                 }
             });
-
-
+            let dataRendah = [];
+            let dataTinggi = [];
+            tipePelaku.forEach(element => {
+                dataRendah.push(element.jawaban_skor_kurang_dari_3_count);
+                dataTinggi.push(element.jawaban_skor_lebih_dari_2_count);
+            }); 
             window.addEventListener("load", function() {
                 const options = {
                     colors: ["#1A56DB", "#FDBA8C"],
                     series: [{
                             name: "Rendah",
                             color: "#4ade80",
-                            data: [{
-                                    x: "Soal 1",
-                                    y: 231
-                                },
-                                {
-                                    x: "Soal 2",
-                                    y: 122
-                                },
-                                {
-                                    x: "Soal 3",
-                                    y: 63
-                                },
-                                {
-                                    x: "Soal 4",
-                                    y: 421
-                                },
-                                {
-                                    x: "Soal 5",
-                                    y: 122
-                                },
-                                {
-                                    x: "Soal 6",
-                                    y: 323
-                                },
-                                {
-                                    x: "Soal 7",
-                                    y: 111
-                                },
-                                {
-                                    x: "Soal 8",
-                                    y: 231
-                                },
-                                {
-                                    x: "Soal 9",
-                                    y: 122
-                                },
-                                {
-                                    x: "Soal 10",
-                                    y: 63
-                                },
-                                {
-                                    x: "Soal 11",
-                                    y: 421
-                                },
-                                {
-                                    x: "Soal 12",
-                                    y: 122
-                                },
-                                {
-                                    x: "Soal 13",
-                                    y: 323
-                                },
-                                {
-                                    x: "Soal 14",
-                                    y: 111
-                                },
-                            ],
+                            data: dataRendah.map((value, index) => ({
+                                x: `Soal ${index+1}`, // Menggunakan data soal yang sesuai
+                                y: value
+                            }))
                         },
                         {
                             name: "Tinggi",
                             color: "#f87171",
-                            data: [{
-                                    x: "Soal 1",
-                                    y: 232
-                                },
-                                {
-                                    x: "Soal 2",
-                                    y: 113
-                                },
-                                {
-                                    x: "Soal 3",
-                                    y: 341
-                                },
-                                {
-                                    x: "Soal 4",
-                                    y: 224
-                                },
-                                {
-                                    x: "Soal 5",
-                                    y: 522
-                                },
-                                {
-                                    x: "Soal 6",
-                                    y: 411
-                                },
-                                {
-                                    x: "Soal 7",
-                                    y: 243
-                                },
-                                {
-                                    x: "Soal 8",
-                                    y: 232
-                                },
-                                {
-                                    x: "Soal 9",
-                                    y: 113
-                                },
-                                {
-                                    x: "Soal 10",
-                                    y: 341
-                                },
-                                {
-                                    x: "Soal 11",
-                                    y: 224
-                                },
-                                {
-                                    x: "Soal 12",
-                                    y: 522
-                                },
-                                {
-                                    x: "Soal 13",
-                                    y: 411
-                                },
-                                {
-                                    x: "Soal 14",
-                                    y: 243
-                                },
-                            ],
+                            data: dataTinggi.map((value, index) => ({
+                                x: `Soal ${index+1}`, // Menggunakan data soal yang sesuai
+                                y: value
+                            }))
                         },
                     ],
                     chart: {
