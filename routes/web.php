@@ -51,6 +51,20 @@ Route::middleware("admin")->prefix('admin')->group(function () {
 
     Route::get("/{sekolah}/guru", [GuruController::class, "adminGuru"])->name('admin.viewGuru');
     Route::get("/{sekolah}/murid", [MuridController::class, "adminMurid"])->name('admin.viewMurid');
+
+
+    Route::get('/laporan',function(){
+        return view('dashboard.admin.laporan',[
+            'title' => 'Laporan',
+        ]);
+    })->name('admin.laporan');
+
+
+    Route::get('/laporan/hasil-survey',function(){
+        return view('dashboard.admin.hasilSurvey',[
+            'title' => 'Hasil Survey',
+        ]);
+    })->name('admin.hasilsurvey');
 });
 
 

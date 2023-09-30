@@ -2,7 +2,8 @@
 @section('content')
     <div class="flex justify-start items-center gap-5">
         <p class="font-bold text-lg my-0">
-            <span class=" md:text-xl uppercase">Murid {{ $namaSekolah }}</span>
+            {{-- <span class=" md:text-xl uppercase">Murid {{ $namaSekolah }}</span> --}}
+            <span class=" md:text-xl uppercase">Murid SDN 2 Banyuwangi</span>
         </p>
     </div>
     <div class="flex justify-start items-center gap-4 mt-10  ">
@@ -26,60 +27,58 @@
 
     </div>
     <div class="mt-8 w-full  overflow-x-auto overflow-y-auto rounded-lg">
-        @if ($daftarMurid->isNotEmpty())
+        {{-- @if ($daftarMurid->isNotEmpty()) --}}
             <table class="w-full text-sm text-left text-gray-500 ">
                 <thead class="text-xs text-white uppercase bg-blue-500 dark:bg-gray-700 ">
                     <tr>
                         <th scope="col" class="px-6 py-3">
                             Nama Murid
                         </th>
-                        <th scope="col" class="px-6 py-3">
-                            NISN
+                        <th scope="col" class="px-6 py-3 whitespace-nowrap">
+                            Skor Pelaku
                         </th>
-                        <th scope="col" class="px-6 py-3">
-                            Alamat
+                        <th scope="col" class="px-6 py-3 whitespace-nowrap">
+                            Skor Korban
                         </th>
-                        <th scope="col" class="px-6 py-3">
-                            Jenis kelamin
+                        <th scope="col" class="px-6 py-3 whitespace-nowrap">
+                            Interpretasi
                         </th>
-                        <th scope="col" class="px-6 py-3 text-center">
-                            Aksi
+                        <th scope="col" class="px-6 py-3 whitespace-nowrap">
+                            Klasifikasi
                         </th>
+                   
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($daftarMurid as $murid)
+                    {{-- @foreach ($daftarMurid as $murid) --}}
                         <tr class="bg-white border-b  hover:bg-gray-50 ">
                             <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
-                                <span class="sm:text-sm md:text-md uppercase">{{ $murid->nama_murid }}</span>
+                                {{-- <span class="sm:text-sm md:text-md uppercase">{{ $murid->nama_murid }}</span> --}}
+                                <span class="sm:text-sm md:text-md uppercase">DIki Brong</span>
                             </th>
                             <td class="px-6 py-4">
-                                <span class="sm:text-sm md:text-md">{{ $murid->nisn }}</span>
+                                {{-- <span class="sm:text-sm md:text-md">{{ $murid->nisn }}</span> --}}
+                                <span class="sm:text-sm md:text-md">54</span>
                             </td>
                             <td class="px-6 py-4">
-                                <span class="sm:text-sm md:text-md">{{ $murid->alamat }}</span>
+                                {{-- <span class="sm:text-sm md:text-md">{{ $murid->nisn }}</span> --}}
+                                <span class="sm:text-sm md:text-md">41</span>
                             </td>
                             <td class="px-6 py-4">
-                                <span class="sm:text-sm md:text-md">
-                                    @if ($murid->jenis_kelamin === 'L')
-                                        Laki Laki
-                                    @else
-                                        Perempuan
-                                    @endif
-                                </span>
+                                {{-- <span class="sm:text-sm md:text-md">{{ $murid->alamat }}</span> --}}
+                                <span class="sm:text-sm md:text-md">Memiliki kecenderungan menjadi korban bullying Sangat Tinggi</span>
                             </td>
-                            <td class="px-6 py-4 text-center">
-                                <a class="sm:text-sm md:text-md text-teal-400"
-                                    href="{{ route('laporan_murid', $murid->id) }}">Lihat
-                                    Survey Respon</a>
+                            <td class="px-6 py-4">
+                                {{-- <span class="sm:text-sm md:text-md">{{ $murid->alamat }}</span> --}}
+                                <span class="sm:text-sm md:text-md">Memiliki kecenderungan menjadi pelaku bullying Sangat Tinggi</span>
                             </td>
                         </tr>
-                    @endforeach
+                    {{-- @endforeach --}}
                 </tbody>
             </table>
-        @else
+        {{-- @else
             <h1 class="text-center text-2xl font-bold text-red-600 mt-20">Daftar Murid Tidak ditemukan</h1>
-        @endif
+        @endif --}}
     </div>
 
 @endsection
