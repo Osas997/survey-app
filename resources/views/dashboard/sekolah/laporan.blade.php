@@ -25,7 +25,12 @@
     </form>
 
 </div>
-<div class="mt-8 w-full  overflow-x-auto overflow-y-auto rounded-lg">
+<div class="">
+    <a href="{{ route('sekolah.printSurvey')}}" target="_blank" class="bg-[#0062CE] btn rounded-lg text-white flex justify-center items-center  w-fit px-8 h-10 hover:bg-blue-600 duration-300 ease-in-out mt-4">
+        <span>Print</span>
+    </a>
+</div>
+<div class="mt-4 w-full  overflow-x-auto overflow-y-auto rounded-lg">
     <div class="text-slate-400 text-sm">Total Siswa {{ $totalSiswa }}</span>
         @if ($dataSiswa->isNotEmpty())
         <div class="overflow-x-auto shadow-md rounded-lg">

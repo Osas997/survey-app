@@ -16,4 +16,13 @@ class SekolahLaporanController extends Controller
         return view('dashboard.sekolah.laporan', compact('title','dataSiswa','namaSekolah','totalSiswa'));
         // return response()->json($dataSiswa);
     }
+
+    public function print()
+    {
+        $namaSekolah = auth('sekolah')->user()->nama_sekolah;
+        $title = "Laporan | " .  $namaSekolah;
+        $dataSiswa = Murid::with('surveyRespon')->where('id_sekolah', auth('sekolah')->user()->id)->get();
+        $totalSiswa = Murid::with('surveyRespon')->where('id_sekolah', auth('sekolah')->user()->id)->count();
+        return view('dashboard.sekolah.print', compact('title','dataSiswa','namaSekolah','totalSiswa'));
+    }
 }
