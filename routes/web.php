@@ -58,6 +58,7 @@ Route::middleware("admin")->prefix('admin')->group(function () {
 
     Route::get('/laporan',[AdminLaporanController::class,"index"])->name('admin.laporan');
     Route::get('/laporan/{sekolah}',[AdminLaporanController::class,"show"])->name('admin.hasilsurvey');
+    Route::get('/laporan/{sekolah}/print', [AdminLaporanController::class, "print"])->name('admin.print');
 });
 
 
@@ -68,6 +69,7 @@ Route::middleware("sekolah")->prefix('sekolah')->group(function () {
     
     Route::resource("/murid", MuridController::class)->name("index", "sekolah.murid")->name("create", "sekolah.viewTambahMurid")->name('store', 'sekolah.tambahMurid');
     Route::get("/laporan", [SekolahLaporanController::class, "index"])->name('sekolah.hasilSurvey');
+    Route::get("/laporan/print", [SekolahLaporanController::class, "print"])->name('sekolah.printSurvey');
     // Route::post("/guru", [GuruController::class, "import"]);
 });
 
@@ -76,6 +78,7 @@ Route::middleware("guru")->prefix('guru')->group(function () {
     Route::get("/dashboard", [DashboardController::class, "indexGuru"])->name('guru.dashboard');
     Route::get("/murid", [MuridController::class, "viewGuruMurid"])->name('guru.viewMurid');
     Route::get("/laporan", [GuruLaporanController::class, "index"])->name('guru.hasilSurvey');
+    Route::get("/laporan/print", [GuruLaporanController::class, "print"])->name('guru.printSurvey');
 });
 
 Route::middleware("murid")->prefix('murid')->group(function () {

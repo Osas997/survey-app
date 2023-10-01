@@ -10,7 +10,9 @@
             id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown"
             data-dropdown-placement="bottom">
             <span class="sr-only">Open user menu</span>
-            <img class="w-8 h-8 rounded-full" src="" alt="user photo">
+            <div class="w-12 h-12 bg-gray-300 rounded-full flex items-center justify-center text-xl text-white">
+               {{ substr(auth('murid')->user()->nama_murid, 0, 1) }}
+         </div>
          </button>
          <!-- Dropdown menu -->
          <div

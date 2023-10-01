@@ -27,10 +27,10 @@ class LaporanMuridController extends Controller
         }
 
         $dataLaporan = SurveyRespon::where("id_murid", $murid->id)->first();
-        dd($dataLaporan);
         return view("dashboard.laporan_murid", [
             "title" => "Laporan Survey Murid",
-            "dataLaporan" => $dataLaporan
+            "dataLaporan" => $dataLaporan,
+            "namaMurid" => $murid->nama_murid
         ]);
     }
 

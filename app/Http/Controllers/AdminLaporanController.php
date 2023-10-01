@@ -18,9 +18,18 @@ class AdminLaporanController extends Controller
     public function show(Sekolah $sekolah)
     {
         $namaSekolah = $sekolah->nama_sekolah;
+        $idSekolah = $sekolah->id;
         $title = "Laporan | ".$namaSekolah;
         $dataSiswa = Murid::with('surveyRespon')->where('id_sekolah', $sekolah->id)->get();
         $totalSiswa = Murid::with('surveyRespon')->where('id_sekolah', $sekolah->id)->count();
-        return view('dashboard.admin.hasilSurvey', compact('title','dataSiswa','namaSekolah','totalSiswa'));
+        return view('dashboard.admin.hasilSurvey', compact('title','idSekolah','dataSiswa','namaSekolah','totalSiswa'));
+    }
+    public function print(Sekolah $sekolah)
+    {
+        $namaSekolah = $sekolah->nama_sekolah;
+        $title = "Laporan | ".$namaSekolah;
+        $dataSiswa = Murid::with('surveyRespon')->where('id_sekolah', $sekolah->id)->get();
+        $totalSiswa = Murid::with('surveyRespon')->where('id_sekolah', $sekolah->id)->count();
+        return view('dashboard.admin.print', compact('title','dataSiswa','namaSekolah','totalSiswa'));
     }
 }

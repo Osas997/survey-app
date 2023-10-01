@@ -28,7 +28,14 @@
                      <span class="sr-only">Open user menu</span>
                      <div
                         class="w-12 h-12 bg-gray-300 rounded-full flex items-center justify-center text-xl text-white">
-                        R
+                        @if (auth('admin')->check())
+                        {{ substr(auth('admin')->user()->username, 0, 1) }}
+                        @elseif (auth('sekolah')->check())
+                        {{ substr(auth('sekolah')->user()->nama_sekolah, 0, 1) }}
+                        @elseif (auth('guru')->check())
+                        {{ substr(auth('guru')->user()->nama, 0, 1) }}
+                        @endif
+
                      </div>
                   </button>
                </div>
