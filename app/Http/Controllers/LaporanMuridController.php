@@ -11,7 +11,7 @@ class LaporanMuridController extends Controller
 {
     public function index()
     {
-        $dataLaporan = SurveyRespon::with('jawaban')->where("id_murid", auth("murid")->user()->id)->first();
+        $dataLaporan = SurveyRespon::with(['jawaban','jawaban.pertanyaan'])->where("id_murid", auth("murid")->user()->id)->first();
         // $pertanyaan = Pertanyaan::all();
         return view("dashboard.murid.laporan", [
             "title" => "Laporan Murid",
@@ -26,7 +26,7 @@ class LaporanMuridController extends Controller
             return abort(404);
         }
 
-        $dataLaporan = SurveyRespon::where("id_murid", $murid->id)->first();
+        $dataLaporan = SurveyRespon::with(['jawaban','jawaban.pertanyaan'])->where("id_murid", $murid->id)->first();
         return view("dashboard.laporan_murid", [
             "title" => "Laporan Survey Murid",
             "dataLaporan" => $dataLaporan,
@@ -37,7 +37,7 @@ class LaporanMuridController extends Controller
     public function print()
     {
 
-        $dataLaporan = SurveyRespon::with('jawaban')->where("id_murid", auth("murid")->user()->id)->first();
+        $dataLaporan = SurveyRespon::with(['jawaban','jawaban.pertanyaan'])->where("id_murid", auth("murid")->user()->id)->first();
         return view("dashboard.murid.print", [
             "title" => "Laporan Murid",
             "dataLaporan" => $dataLaporan,
