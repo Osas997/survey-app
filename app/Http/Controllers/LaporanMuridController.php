@@ -2,18 +2,24 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Jawaban;
 use App\Models\Murid;
 use App\Models\SurveyRespon;
+use Illuminate\Http\Request;
 
 class LaporanMuridController extends Controller
 {
     public function index()
     {
-        $dataLaporan = SurveyRespon::with(['jawaban', 'jawaban.pertanyaan'])->where("id_murid", auth("murid")->user()->id)->first();
+        $dataLaporan = SurveyRespon::with(['jawaban', 'jawaban.pertanyaan'])->where("id_murid", auth("murid")->user()->id)->where("id", 1)->first();
+
+        if (!$dataLaporan) {
+            return abort(404);
+        }
+
         return view("dashboard.murid.laporan", [
             "title" => "Laporan Murid",
             "dataLaporan" => $dataLaporan,
+            // "pertanyaan"=>$pertanyaan,
         ]);
     }
 
@@ -27,8 +33,7 @@ class LaporanMuridController extends Controller
         return view("dashboard.laporan_murid", [
             "title" => "Laporan Survey Murid",
             "dataLaporan" => $dataLaporan,
-            "namaMurid" => $murid->nama_murid,
-            "no" => 1
+            "namaMurid" => $murid->nama_murid
         ]);
     }
 
