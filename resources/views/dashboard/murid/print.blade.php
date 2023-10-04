@@ -12,6 +12,7 @@
             top: 10;
             left: 50%;
         }
+
         table {
             width: 100%;
             border-collapse: collapse;
@@ -40,7 +41,6 @@
 </head>
 
 <body>
-
     @if ($dataLaporan)
     <div class="container mx-auto px-4 py-8">
         <button onclick="printPage()" id="print" style="visibility: visible">Print</button>
@@ -56,79 +56,71 @@
                 </p>
                 <p>Klasifikasi Pelaku Bullying :
                     @if ($dataLaporan->skor_total_pelaku >= 46)
-                        <span>
-                            Sangat Tinggi
+                    <span>
+                        Sangat Tinggi
+                    </span>
+                    @elseif ($dataLaporan->skor_total_pelaku >= 35 && $dataLaporan->skor_total_pelaku < 46) <span>
+                        Tinggi
                         </span>
-                    @elseif ($dataLaporan->skor_total_pelaku >= 35 && $dataLaporan->skor_total_pelaku < 46)
-                        <span>
-                            Tinggi
-                        </span>
-                    @elseif ($dataLaporan->skor_total_pelaku >= 24 && $dataLaporan->skor_total_pelaku < 35)
-                        <span>
+                        @elseif ($dataLaporan->skor_total_pelaku >= 24 && $dataLaporan->skor_total_pelaku < 35) <span>
                             Sedang
-                        </span>
-                    @else
-                        <span>
-                            Rendah
-                        </span>
-                    @endif
+                            </span>
+                            @else
+                            <span>
+                                Rendah
+                            </span>
+                            @endif
                 </p>
                 <p>Klasifikasi Korban Bullying :
                     @if ($dataLaporan->skor_total_korban >= 46)
-                        <span>
-                            Sangat Tinggi
+                    <span>
+                        Sangat Tinggi
+                    </span>
+                    @elseif ($dataLaporan->skor_total_korban >= 35 && $dataLaporan->skor_total_korban < 46) <span>
+                        Tinggi
                         </span>
-                    @elseif ($dataLaporan->skor_total_korban >= 35 && $dataLaporan->skor_total_korban < 46)
-                        <span>
-                            Tinggi
-                        </span>
-                    @elseif ($dataLaporan->skor_total_korban >= 24 && $dataLaporan->skor_total_korban < 35)
-                        <span>
+                        @elseif ($dataLaporan->skor_total_korban >= 24 && $dataLaporan->skor_total_korban < 35) <span>
                             Sedang
-                        </span>
-                    @else
-                        <span>
-                            Rendah
-                        </span>
-                    @endif
+                            </span>
+                            @else
+                            <span>
+                                Rendah
+                            </span>
+                            @endif
                 </p>
                 <p>Interpretasi Memiliki kecenderungan menjadi Pelaku bullying :
                     @if ($dataLaporan->skor_total_pelaku >= 46)
-                        <span>
-                            Sangat Tinggi
+                    <span>
+                        Sangat Tinggi
+                    </span>
+                    @elseif ($dataLaporan->skor_total_pelaku >= 35 && $dataLaporan->skor_total_pelaku < 46) <span>
+                        Tinggi
                         </span>
-                    @elseif ($dataLaporan->skor_total_pelaku >= 35 && $dataLaporan->skor_total_pelaku < 46)
-                        <span>
-                            Tinggi
-                        </span>
-                    @elseif ($dataLaporan->skor_total_pelaku >= 24 && $dataLaporan->skor_total_pelaku < 35)
-                        <span>
+                        @elseif ($dataLaporan->skor_total_pelaku >= 24 && $dataLaporan->skor_total_pelaku < 35) <span>
                             Sedang
-                        </span>
-                    @else
-                        <span>
-                            Rendah
-                        </span>
-                    @endif
+                            </span>
+                            @else
+                            <span>
+                                Rendah
+                            </span>
+                            @endif
                 </p>
                 <p>Interpretasi Memiliki kecenderungan menjadi Korban bullying :
                     @if ($dataLaporan->skor_total_korban >= 46)
-                        <span>
-                            Sangat Tinggi
+                    <span>
+                        Sangat Tinggi
+                    </span>
+                    @elseif ($dataLaporan->skor_total_korban >= 35 && $dataLaporan->skor_total_korban < 46) <span>
+                        Tinggi
                         </span>
-                    @elseif ($dataLaporan->skor_total_korban >= 35 && $dataLaporan->skor_total_korban < 46)
-                        <span>
-                            Tinggi
-                        </span>
-                    @elseif ($dataLaporan->skor_total_korban >= 24 && $dataLaporan->skor_total_korban < 35)
-                        <span>
+                        @elseif ($dataLaporan->skor_total_korban >= 24 && $dataLaporan->skor_total_korban < 35) <span>
                             Sedang
-                        </span>
-                    @else
-                        <span>
-                            Rendah
-                        </span>
-                    @endif
+                            </span>
+                            @else
+                            <span>
+                                Rendah
+                            </span>
+                            @endif
                 </p>
             </div>
         </div>
@@ -148,27 +140,27 @@
             </thead>
             <tbody>
                 @foreach ($dataLaporan->jawaban as $jawaban)
-                    <tr>
-                        <th>
-                            <span>{{ $loop->iteration }}</span>
-                        </th>
-                        <td>
-                            <span>{{ $jawaban->pertanyaan->pertanyaan }}</span>
-                        </td>
-                        <td>
-                            <span style="white-space: nowrap">
-                                @if ($jawaban->skor == 4)
-                                    Selalu
-                                @elseif($jawaban->skor == 3)
-                                    Sering
-                                @elseif ($jawaban->skor == 2)
-                                    Jarang
-                                @elseif ($jawaban->skor == 1)
-                                    Tidak Pernah
-                                @endif
-                            </span>
-                        </td>
-                    </tr>
+                <tr>
+                    <th>
+                        <span>{{ $loop->iteration }}</span>
+                    </th>
+                    <td>
+                        <span>{{ $jawaban->pertanyaan->pertanyaan }}</span>
+                    </td>
+                    <td>
+                        <span style="white-space: nowrap">
+                            @if ($jawaban->skor == 4)
+                            Selalu
+                            @elseif($jawaban->skor == 3)
+                            Sering
+                            @elseif ($jawaban->skor == 2)
+                            Jarang
+                            @elseif ($jawaban->skor == 1)
+                            Tidak Pernah
+                            @endif
+                        </span>
+                    </td>
+                </tr>
                 @endforeach
             </tbody>
         </table>
@@ -196,7 +188,7 @@
     @else
     belum mengisi survey
     @endif
-   
+
 </body>
 
 </html>

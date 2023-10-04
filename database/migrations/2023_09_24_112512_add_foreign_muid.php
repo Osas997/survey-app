@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('survey_respon', function (Blueprint $table) {
-            $table->unsignedBigInteger('id_murid')->after('id_survey');
-            $table->unsignedBigInteger('id_sekolah')->after('id_murid');
+            $table->unsignedBigInteger('id_sekolah')->after('id');
+            $table->unsignedBigInteger('id_murid')->after('id_sekolah');
             $table->foreign('id_murid')->references('id')->on('murid');
             $table->foreign('id_sekolah')->references('id')->on('sekolah');
         });

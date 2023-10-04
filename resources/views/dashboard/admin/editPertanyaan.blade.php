@@ -3,7 +3,7 @@
 
 <div class="flex justify-start items-center gap-5">
     <div class="w-10 h-10">
-        <a href="{{ route('admin.pertanyaan' , ['survey' => $pertanyaan->survey->id]) }}">
+        <a href="{{ route('admin.pertanyaan') }}">
             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                 <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -22,13 +22,20 @@
 <form action="{{ route('admin.editPertanyaan', ['pertanyaan'=> $pertanyaan->id]) }}" method="post">
     @method('put')
     @csrf
-    <input type="hidden" name="id_survey" value="{{ $pertanyaan->survey->id }}">
     <div class=" lg:grid lg:grid-cols-1 lg:place-items-center mt-10">
         <div class="mb-6 lg:w-5/12">
             <label for="nama_pertanyaan" class="block mb-2 text-sm font-medium text-gray-900">Pertanyaan</label>
             <input type="text" id="nama_pertanyaan" name="pertanyaan" placeholder="Input Pertanyaan .. "
                 value="{{ $pertanyaan->pertanyaan }}"
                 class="bg-slate-50 border-2 border-blue-500 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+        </div>
+        <div class="mb-6 lg:w-5/12">
+            <label for="status" class="block mb-2 text-sm font-medium text-gray-900 ">Tipe Pertanyaan</label>
+            <select id="status" name="tipe" required
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
+                <option @if ($pertanyaan->tipe == 'korban') selected @endif value="korban">Korban Bullying</option>
+                <option @if ($pertanyaan->tipe == 'pelaku') selected @endif value="pelaku">Pelaku Bullying</option>
+            </select>
         </div>
     </div>
     <div class="md:flex md:justify-center md:items-center  md:flex-row md:gap-4 min-w-full md:w-1/2 ">

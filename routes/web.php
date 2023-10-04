@@ -56,17 +56,17 @@ Route::middleware("admin")->prefix('admin')->group(function () {
     Route::get("/{sekolah}/murid", [MuridController::class, "adminMurid"])->name('admin.viewMurid');
 
 
-    Route::get('/laporan',[AdminLaporanController::class,"index"])->name('admin.laporan');
-    Route::get('/laporan/{sekolah}',[AdminLaporanController::class,"show"])->name('admin.hasilsurvey');
+    Route::get('/laporan', [AdminLaporanController::class, "index"])->name('admin.laporan');
+    Route::get('/laporan/{sekolah}', [AdminLaporanController::class, "show"])->name('admin.hasilsurvey');
     Route::get('/laporan/{sekolah}/print', [AdminLaporanController::class, "print"])->name('admin.print');
 });
 
 
 Route::middleware("sekolah")->prefix('sekolah')->group(function () {
     Route::get("/dashboard", [DashboardController::class, "indexSekolah"])->name('sekolah.dashboard');
-    
+
     Route::resource("/guru", GuruController::class)->name("index", "sekolah.guru")->name("create", "sekolah.viewTambahGuru")->name('store', 'sekolah.tambahGuru');
-    
+
     Route::resource("/murid", MuridController::class)->name("index", "sekolah.murid")->name("create", "sekolah.viewTambahMurid")->name('store', 'sekolah.tambahMurid');
     Route::get("/laporan", [SekolahLaporanController::class, "index"])->name('sekolah.hasilSurvey');
     Route::get("/laporan/print", [SekolahLaporanController::class, "print"])->name('sekolah.printSurvey');
@@ -82,16 +82,13 @@ Route::middleware("guru")->prefix('guru')->group(function () {
 });
 
 Route::middleware("murid")->prefix('murid')->group(function () {
-    Route::get("/survey", function () {
-        return "Hello siswa";
-    });
     Route::get('/dashboard', [DashboardController::class, "indexMurid"])->name('murid.dashboard');
 
     Route::get('/survey/{survey}', [MuridSurveyController::class, "survey"])->name('murid.viewSurvey');
     Route::post('/survey/{survey}', [MuridSurveyController::class, "store"])->name('murid.tambahSurvey');
 
     Route::get("/laporan", [LaporanMuridController::class, "index"])->name('murid.laporan');
-    Route::get("/laporan/print",[LaporanMuridController::class, "print"])->name('murid.print');
+    Route::get("/laporan/print", [LaporanMuridController::class, "print"])->name('murid.print');
 });
 
 Route::get("/murid/{murid}/laporan", [LaporanMuridController::class, "show"])->name("laporan_murid")->middleware("except_murid");

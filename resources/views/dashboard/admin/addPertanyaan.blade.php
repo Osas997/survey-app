@@ -3,7 +3,7 @@
 
 <div class="flex justify-start items-center gap-5">
     <div class="w-10 h-10">
-        <a href="{{ route('admin.pertanyaan' , ['survey' => $surveyId]) }}">
+        <a href="{{ route('admin.pertanyaan') }}">
             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                 <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -21,7 +21,6 @@
 </div>
 <form action="{{ route('admin.tambahPertanyaan') }}" method="post">
     @csrf
-    <input type="hidden" name="id_survey" value="{{ $surveyId }}">
     <div class="lg:grid lg:grid-cols-1 lg:place-items-center mt-10">
         <div class="mb-6 lg:w-5/12">
             <label for="nama_pertanyaan" class="block mb-2 text-sm font-medium text-gray-900">Pertanyaan</label>

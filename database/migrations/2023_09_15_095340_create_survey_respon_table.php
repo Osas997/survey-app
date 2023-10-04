@@ -13,8 +13,6 @@ return new class extends Migration
     {
         Schema::create('survey_respon', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_survey');
-            $table->foreign('id_survey')->references('id')->on('survey')->onDelete('cascade');
             $table->string('skor_total_korban', 100);
             $table->string('skor_total_pelaku', 100);
             $table->timestamps();
