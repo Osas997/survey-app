@@ -23,8 +23,8 @@
             </a>
          </li>
          <li>
-            <a href="{{ route('admin.survey') }}" class="
-            @if (Request::is('admin/survey*') || Request::is('admin/pertanyaan*')) bg-gray-200 @endif
+            <a href="{{ route('admin.pertanyaan') }}" class="
+            @if (Request::is('admin/pertanyaan*')) bg-gray-200 @endif
             flex items-center p-2 text-gray-900 rounded-lg duration-300 ease-in-out hover:bg-gray-100  group">
                <div class="w-8 h-8">
                   <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -37,7 +37,7 @@
                      </g>
                   </svg>
                </div>
-               <span class="flex-1 ml-3 whitespace-nowrap">Survey</span>
+               <span class="flex-1 ml-3 whitespace-nowrap">Pertanyaan</span>
             </a>
          </li>
          <li>

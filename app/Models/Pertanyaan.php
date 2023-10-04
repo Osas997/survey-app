@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Pertanyaan extends Model
 {
@@ -11,13 +12,15 @@ class Pertanyaan extends Model
     protected $table = "pertanyaan";
     protected $guarded = ["id"];
 
-    public function survey()
-    {
-        return $this->belongsTo(Survey::class, 'id_survey', 'id');
-    }
-
     public function jawaban()
     {
         return $this->hasMany(Jawaban::class, 'id_pertanyaan', 'id');
+    }
+
+    public function scopeSearch($query, $search)
+    {
+        if ($search) {
+            $query->where('pertanyaan', 'like', '%' . $search . '%')->orWhere('tipe', 'like', '%' . $search . '%');
+        }
     }
 }

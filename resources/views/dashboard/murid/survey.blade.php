@@ -21,10 +21,10 @@
                     </a>
                 </div>
                 <p class="font-bold text-base my-0">
-                    <span class=" md:text-lg uppercase">{{ $namaSurvey }}</span>
+                    <span class=" md:text-lg uppercase">Isi Survey</span>
                 </p>
             </div>
-            <form action="{{ route('murid.tambahSurvey',['survey' => $idSurvey]) }}" method="POST">
+            <form action="{{ route('murid.tambahSurvey') }}" method="POST">
                 @csrf
                 @foreach ($dataPertanyaan as $data)
                 <span class="text-md font-bold my-4 block">

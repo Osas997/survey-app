@@ -15,10 +15,6 @@ class SurveyRespon extends Model
     {
         return $this->belongsTo(Murid::class, "id_murid", "id");
     }
-    public function survey()
-    {
-        return $this->belongsTo(Survey::class, "id_survey", "id");
-    }
 
     public function sekolah()
     {

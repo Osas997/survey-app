@@ -7,8 +7,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Print Page</title>
     <style>
-        
-
         table {
             width: 100%;
             border-collapse: collapse;
@@ -37,7 +35,6 @@
 </head>
 
 <body>
-    @if ($dataSiswa)
     <div class="container">
         <p>Hasil Survey Murid {{$namaSekolah}}</p>
         @if ($dataSiswa->isNotEmpty())
@@ -58,63 +55,47 @@
                     <td>
                         {{$murid->nama_murid}}
                     </td>
-                    @endif 
+                    @endif
 
-                    
+
                     @if ($murid->surveyRespon)
                     <td>
                         <span>{{$murid->surveyRespon->skor_total_pelaku}}
                             @if ($murid->surveyRespon->skor_total_pelaku >= 46)
                             (Sangat Tinggi)
-                            @elseif ($murid->surveyRespon->skor_total_pelaku >= 35 && $murid->surveyRespon->skor_total_pelaku < 46)
-                            (Tinggi)
-                            @elseif ($murid->surveyRespon->skor_total_pelaku >= 24 && $murid->surveyRespon->skor_total_pelaku < 35)
-                            (Sedang)
-                            @else
-                            (Rendah)
-                            @endif
-                        </span>
+                            @elseif ($murid->surveyRespon->skor_total_pelaku >= 35 &&
+                            $murid->surveyRespon->skor_total_pelaku < 46) (Tinggi) @elseif ($murid->
+                                surveyRespon->skor_total_pelaku >= 24 && $murid->surveyRespon->skor_total_pelaku < 35)
+                                    (Sedang) @else (Rendah) @endif </span>
                     </td>
                     <td>
                         <span>
                             Memiliki kecenderungan menjadi pelaku bullying
                             @if ($murid->surveyRespon->skor_total_pelaku >= 46)
                             Sangat Tinggi
-                            @elseif ($murid->surveyRespon->skor_total_pelaku >= 35 && $murid->surveyRespon->skor_total_pelaku < 46)
-                            Tinggi
-                            @elseif ($murid->surveyRespon->skor_total_pelaku >= 24 && $murid->surveyRespon->skor_total_pelaku < 35)
-                            Sedang
-                            @else
-                            Rendah
-                            @endif
-                        </span>
+                            @elseif ($murid->surveyRespon->skor_total_pelaku >= 35 &&
+                            $murid->surveyRespon->skor_total_pelaku < 46) Tinggi @elseif ($murid->
+                                surveyRespon->skor_total_pelaku >= 24 && $murid->surveyRespon->skor_total_pelaku < 35)
+                                    Sedang @else Rendah @endif </span>
                     </td>
                     <td>
                         <span>{{$murid->surveyRespon->skor_total_korban}}
                             @if ($murid->surveyRespon->skor_total_korban >= 46)
                             (Sangat Tinggi)
-                            @elseif ($murid->surveyRespon->skor_total_korban >= 35 && $murid->surveyRespon->skor_total_korban < 46)
-                            (Tinggi)
-                            @elseif ($murid->surveyRespon->skor_total_korban >= 24 && $murid->surveyRespon->skor_total_korban < 35)
-                            (Sedang)
-                            @else
-                            (Rendah)
-                            @endif
-                        </span>
+                            @elseif ($murid->surveyRespon->skor_total_korban >= 35 &&
+                            $murid->surveyRespon->skor_total_korban < 46) (Tinggi) @elseif ($murid->
+                                surveyRespon->skor_total_korban >= 24 && $murid->surveyRespon->skor_total_korban < 35)
+                                    (Sedang) @else (Rendah) @endif </span>
                     </td>
                     <td>
                         <span>
                             Memiliki kecenderungan menjadi korban bullying
                             @if ($murid->surveyRespon->skor_total_korban >= 46)
                             Sangat Tinggi
-                            @elseif ($murid->surveyRespon->skor_total_korban >= 35 && $murid->surveyRespon->skor_total_korban < 46)
-                            Tinggi
-                            @elseif ($murid->surveyRespon->skor_total_korban >= 24 && $murid->surveyRespon->skor_total_korban < 35)
-                            Sedang
-                            @else
-                            Rendah
-                            @endif
-                        </span>
+                            @elseif ($murid->surveyRespon->skor_total_korban >= 35 &&
+                            $murid->surveyRespon->skor_total_korban < 46) Tinggi @elseif ($murid->
+                                surveyRespon->skor_total_korban >= 24 && $murid->surveyRespon->skor_total_korban < 35)
+                                    Sedang @else Rendah @endif </span>
                     </td>
                     @endif
                 </tr>
@@ -122,12 +103,9 @@
             </tbody>
         </table>
         @else
-        belum mengisi survey
+        Siswa Belum Mengisi Survey
         @endif
     </div>
-    @else
-    Data Siswa Tidak Tersedia
-    @endif
 
     <script>
         const container = document.querySelector('.container');

@@ -6,7 +6,7 @@
         {{-- nav --}}
         <nav class="bg-[#0090D4] border-gray-200 ">
             <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-                <a href="https://flowbite.com/" class="flex items-center">
+                <a href="" class="flex items-center">
                     <img src="{{ asset('assets/img/white-logo.png') }}" class="h-7 mr-3" alt="Survey Logo" />
                     <span class="self-center text-2xl font-semibold whitespace-nowrap text-white">Survey App</span>
                 </a>
@@ -139,24 +139,24 @@
                     </div>
                     <div class="flex justify-center items-center">
                         <div
-                        class="max-w-sm p-6 bg-[#C7FFDE] w-full h-52 rounded-lg shadow flex justify-center items-center flex-col hover:bg-[#0090D4] duration-300 ease-in-out relative group">
-                        <h1
-                            class="mb-3 font-semibold text-md text-black group-hover:text-white duration-300 ease-in-out">
-                            Survey Perundungan</h1>
-                        <p
-                            class="mb-2 font-normal text-sm text-gray-500 group-hover:text-gray-100 duration-300 ease-in-out">
-                            Survey Feedback</p>
-                        <p
-                            class="mb-2 font-normal text-base text-black group-hover:text-white duration-300 ease-in-out">
-                            130 Respon</p>
-                        <a href="#"
-                            class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg opacity-0 group-hover:bg-green-400 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
-                            Gabung Sekarang
-                        </a>
+                            class="max-w-sm p-6 bg-[#C7FFDE] w-full h-52 rounded-lg shadow flex justify-center items-center flex-col hover:bg-[#0090D4] duration-300 ease-in-out relative group">
+                            <h1
+                                class="mb-3 font-semibold text-md text-black group-hover:text-white duration-300 ease-in-out">
+                                Survey Perundungan</h1>
+                            <p
+                                class="mb-2 font-normal text-sm text-gray-500 group-hover:text-gray-100 duration-300 ease-in-out">
+                                Survey Feedback</p>
+                            <p
+                                class="mb-2 font-normal text-base text-black group-hover:text-white duration-300 ease-in-out">
+                                130 Respon</p>
+                            <a href="#"
+                                class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg opacity-0 group-hover:bg-green-400 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
+                                Gabung Sekarang
+                            </a>
+                        </div>
+
                     </div>
-                    
-                    </div>
-                    
+
                 </div>
 
             </div>
