@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('nama_survey', 100);
             $table->text('deskripsi');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

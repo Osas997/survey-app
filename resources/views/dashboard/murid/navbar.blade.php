@@ -1,8 +1,8 @@
 <nav class="bg-white border-gray-200 dark:bg-gray-900">
    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-      <a href="https://flowbite.com/" class="flex items-center">
-         <img src="https://flowbite.com/docs/images/logo.svg" class="h-8 mr-3" alt="Flowbite Logo" />
-         <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Flowbite</span>
+      <a href="" class="flex items-center">
+         <img src="{{ asset('assets/img/blue-logo.png') }}" class="h-8 mr-3" alt="Flowbite Logo" />
+         <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Survey App</span>
       </a>
       <div class="flex items-center md:order-2">
          <button type="button"
@@ -12,7 +12,7 @@
             <span class="sr-only">Open user menu</span>
             <div class="w-12 h-12 bg-gray-300 rounded-full flex items-center justify-center text-xl text-white">
                {{ substr(auth('murid')->user()->nama_murid, 0, 1) }}
-         </div>
+            </div>
          </button>
          <!-- Dropdown menu -->
          <div

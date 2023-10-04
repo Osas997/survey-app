@@ -62,14 +62,15 @@
                         <span class="sm:text-sm md:text-md">Laki Laki</span>
                     </td>
                     <td class="px-6 py-4 text-center">
-                        <a class="sm:text-sm md:text-md text-teal-400" href="{{ $murid->id }}">Lihat Survey Respon</a>
+                        <a class="sm:text-sm md:text-md text-teal-400"
+                            href="{{ route('laporan_murid',$murid->id) }}">Lihat Survey Respon</a>
                     </td>
                 </tr>
                 @endforeach
             </tbody>
         </table>
     </div>
-    
+
     @else
     <h1 class="text-center text-2xl font-bold text-red-600 mt-20">Sekolah TIdak ditemukan</h1>
     @endif

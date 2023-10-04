@@ -12,8 +12,8 @@ class GuruLaporanController extends Controller
         $namaSekolah = auth('guru')->user()->sekolah->nama_sekolah;
         $title = "Laporan | " .  $namaSekolah;
         $dataSiswa = Murid::with('surveyRespon')->where('id_sekolah', auth('guru')->user()->id_sekolah)->search(request("search"))->get();
-        $totalSiswa = Murid::with('surveyRespon')->where('id_sekolah', auth('guru')->user()->id_sekolah)->count();
-        return view('dashboard.guru.laporan', compact('title','dataSiswa','namaSekolah','totalSiswa'));
+        $totalSiswa = Murid::where('id_sekolah', auth('guru')->user()->id_sekolah)->count();
+        return view('dashboard.guru.laporan', compact('title', 'dataSiswa', 'namaSekolah', 'totalSiswa'));
         // return response()->json($dataSiswa);
     }
 
@@ -22,7 +22,7 @@ class GuruLaporanController extends Controller
         $namaSekolah = auth('guru')->user()->sekolah->nama_sekolah;
         $title = "Laporan | " .  $namaSekolah;
         $dataSiswa = Murid::with('surveyRespon')->where('id_sekolah', auth('guru')->user()->id_sekolah)->get();
-        $totalSiswa = Murid::with('surveyRespon')->where('id_sekolah', auth('guru')->user()->id_sekolah)->count();
-        return view('dashboard.sekolah.print', compact('title','dataSiswa','namaSekolah','totalSiswa'));
+        $totalSiswa = Murid::where('id_sekolah', auth('guru')->user()->id_sekolah)->count();
+        return view('dashboard.sekolah.print', compact('title', 'dataSiswa', 'namaSekolah', 'totalSiswa'));
     }
 }

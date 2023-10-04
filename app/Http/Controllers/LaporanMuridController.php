@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Murid;
-use App\Models\Pertanyaan;
 use App\Models\SurveyRespon;
 use Illuminate\Http\Request;
 
@@ -11,8 +10,12 @@ class LaporanMuridController extends Controller
 {
     public function index()
     {
-        $dataLaporan = SurveyRespon::with(['jawaban','jawaban.pertanyaan'])->where("id_murid", auth("murid")->user()->id)->first();
-        // $pertanyaan = Pertanyaan::all();
+        $dataLaporan = SurveyRespon::with(['jawaban', 'jawaban.pertanyaan'])->where("id_murid", auth("murid")->user()->id)->where("id", 1)->first();
+
+        if (!$dataLaporan) {
+            return abort(404);
+        }
+
         return view("dashboard.murid.laporan", [
             "title" => "Laporan Murid",
             "dataLaporan" => $dataLaporan,
@@ -26,7 +29,7 @@ class LaporanMuridController extends Controller
             return abort(404);
         }
 
-        $dataLaporan = SurveyRespon::with(['jawaban','jawaban.pertanyaan'])->where("id_murid", $murid->id)->first();
+        $dataLaporan = SurveyRespon::with(['jawaban', 'jawaban.pertanyaan'])->where("id_murid", $murid->id)->first();
         return view("dashboard.laporan_murid", [
             "title" => "Laporan Survey Murid",
             "dataLaporan" => $dataLaporan,
@@ -37,7 +40,7 @@ class LaporanMuridController extends Controller
     public function print()
     {
 
-        $dataLaporan = SurveyRespon::with(['jawaban','jawaban.pertanyaan'])->where("id_murid", auth("murid")->user()->id)->first();
+        $dataLaporan = SurveyRespon::with(['jawaban', 'jawaban.pertanyaan'])->where("id_murid", auth("murid")->user()->id)->first();
         return view("dashboard.murid.print", [
             "title" => "Laporan Murid",
             "dataLaporan" => $dataLaporan,
