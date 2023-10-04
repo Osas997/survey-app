@@ -11,7 +11,6 @@ use App\Http\Controllers\MuridSurveyController;
 use App\Http\Controllers\PertanyaanController;
 use App\Http\Controllers\SekolahController;
 use App\Http\Controllers\SekolahLaporanController;
-use App\Http\Controllers\SurveyController;
 use Illuminate\Support\Facades\Route;
 
 /*
