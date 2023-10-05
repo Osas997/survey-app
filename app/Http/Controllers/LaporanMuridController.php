@@ -29,7 +29,6 @@ class LaporanMuridController extends Controller
             "title" => "Laporan Survey Murid",
             "dataLaporan" => $dataLaporan,
             "namaMurid" => $murid->nama_murid,
-            "no" => 1
         ]);
     }
 

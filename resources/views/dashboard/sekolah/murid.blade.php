@@ -4,49 +4,79 @@
     <p class="font-bold text-lg my-0">
         <span class=" md:text-xl uppercase">Murid {{ auth('sekolah')->user()->nama_sekolah }}</span>
     </p>
-    @if (session('successAddMurid'))
-    <div id="toast-success"
-        class="flex absolute top-20 right-10 items-center w-full max-w-xs p-4 mb-4 text-gray-500 bg-white rounded-lg shadow "
-        role="alert">
-        <div
-            class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-green-500 bg-green-100 rounded-lg ">
-            <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
-                viewBox="0 0 20 20">
-                <path
-                    d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
-            </svg>
-            <span class="sr-only">Check icon</span>
-        </div>
-        <div class="ml-3 text-sm font-normal">Murid berhasil dibuat.</div>
-        <button type="button"
-            class="ml-auto -mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex items-center justify-center h-8 w-8 "
-            data-dismiss-target="#toast-success" aria-label="Close">
-            <span class="sr-only">Close</span>
-            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-            </svg>
-        </button>
-    </div>
-    @endif
 </div>
+{{-- toast --}}
+@if (session('successAddMurid'))
+<div id="toast-success"
+    class="flex absolute top-20 right-10 items-center w-full max-w-xs p-4 mb-4 text-gray-500 bg-white rounded-lg shadow "
+    role="alert">
+    <div class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-green-500 bg-green-100 rounded-lg ">
+        <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+            viewBox="0 0 20 20">
+            <path
+                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+        </svg>
+        <span class="sr-only">Check icon</span>
+    </div>
+    <div class="ml-3 text-sm font-normal">Murid berhasil dibuat.</div>
+    <button type="button"
+        class="ml-auto -mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex items-center justify-center h-8 w-8 "
+        data-dismiss-target="#toast-success" aria-label="Close">
+        <span class="sr-only">Close</span>
+        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+        </svg>
+    </button>
+</div>
+@endif
+
+{{-- toast --}}
+@if (session('successExel'))
+<div id="toast-success"
+    class="flex absolute top-20 right-10 items-center w-full max-w-xs p-4 mb-4 text-gray-500 bg-white rounded-lg shadow "
+    role="alert">
+    <div class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-green-500 bg-green-100 rounded-lg ">
+        <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+            viewBox="0 0 20 20">
+            <path
+                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+        </svg>
+        <span class="sr-only">Check icon</span>
+    </div>
+    <div class="ml-3 text-sm font-normal">{{ session('successExel') }}.</div>
+    <button type="button"
+        class="ml-auto -mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex items-center justify-center h-8 w-8 "
+        data-dismiss-target="#toast-success" aria-label="Close">
+        <span class="sr-only">Close</span>
+        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+        </svg>
+    </button>
+</div>
+@endif
+
+{{-- search --}}
 <div class="flex justify-start items-center gap-4 mt-10  ">
-    <form action="" method="get">
-        <div class="relative ">
+    <form action="" method="get" class="md:w-1/2 w-full">
+        <label for="default-search"
+            class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
+        <div class="relative">
             <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                <svg class="w-4 h-4 text-gray-500 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                    viewBox="0 0 20 20">
+                <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                         d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
                 </svg>
             </div>
-            <input type="search" id="search" @if (request('search')) value="{{ request('search') }}" @endif
-                class="block w-[360px] md:w-[458px] p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
-                placeholder="Cari Murid" name="search">
+            <input name="search" type="search" @if (request('search')) value="{{ request('search') }}" @endif
+                id="default-search"
+                class="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                placeholder="Cari Murid">
             <button type="submit"
-                class="text-white absolute right-2.5 bottom-2.5 bg-blue-700  focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2  hover:bg-blue-500 duration-300 ease-in-out">Search</button>
+                class="text-white absolute right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Search</button>
         </div>
-
     </form>
     <a href="{{ route('sekolah.viewTambahMurid') }}">
         <div class="w-12 h-12 flex justify-center items-center  rounded-lg border-black cursor-pointer md:w-14">
@@ -62,14 +92,48 @@
         </div>
     </a>
 </div>
+
+{{-- upload exel --}}
 <div class="mt-4">
-    <form action="" method="post" enctype="multipart/form-data">
+    <form action="{{ route('sekolah.muridExel') }}" method="post" enctype="multipart/form-data">
+        @csrf
         <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file_input">Upload file
             Exel</label>
-        <input
-            class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
-            id="file_input" name="murid_exel" type="file" </form>
+        <div class="flex flex-wrap items-center justify-start gap-4">
+            <input
+                class="block w-full md:w-2/4 text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+                id="file_input" name="murid_exel" type="file" />
+            <button type="submit"
+                class="text-white w-full md:w-auto bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2">Import</button>
+        </div>
+    </form>
 </div>
+
+{{-- error --}}
+@error('murid_exel')
+<div>
+    <h1 class="text-red-600 text-lg my-3">{{ $message }}</h1>
+</div>
+@enderror
+
+@if (session()->has('failures'))
+<div class="alert alert-danger my-2 flex flex-col">
+    <p class="font-bold text-gray-700">Terjadi kesalahan saat mengimpor data:</p>
+    <div>
+        <ul>
+            @foreach (session()->get('failures') as $failure)
+            <ul>
+                @foreach ($failure->errors() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+            @endforeach
+        </ul>
+    </div>
+</div>
+@endif
+
+
 <div class="mt-8 w-full  overflow-x-auto overflow-y-auto rounded-lg">
     @if ($daftarMurid->isNotEmpty())
     <table class="w-full text-sm text-left text-gray-500 ">
@@ -114,7 +178,8 @@
                     </span>
                 </td>
                 <td class="px-6 py-4 text-center">
-                    <a class="sm:text-sm md:text-md text-teal-400" href="{{ route('laporan_murid',$murid->id) }}">Lihat Survey Respon</a>
+                    <a class="sm:text-sm md:text-md text-teal-400" href="{{ route('laporan_murid',$murid->id) }}">Lihat
+                        Survey Respon</a>
                 </td>
             </tr>
             @endforeach
@@ -123,6 +188,9 @@
     @else
     <h1 class="text-center text-2xl font-bold text-red-600 mt-20">Daftar Murid Tidak ditemukan</h1>
     @endif
+    <div class="flex justify-center items-center mt-6 paginate">
+        {{ $daftarMurid->links() }}
+    </div>
 </div>
 
 @endsection

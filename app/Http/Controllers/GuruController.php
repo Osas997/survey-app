@@ -7,6 +7,7 @@ use App\Models\Guru;
 use App\Models\Sekolah;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
+use Maatwebsite\Excel\Validators\ValidationException;
 
 class GuruController extends Controller
 {
@@ -16,14 +17,22 @@ class GuruController extends Controller
 
     public function import(Request $request)
     {
-        Excel::import(new GuruImport, $request->file('exel'));
-
-        return redirect('/')->with('success', 'All good!');
+        $request->validate([
+            'guru_exel' => 'required|mimes:xlsx,csv'
+        ]);
+        try {
+            Excel::import(new GuruImport, $request->file('guru_exel'));
+            return redirect()->route('sekolah.guru')->with('successExel', 'Data Berhasil Di Import');
+        } catch (ValidationException $e) {
+            $failures = $e->failures();
+            // Anda bisa melakukan sesuatu dengan $failures di sini, misalnya menampilkan kesalahan ke pengguna.
+            return back()->with(['failures' => $failures]);
+        }
     }
 
     public function index()
     {
-        $guru = Guru::where("id_sekolah", auth('sekolah')->user()->id)->search(request('search'))->paginate(5);
+        $guru = Guru::where("id_sekolah", auth('sekolah')->user()->id)->search(request('search'))->paginate(20);
         return view("dashboard.sekolah.guru", [
             "title" => "Sekolah | Guru",
             "daftarGuru" => $guru
@@ -33,7 +42,7 @@ class GuruController extends Controller
 
     public function adminGuru(Sekolah $sekolah)
     {
-        $daftarGuru = Guru::where("id_sekolah", $sekolah->id)->search(request('search'))->paginate(15);
+        $daftarGuru = Guru::where("id_sekolah", $sekolah->id)->search(request('search'))->paginate(20);
         return view("dashboard.admin.guru", [
             "title" => "Sekolah | Guru",
             "daftarGuru" => $daftarGuru,
