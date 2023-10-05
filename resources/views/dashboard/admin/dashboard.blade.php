@@ -16,9 +16,7 @@ sekolah dan guru
 +laporan berentukk select dilama select berisi sekolahnya dan langsung terdapat
 tabel nama murid, skor, interpretasi, klasifikasi
 +terdapat aksi yang akan mengarahkan kelaporan murid sama seperti guru dan sekolah
-+1 chart isi 14 soal pelaku, dimana yang ternilai disana adalah soal yang banyak tinggi dan sanggat tinggi
-
---}}
++1 chart isi 14 soal pelaku, dimana yang ternilai disana adalah soal yang banyak tinggi dan sanggat tinggi --}}
 <div class="relative bg-indigo-200 w-full py-8  p-4 sm:p-6 rounded-xl overflow-hidden mb-8 ">
     <!-- Background illustration -->
     <div class="absolute right-0 top-0 -mt-4 mr-16 pointer-events-none hidden xl:block" aria-hidden="true">
@@ -66,7 +64,7 @@ tabel nama murid, skor, interpretasi, klasifikasi
     <div class="relative">
         <h1 class="text-2xl md:text-3xl text-slate-800 font-bold mb-1">Welcome Back
             {{ auth('admin')->user()->username }} 👋</h1>
-        <p class="">Here is what's happening with your projects today:</p>
+        <p class="">Selamat Beraktivitas</p>
     </div>
 
 </div>
@@ -339,33 +337,6 @@ tabel nama murid, skor, interpretasi, klasifikasi
                             <div data-popper-arrow></div>
                         </div>
                     </div>
-                    <button id="dateRangeButton" data-dropdown-toggle="dateRangeDropdown"
-                        data-dropdown-ignore-click-outside-class="datepicker" type="button"
-                        class="inline-flex items-center text-blue-700 dark:text-blue-600 font-medium hover:underline">Sekolah<svg
-                            class="w-3 h-3 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                            viewBox="0 0 10 6">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="m1 1 4 4 4-4" />
-                        </svg>
-                    </button>
-                    <div id="dateRangeDropdown"
-                        class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-40  dark:bg-gray-700 dark:divide-gray-600">
-                        <span class="px-4">Daftar Sekolah</span>
-                        <div class="p-3" aria-labelledby="dateRangeButton">
-                            <div date-rangepicker datepicker-autohide class="flex items-center">
-                                <div class="relative">
-                                    <a href="">
-                                        <p>Semua Sekolah</p>
-                                        <a href="">
-                                            <p>SDN 2 Banyuwangi</p>
-                                        </a>
-                                        <a href="">
-                                            <p>SDN 1 Banyuwangi</p>
-                                        </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
             {{-- Chart pie --}}
@@ -381,33 +352,6 @@ tabel nama murid, skor, interpretasi, klasifikasi
                         <div data-popover id="chart-info" role="tooltip"
                             class="absolute z-10 invisible inline-block text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 w-72 dark:bg-gray-800 dark:border-gray-600 dark:text-gray-400">
                             <div data-popper-arrow></div>
-                        </div>
-                    </div>
-                    <button id="dateRangeButton" data-dropdown-toggle="dateRangeDropdown"
-                        data-dropdown-ignore-click-outside-class="datepicker" type="button"
-                        class="inline-flex items-center text-blue-700 dark:text-blue-600 font-medium hover:underline">Sekolah<svg
-                            class="w-3 h-3 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                            viewBox="0 0 10 6">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="m1 1 4 4 4-4" />
-                        </svg>
-                    </button>
-                    <div id="dateRangeDropdown"
-                        class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-40  dark:bg-gray-700 dark:divide-gray-600">
-                        <span class="px-4">Daftar Sekolah</span>
-                        <div class="p-3" aria-labelledby="dateRangeButton">
-                            <div date-rangepicker datepicker-autohide class="flex items-center">
-                                <div class="relative">
-                                    <a href="">
-                                        <p>Semua Sekolah</p>
-                                        <a href="">
-                                            <p>SDN 2 Banyuwangi</p>
-                                        </a>
-                                        <a href="">
-                                            <p>SDN 1 Banyuwangi</p>
-                                        </a>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -485,12 +429,10 @@ tabel nama murid, skor, interpretasi, klasifikasi
 
 </div>
 </div>
-
-
-
+@endsection
+@section('script')
 <script>
-    // ApexCharts options and config
-        const korbanSangatTinggi = @json($korbanSangatTinggi);
+    const korbanSangatTinggi = @json($korbanSangatTinggi);
         const korbanTinggi = @json($korbanTinggi);
         const korbanSedang = @json($korbanSedang);
         const korbanRendah = @json($korbanRendah);
@@ -504,266 +446,6 @@ tabel nama murid, skor, interpretasi, klasifikasi
 
         const totalResponKorban = korbanSangatTinggi + korbanTinggi + korbanSedang + korbanRendah;
         const totalResponPelaku = pelakuSangatTinggi + pelakuTinggi + pelakuSedang + pelakuRendah;
-    
-        if (totalResponKorban != 0 || totalResponPelaku != 0) {
-            const persenKorbanSangatTinggi = (korbanSangatTinggi / totalResponKorban) * 100;
-            const persenKorbanTinggi = (korbanTinggi / totalResponKorban) * 100;
-            const persenKorbanSedang = (korbanSedang / totalResponKorban) * 100;
-            const persenKorbanRendah = (korbanRendah / totalResponKorban) * 100;
-
-            const persenPelakuSangatTinggi = (pelakuSangatTinggi / totalResponPelaku) * 100;
-            const persenPelakuTinggi = (pelakuTinggi / totalResponPelaku) * 100;
-            const persenPelakuSedang = (pelakuSedang / totalResponPelaku) * 100;
-            const persenPelakuRendah = (pelakuRendah / totalResponPelaku) * 100;
-
-            window.addEventListener("load", function() {
-                const getChartOptions = () => {
-                    return {
-                        series: [persenKorbanSangatTinggi, persenKorbanTinggi, persenKorbanSedang,
-                            persenKorbanRendah
-                        ],
-                        colors: ["#ef4444", "#f97316", "#facc15", "#22c55e"],
-                        chart: {
-                            height: 420,
-                            width: "100%",
-                            type: "pie",
-                        },
-                        stroke: {
-                            colors: ["white"],
-                            lineCap: "",
-                        },
-                        plotOptions: {
-                            pie: {
-                                labels: {
-                                    show: true,
-                                },
-                                size: "100%",
-                                dataLabels: {
-                                    offset: -25
-                                }
-                            },
-                        },
-                        labels: ["Sangat Tinggi", "Tinggi", "Sedang", "Rendah"],
-                        dataLabels: {
-                            enabled: true,
-                            style: {
-                                fontFamily: "Inter, sans-serif",
-                            },
-                        },
-                        legend: {
-                            position: "bottom",
-                            fontFamily: "Inter, sans-serif",
-                        },
-                        yaxis: {
-                            labels: {
-                                formatter: function(value) {
-                                    return value + "%"
-                                },
-                            },
-                        },
-                        xaxis: {
-                            labels: {
-                                formatter: function(value) {
-                                    return value + "%"
-                                },
-                            },
-                            axisTicks: {
-                                show: false,
-                            },
-                            axisBorder: {
-                                show: false,
-                            },
-                        },
-                    }
-                }
-                if (document.getElementById("pie-chart") && typeof ApexCharts !== 'undefined') {
-                    const chart = new ApexCharts(document.getElementById("pie-chart"), getChartOptions());
-                    chart.render();
-                }
-            });
-
-            window.addEventListener("load", function() {
-                const getChartOptions = () => {
-                    return {
-                        series: [persenPelakuSangatTinggi, persenPelakuTinggi, persenPelakuSedang,
-                            persenPelakuRendah
-                        ],
-                        colors: ["#ef4444", "#f97316", "#facc15", "#22c55e"],
-                        chart: {
-                            height: 420,
-                            width: "100%",
-                            type: "pie",
-                        },
-                        stroke: {
-                            colors: ["white"],
-                            lineCap: "",
-                        },
-                        plotOptions: {
-                            pie: {
-                                labels: {
-                                    show: true,
-                                },
-                                size: "100%",
-                                dataLabels: {
-                                    offset: -25
-                                }
-                            },
-                        },
-                        labels: ["Sangat Tinggi", "Tinggi", "Sedang", "Rendah"],
-                        dataLabels: {
-                            enabled: true,
-                            style: {
-                                fontFamily: "Inter, sans-serif",
-                            },
-                        },
-                        legend: {
-                            position: "bottom",
-                            fontFamily: "Inter, sans-serif",
-                        },
-                        yaxis: {
-                            labels: {
-                                formatter: function(value) {
-                                    return value + "%"
-                                },
-                            },
-                        },
-                        xaxis: {
-                            labels: {
-                                formatter: function(value) {
-                                    return value + "%"
-                                },
-                            },
-                            axisTicks: {
-                                show: false,
-                            },
-                            axisBorder: {
-                                show: false,
-                            },
-                        },
-                    }
-                }
-
-                if (document.getElementById("pie-chart1") && typeof ApexCharts !== 'undefined') {
-                    const chart = new ApexCharts(document.getElementById("pie-chart1"), getChartOptions());
-                    chart.render();
-                }
-            });
-
-            window.addEventListener("load", function() {
-                let dataRendah = [];
-                let dataTinggi = [];
-                tipePelaku.forEach(element => {
-                dataRendah.push(element.jawaban_skor_kurang_dari_3_count);
-                dataTinggi.push(element.jawaban_skor_lebih_dari_2_count);
-            }); 
-                const options = {
-                    colors: ["#1A56DB", "#FDBA8C"],
-                    series: [{
-                            name: "Rendah",
-                            color: "#4ade80",
-                            data: dataRendah.map((value, index) => ({
-                                x: `Soal ${index+1}`, // Menggunakan data soal yang sesuai
-                                y: value
-                            }))
-                        },
-                        {
-                            name: "Tinggi",
-                            color: "#f87171",
-                            data: dataTinggi.map((value, index) => ({
-                                x: `Soal ${index+1}`, // Menggunakan data soal yang sesuai
-                                y: value
-                            }))
-                        },
-                    ],
-                    chart: {
-                        type: "bar",
-                        height: "320px",
-                        fontFamily: "Inter, sans-serif",
-                        toolbar: {
-                            show: false,
-                        },
-                    },
-                    plotOptions: {
-                        bar: {
-                            horizontal: false,
-                            columnWidth: "70%",
-                            borderRadiusApplication: "end",
-                            borderRadius: 8,
-                        },
-                    },
-                    tooltip: {
-                        shared: true,
-                        intersect: false,
-                        style: {
-                            fontFamily: "Inter, sans-serif",
-                        },
-                    },
-                    states: {
-                        hover: {
-                            filter: {
-                                type: "darken",
-                                value: 1,
-                            },
-                        },
-                    },
-                    stroke: {
-                        show: true,
-                        width: 0,
-                        colors: ["transparent"],
-                    },
-                    grid: {
-                        show: false,
-                        strokeDashArray: 4,
-                        padding: {
-                            left: 2,
-                            right: 2,
-                            top: -14
-                        },
-                    },
-                    dataLabels: {
-                        enabled: false,
-                    },
-                    legend: {
-                        show: false,
-                    },
-                    xaxis: {
-                        floating: false,
-                        labels: {
-                            show: true,
-                            style: {
-                                fontFamily: "Inter, sans-serif",
-                                cssClass: 'text-xs font-normal fill-gray-500 dark:fill-gray-400'
-                            }
-                        },
-                        axisBorder: {
-                            show: false,
-                        },
-                        axisTicks: {
-                            show: false,
-                        },
-                    },
-                    yaxis: {
-                        show: false,
-                    },
-                    fill: {
-                        opacity: 1,
-                    },
-                }
-
-                if (document.getElementById("column-chart") && typeof ApexCharts !== 'undefined') {
-                    const chart = new ApexCharts(document.getElementById("column-chart"), options);
-                    chart.render();
-                }
-            });
-            // ApexCharts options and config
-        } else {
-            const chart = document.getElementById('pie-chart');
-            const chart2 = document.getElementById('pie-chart1');
-            const chart3 = document.getElementById('column-chart');
-
-            chart.innerHTML = "Tidak ada data"
-            chart2.innerHTML = "Tidak ada data"
-            chart3.innerHTML = "Tidak ada data"
-        }
 </script>
+<script src="{{ asset('js/chart.js') }}"></script>
 @endsection

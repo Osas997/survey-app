@@ -34,7 +34,7 @@ class SekolahController extends Controller
     {
         return view("dashboard.admin.sekolah", [
             "title" => "Dashboard Sekolah",
-            "dataSekolah" => Sekolah::search(request("search"))->paginate(5)
+            "dataSekolah" => Sekolah::search(request("search"))->paginate(8)
         ]);
     }
 
