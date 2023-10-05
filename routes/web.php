@@ -26,10 +26,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('index');
-});
-
-
-
+})->name('index');
 
 Route::middleware("sudahlogin")->group(function () {
     Route::get("/login", [AuthController::class, "login"])->name("login");
@@ -42,6 +39,7 @@ Route::middleware("admin")->prefix('admin')->group(function () {
     Route::get("/dashboard", [DashboardController::class, "index"])->name("admin.dashboard");
 
     Route::resource("/sekolah", SekolahController::class)->name("index", "admin.sekolah")->name("create", "admin.tambahSekolah");
+    Route::post("/sekolah/import", [SekolahController::class, "import"])->name('admin.sekolahExel');
 
     Route::get('/pertanyaan', [PertanyaanController::class, "index"])->name('admin.pertanyaan');
     Route::get('/pertanyaan/create', [PertanyaanController::class, "create"])->name('admin.viewTambahPertanyaan');

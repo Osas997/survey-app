@@ -18,10 +18,10 @@ class GuruController extends Controller
     public function import(Request $request)
     {
         $request->validate([
-            'guru_exel' => 'required|mimes:xlsx,csv'
+            'sekolah_exel' => 'required|mimes:xlsx,csv'
         ]);
         try {
-            Excel::import(new GuruImport, $request->file('guru_exel'));
+            Excel::import(new GuruImport, $request->file('sekolah_exel'));
             return redirect()->route('sekolah.guru')->with('successExel', 'Data Berhasil Di Import');
         } catch (ValidationException $e) {
             $failures = $e->failures();

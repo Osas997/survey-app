@@ -517,7 +517,6 @@ tabel nama murid, skor, interpretasi, klasifikasi
             const persenPelakuRendah = (pelakuRendah / totalResponPelaku) * 100;
 
             window.addEventListener("load", function() {
-
                 const getChartOptions = () => {
                     return {
                         series: [persenKorbanSangatTinggi, persenKorbanTinggi, persenKorbanSedang,
@@ -577,7 +576,6 @@ tabel nama murid, skor, interpretasi, klasifikasi
                         },
                     }
                 }
-
                 if (document.getElementById("pie-chart") && typeof ApexCharts !== 'undefined') {
                     const chart = new ApexCharts(document.getElementById("pie-chart"), getChartOptions());
                     chart.render();
