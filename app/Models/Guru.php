@@ -10,7 +10,6 @@ class Guru extends Model
     use HasFactory;
     protected $table = "guru";
     protected $guarded = ["id"];
-    public $timestamps = false;
 
     protected $casts = [
         'password' => 'hashed',

@@ -41,21 +41,22 @@
                         ">
                         <p class="font-semibold text-black">Password</p>
                         <input type="password" placeholder="*********" name="password" class="input input-bordered bg-transparent w-full max-w-xs border-2 focus:border-[#0090D4] focus:outline-none text-black   
-                        @error('username')
+                        @error('password')
                             input-error @else border-[#0090D4]
                         @enderror " />
-                        </div>
-                        @error('password')
-                        <div class="mt-2">
-                            <span class="text-red-500 align-start italic text-sm">Error</span>
-                        </div>
-                        @enderror
-                        <button type="submit" class="block bg-blue-500 w-full py-4 mt-8 mb-14 rounded-full text-white hover:bg-[#0090D4] transition-colors duration-300 ease-in-out">Login</button>
+                    </div>
+                    @error('password')
+                    <div class="mt-2">
+                        <span class="text-red-500 align-start italic text-sm">Error</span>
+                    </div>
+                    @enderror
+                    <button type="submit"
+                        class="block bg-blue-500 w-full py-4 mt-8 mb-14 rounded-full text-white hover:bg-[#0090D4] transition-colors duration-300 ease-in-out">Login</button>
 
-                    </form>
-                </div>
+                </form>
             </div>
         </div>
     </div>
+</div>
 </div>
 @endsection
