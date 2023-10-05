@@ -33,8 +33,8 @@
                                 aria-current="page">Home</a>
                         </li>
                         <li>
-                            <a href="#survey"
-                                class="block py-2 pl-3 pr-4 text-white rounded md:font-normal hover:bg-sky-600 md:hover:bg-transparent md:hover:text-blue-800 duration-300 ease-in-out md:p-0">Survey</a>
+                            <a href="#offer"
+                                class="block py-2 pl-3 pr-4 text-white rounded md:font-normal hover:bg-sky-600 md:hover:bg-transparent md:hover:text-blue-800 duration-300 ease-in-out md:p-0">Offer</a>
                         </li>
                         <li>
                             <a href="#about"
@@ -84,28 +84,7 @@
                             </div>
                         </a>
 
-                        <div class="flex justify-start items-baseline gap-8 mt-5 ">
-                            <div class="flex justify-start items-start flex-col">
-                                <span class="text-white text-base 
-                                md:text-sm
-                                lg:text-base
-                                xl:text-lg">Responded</span>
-                                <h2 class="text-white font-semibold text-5xl
-                                md:text-3xl
-                                lg:text-5xl
-                                xl:text-6xl">3,541</h2>
-                            </div>
-                            <div class="flex justify-start items-start flex-col">
-                                <span class="text-white text-base
-                                md:text-sm
-                                lg:text-base
-                                xl:text-lg">Survey</span>
-                                <h2 class="text-white font-semibold text-5xl
-                                md:text-3xl
-                                lg:text-5xl
-                                xl:text-6xl">20+</h2>
-                            </div>
-                        </div>
+
                     </div>
                     <div class="hidden md:flex justify-center items-center flex-1 ">
                         <img src="{{asset('assets/img/hero_image.png')}}" alt="" srcset=""
@@ -115,48 +94,17 @@
             </div>
         </section>
         {{-- Card --}}
-        <section class="pt-10 px-4 pb-10 bg-white" id="survey">
-            <div class="max-w-screen-xl  mx-auto p-4">
-                <h1 class="text-center text-black font-semibold text-3xl mb-6">Survey</h1>
+        <section class="pt-10 px-4 pb-10 bg-white" id="offer">
+            <div class="max-w-screen-xl  mx-auto p-4 ">
+                <h1 class="text-center text-black font-semibold text-3xl mb-8">Apa Yang Kami Berikan</h1>
                 <div class="grid grid-col-1 sm:grid-cols-2 justify-center items-center gap-4 ">
-                    <div class="flex justify-center items-center">
-                        <div
-                            class="max-w-sm p-6 bg-[#C7FFDE] w-full h-52 rounded-lg shadow flex justify-center items-center flex-col hover:bg-[#0090D4] duration-300 ease-in-out relative group">
-                            <h1
-                                class="mb-3 font-semibold text-md text-black group-hover:text-white duration-300 ease-in-out">
-                                Survey Perundungan</h1>
-                            <p
-                                class="mb-2 font-normal text-sm text-gray-500 group-hover:text-gray-100 duration-300 ease-in-out">
-                                Survey Feedback</p>
-                            <p
-                                class="mb-2 font-normal text-base text-black group-hover:text-white duration-300 ease-in-out">
-                                130 Respon</p>
-                            <a href="#"
-                                class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg opacity-0 group-hover:bg-green-400 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
-                                Gabung Sekarang
-                            </a>
-                        </div>
+                    <div class="flex justify-center items-center h-full w-full  mb-4">
+                        <img src="{{asset('assets/img/bk-vector.jpg')}}" alt="" srcset="" class="w-10/12 h-auto sm:w-full md:w-full lg:w-9/12 xl:w-8/12">
                     </div>
-                    <div class="flex justify-center items-center">
-                        <div
-                            class="max-w-sm p-6 bg-[#C7FFDE] w-full h-52 rounded-lg shadow flex justify-center items-center flex-col hover:bg-[#0090D4] duration-300 ease-in-out relative group">
-                            <h1
-                                class="mb-3 font-semibold text-md text-black group-hover:text-white duration-300 ease-in-out">
-                                Survey Perundungan</h1>
-                            <p
-                                class="mb-2 font-normal text-sm text-gray-500 group-hover:text-gray-100 duration-300 ease-in-out">
-                                Survey Feedback</p>
-                            <p
-                                class="mb-2 font-normal text-base text-black group-hover:text-white duration-300 ease-in-out">
-                                130 Respon</p>
-                            <a href="#"
-                                class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg opacity-0 group-hover:bg-green-400 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
-                                Gabung Sekarang
-                            </a>
-                        </div>
-
+                    <div class="w-full lg:w-9/12">
+                        <h1 class="text-xl text-black font-semibold mb-2">Bangun Keamanan dan Kenyamanan Belajar di Sekolah Bersama Guru BK </h1>
+                        <p class="text-base text-gray-500">Keamanan dan kenyamanan adalah pondasi penting dalam lingkungan belajar. Temukan bagaimana hubungan erat antara konseling dan guru BK dapat membantu menciptakan sekolah yang aman dan nyaman bagi semua siswa. Tolak Perundungan Bersama-sama</p>
                     </div>
-
                 </div>
 
             </div>
@@ -164,7 +112,7 @@
         {{-- card join --}}
         <section class="px-4 pb-10 bg-white" id="about">
             <div class="max-w-screen-xl  mx-auto p-4 flex justify-center items-center">
-                <div class="w-full p-4 text-center bg-[#0062CE] rounded-[32px] border border-gray-200 shadow sm:p-10
+                <div class="w-full px-4 py-8 text-center bg-[#0062CE] rounded-[32px] border border-gray-200 shadow sm:p-10
                 lg:w-5/6
                 lg:py-16">
                     <h5 class="mb-4 text-3xl font-bold text-white 
