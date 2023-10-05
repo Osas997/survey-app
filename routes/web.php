@@ -67,7 +67,8 @@ Route::middleware("sekolah")->prefix('sekolah')->group(function () {
     Route::resource("/murid", MuridController::class)->name("index", "sekolah.murid")->name("create", "sekolah.viewTambahMurid")->name('store', 'sekolah.tambahMurid');
     Route::get("/laporan", [SekolahLaporanController::class, "index"])->name('sekolah.hasilSurvey');
     Route::get("/laporan/print", [SekolahLaporanController::class, "print"])->name('sekolah.printSurvey');
-    // Route::post("/guru", [GuruController::class, "import"]);
+    Route::post("/guru-import", [GuruController::class, "import"])->name('sekolah.guruExel');
+    Route::post("/murid-import", [MuridController::class, "import"])->name('sekolah.muridExel');
 });
 
 

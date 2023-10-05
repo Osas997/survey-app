@@ -20,7 +20,7 @@ class AdminLaporanController extends Controller
         $namaSekolah = $sekolah->nama_sekolah;
         $idSekolah = $sekolah->id;
         $title = "Laporan | " . $namaSekolah;
-        $dataSiswa = Murid::with('surveyRespon')->where('id_sekolah', $sekolah->id)->get();
+        $dataSiswa = Murid::with('surveyRespon')->where('id_sekolah', $sekolah->id)->search(request('search'))->abjad()->get();
         $totalSiswa = Murid::where('id_sekolah', $sekolah->id)->count();
         return view('dashboard.admin.hasilSurvey', compact('title', 'idSekolah', 'dataSiswa', 'namaSekolah', 'totalSiswa'));
     }
@@ -28,7 +28,7 @@ class AdminLaporanController extends Controller
     {
         $namaSekolah = $sekolah->nama_sekolah;
         $title = "Laporan | " . $namaSekolah;
-        $dataSiswa = Murid::with('surveyRespon')->where('id_sekolah', $sekolah->id)->get();
+        $dataSiswa = Murid::with('surveyRespon')->where('id_sekolah', $sekolah->id)->abjad()->get();
         $totalSiswa = Murid::where('id_sekolah', $sekolah->id)->count();
         return view('dashboard.admin.print', compact('title', 'dataSiswa', 'namaSekolah', 'totalSiswa'));
     }

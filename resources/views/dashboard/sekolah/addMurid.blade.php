@@ -3,7 +3,7 @@
 
 <div class="flex justify-start items-center gap-5">
     <div class="w-10 h-10">
-        <a href="">
+        <a href="{{ route('sekolah.murid') }}">
             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                 <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -24,38 +24,35 @@
     <div class="lg:grid lg:grid-cols-1 lg:place-items-center mt-10">
         <div class="mb-3 lg:w-5/12">
             <label for="nisn" class="block mb-2 text-sm font-medium text-gray-900">NISN</label>
-            <input type="text" id="nisn" name="nisn" placeholder="Nisn Murid"
-                class="bg-slate-50 border-2 border-blue-500 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5
+            <input type="text" id="nisn" name="nisn" placeholder="Nisn Murid" class="bg-slate-50 border-2 border-blue-500 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5
                 @error('nisn')
                     border-red-500 text-red-900 placeholder-red-700 focus:ring-red-500 focus:border-red-500
                 @enderror
                 ">
             @error('nisn')
-                <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">{{ $message }}</span></p>
-            @enderror                
+            <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">{{ $message }}</span></p>
+            @enderror
         </div>
 
         <div class="mb-3 lg:w-5/12">
             <label for="nama_murid" class="block mb-2 text-sm font-medium text-gray-900">Nama Murid</label>
-            <input type="text" id="nama_murid" name="nama_murid" placeholder="Nama Murid"
-                class="bg-slate-50 border-2 border-blue-500 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5
+            <input type="text" id="nama_murid" name="nama_murid" placeholder="Nama Murid" class="bg-slate-50 border-2 border-blue-500 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5
                 @error('nama_murid')
                     border-red-500 text-red-900 placeholder-red-700 focus:ring-red-500 focus:border-red-500
                 @enderror">
             @error('nama_murid')
-                <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">{{ $message }}</span></p>
-            @enderror  
+            <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">{{ $message }}</span></p>
+            @enderror
         </div>
         <div class="mb-3 lg:w-5/12">
             <label for="password" class="block mb-2 text-sm font-medium text-gray-900">Password</label>
-            <input type="password" id="password" name="password" placeholder="Strong Password"
-                class="bg-slate-50 border-2 border-blue-500 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5
+            <input type="password" id="password" name="password" placeholder="Strong Password" class="bg-slate-50 border-2 border-blue-500 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5
                 @error('password')
                     border-red-500 text-red-900 placeholder-red-700 focus:ring-red-500 focus:border-red-500
                 @enderror">
             @error('password')
-                <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">{{ $message }}</span></p>
-            @enderror  
+            <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">{{ $message }}</span></p>
+            @enderror
         </div>
         <div class="mb-3 lg:w-5/12">
             <label for="gender" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Jenis
@@ -68,14 +65,13 @@
         </div>
         <div class="mb-3 lg:w-5/12">
             <label for="alamat" class="block mb-2 text-sm font-medium text-gray-900">Alamat </label>
-            <input type="text" id="alamat" name="alamat" placeholder="Jl. Raya.. "
-                class="bg-slate-50 border-2 border-blue-500 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5
+            <input type="text" id="alamat" name="alamat" placeholder="Jl. Raya.. " class="bg-slate-50 border-2 border-blue-500 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5
                 @error('alamat')
                     border-red-500 text-red-900 placeholder-red-700 focus:ring-red-500 focus:border-red-500
                 @enderror">
             @error('alamat')
-                <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">{{ $message }}</span></p>
-            @enderror  
+            <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">{{ $message }}</span></p>
+            @enderror
         </div>
     </div>
     <div class="md:flex md:justify-center md:items-center  md:flex-row md:gap-4 min-w-full md:w-1/2 ">

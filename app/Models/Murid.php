@@ -23,6 +23,11 @@ class Murid extends Model
         return $this->hasOne(SurveyRespon::class, "id_murid", "id");
     }
 
+
+    public function scopeAbjad($query)
+    {
+        $query->orderBy('nama_murid', 'asc');
+    }
     public function scopeSearch($query, $search)
     {
         if ($search) {
