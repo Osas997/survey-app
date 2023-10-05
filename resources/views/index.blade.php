@@ -83,7 +83,8 @@
                                 </div>
                             </div>
                         </a>
-
+                        <h1 class="text-base text-white font-normal mt-4">Siswa Yang Sudah Mengikuti</h1>
+                        <p class=" text-3xl font-semibold text-white">36+ <span class="text-2xl font-normal">Siswa</span></p>
 
                     </div>
                     <div class="hidden md:flex justify-center items-center flex-1 ">
