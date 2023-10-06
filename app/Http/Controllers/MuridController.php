@@ -118,6 +118,7 @@ class MuridController extends Controller
      */
     public function destroy(Murid $murid)
     {
-        //
+        $murid->delete();
+        return redirect("/sekolah/murid")->with('successDeleteMurid', "Murid Berhasil Di Hapus");
     }
 }

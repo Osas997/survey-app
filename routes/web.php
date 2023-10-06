@@ -60,9 +60,9 @@ Route::middleware("admin")->prefix('admin')->group(function () {
 Route::middleware("sekolah")->prefix('sekolah')->group(function () {
     Route::get("/dashboard", [DashboardController::class, "indexSekolah"])->name('sekolah.dashboard');
 
-    Route::resource("/guru", GuruController::class)->name("index", "sekolah.guru")->name("create", "sekolah.viewTambahGuru")->name('store', 'sekolah.tambahGuru');
+    Route::resource("/guru", GuruController::class)->name("index", "sekolah.guru")->name("create", "sekolah.viewTambahGuru")->name('store', 'sekolah.tambahGuru')->name('destroy', 'sekolah.hapusGuru');
 
-    Route::resource("/murid", MuridController::class)->name("index", "sekolah.murid")->name("create", "sekolah.viewTambahMurid")->name('store', 'sekolah.tambahMurid');
+    Route::resource("/murid", MuridController::class)->name("index", "sekolah.murid")->name("create", "sekolah.viewTambahMurid")->name('store', 'sekolah.tambahMurid')->name('destroy', 'sekolah.hapusMurid');
     Route::get("/laporan", [SekolahLaporanController::class, "index"])->name('sekolah.hasilSurvey');
     Route::get("/laporan/print", [SekolahLaporanController::class, "print"])->name('sekolah.printSurvey');
     Route::post("/guru-import", [GuruController::class, "import"])->name('sekolah.guruExel');

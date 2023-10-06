@@ -30,7 +30,7 @@ class GuruImport implements ToModel, WithHeadingRow, WithValidation
     public function rules(): array
     {
         return [
-            'nama' => 'required',
+            'nama_guru' => 'required',
             'nuptk' => 'required|unique:guru',
             'jenis_kelamin' => 'required|in:l,p',
             'password' => 'required',
