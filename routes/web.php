@@ -11,6 +11,7 @@ use App\Http\Controllers\MuridSurveyController;
 use App\Http\Controllers\PertanyaanController;
 use App\Http\Controllers\SekolahController;
 use App\Http\Controllers\SekolahLaporanController;
+use App\Models\SurveyRespon;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,7 +26,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('index');
+    $responden = SurveyRespon::count();
+    return view('index', compact('responden'));
 })->name('index');
 
 Route::middleware("sudahlogin")->group(function () {
@@ -38,7 +40,7 @@ Route::post("/logout", [AuthController::class, "logout"])->name("logout")->middl
 Route::middleware("admin")->prefix('admin')->group(function () {
     Route::get("/dashboard", [DashboardController::class, "index"])->name("admin.dashboard");
 
-    Route::resource("/sekolah", SekolahController::class)->name("index", "admin.sekolah")->name("create", "admin.tambahSekolah")->name("edit","admin.editSekolah")->name('destroy', 'admin.hapusSekolah');
+    Route::resource("/sekolah", SekolahController::class)->name("index", "admin.sekolah")->name("create", "admin.tambahSekolah");
     Route::post("/sekolah/import", [SekolahController::class, "import"])->name('admin.sekolahExel');
 
     Route::get('/pertanyaan', [PertanyaanController::class, "index"])->name('admin.pertanyaan');
