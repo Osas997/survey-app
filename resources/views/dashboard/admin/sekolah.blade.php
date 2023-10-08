@@ -155,7 +155,7 @@
         @if ($dataSekolah->isNotEmpty())
         <table class="w-full text-sm text-left text-gray-500 ">
             <thead class="text-xs text-white uppercase bg-blue-500 ">
-                <tr>
+                <tr class="text-center">
                     <th scope="col" class="px-6 py-3">
                         Sekolah
                     </th>
@@ -172,13 +172,13 @@
                         Aksi
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        <span class="sr-only">Action</span>
+                        <span>Links</span>
                     </th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($dataSekolah as $sekolah)
-                <tr class="bg-white border-b  hover:bg-gray-50 ">
+                <tr class="bg-white border-b  hover:bg-gray-50 text-center">
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
                         <span class="sm:text-sm md:text-md uppercase">{{ $sekolah->nama_sekolah }}</span>
                     </th>
@@ -191,7 +191,7 @@
                     <td class="px-6 py-4">
                         <span class="sm:text-sm md:text-md">{{ $sekolah->status }}</span>
                     </td>
-                    <td class="px-6 py-4">
+                    <td class="px-6 py-4 flex justify-center items-center flex-row">
                         <a href="{{ route('admin.editSekolah', $sekolah->id) }}"
                             class="font-medium text-blue-600 mx-2 hover:underline">Edit
                          </a>
