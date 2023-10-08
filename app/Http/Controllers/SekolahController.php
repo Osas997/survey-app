@@ -89,7 +89,7 @@ class SekolahController extends Controller
     public function update(Request $request, Sekolah $sekolah)
     {
         $validate = $request->validate([
-            "npsn" => "required",
+            "npsn" => "required|unique:sekolah,npsn," . $sekolah->id,
             "nama_sekolah" => "required",
             "alamat_sekolah" => "required",
             "status" => "required",

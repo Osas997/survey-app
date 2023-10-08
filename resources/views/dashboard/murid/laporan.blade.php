@@ -147,7 +147,9 @@ faktor, seperti kepercayaan diri, kemampuan sosial, atau dukungan dari orang-ora
         </table>
     </div>
     @else
-    belum mengisi survey
+    <div class="text-center text-3xl text-red-600">
+        belum mengisi survey
+    </div>
     @endif
 </div>
 

@@ -11,6 +11,7 @@ use App\Http\Controllers\MuridSurveyController;
 use App\Http\Controllers\PertanyaanController;
 use App\Http\Controllers\SekolahController;
 use App\Http\Controllers\SekolahLaporanController;
+use App\Models\SurveyRespon;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,7 +26,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('index');
+    $responden = SurveyRespon::count();
+    return view('index', compact('responden'));
 })->name('index');
 
 Route::middleware("sudahlogin")->group(function () {
@@ -60,9 +62,9 @@ Route::middleware("admin")->prefix('admin')->group(function () {
 Route::middleware("sekolah")->prefix('sekolah')->group(function () {
     Route::get("/dashboard", [DashboardController::class, "indexSekolah"])->name('sekolah.dashboard');
 
-    Route::resource("/guru", GuruController::class)->name("index", "sekolah.guru")->name("create", "sekolah.viewTambahGuru")->name('store', 'sekolah.tambahGuru')->name('destroy', 'sekolah.hapusGuru');
+    Route::resource("/guru", GuruController::class)->name("index", "sekolah.guru")->name("create", "sekolah.viewTambahGuru")->name('store', 'sekolah.tambahGuru')->name('edit', 'sekolah.viewEditGuru')->name('update', 'sekolah.updateGuru')->name('destroy', 'sekolah.hapusGuru');
 
-    Route::resource("/murid", MuridController::class)->name("index", "sekolah.murid")->name("create", "sekolah.viewTambahMurid")->name('store', 'sekolah.tambahMurid')->name('destroy', 'sekolah.hapusMurid');
+    Route::resource("/murid", MuridController::class)->name("index", "sekolah.murid")->name("create", "sekolah.viewTambahMurid")->name('store', 'sekolah.tambahMurid')->name('edit', 'sekolah.viewEditMurid')->name('update', 'sekolah.updateMurid')->name('destroy', 'sekolah.hapusMurid');
     Route::get("/laporan", [SekolahLaporanController::class, "index"])->name('sekolah.hasilSurvey');
     Route::get("/laporan/print", [SekolahLaporanController::class, "print"])->name('sekolah.printSurvey');
     Route::post("/guru-import", [GuruController::class, "import"])->name('sekolah.guruExel');

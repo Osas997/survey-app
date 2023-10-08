@@ -32,14 +32,14 @@ class DashboardController extends Controller
         $pelakuSangatTinggi = SurveyRespon::pelakuSangatTinggi()->count();
 
         $tipePelaku = Pertanyaan::where('tipe', 'pelaku')
-        ->withCount([
-            'jawaban as jawaban_skor_lebih_dari_2_count' => function ($query) {
-                $query->where('skor', '>', 2);
-            },
-            'jawaban as jawaban_skor_kurang_dari_3_count' => function ($query) {
-                $query->where('skor', '<', 3);
-            }
-        ])->get();
+            ->withCount([
+                'jawaban as jawaban_skor_lebih_dari_2_count' => function ($query) {
+                    $query->where('skor', '>', 2);
+                },
+                'jawaban as jawaban_skor_kurang_dari_3_count' => function ($query) {
+                    $query->where('skor', '<', 3);
+                }
+            ])->get();
 
         return view("dashboard.admin.dashboard", compact('title', 'tipePelaku', 'jumlahMurid', 'jumlahSekolah', 'jumlahGuru', 'korbanRendah', 'korbanSedang', 'korbanTinggi', 'korbanSangatTinggi', 'pelakuRendah', 'pelakuSedang', 'pelakuTinggi', 'pelakuSangatTinggi'));
     }
@@ -63,20 +63,20 @@ class DashboardController extends Controller
         $pelakuSangatTinggi = SurveyRespon::pelakuSangatTinggi()->sekolah()->count();
 
         $tipePelaku = Pertanyaan::where('tipe', 'pelaku')
-        ->withCount([
-            'jawaban as jawaban_skor_lebih_dari_2_count' => function ($query) {
-                $query->where('skor', '>', 2)->whereHas('surveyRespon',function ($query){
-                    $query->where('id_sekolah', auth('sekolah')->user()->id);
-                });
-            },
-            'jawaban as jawaban_skor_kurang_dari_3_count' => function ($query) {
-                $query->where('skor', '<', 3)->whereHas('surveyRespon',function ($query){
-                    $query->where('id_sekolah', auth('sekolah')->user()->id);
-                });
-            }
-        ])->get();
+            ->withCount([
+                'jawaban as jawaban_skor_lebih_dari_2_count' => function ($query) {
+                    $query->where('skor', '>', 2)->whereHas('surveyRespon', function ($query) {
+                        $query->where('id_sekolah', auth('sekolah')->user()->id);
+                    });
+                },
+                'jawaban as jawaban_skor_kurang_dari_3_count' => function ($query) {
+                    $query->where('skor', '<', 3)->whereHas('surveyRespon', function ($query) {
+                        $query->where('id_sekolah', auth('sekolah')->user()->id);
+                    });
+                }
+            ])->get();
 
-        return view('dashboard.sekolah.dashboard', compact('title','tipePelaku', 'jumlahMurid', 'jumlahGuru', 'korbanRendah', 'korbanSedang', 'korbanTinggi', 'korbanSangatTinggi', 'pelakuRendah', 'pelakuSedang', 'pelakuTinggi', 'pelakuSangatTinggi'));
+        return view('dashboard.sekolah.dashboard', compact('title', 'tipePelaku', 'jumlahMurid', 'jumlahGuru', 'korbanRendah', 'korbanSedang', 'korbanTinggi', 'korbanSangatTinggi', 'pelakuRendah', 'pelakuSedang', 'pelakuTinggi', 'pelakuSangatTinggi'));
     }
 
     public function indexGuru()
@@ -98,26 +98,27 @@ class DashboardController extends Controller
         $pelakuSangatTinggi = SurveyRespon::pelakuSangatTinggi()->guruSekolah()->count();
 
         $tipePelaku = Pertanyaan::where('tipe', 'pelaku')
-        ->withCount([
-            'jawaban as jawaban_skor_lebih_dari_2_count' => function ($query) {
-                $query->where('skor', '>', 2)->whereHas('surveyRespon',function ($query){
-                    $query->where('id_sekolah', auth('guru')->user()->id_sekolah);
-                });
-            },
-            'jawaban as jawaban_skor_kurang_dari_3_count' => function ($query) {
-                $query->where('skor', '<', 3)->whereHas('surveyRespon',function ($query){
-                    $query->where('id_sekolah', auth('guru')->user()->id_sekolah);
-                });
-            }
-        ])->get();
+            ->withCount([
+                'jawaban as jawaban_skor_lebih_dari_2_count' => function ($query) {
+                    $query->where('skor', '>', 2)->whereHas('surveyRespon', function ($query) {
+                        $query->where('id_sekolah', auth('guru')->user()->id_sekolah);
+                    });
+                },
+                'jawaban as jawaban_skor_kurang_dari_3_count' => function ($query) {
+                    $query->where('skor', '<', 3)->whereHas('surveyRespon', function ($query) {
+                        $query->where('id_sekolah', auth('guru')->user()->id_sekolah);
+                    });
+                }
+            ])->get();
 
         return view('dashboard.guru.dashboard', compact('title', 'jumlahMurid', 'tipePelaku', 'korbanRendah', 'korbanSedang', 'korbanTinggi', 'korbanSangatTinggi', 'pelakuRendah', 'pelakuSedang', 'pelakuTinggi', 'pelakuSangatTinggi'));
     }
 
     public function indexMurid()
     {
-        return view('dashboard.murid.dashboard', [
-            'title' => 'Dashboard Murid'
-        ]);
+        $title = "Murid Dashboard";
+        $responden = SurveyRespon::count();
+        $totalPertanyaan = Pertanyaan::count();
+        return view('dashboard.murid.dashboard', compact('title', 'responden', 'totalPertanyaan'));
     }
 }

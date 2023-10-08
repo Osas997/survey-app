@@ -83,7 +83,6 @@ class GuruController extends Controller
      */
     public function show(Guru $guru)
     {
-        //
     }
 
     /**
@@ -91,7 +90,8 @@ class GuruController extends Controller
      */
     public function edit(Guru $guru)
     {
-        //
+        $title = 'Edit Guru';
+        return view('dashboard.sekolah.editGuru', compact('guru', 'title'));
     }
 
     /**
@@ -99,7 +99,13 @@ class GuruController extends Controller
      */
     public function update(Request $request, Guru $guru)
     {
-        //
+        $validate = $request->validate([
+            "nuptk" => "required|unique:guru,nuptk," . $guru->id,
+            "nama" => "required",
+            "jenis_kelamin" => "required",
+        ]);
+        $guru->update($validate);
+        return redirect("/sekolah/guru")->with('successEditGuru', "Guru Berhasil Di Edit");
     }
 
     /**
