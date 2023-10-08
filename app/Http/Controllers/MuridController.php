@@ -102,7 +102,8 @@ class MuridController extends Controller
      */
     public function edit(Murid $murid)
     {
-        //
+        $title = "Edit Murid";
+        return view('dashboard.sekolah.editMurid', compact('murid', 'title'));
     }
 
     /**
@@ -110,7 +111,15 @@ class MuridController extends Controller
      */
     public function update(Request $request, Murid $murid)
     {
-        //
+        $validate = $request->validate([
+            "nisn" => "required|unique:murid,nisn," . $murid->id,
+            "nama_murid" => "required",
+            "alamat" => "required",
+            "jenis_kelamin" => "required",
+        ]);
+
+        $murid->update($validate);
+        return redirect("/sekolah/murid")->with('successEditMurid', "Murid Berhasil Di Edit");
     }
 
     /**

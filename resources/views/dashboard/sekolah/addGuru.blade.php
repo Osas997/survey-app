@@ -24,45 +24,42 @@
     <div class="lg:grid lg:grid-cols-1 lg:place-items-center mt-10">
         <div class="mb-3 lg:w-5/12">
             <label for="nutpk" class="block mb-2 text-sm font-medium text-gray-900">NUPTK</label>
-            <input type="text" id="nuptk" name="nuptk" placeholder="nuptk guru"
-                class="bg-slate-50 border-2 border-blue-500 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5
+            <input type="text" id="nuptk" name="nuptk" placeholder="nuptk guru" class="bg-slate-50 border-2 border-blue-500 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5
                 @error('nuptk')
                     border-red-500 text-red-900 placeholder-red-700 focus:ring-red-500 focus:border-red-500
                 @enderror">
             @error('nuptk')
-                <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">{{ $message }}</span></p>
-            @enderror 
+            <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">{{ $message }}</span></p>
+            @enderror
         </div>
 
         <div class="mb-3 lg:w-5/12">
             <label for="nama" class="block mb-2 text-sm font-medium text-gray-900">Nama </label>
-            <input type="text" id="nama" name="nama" placeholder="Nama Guru "
-                class="bg-slate-50 border-2 border-blue-500 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5
+            <input type="text" id="nama" name="nama" placeholder="Nama Guru " class="bg-slate-50 border-2 border-blue-500 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5
                 @error('nama')
                     border-red-500 text-red-900 placeholder-red-700 focus:ring-red-500 focus:border-red-500
                 @enderror">
             @error('nama')
-                <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">{{ $message }}</span></p>
-            @enderror 
+            <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">{{ $message }}</span></p>
+            @enderror
         </div>
         <div class="mb-3 lg:w-5/12">
             <label for="password" class="block mb-2 text-sm font-medium text-gray-900">Password</label>
-            <input type="password" id="password" name="password" placeholder="Strong Password"
-                class="bg-slate-50 border-2 border-blue-500 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5
+            <input type="password" id="password" name="password" placeholder="Strong Password" class="bg-slate-50 border-2 border-blue-500 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5
                 @error('password')
                     border-red-500 text-red-900 placeholder-red-700 focus:ring-red-500 focus:border-red-500
                 @enderror">
             @error('password')
-                <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">{{ $message }}</span></p>
-            @enderror 
+            <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">{{ $message }}</span></p>
+            @enderror
         </div>
         <div class="mb-3 lg:w-5/12">
             <label for="gender" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Jenis
                 Kelamin</label>
             <select id="gender" name="jenis_kelamin" required
                 class="bg-gray-50  border-blue-500 border-2 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                <option value="L">Laki Laki</option>
-                <option value="P">Perempuan</option>
+                <option value="l">Laki Laki</option>
+                <option value="p">Perempuan</option>
             </select>
         </div>
     </div>
