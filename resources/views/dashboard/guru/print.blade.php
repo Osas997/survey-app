@@ -56,17 +56,20 @@
                         {{$murid->nama_murid}}
                     </td>
                     @endif
-
-
                     @if ($murid->surveyRespon)
                     <td>
-                        <span>{{$murid->surveyRespon->skor_total_pelaku}}
+                        <span>{{ $murid->surveyRespon->skor_total_pelaku }}
                             @if ($murid->surveyRespon->skor_total_pelaku >= 46)
                             (Sangat Tinggi)
-                            @elseif ($murid->surveyRespon->skor_total_pelaku >= 35 &&
-                            $murid->surveyRespon->skor_total_pelaku < 46) (Tinggi) @elseif ($murid->
-                                surveyRespon->skor_total_pelaku >= 24 && $murid->surveyRespon->skor_total_pelaku < 35)
-                                    (Sedang) @else (Rendah) @endif </span>
+                        </span>
+                        @elseif ($murid->surveyRespon->skor_total_pelaku >= 35 &&
+                        $murid->surveyRespon->skor_total_pelaku < 46) (Tinggi)</span>
+                            @elseif ($murid->surveyRespon->skor_total_pelaku >= 24 &&
+                            $murid->surveyRespon->skor_total_pelaku < 35) (Sedang)</span>
+                                @else
+                                (Rendah)
+                                </span>
+                                @endif
                     </td>
                     <td>
                         <span>
@@ -79,13 +82,18 @@
                                     Sedang @else Rendah @endif </span>
                     </td>
                     <td>
-                        <span>{{$murid->surveyRespon->skor_total_korban}}
+                        <span>{{ $murid->surveyRespon->skor_total_korban }}
                             @if ($murid->surveyRespon->skor_total_korban >= 46)
                             (Sangat Tinggi)
-                            @elseif ($murid->surveyRespon->skor_total_korban >= 35 &&
-                            $murid->surveyRespon->skor_total_korban < 46) (Tinggi) @elseif ($murid->
-                                surveyRespon->skor_total_korban >= 24 && $murid->surveyRespon->skor_total_korban < 35)
-                                    (Sedang) @else (Rendah) @endif </span>
+                        </span>
+                        @elseif ($murid->surveyRespon->skor_total_korban >= 35 &&
+                        $murid->surveyRespon->skor_total_korban < 46) (Tinggi)</span>
+                            @elseif ($murid->surveyRespon->skor_total_korban >= 24 &&
+                            $murid->surveyRespon->skor_total_korban < 35) (Sedang)</span>
+                                @else
+                                (Rendah)
+                                </span>
+                                @endif
                     </td>
                     <td>
                         <span>

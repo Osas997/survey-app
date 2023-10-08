@@ -2,14 +2,13 @@
 
 namespace App\Imports;
 
-use App\Models\Guru;
-use Illuminate\Support\Facades\Auth;
+use App\Models\Sekolah;
 use Illuminate\Support\Facades\Hash;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
 use Maatwebsite\Excel\Concerns\WithValidation;
 
-class GuruImport implements ToModel, WithHeadingRow, WithValidation
+class SekolahImport implements ToModel, WithHeadingRow, WithValidation
 {
     /**
      * @param array $row
@@ -18,22 +17,23 @@ class GuruImport implements ToModel, WithHeadingRow, WithValidation
      */
     public function model(array $row)
     {
-        return new Guru([
-            "nama" => $row["nama_guru"],
-            "nuptk" => $row["nuptk"],
-            "jenis_kelamin" => $row["jenis_kelamin"],
+        return new Sekolah([
+            "nama_sekolah" => $row["nama_sekolah"],
+            "npsn" => $row["npsn"],
             "password" => Hash::make($row["password"]),
-            "id_sekolah" => Auth::guard('sekolah')->user()->id,
+            "alamat_sekolah" => $row["alamat"],
+            "status" => $row["status"],
         ]);
     }
 
     public function rules(): array
     {
         return [
-            'nama_guru' => 'required',
-            'nuptk' => 'required|unique:guru',
-            'jenis_kelamin' => 'required|in:l,p',
+            'npsn' => 'required|unique:sekolah',
+            'nama_sekolah' => 'required',
+            'alamat' => 'required',
             'password' => 'required',
+            'status' => 'required|in:negeri,swasta',
         ];
     }
 }

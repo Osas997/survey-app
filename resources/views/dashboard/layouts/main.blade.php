@@ -20,7 +20,9 @@
       </div>
    </div>
 
-   @include('dashboard.partials.script')
+   @hasSection ('script')
+   @yield('script')
+   @endif
 </body>
 
 </html>

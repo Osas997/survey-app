@@ -2,11 +2,31 @@
 
 namespace App\Http\Controllers;
 
+use App\Imports\SekolahImport;
 use App\Models\Sekolah;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
+use Maatwebsite\Excel\Validators\ValidationException;
 
 class SekolahController extends Controller
 {
+
+    public function import(Request $request)
+    {
+        $request->validate([
+            'sekolah_exel' => 'required|mimes:xlsx,csv'
+        ]);
+
+        try {
+            Excel::import(new SekolahImport, $request->file('sekolah_exel'));
+            return redirect()->route('admin.sekolah')->with('successExel', 'Data Berhasil Di Import');
+        } catch (ValidationException $e) {
+            $failures = $e->failures();
+            // Anda bisa melakukan sesuatu dengan $failures di sini, misalnya menampilkan kesalahan ke pengguna.
+            return back()->with(['failures' => $failures]);
+        }
+    }
+
     /**
      * Display a listing of the resource.
      */
@@ -14,7 +34,7 @@ class SekolahController extends Controller
     {
         return view("dashboard.admin.sekolah", [
             "title" => "Dashboard Sekolah",
-            "dataSekolah" => Sekolah::search(request("search"))->paginate(5)
+            "dataSekolah" => Sekolah::search(request("search"))->paginate(8)
         ]);
     }
 

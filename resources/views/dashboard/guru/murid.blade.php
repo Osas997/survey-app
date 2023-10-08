@@ -73,9 +73,11 @@
             </tbody>
         </table>
     </div>
-
     @else
     <h1 class="text-center text-2xl font-bold text-red-600 mt-20">Sekolah TIdak ditemukan</h1>
     @endif
+    <div class="flex justify-center items-center mt-6 paginate">
+        {{ $daftarMurid->links() }}
+    </div>
 </div>
 @endsection

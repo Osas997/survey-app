@@ -4,9 +4,7 @@
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
 <!-- Font Awesome Icons -->
 <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
-{{-- chart --}}
-<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-
-@vite(['resources/css/app.css','resources/js/app.js'])
 
 <link rel="stylesheet" href="{{ asset('style.css') }}">
+
+@vite(['resources/css/app.css','resources/js/app.js'])

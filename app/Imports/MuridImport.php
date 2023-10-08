@@ -20,7 +20,7 @@ class MuridImport implements ToModel, WithHeadingRow, WithValidation
     {
         return new Murid([
             "nisn" => $row["nisn"],
-            "nama_murid" => $row["nama"],
+            "nama_murid" => $row["nama_murid"],
             "jenis_kelamin" => $row["jenis_kelamin"],
             "alamat" => $row["alamat"],
             "password" => Hash::make($row["password"]),
@@ -32,7 +32,7 @@ class MuridImport implements ToModel, WithHeadingRow, WithValidation
     {
         return [
             'nisn' => 'required|unique:murid',
-            'nama' => 'required',
+            'nama_murid' => 'required',
             'jenis_kelamin' => 'required|in:l,p',
             'alamat' => 'required',
             'password' => 'required',

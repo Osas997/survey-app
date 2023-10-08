@@ -107,6 +107,7 @@ class GuruController extends Controller
      */
     public function destroy(Guru $guru)
     {
-        //
+        $guru->delete();
+        return redirect("/sekolah/guru")->with('successDeleteGuru', "Guru Berhasil Di Hapus");
     }
 }

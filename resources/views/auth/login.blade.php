@@ -12,22 +12,38 @@
                 <h2 class="text-center font-semibold text-3xl text-black">Welcome Back</h2>
                 <p class="text-center font-medium text-xs mb-8 text-gray-800">Please enter your details!</p>
                 @if (session()->has('loginError'))
-                <div class="alert alert-error w-3/4 mb-4">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none"
-                        viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                <div id="alert-2"
+                    class="flex items-center p-4 mb-4 text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+                    role="alert">
+                    <svg class="flex-shrink-0 w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                        fill="currentColor" viewBox="0 0 20 20">
+                        <path
+                            d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
                     </svg>
-                    <span>{{session('loginError')}}</span>
+                    <span class="sr-only">Info</span>
+                    <div class="ml-3 text-sm font-medium">
+                        <span>{{session('loginError')}}</span>
+                    </div>
+                    <button type="button"
+                        class="ml-auto -mx-1.5 -my-1.5 bg-red-50 text-red-500 rounded-lg focus:ring-2 focus:ring-red-400 p-1.5 hover:bg-red-200 inline-flex items-center justify-center h-8 w-8 dark:bg-gray-800 dark:text-red-400 dark:hover:bg-gray-700"
+                        data-dismiss-target="#alert-2" aria-label="Close">
+                        <span class="sr-only">Close</span>
+                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                            viewBox="0 0 14 14">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                        </svg>
+                    </button>
                 </div>
                 @endif
+
                 <form action="/login" method="post">
                     @csrf
                     <div class="form-group min-w-[280px] sm:min-w-[330px]">
                         <p class="font-semibold text-black">Username</p>
                         <input type="text" placeholder="Masukan Username" name="username" class="input input-bordered bg-transparent
                             @error('username')
-                                input-error @else border-[#0090D4]
+                            border-red-600 @else border-[#0090D4]
                             @enderror 
                             w-full max-w-xs border-2  focus:border-[#0090D4] focus:outline-none text-black "
                             value="{{old('username')}}" />
@@ -41,13 +57,13 @@
                         ">
                         <p class="font-semibold text-black">Password</p>
                         <input type="password" placeholder="*********" name="password" class="input input-bordered bg-transparent w-full max-w-xs border-2 focus:border-[#0090D4] focus:outline-none text-black   
-                        @error('password')
-                            input-error @else border-[#0090D4]
+                        @error('username')
+                        border-red-600 @else border-[#0090D4]
                         @enderror " />
                     </div>
                     @error('password')
                     <div class="mt-2">
-                        <span class="text-red-500 align-start italic text-sm">Error</span>
+                        <span class="text-red-500 align-start italic text-sm">{{ $message }}</span>
                     </div>
                     @enderror
                     <button type="submit"

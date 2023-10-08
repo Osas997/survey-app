@@ -23,6 +23,6 @@ class GuruLaporanController extends Controller
         $title = "Laporan | " .  $namaSekolah;
         $dataSiswa = Murid::with('surveyRespon')->where('id_sekolah', auth('guru')->user()->id_sekolah)->abjad()->get();
         $totalSiswa = Murid::where('id_sekolah', auth('guru')->user()->id_sekolah)->count();
-        return view('dashboard.sekolah.print', compact('title', 'dataSiswa', 'namaSekolah', 'totalSiswa'));
+        return view('dashboard.guru.print', compact('title', 'dataSiswa', 'namaSekolah', 'totalSiswa'));
     }
 }
