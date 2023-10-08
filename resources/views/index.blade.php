@@ -84,7 +84,8 @@
                             </div>
                         </a>
                         <h1 class="text-base text-white font-normal mt-4">Siswa Yang Sudah Mengikuti</h1>
-                        <p class=" text-3xl font-semibold text-white">36+ <span class="text-2xl font-normal">Siswa</span></p>
+                        <p class=" text-3xl font-semibold text-white">{{ $responden }}+ <span
+                                class="text-2xl font-normal">Siswa</span></p>
 
                     </div>
                     <div class="hidden md:flex justify-center items-center flex-1 ">
@@ -100,11 +101,16 @@
                 <h1 class="text-center text-black font-semibold text-3xl mb-8">Apa Yang Kami Berikan</h1>
                 <div class="grid grid-col-1 sm:grid-cols-2 justify-center items-center gap-4 ">
                     <div class="flex justify-center items-center h-full w-full  mb-4">
-                        <img src="{{asset('assets/img/bk-vector.jpg')}}" alt="" srcset="" class="w-10/12 h-auto sm:w-full md:w-full lg:w-9/12 xl:w-8/12">
+                        <img src="{{asset('assets/img/bk-vector.jpg')}}" alt="" srcset=""
+                            class="w-10/12 h-auto sm:w-full md:w-full lg:w-9/12 xl:w-8/12">
                     </div>
                     <div class="w-full lg:w-9/12">
-                        <h1 class="text-xl text-black font-semibold mb-2">Bangun Keamanan dan Kenyamanan Belajar di Sekolah Bersama Guru BK </h1>
-                        <p class="text-base text-gray-500">Keamanan dan kenyamanan adalah pondasi penting dalam lingkungan belajar. Temukan bagaimana hubungan erat antara konseling dan guru BK dapat membantu menciptakan sekolah yang aman dan nyaman bagi semua siswa. Tolak Perundungan Bersama-sama</p>
+                        <h1 class="text-xl text-black font-semibold mb-2">Bangun Keamanan dan Kenyamanan Belajar di
+                            Sekolah Bersama Guru BK </h1>
+                        <p class="text-base text-gray-500">Keamanan dan kenyamanan adalah pondasi penting dalam
+                            lingkungan belajar. Temukan bagaimana hubungan erat antara konseling dan guru BK dapat
+                            membantu menciptakan sekolah yang aman dan nyaman bagi semua siswa. Tolak Perundungan
+                            Bersama-sama</p>
                     </div>
                 </div>
 
@@ -121,7 +127,7 @@
                     <p class="mb-6 text-base text-gray-100 sm:text-lg
                     md:text-base ">"Tolak Perundungan: Bersama-sama Kita Hentikan Tindakan Merugikan Ini!"</p>
                     <div class="items-center justify-center space-y-4 sm:flex sm:space-y-0 sm:space-x-4">
-                        <a href="#" class="w-1/2  bg-white hover:bg-slate-100  focus:ring-4 focus:outline-none focus:ring-gray-300 text-white rounded-lg inline-flex items-center justify-center px-4 py-2.5 
+                        <a href="{{ route('login') }}" class="w-1/2  bg-white hover:bg-slate-100  focus:ring-4 focus:outline-none focus:ring-gray-300 text-white rounded-lg inline-flex items-center justify-center px-4 py-2.5 
                         md:w-5/12">
                             <p class="text-base text-[#0062CE] font-semibold">Login Now</p>
                         </a>

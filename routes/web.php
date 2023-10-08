@@ -11,6 +11,7 @@ use App\Http\Controllers\MuridSurveyController;
 use App\Http\Controllers\PertanyaanController;
 use App\Http\Controllers\SekolahController;
 use App\Http\Controllers\SekolahLaporanController;
+use App\Models\SurveyRespon;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,7 +26,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('index');
+    $responden = SurveyRespon::count();
+    return view('index', compact('responden'));
 })->name('index');
 
 Route::middleware("sudahlogin")->group(function () {
