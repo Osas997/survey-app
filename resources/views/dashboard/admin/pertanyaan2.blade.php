@@ -136,8 +136,7 @@
             <td class="px-6 py-4"> {{ $pertanyaan->tipe }}</td>
             <td class="px-6 py-4 text-center">
                <a href="{{ route('admin.viewEditPertanyaan', $pertanyaan->id) }}"
-                  class="font-medium text-blue-600 mx-2 hover:underline">Edit
-               </a>
+                  class="font-medium text-blue-600 mx-2 hover:underline">Edit</a>
                <form action="{{ route('admin.hapusPertanyaan', $pertanyaan->id) }}" method="POST" class="inline">
                   @method('DELETE')
                   @csrf

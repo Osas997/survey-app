@@ -77,9 +77,7 @@ class SekolahController extends Controller
      */
     public function edit(Sekolah $sekolah)
     {
-        return view('dashboard.admin.editSekolah',[
-            "title" => "Edit Sekolah",
-        ]);
+        //
     }
 
     /**
@@ -95,7 +93,6 @@ class SekolahController extends Controller
      */
     public function destroy(Sekolah $sekolah)
     {
-        $sekolah->delete();
-        return redirect()->back()->with('successDeleteSekolah', "Sekolah Berhasil Di Hapus");
+        //
     }
 }
