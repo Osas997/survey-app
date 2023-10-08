@@ -18,53 +18,42 @@
         <span class=" md:text-xl">Edit Sekolah</span>
     </p>
 </div>
-<form action="/admin/sekolah" method="post">
+<form action="{{ route('admin.updateSekolah', $sekolah->id) }}" method="post">
+    @method('put')
     @csrf
     <div class="lg:grid lg:grid-cols-1 lg:place-items-center mt-10">
         <div class="mb-6 lg:w-5/12">
             <label for="npsn" class="block mb-2 text-sm font-medium text-gray-900">NPSN</label>
-            <input type="text" id="npsn" name="npsn" placeholder="NPSN Sekolah" value=""
-                class="bg-slate-50 border-2 border-blue-500 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5
+            <input type="text" id="npsn" name="npsn" placeholder="NPSN Sekolah" value="{{ $sekolah->npsn }}" class="bg-slate-50 border-2 border-blue-500 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5
                 @error('npsn')
                     border-red-500 text-red-900 placeholder-red-700 focus:ring-red-500 focus:border-red-500
                 @enderror">
             @error('npsn')
-                <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">{{ $message }}</span></p>
+            <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">{{ $message }}</span></p>
             @enderror
         </div>
 
         <div class="mb-6 lg:w-5/12">
             <label for="nama_sekolah" class="block mb-2 text-sm font-medium text-gray-900">Nama Sekolah</label>
-            <input type="text" id="nama_sekolah" name="nama_sekolah" placeholder="SDN... " value=""
-                class="bg-slate-50 border-2 border-blue-500 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5
+            <input type="text" id="nama_sekolah" name="nama_sekolah" placeholder="SDN... "
+                value="{{ $sekolah->nama_sekolah }}" class="bg-slate-50 border-2 border-blue-500 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5
                 @error('nama_sekolah')
                     border-red-500 text-red-900 placeholder-red-700 focus:ring-red-500 focus:border-red-500
                 @enderror">
             @error('nama_sekolah')
-                <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">{{ $message }}</span></p>
-            @enderror
-        </div>
-        <div class="mb-6 lg:w-5/12">
-            <label for="password" class="block mb-2 text-sm font-medium text-gray-900">Password</label>
-            <input type="password" id="password" name="password" placeholder="Strong Password" value=""
-                class="bg-slate-50 border-2 border-blue-500 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5
-                @error('password')
-                    border-red-500 text-red-900 placeholder-red-700 focus:ring-red-500 focus:border-red-500
-                @enderror">
-            @error('password')
-                <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">{{ $message }}</span></p>
+            <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">{{ $message }}</span></p>
             @enderror
         </div>
 
         <div class="mb-6 lg:w-5/12">
             <label for="alamat_sekolah" class="block mb-2 text-sm font-medium text-gray-900">Alamat Sekolah</label>
-            <input type="text" id="alamat_sekolah" name="alamat_sekolah" placeholder="Jl. Raya.. " value=""
-                class="bg-slate-50 border-2 border-blue-500 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5
+            <input type="text" id="alamat_sekolah" name="alamat_sekolah" placeholder="Jl. Raya.. "
+                value="{{ $sekolah->alamat_sekolah }}" class="bg-slate-50 border-2 border-blue-500 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5
                 @error('alamat_sekolah')
                     border-red-500 text-red-900 placeholder-red-700 focus:ring-red-500 focus:border-red-500
                 @enderror">
             @error('alamatSekolah')
-                <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">{{ $message }}</span></p>
+            <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">{{ $message }}</span></p>
             @enderror
         </div>
 
@@ -73,8 +62,8 @@
                 Sekolah</label>
             <select id="status" name="status" required
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
-                <option value="negeri">Negeri</option>
-                <option value="swasta">Swasta</option>
+                <option @if ($sekolah->status == 'negeri') selected @endif value="negeri">Negeri</option>
+                <option @if ($sekolah->status == 'swasta') selected @endif value="swasta">Swasta</option>
             </select>
         </div>
 

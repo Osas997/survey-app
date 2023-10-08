@@ -77,8 +77,9 @@ class SekolahController extends Controller
      */
     public function edit(Sekolah $sekolah)
     {
-        return view('dashboard.admin.editSekolah',[
+        return view('dashboard.admin.editSekolah', [
             "title" => "Edit Sekolah",
+            "sekolah" => $sekolah
         ]);
     }
 
@@ -87,7 +88,15 @@ class SekolahController extends Controller
      */
     public function update(Request $request, Sekolah $sekolah)
     {
-        //
+        $validate = $request->validate([
+            "npsn" => "required",
+            "nama_sekolah" => "required",
+            "alamat_sekolah" => "required",
+            "status" => "required",
+        ]);
+
+        $sekolah->update($validate);
+        return redirect("/admin/sekolah")->with('successEditSekolah', "Sekolah Berhasil Di Edit");
     }
 
     /**
