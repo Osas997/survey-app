@@ -38,7 +38,7 @@ Route::post("/logout", [AuthController::class, "logout"])->name("logout")->middl
 Route::middleware("admin")->prefix('admin')->group(function () {
     Route::get("/dashboard", [DashboardController::class, "index"])->name("admin.dashboard");
 
-    Route::resource("/sekolah", SekolahController::class)->name("index", "admin.sekolah")->name("create", "admin.tambahSekolah");
+    Route::resource("/sekolah", SekolahController::class)->name("index", "admin.sekolah")->name("create", "admin.tambahSekolah")->name("edit","admin.editSekolah")->name('destroy', 'admin.hapusSekolah');
     Route::post("/sekolah/import", [SekolahController::class, "import"])->name('admin.sekolahExel');
 
     Route::get('/pertanyaan', [PertanyaanController::class, "index"])->name('admin.pertanyaan');
