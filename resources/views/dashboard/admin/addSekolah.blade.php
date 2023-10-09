@@ -23,7 +23,7 @@
     <div class="lg:grid lg:grid-cols-1 lg:place-items-center mt-10">
         <div class="mb-6 lg:w-5/12">
             <label for="npsn" class="block mb-2 text-sm font-medium text-gray-900">NPSN</label>
-            <input type="text" autocomplete="off id=" npsn" name="npsn" placeholder="NPSN Sekolah" class="bg-slate-50 border-2 border-blue-500 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5
+            <input type="text" autocomplete="off" id="npsn" name="npsn" placeholder="NPSN Sekolah" class="bg-slate-50 border-2 border-blue-500 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5
                 @error('npsn')
                     border-red-500 text-red-900 placeholder-red-700 focus:ring-red-500 focus:border-red-500
                 @enderror">
@@ -34,7 +34,7 @@
 
         <div class="mb-6 lg:w-5/12">
             <label for="nama_sekolah" class="block mb-2 text-sm font-medium text-gray-900">Nama Sekolah</label>
-            <input type="text" autocomplete="off id=" nama_sekolah" name="nama_sekolah" placeholder="SDN... " class="bg-slate-50 border-2 border-blue-500 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5
+            <input type="text" autocomplete="off" id="nama_sekolah" name="nama_sekolah" placeholder="SDN... " class="bg-slate-50 border-2 border-blue-500 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5
                 @error('nama_sekolah')
                     border-red-500 text-red-900 placeholder-red-700 focus:ring-red-500 focus:border-red-500
                 @enderror">
@@ -55,7 +55,7 @@
 
         <div class="mb-6 lg:w-5/12">
             <label for="alamat_sekolah" class="block mb-2 text-sm font-medium text-gray-900">Alamat Sekolah</label>
-            <input type="text" autocomplete="off id=" alamat_sekolah" name="alamat_sekolah" placeholder="Jl. Raya.. "
+            <input type="text" autocomplete="off" id="alamat_sekolah" name="alamat_sekolah" placeholder="Jl. Raya.. "
                 class="bg-slate-50 border-2 border-blue-500 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5
                 @error('alamat_sekolah')
                     border-red-500 text-red-900 placeholder-red-700 focus:ring-red-500 focus:border-red-500
