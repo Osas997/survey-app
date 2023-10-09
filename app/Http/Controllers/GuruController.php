@@ -90,6 +90,14 @@ class GuruController extends Controller
      */
     public function edit(Guru $guru)
     {
+        // Pastikan ada user yang sedang login
+        $sekolah = auth("sekolah")->user();
+
+        // Jika sekolah yang sedang login tidak sesuai dengan guru sekolah_id
+        if ($guru->id_sekolah != $sekolah->id) {
+            return abort(401); // Unauthorized
+        }
+
         $title = 'Edit Guru';
         return view('dashboard.sekolah.editGuru', compact('guru', 'title'));
     }

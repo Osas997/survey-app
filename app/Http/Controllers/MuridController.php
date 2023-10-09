@@ -102,6 +102,13 @@ class MuridController extends Controller
      */
     public function edit(Murid $murid)
     {
+        // Pastikan ada user yang sedang login
+        $sekolah = auth("sekolah")->user();
+
+        // Jika sekolah yang sedang login tidak sesuai dengan guru sekolah_id
+        if ($murid->id_sekolah != $sekolah->id) {
+            return abort(401); // Unauthorized
+        }
         $title = "Edit Murid";
         return view('dashboard.sekolah.editMurid', compact('murid', 'title'));
     }
