@@ -1,16 +1,16 @@
 @extends('layout.pages')
-@section('title','Survey App')
+@section('title','Safe Schools')
 @section('content')
 <div class="w-screen h-screen overflow-x-hidden scroll-smooth">
     <div class=" ">
         {{-- nav --}}
         <nav class="bg-[#0090D4] border-gray-200 ">
             <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-                <a href="" class="flex items-center">
+                <a href="" class="flex items-center ">
                     <img src="{{ asset('assets/img/white-logo.png') }}" class="h-7 mr-3" alt="Survey Logo" />
-                    <span class="self-center text-2xl font-semibold whitespace-nowrap text-white">Survey App</span>
+                    <span class="self-center text-2xl font-semibold whitespace-nowrap text-white">Safe Schools</span>
                 </a>
-                <div class="flex md:order-2">
+                <div class="flex md:order-2 md:ml-14">
                     <a href="{{ route('login') }}"
                         class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Login</a>
                     <button data-collapse-toggle="navbar-cta" type="button"
@@ -83,7 +83,7 @@
                                 </div>
                             </div>
                         </a>
-                        <h1 class="text-base text-white font-normal mt-4">Siswa Yang Sudah Mengikuti</h1>
+                        <h1 class="text-lg text-white font-normal mt-4">Responded</h1>
                         <p class=" text-3xl font-semibold text-white">{{ $responden }}+ <span
                                 class="text-2xl font-normal">Siswa</span></p>
 

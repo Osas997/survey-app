@@ -1,5 +1,5 @@
 @extends('layout.pages')
-@section('title','Survey App')
+@section('title','Safe Schools')
 @section('content')
 <div class="w-screen h-screen overflow-x-hidden scroll-smooth bg-white ">
     @include('dashboard.murid.navbar')
@@ -36,7 +36,7 @@
                         <h1 class="text-xl text-center font-semibold">Survey Perundungan</h1>
                     </div>
                     <div class="deskirbsi px-12">
-                        <h1 class="text-center text-base text-green-400 mb-16">Survey Tentang Perundungan Siswa</h1>
+                        <h1 class="text-center text-base text-green-400 mb-16">Survey Yang Menilai Seberapa Besar Siswa Menjadi Korban dan Pelaku Perundungan </h1>
                     </div>
                     <div class="flex justify-start items-start flex-col border-t-2 border-gray-200 px-4 py-4 gap-2">
                         <div class="flex justify-start items-start gap-2">

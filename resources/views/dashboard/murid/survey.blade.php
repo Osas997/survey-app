@@ -98,7 +98,7 @@
             </form>
         </div>
         @else
-        <div class="text-center text-4xl text-red-700">Sudah Menjawab Survey</div>
+        <div class="text-center text-2xl text-red-700">Anda Sudah Menjawab Survey</div>
         @endif
     </div>
 </div>
