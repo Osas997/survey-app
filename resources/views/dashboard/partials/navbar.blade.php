@@ -15,8 +15,7 @@
             </button>
             <a href="{{ route('index') }}" class="flex ml-2 md:mr-24">
                <img src="{{asset('assets/img/blue-logo.png')}}" class="h-8 mr-3" alt="FlowBite Logo" />
-               <span class="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white">Survey
-                  App</span>
+               <span class="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white">Safe Schools</span>
             </a>
          </div>
          <div class="flex items-center">
