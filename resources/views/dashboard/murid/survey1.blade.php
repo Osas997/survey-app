@@ -2,10 +2,6 @@
 @section('title','Survey App')
 @section('content')
 <div class="w-full min-h-screen overflow-x-hidden scroll-smooth ">
-{{-- 
-    1. id pertanyaan
-    2. type pertanyaan
-    3. skor--}}
     <nav class="bg-white border-gray-200 border-b-2  ">
         <div class="w-full flex flex-wrap items-center justify-between mx-auto p-4">
             <a href="" class="flex items-center">
