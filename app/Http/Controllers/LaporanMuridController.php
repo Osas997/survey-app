@@ -44,10 +44,10 @@ class LaporanMuridController extends Controller
 
     protected function userNotAllowed(Murid $murid): bool
     {
-        if (auth('sekolah')->check() && auth('sekolah')->user()->id !== $murid->id_sekolah) {
+        if (auth('sekolah')->check() && auth('sekolah')->user()->id != $murid->id_sekolah) {
             return true;
         }
-        if (auth('guru')->check() && auth('guru')->user()->sekolah->id !== $murid->id_sekolah) {
+        if (auth('guru')->check() && auth('guru')->user()->sekolah->id != $murid->id_sekolah) {
             return true;
         }
         return false;
