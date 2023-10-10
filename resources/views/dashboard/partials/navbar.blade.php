@@ -28,11 +28,11 @@
                      <div
                         class="w-12 h-12 bg-gray-300 rounded-full flex items-center justify-center text-xl text-white">
                         @if (auth('admin')->check())
-                        {{ substr(auth('admin')->user()->username, 0, 1) }}
+                        <span class="uppercase">{{ substr(auth('admin')->user()->username, 0, 1) }}</span>
                         @elseif (auth('sekolah')->check())
-                        {{ substr(auth('sekolah')->user()->nama_sekolah, 0, 1) }}
+                        <span class="uppercase">{{ substr(auth('sekolah')->user()->nama_sekolah, 0, 1) }}</span>
                         @elseif (auth('guru')->check())
-                        {{ substr(auth('guru')->user()->nama, 0, 1) }}
+                        <span class="uppercase">{{ substr(auth('guru')->user()->nama, 0, 1) }}</span>
                         @endif
                      </div>
                   </button>

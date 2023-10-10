@@ -25,45 +25,10 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
-
-        Admin::insert(
-            [
-                [
-                    "nama" => "fahmi",
-                    "username" => "fahmigenteng",
-                    "password" => Hash::make(12345)
-                ],
-                [
-                    "nama" => "rendi",
-                    "username" => "rendisempu",
-                    "password" => Hash::make(12345)
-                ]
-            ]
-        );
-
-        Sekolah::create([
-            "npsn" => "123",
-            "password" => "12345",
-            "nama_sekolah" => "SMPN 1 SEMPU",
-            "alamat_sekolah" => "Rth SEMPU",
-            "status" => "negeri"
-        ]);
-
-        Guru::create([
-            "nuptk" => "nuptk",
-            "nama" => "samsul hadi",
-            "jenis_kelamin" => "l",
-            "password" => "12345",
-            "id_sekolah" => 1
-        ]);
-
-        Murid::create([
-            "nisn" => "nisn",
-            "password" => "12345",
-            "nama_murid" => "Diki Brong",
-            "jenis_kelamin" => "L",
-            "id_sekolah" => 1,
-            "alamat" => "cungking"
+        Admin::create([
+            "nama" => "admin",
+            "username" => "admin",
+            "password" => Hash::make('admin')
         ]);
 
         Pertanyaan::create([
