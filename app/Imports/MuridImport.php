@@ -33,7 +33,7 @@ class MuridImport implements ToModel, WithHeadingRow, WithValidation
         return [
             'nisn' => 'required|unique:murid',
             'nama_murid' => 'required',
-            'jenis_kelamin' => 'required|in:l,p',
+            'jenis_kelamin' => 'required|in:l,p,L,P',
             'alamat' => 'required',
             'password' => 'required',
         ];

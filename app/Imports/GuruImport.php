@@ -32,7 +32,7 @@ class GuruImport implements ToModel, WithHeadingRow, WithValidation
         return [
             'nama_guru' => 'required',
             'nuptk' => 'required|unique:guru',
-            'jenis_kelamin' => 'required|in:l,p',
+            'jenis_kelamin' => 'required|in:l,p,L,P',
             'password' => 'required',
         ];
     }
