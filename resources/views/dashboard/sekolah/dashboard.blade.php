@@ -48,7 +48,7 @@
         <h1 class="text-2xl md:text-3xl text-slate-800 dark:text-slate-100 font-bold mb-1">Welcome Back
             <span class="uppercase">{{ auth('sekolah')->user()->nama_sekolah }} 👋</span>
         </h1>
-        <p class="w-8/12 text-slate-800 ">Kami sangat senang melihat Anda kembali ke dashboard admin kami. Dengan tekad bersama, kita akan terus berjuang untuk mengatasi permasalahan serius tentang bullying</p>
+        <p class="lg:w-8/12 text-slate-800 ">Kami sangat senang melihat Anda kembali ke dashboard admin kami. Dengan tekad bersama, kita akan terus berjuang untuk mengatasi permasalahan serius tentang bullying</p>
     </div>
 
 </div>
