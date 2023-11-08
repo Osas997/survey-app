@@ -3,7 +3,7 @@
 
 <div class="flex justify-start items-center gap-5">
     <div class="w-10 h-10">
-        <a href="{{ route('admin.pertanyaan') }}">
+        <a href="{{ route('admin.pertanyaan', $pertanyaan->id_survey ) }}">
             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                 <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>

@@ -6,6 +6,7 @@ use App\Models\Guru;
 use App\Models\Murid;
 use App\Models\Pertanyaan;
 use App\Models\Sekolah;
+use App\Models\Survey;
 use App\Models\SurveyRespon;
 use Illuminate\Http\Request;
 
@@ -117,8 +118,7 @@ class DashboardController extends Controller
     public function indexMurid()
     {
         $title = "Murid Dashboard";
-        $responden = SurveyRespon::count();
-        $totalPertanyaan = Pertanyaan::count();
-        return view('dashboard.murid.dashboard', compact('title', 'responden', 'totalPertanyaan'));
+        $survey = Survey::withCount(["responded", "pertanyaan"])->get();
+        return view('dashboard.murid.dashboard', compact('title', 'survey'));
     }
 }

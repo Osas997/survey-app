@@ -29,73 +29,45 @@
     </div>
     @endif
     <div class="max-w-screen-xl mx-auto px-10 mt-10">
-        <div class="flex justify-center items-center">
-            <div class="w-full flex justify-center items-center flex-col bg-gray-50 shadow-lg max-w-sm rounded-md py-8">
-                <div class="flex justify-between  flex-col">
-                    <div class="title mb-16">
-                        <h1 class="text-xl text-center font-semibold">Survey Perundungan</h1>
+        <div class="flex gap-8 flex-wrap justify-center items-center">
+            @foreach ($survey as $survei)
+            <div class="w-full flex justify-center items-center flex-col bg-gray-50 shadow-lg max-w-xs rounded-md py-4">
+                <div class="flex justify-between flex-col">
+                    <div class="title mb-4">
+                        <h1 class="text-lg text-center font-semibold">{{ $survei->nama_survey }}</h1>
                     </div>
-                    <div class="deskirbsi px-12">
-                        <h1 class="text-center text-base text-green-400 mb-16">Survey Yang Menilai Seberapa Besar Siswa Menjadi Korban dan Pelaku Perundungan </h1>
+                    <div class="deskirbsi px-4">
+                        <h1 class="text-center text-sm text-green-400 mb-4">{{ $survei->deskripsi }}</h1>
                     </div>
-                    <div class="flex justify-start items-start flex-col border-t-2 border-gray-200 px-4 py-4 gap-2">
-                        <div class="flex justify-start items-start gap-2">
-                            <div class="w-8 h-8">
+                    <div class="flex justify-start items-start flex-col border-t-2 border-gray-200 px-2 py-2 gap-1">
+                        <div class="flex justify-start items-start gap-1">
+                            <div class="w-6 h-6">
                                 <svg viewBox="0 0 1024 1024" class="icon" version="1.1"
                                     xmlns="http://www.w3.org/2000/svg" fill="#000000">
-                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                                    <g id="SVGRepo_iconCarrier">
-                                        <path
-                                            d="M768 85.333333H554.666667c0 23.466667-19.2 42.666667-42.666667 42.666667s-42.666667-19.2-42.666667-42.666667H256C209.066667 85.333333 170.666667 123.733333 170.666667 170.666667v682.666666c0 46.933333 38.4 85.333333 85.333333 85.333334h512c46.933333 0 85.333333-38.4 85.333333-85.333334V170.666667c0-46.933333-38.4-85.333333-85.333333-85.333334z"
-                                            fill="#455A64"></path>
-                                        <path
-                                            d="M768 874.666667H256c-12.8 0-21.333333-8.533333-21.333333-21.333334V170.666667c0-12.8 8.533333-21.333333 21.333333-21.333334h512c12.8 0 21.333333 8.533333 21.333333 21.333334v682.666666c0 12.8-8.533333 21.333333-21.333333 21.333334z"
-                                            fill="#FFFFFF"></path>
-                                        <path
-                                            d="M554.666667 85.333333c0 23.466667-19.2 42.666667-42.666667 42.666667s-42.666667-19.2-42.666667-42.666667h-149.333333v85.333334c0 23.466667 19.2 42.666667 42.666667 42.666666h298.666666c23.466667 0 42.666667-19.2 42.666667-42.666666V85.333333h-149.333333z"
-                                            fill="#90A4AE"></path>
-                                        <path
-                                            d="M512 0c-46.933333 0-85.333333 38.4-85.333333 85.333333s38.4 85.333333 85.333333 85.333334 85.333333-38.4 85.333333-85.333334-38.4-85.333333-85.333333-85.333333z m0 128c-23.466667 0-42.666667-19.2-42.666667-42.666667s19.2-42.666667 42.666667-42.666666 42.666667 19.2 42.666667 42.666666-19.2 42.666667-42.666667 42.666667z"
-                                            fill="#90A4AE"></path>
-                                        <path
-                                            d="M448 426.666667h256v42.666666H448zM320 405.333333h85.333333v85.333334h-85.333333z"
-                                            fill="#CFD8DC"></path>
-                                        <path
-                                            d="M448 618.666667h256v42.666666H448zM320 597.333333h85.333333v85.333334h-85.333333z"
-                                            fill="#03A9F4"></path>
-                                    </g>
+                                    <!-- ...SVG Path... -->
                                 </svg>
                             </div>
-                            <p class="text-base">{{ $responden }} Respon</p>
+                            <p class="text-xs">{{ $survei->responded_count }} Respon</p>
                         </div>
-                        <div class="flex justify-start items-start gap-2">
-                            <div class="w-7 h-7 ml-1">
+                        <div class="flex justify-start items-start gap-1">
+                            <div class="w-5 h-5 ml-1">
                                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                                    <g id="SVGRepo_iconCarrier">
-                                        <path
-                                            d="M10.125 8.875C10.125 7.83947 10.9645 7 12 7C13.0355 7 13.875 7.83947 13.875 8.875C13.875 9.56245 13.505 10.1635 12.9534 10.4899C12.478 10.7711 12 11.1977 12 11.75V13"
-                                            stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"></path>
-                                        <circle cx="12" cy="16" r="1" fill="#1C274C"></circle>
-                                        <path
-                                            d="M22 12C22 16.714 22 19.0711 20.5355 20.5355C19.0711 22 16.714 22 12 22C7.28595 22 4.92893 22 3.46447 20.5355C2 19.0711 2 16.714 2 12C2 7.28595 2 4.92893 3.46447 3.46447C4.92893 2 7.28595 2 12 2C16.714 2 19.0711 2 20.5355 3.46447C21.5093 4.43821 21.8356 5.80655 21.9449 8"
-                                            stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"></path>
-                                    </g>
+                                    <!-- ...SVG Path... -->
                                 </svg>
                             </div>
-                            <p class="">{{ $totalPertanyaan }} Pertanyaan</p>
+                            <p class="text-xs">{{ $survei->pertanyaan_count }} Pertanyaan</p>
                         </div>
-                        <a href="{{ route('murid.viewSurvey') }}"
-                            class="w-full py-4 bg-green-400 flex justify-center items-center rounded-xl mt-4 hover:bg-green-500 duration-300 ease-in-out">
-                            <h1 class="text-white">Join Now</h1>
+                        <a href="{{ route('murid.viewSurvey', $survei->id) }}"
+                            class="w-full py-2 bg-green-400 flex justify-center items-center rounded-xl mt-2 hover:bg-green-500 duration-300 ease-in-out">
+                            <h1 class="text-white text-sm">Join Now</h1>
                         </a>
                     </div>
                 </div>
             </div>
-
+            @endforeach
         </div>
     </div>
+
+</div>
 </div>
 @endsection

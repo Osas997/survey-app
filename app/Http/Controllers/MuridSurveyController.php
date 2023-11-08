@@ -11,17 +11,18 @@ use Illuminate\Support\Facades\DB;
 
 class MuridSurveyController extends Controller
 {
-    public function survey()
+    public function survey(Survey $survey)
     {
-        $pertanyaan = Pertanyaan::get();
-        $respon = SurveyRespon::where("id_murid", auth('murid')->user()->id)->first();
+        $pertanyaan = Pertanyaan::where('id_survey', $survey->id)->get();
+        $respon = SurveyRespon::where("id_murid", auth('murid')->user()->id)->where("id_survey", $survey->id)->first();
 
         $cekSurvey = $respon ? true : false;
 
         return view('dashboard.murid.survey', [
             'title' => 'Survey Test',
             "dataPertanyaan" => $pertanyaan,
-            "cekSurvey" => $cekSurvey
+            "cekSurvey" => $cekSurvey,
+            "survey" => $survey
         ]);
     }
 
@@ -35,6 +36,7 @@ class MuridSurveyController extends Controller
         try {
             DB::beginTransaction();
             $surveyRespon = SurveyRespon::create([
+                "id_survey" => $request->id_survey,
                 "id_murid" => auth("murid")->user()->id,
                 "id_sekolah" => auth("murid")->user()->id_sekolah,
                 "skor_total_korban" => 0,

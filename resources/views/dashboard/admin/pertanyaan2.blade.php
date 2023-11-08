@@ -1,7 +1,8 @@
 @extends('dashboard.layouts.main')
 @section('content')
 
-<h1 class="text-2xl sm:text-3xl py-8">Pertanyaan</h1>
+<h1 class="text-2xl sm:text-3xl py-2">Pertanyaan Survey {{ $survey->nama_survey }}</h1>
+<p class="text-lg py-4 text-black">{{ $survey->deskripsi }}</p>
 <div class="flex justify-start items-center gap-4 mb-8">
    <form action="" method="get" class="md:w-1/2 w-full">
       <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
@@ -21,7 +22,7 @@
             class="text-white absolute right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Search</button>
       </div>
    </form>
-   <a href="{{ route('admin.viewTambahPertanyaan') }}">
+   <a href="{{ route('admin.viewTambahPertanyaan', $survey->id) }}">
       <div class="w-12 h-12 flex justify-center items-center  rounded-lg border-black cursor-pointer md:w-14">
          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>

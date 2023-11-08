@@ -225,17 +225,19 @@
                     <td class="px-6 py-4">
                         <span class="sm:text-sm md:text-md">{{ $sekolah->status }}</span>
                     </td>
-                    <td class="px-6 py-4 flex justify-center items-center flex-row">
-                        <a href="{{ route('admin.editSekolah', $sekolah->id) }}"
-                            class="font-medium text-blue-600 mx-2 hover:underline">Edit
-                        </a>
-                        <form action="{{ route('admin.hapusSekolah', $sekolah->id) }}" method="POST" class="inline">
-                            @method('DELETE')
-                            @csrf
-                            <button type="submit"
-                                onclick="return confirm('Apakah Anda Ingin Menghapus Pertanyaan Ini ? \nAnda Juga Akan Menghapus Semua Data Terkait Pertanyaan Ini')"
-                                class="font-medium text-red-600 mx-2 hover:underline">Delete</button>
-                        </form>
+                    <td class="px-6 py-4">
+                        <div class="flex justify-center items-center gap-1">
+                            <a href="{{ route('admin.editSekolah', $sekolah->id) }}"
+                                class="font-medium text-blue-600 mx-2 hover:underline">Edit
+                            </a>
+                            <form action="{{ route('admin.hapusSekolah', $sekolah->id) }}" method="POST" class="inline">
+                                @method('DELETE')
+                                @csrf
+                                <button type="submit"
+                                    onclick="return confirm('Apakah Anda Ingin Menghapus Pertanyaan Ini ? \nAnda Juga Akan Menghapus Semua Data Terkait Pertanyaan Ini')"
+                                    class="font-medium text-red-600 mx-2 hover:underline">Delete</button>
+                            </form>
+                        </div>
                     </td>
                     <td class="px-6 py-4 text-right">
                         <div class="flex justify-center items-center gap-1">

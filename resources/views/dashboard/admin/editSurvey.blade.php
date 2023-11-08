@@ -3,7 +3,7 @@
 
 <div class="flex justify-start items-center gap-5">
     <div class="w-10 h-10">
-        <a href="{{ route('admin.pertanyaan', $survey->id) }}">
+        <a href="{{ route('admin.pertanyaan',['survey' => $survey->id]) }}">
             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                 <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -16,26 +16,27 @@
         </a>
     </div>
     <p class="font-bold text-lg my-0">
-        <span class=" md:text-xl">Tambah Pertanyaan</span>
+        <span class=" md:text-xl">Edit Survey</span>
     </p>
 </div>
-<form action="{{ route('admin.tambahPertanyaan') }}" method="post">
+
+<form action="{{ route('admin.editSurvey',['survey' => $survey->id]) }}" method="post">
+    @method('put')
     @csrf
-    <input type="hidden" name="id_survey" value="{{ $survey->id }}">
     <div class="lg:grid lg:grid-cols-1 lg:place-items-center mt-10">
         <div class="mb-6 lg:w-5/12">
-            <label for="nama_pertanyaan" class="block mb-2 text-sm font-medium text-gray-900">Pertanyaan</label>
-            <input type="text" autocomplete="off" id="nama_pertanyaan" name="pertanyaan"
-                placeholder="Input Pertanyaan .. "
+            <label for="nama_survey" class="block mb-2 text-sm font-medium text-gray-900">Survey</label>
+            <input type="text" id="nama_survey" name="nama_survey" placeholder="Survey"
+                value="{{ $survey->nama_survey }}"
                 class="bg-slate-50 border-2 border-blue-500 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
         </div>
         <div class="mb-6 lg:w-5/12">
-            <label for="status" class="block mb-2 text-sm font-medium text-gray-900 ">Tipe Pertanyaan</label>
-            <select id="status" name="tipe" required
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
-                <option value="korban">Korban Bullying</option>
-                <option value="pelaku">Pelaku Bullying</option>
-            </select>
+            <div class="">
+                <label for="deskripsi" class="block mb-2 text-sm font-medium text-gray-900">Deskripsi Survey</label>
+                <textarea id="deskripsi" rows="4" name="deskripsi" class=" block p-2.5 w-full text-sm text-gray-900 bg-slate-50 border-2 border-blue-500 rounded-lg
+                    focus:ring-blue-500 focus:border-blue-500"
+                    placeholder="Survey mengenai...">{{ $survey->deskripsi }}</textarea>
+            </div>
         </div>
     </div>
     <div class="md:flex md:justify-center md:items-center  md:flex-row md:gap-4 min-w-full md:w-1/2 ">

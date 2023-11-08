@@ -11,6 +11,7 @@ use App\Http\Controllers\MuridSurveyController;
 use App\Http\Controllers\PertanyaanController;
 use App\Http\Controllers\SekolahController;
 use App\Http\Controllers\SekolahLaporanController;
+use App\Http\Controllers\SurveyController;
 use App\Models\SurveyRespon;
 use Illuminate\Support\Facades\Route;
 
@@ -43,11 +44,13 @@ Route::middleware("admin")->prefix('admin')->group(function () {
     Route::resource("/sekolah", SekolahController::class)->name("index", "admin.sekolah")->name("create", "admin.tambahSekolah")->name("edit", "admin.editSekolah")->name('update', 'admin.updateSekolah')->name('destroy', 'admin.hapusSekolah');
     Route::post("/sekolah/import", [SekolahController::class, "import"])->name('admin.sekolahExel');
 
-    Route::get('/pertanyaan', [PertanyaanController::class, "index"])->name('admin.pertanyaan');
-    Route::get('/pertanyaan/create', [PertanyaanController::class, "create"])->name('admin.viewTambahPertanyaan');
-    Route::get("/pertanyaan/edit/{pertanyaan}", [PertanyaanController::class, "edit"])->name('admin.viewEditPertanyaan');
-    Route::put("/pertanyaan/edit/{pertanyaan}", [PertanyaanController::class, "update"])->name('admin.editPertanyaan');
+    Route::resource("/survey", SurveyController::class)->name("index", "admin.survey")->name("show", "admin.pertanyaan")->name("create", 'admin.tambahSurvey')->name('edit', 'admin.viewEditSurvey')->name('update', 'admin.editSurvey');
+
+    Route::get('/{survey}/pertanyaan', [PertanyaanController::class, "index"])->name('admin.pertanyaan');
+    Route::get('/{survey}/pertanyaan/create', [PertanyaanController::class, "create"])->name('admin.viewTambahPertanyaan');
     Route::post("/pertanyaan", [PertanyaanController::class, "store"])->name('admin.tambahPertanyaan');
+    Route::get("/{pertanyaan}/pertanyaan/edit", [PertanyaanController::class, "edit"])->name('admin.viewEditPertanyaan');
+    Route::put("/pertanyaan/update/{pertanyaan}", [PertanyaanController::class, "update"])->name('admin.editPertanyaan');
     Route::delete("/pertanyaan/{pertanyaan}", [PertanyaanController::class, "destroy"])->name('admin.hapusPertanyaan');
 
     Route::get("/{sekolah}/guru", [GuruController::class, "adminGuru"])->name('admin.viewGuru');
@@ -82,7 +85,7 @@ Route::middleware("guru")->prefix('guru')->group(function () {
 Route::middleware("murid")->prefix('murid')->group(function () {
     Route::get('/dashboard', [DashboardController::class, "indexMurid"])->name('murid.dashboard');
 
-    Route::get('/survey', [MuridSurveyController::class, "survey"])->name('murid.viewSurvey');
+    Route::get('/survey/{survey}', [MuridSurveyController::class, "survey"])->name('murid.viewSurvey');
     Route::post('/survey', [MuridSurveyController::class, "store"])->name('murid.tambahSurvey');
 
     Route::get("/laporan", [LaporanMuridController::class, "index"])->name('murid.laporan');

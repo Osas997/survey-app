@@ -17,6 +17,11 @@ class Pertanyaan extends Model
         return $this->hasMany(Jawaban::class, 'id_pertanyaan', 'id');
     }
 
+    public function survey()
+    {
+        return $this->belongsTo(Survey::class, 'id_survey', 'id');
+    }
+
     public function scopeSearch($query, $search)
     {
         if ($search) {
